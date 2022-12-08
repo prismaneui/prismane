@@ -54,7 +54,7 @@ const Button: FC<ButtonProps> = ({
                 : ``
             }`
           : ""
-      } ${
+      }${
         variant === "secondary"
           ? `border bg-transparent border-base-300 text-base-800 active:bg-base-100 shadow-base-300/50 ${
               shadow && "shadow-md"
@@ -72,7 +72,7 @@ const Button: FC<ButtonProps> = ({
                 : ``
             }`
           : ""
-      } ${
+      }${
         variant === "text"
           ? `text-primary-600 active:bg-primary-100 ${
               color === "error" ? `text-red-600 active:bg-red-100` : ``
@@ -83,9 +83,9 @@ const Button: FC<ButtonProps> = ({
       } ${
         loading && "pointer-events-none"
       } disabled:pointer-events-none disabled:opacity-80 px-6 py-2.5 rounded-md flex items-center justify-center transition-all ${
-        icon && children && "gap-2"
-      }  ${round && "rounded-full"} ${action && "!p-2"}
-      ${full && "!w-full"} ${className ? className : ""}`}
+        icon && children ? "gap-2" : ""
+      }  ${round ? "rounded-full" : ""} ${action ? "!p-2" : ""}
+      ${full ? "!w-full" : ""} ${className ? className : ""}`}
       style={style}
       onClick={onClick}
       type={submit ? "submit" : "button"}
