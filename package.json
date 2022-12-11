@@ -1,14 +1,16 @@
 {
   "name": "@prismane/core",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Martin Petrov",
   "license": "MIT",
   "description": "Prismane - Simple React UI library",
   "keywords": [
     "react",
     "ui",
-    "library"
+    "library",
+    "prismane",
+    "core"
   ],
   "scripts": {
     "dev": "vite",
