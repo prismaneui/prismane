@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 // Components
 import Card from "../Card/Card";
 import Separator from "../Separator/Separator";

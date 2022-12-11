@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Form from "../components/Form/Form";
 import TextField from "../components/TextField/TextField";
@@ -5,6 +6,7 @@ import Button from "../components/Button/Button";
 import Link from "../components/Link/Link";
 import Card from "../components/Card/Card";
 import Switch from "../components/Switch/Switch";
+import Checkbox from "../components/Checkbox/Checkbox";
 // Utils
 import {
   validateRequired,
@@ -65,9 +67,13 @@ export const Complex = () => (
           min: (v: string) => validateMin(v, 8, "Password"),
         }}
       />
+      <div className="flex justify-between items-center mb-4">
+        <span>Turn on notifications?</span>
+        <Checkbox name="notifications" />
+      </div>
       <div className="flex justify-between items-center mb-10">
         <span>Turn on notifications?</span>
-        <Switch name="dark-mode" />
+        <Switch name="dark_mode" />
       </div>
       <Button variant="primary" className="mb-5" submit full shadow>
         Login

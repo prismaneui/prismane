@@ -90,9 +90,36 @@ export const mapTheme = (config: PrismaneTheme): PrismaneMappedTheme | null => {
   };
 };
 
+const isObject = (item: any) => {
+  return item && typeof item === "object" && !Array.isArray(item);
+};
+
+const mergeDeep: any = (target: any, ...sources: any) => {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key])
+          Object.assign(target, {
+            [key]: {},
+          });
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, {
+          [key]: source[key],
+        });
+      }
+    }
+  }
+
+  return mergeDeep(target, ...sources);
+};
+
 export const extendTheme = (
   a: PrismaneTheme,
   b: PrismaneTheme
 ): PrismaneTheme => {
-  return { ...a, ...b };
+  return mergeDeep(a, b);
 };

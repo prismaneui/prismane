@@ -1,4 +1,4 @@
-import React, { useState, FC, ReactNode } from "react";
+import { useState, FC, ReactNode } from "react";
 // Components
 import ScopeHandler from "../ScopeHandler/ScopeHandler";
 import Paper from "../Paper/Paper";

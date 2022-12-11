@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { WarningCircle } from "phosphor-react";
 // Components
 import Loader from "../Loader/Loader";

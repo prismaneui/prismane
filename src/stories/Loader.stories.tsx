@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Loader from "../components/Loader/Loader";
 

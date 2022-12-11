@@ -23,5 +23,5 @@
     }
   },
   "include": ["src", "custom.d.ts"],
-  "exclude": ["src/stories/**"]
+  "exclude": ["src/stories/**", "node_modules"]
 }

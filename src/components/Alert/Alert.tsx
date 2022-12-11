@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { Warning, WarningOctagon, CheckCircle } from "phosphor-react";
 // Types
 import { PrismaneComponent } from "../../types";

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 // Components
 import Loader from "../Loader/Loader";
 // Types
@@ -33,6 +33,8 @@ const Button: FC<ButtonProps> = ({
   className,
   style,
 }) => {
+  const [state, setState] = useState(false);
+
   return (
     <button
       className={`

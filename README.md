@@ -1,7 +1,5 @@
 # Prismane
 
-## What is Prismane?
-
 **Prismane** is **_simply_** a React UI library designed with simplicity in mind.
 
 ## Features
@@ -11,7 +9,7 @@
 - Custom **field validators**
 - **Theming** with provided colors and base themes
 
-## To run the project
+## To install the library
 
 `npm install --save-dev @prismane/core`
 

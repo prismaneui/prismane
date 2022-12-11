@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 // Types
 import { Positions } from "../../types";
 import { PrismaneComponent } from "../../types";

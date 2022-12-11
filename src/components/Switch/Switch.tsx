@@ -1,4 +1,5 @@
-import React, { useState, FC, useContext } from "react";
+import { FC, useContext } from "react";
+import { Controller } from "react-hook-form";
 // Context
 import { FormContext } from "../../context";
 // Types
@@ -18,33 +19,35 @@ export interface SwitchProps extends PrismaneComponent {
  */
 
 const Switch: FC<SwitchProps> = ({ name, className, style }) => {
-  const { register, getValues } = useContext(FormContext);
-
-  /**
-   * Toggled State
-   * @description Creating a useState variable, so we can toggle the "toggled" style of the component.
-   */
-
-  const [toggled, setToggled] = useState(getValues(name));
+  const { control } = useContext(FormContext);
 
   return (
-    <label
-      className={`${toggled ? "bg-primary-500" : "bg-base-400"} ${
-        toggled ? "hover:bg-primary-600" : "hover:bg-base-500"
-      } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${className}`}
-      style={style}
-      htmlFor={name}
-      onClick={() => {
-        setToggled(!getValues(name));
-      }}
-    >
-      <input {...register(name)} id={name} type="checkbox" className="hidden" />
-      <span
-        className={`absolute h-[0.875rem] aspect-square rounded-full bg-white transition-all left-[0.1875rem] ${
-          toggled ? "!left-[1.4375rem]" : ""
-        }`}
-      ></span>
-    </label>
+    <Controller
+      control={control}
+      name={name}
+      render={({ field: { onChange, onBlur, value, name: fieldName } }) => (
+        <label
+          className={`${value ? "bg-primary-500" : "bg-base-400"} ${
+            value ? "hover:bg-primary-600" : "hover:bg-base-500"
+          } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${className}`}
+          style={style}
+          htmlFor={fieldName}
+        >
+          <input
+            id={fieldName}
+            type="checkbox"
+            className="hidden"
+            onChange={onChange}
+            onBlur={onBlur}
+          />
+          <span
+            className={`absolute h-[0.875rem] aspect-square rounded-full bg-white transition-all left-[0.1875rem] ${
+              value ? "!left-[1.4375rem]" : ""
+            }`}
+          ></span>
+        </label>
+      )}
+    />
   );
 };
 

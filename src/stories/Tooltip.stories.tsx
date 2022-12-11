@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Tooltip from "../components/Tooltip/Tooltip";
 import Button from "../components/Button/Button";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 // Components
 import ScopeHandler from "../components/ScopeHandler/ScopeHandler";
 

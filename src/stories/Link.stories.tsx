@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Link from "../components/Link/Link";
 

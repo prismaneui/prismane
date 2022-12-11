@@ -1,5 +1,5 @@
 import "../../index.css";
-import React, { FC, Dispatch, ReactNode } from "react";
+import { FC, Dispatch, ReactNode } from "react";
 // Components
 import Card from "../Card/Card";
 import Button from "../Button/Button";

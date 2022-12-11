@@ -10,7 +10,7 @@ export interface PrismaneComponent {
   onBlur?: any;
   className?: string;
   style?: StyleHTMLAttributes<HTMLElement>;
-  children?: ReactNode;
+  children?: ReactNode | any;
 }
 
 export type Animations =

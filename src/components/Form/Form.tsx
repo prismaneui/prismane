@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 // Context
 import { FormContext } from "../../context";
@@ -18,13 +18,7 @@ export interface FormProps extends PrismaneComponent {
  */
 
 const Form: FC<FormProps> = ({ children, submit, className, style }) => {
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    formState: { errors },
-    ...options
-  } = useForm({
+  const options = useForm({
     mode: "all",
   });
 
@@ -32,11 +26,15 @@ const Form: FC<FormProps> = ({ children, submit, className, style }) => {
     <form
       className={`select-none ${className ? className : ""}`}
       style={style}
-      onSubmit={handleSubmit((values) => submit(values, { ...options }))}
-      data-testid="form"
+      onSubmit={options.handleSubmit((values) => submit(values, options))}
     >
-      <FormContext.Provider value={{ register, errors, getValues }}>
-        {children}
+      <FormContext.Provider
+        value={{
+          errors: options.formState.errors,
+          ...options,
+        }}
+      >
+        {typeof children === "function" ? children(options) : children}
       </FormContext.Provider>
     </form>
   );

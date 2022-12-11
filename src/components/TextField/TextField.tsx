@@ -1,4 +1,4 @@
-import React, { useState, useContext, FC, ReactNode } from "react";
+import { useState, useContext, FC, ReactNode } from "react";
 import { Eye, EyeClosed } from "phosphor-react";
 // Components
 import FieldWrapper from "../FieldWrapper/FieldWrapper";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import defaultAvatar from "../../assets/default.svg";
 // Types
 import { PrismaneComponent } from "../../types";

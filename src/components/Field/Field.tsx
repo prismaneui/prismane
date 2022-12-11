@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { FieldValues, UseFormRegister, Validate } from "react-hook-form";
 // Types
 import { PrismaneComponent } from "../../types";
