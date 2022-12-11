@@ -51,7 +51,9 @@ const Field: FC<FieldProps> = ({
       id={name}
       placeholder={placeholder}
       type={type}
-      className={`text-sm w-full py-2 text-base-800 placeholder:text-slate-400 ${className}`}
+      className={`text-sm w-full py-2 text-base-800 placeholder:text-slate-400 ${
+        className ? className : ""
+      }`}
       style={style}
       {...register(name, {
         validate: validators,

@@ -34,7 +34,9 @@ const PopUp: FC<PopUpProps> = ({
       height={height}
       style={style}
       shadow={shadow}
-      className={`drop-shadow-lg px-5 py-5 animate-scale-in relative !overflow-y-auto ${className}`}
+      className={`drop-shadow-lg px-5 py-5 animate-scale-in relative !overflow-y-auto ${
+        className ? className : ""
+      }`}
       header={
         header && (
           <div className="flex w-full justify-between items-center h-fit max-h-[4rem] gap-2">

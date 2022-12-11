@@ -29,7 +29,9 @@ const Switch: FC<SwitchProps> = ({ name, className, style }) => {
         <label
           className={`${value ? "bg-primary-500" : "bg-base-400"} ${
             value ? "hover:bg-primary-600" : "hover:bg-base-500"
-          } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${className}`}
+          } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${
+            className ? className : ""
+          }`}
           style={style}
           htmlFor={fieldName}
         >

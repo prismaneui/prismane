@@ -27,7 +27,9 @@ const Checkbox: FC<CheckboxProps> = ({ name, className, style }) => {
         <label
           className={`${value ? "border-primary-500" : "border-base-400"} ${
             value ? "hover:border-primary-600" : "hover:border-base-500"
-          } border flex justify-center items-center aspect-square transition-colors rounded-sm h-5 w-5 cursor-pointer ${className}`}
+          } border flex justify-center items-center aspect-square transition-colors rounded-sm h-5 w-5 cursor-pointer ${
+            className ? className : ""
+          }`}
           style={style}
           htmlFor={fieldName}
         >

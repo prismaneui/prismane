@@ -58,7 +58,7 @@ const Popover: FC<PopoverProps> = ({
         <Paper
           className={`absolute px-5 py-3 !w-[400px] !h-[unset] ${
             shown ? "flex !animate-scale-in" : "hidden"
-          } ${definePosition(position)} ${className}`}
+          } ${definePosition(position)} ${className ? className : ""}`}
           style={style}
           shadow
         >

@@ -1,4 +1,5 @@
 import "./index.css";
+export { type Positions, type Animations } from "./types";
 
 export * from "./components";
 export { default as hooks } from "./hooks";

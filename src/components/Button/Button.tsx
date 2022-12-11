@@ -83,10 +83,10 @@ const Button: FC<ButtonProps> = ({
             } ${color === "base" ? `text-base-600 active:bg-base-500/10` : ``}`
           : ""
       } ${
-        loading && "pointer-events-none"
+        loading ? "pointer-events-none" : ""
       } disabled:pointer-events-none disabled:opacity-80 px-6 py-2.5 rounded-md flex items-center justify-center transition-all ${
         icon && children ? "gap-2" : ""
-      }  ${round ? "rounded-full" : ""} ${action ? "!p-2" : ""}
+      } ${round ? "rounded-full" : ""} ${action ? "!p-2" : ""}
       ${full ? "!w-full" : ""} ${className ? className : ""}`}
       style={style}
       onClick={onClick}

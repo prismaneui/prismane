@@ -36,7 +36,10 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
   style,
 }) => {
   return (
-    <div className={`flex flex-col mb-5 ${className}`} style={style}>
+    <div
+      className={`flex flex-col mb-5 ${className ? className : ""}`}
+      style={style}
+    >
       <label
         htmlFor={name}
         className="mb-2 text-base-600 text-sm flex items-center justify-between"

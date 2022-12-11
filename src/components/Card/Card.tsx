@@ -36,7 +36,9 @@ const Card: FC<CardProps> = ({
 }) => {
   return (
     <Paper
-      className={`p-2 min-w-[300px] flex flex-col gap-5 ${className}`}
+      className={`p-2 min-w-[300px] flex flex-col gap-5 ${
+        className ? className : ""
+      }`}
       style={style}
       width={width}
       height={height}

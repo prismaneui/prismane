@@ -7,6 +7,7 @@ import { PrismaneComponent } from "../../types";
 
 export interface FormProps extends PrismaneComponent {
   submit: any;
+  initial?: any;
 }
 
 /**
@@ -17,9 +18,16 @@ export interface FormProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Form: FC<FormProps> = ({ children, submit, className, style }) => {
+const Form: FC<FormProps> = ({
+  children,
+  submit,
+  initial,
+  className,
+  style,
+}) => {
   const options = useForm({
     mode: "all",
+    defaultValues: initial ? initial : {},
   });
 
   return (

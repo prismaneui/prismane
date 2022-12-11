@@ -20,7 +20,7 @@ const Paper: FC<PaperProps> = ({
     <div
       className={`bg-white flex flex-col rounded-md overflow-hidden ${
         shadow ? "shadow-md" : ""
-      } ${className}`}
+      } ${className ? className : ""}`}
       style={{
         width: width ? width : "fit-content",
         height: height ? height : "fit-content",
