@@ -1,15 +1,15 @@
 {
   "name": "@prismane/core",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "author": "Martin Petrov",
+  "license": "MIT",
+  "description": "Prismane - Simple React UI library",
   "keywords": [
     "react",
     "ui",
     "library"
   ],
-  "author": "Martin Petrov",
-  "license": "MIT",
-  "description": "A React UI Library",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -42,7 +42,6 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
-    "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "phosphor-react": "^1.4.1",
