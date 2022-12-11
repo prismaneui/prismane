@@ -1,7 +1,7 @@
 {
   "name": "@prismane/core",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Martin Petrov",
   "license": "MIT",
   "description": "Prismane - Simple React UI library",
@@ -31,7 +31,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs"
     },
-    "./style": "./dist/style.css"
+    "./style": "./dist/style.css",
+    "./types": "./dist/src/types.d.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
