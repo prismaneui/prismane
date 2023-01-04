@@ -10,7 +10,7 @@ const ScopeHandler: FC<ScopeHandlerProps> = ({
   children,
   onEvent,
   className,
-  style,
+  ...props
 }) => {
   const ref: RefObject<HTMLDivElement> = useRef(null);
 
@@ -35,7 +35,7 @@ const ScopeHandler: FC<ScopeHandlerProps> = ({
     <div
       ref={ref}
       className={`z-10 w-fit h-fit ${className ? className : ""}`}
-      style={style}
+      {...props}
     >
       {children}
     </div>

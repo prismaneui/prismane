@@ -23,7 +23,7 @@ const Form: FC<FormProps> = ({
   submit,
   initial,
   className,
-  style,
+  ...props
 }) => {
   const options = useForm({
     mode: "all",
@@ -33,8 +33,8 @@ const Form: FC<FormProps> = ({
   return (
     <form
       className={`select-none ${className ? className : ""}`}
-      style={style}
       onSubmit={options.handleSubmit((values) => submit(values, options))}
+      {...props}
     >
       <FormContext.Provider
         value={{

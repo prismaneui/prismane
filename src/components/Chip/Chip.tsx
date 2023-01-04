@@ -8,7 +8,7 @@ export interface ChipProps extends PrismaneComponent {
   label: string;
 }
 
-const Chip: FC<ChipProps> = ({ label, onClick, variant, style }) => {
+const Chip: FC<ChipProps> = ({ label, variant, ...props }) => {
   return (
     <div
       className={`flex gap-2 px-4 py-1.5 rounded-full text-sm cursor-pointer transition-all w-fit ${
@@ -24,8 +24,7 @@ const Chip: FC<ChipProps> = ({ label, onClick, variant, style }) => {
           ? "bg-transparent active:bg-primary-100/50 text-primary-500"
           : ""
       }`}
-      style={style}
-      onClick={onClick}
+      {...props}
     >
       {label}
     </div>

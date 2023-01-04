@@ -7,13 +7,12 @@ export interface LinkProps extends PrismaneComponent {
   before?: Function;
 }
 
-const Link: FC<LinkProps> = ({ to, children, className, before, style }) => {
+const Link: FC<LinkProps> = ({ to, children, className, before, ...props }) => {
   return (
     <span
       className={`border-b border-primary-500 text-primary-500 cursor-pointer ${
         className ? className : ""
       }`}
-      style={style}
       onClick={async () => {
         if (before) {
           await before();
@@ -21,6 +20,7 @@ const Link: FC<LinkProps> = ({ to, children, className, before, style }) => {
 
         window.open(to);
       }}
+      {...props}
     >
       {children}
     </span>

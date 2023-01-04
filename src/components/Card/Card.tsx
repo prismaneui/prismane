@@ -29,20 +29,20 @@ const Card: FC<CardProps> = ({
   width,
   height,
   className,
-  style,
   shadow,
   header,
   actions,
+  ...props
 }) => {
   return (
     <Paper
       className={`p-2 min-w-[300px] flex flex-col gap-5 ${
         className ? className : ""
       }`}
-      style={style}
       width={width}
       height={height}
       shadow={shadow}
+      {...props}
     >
       {header && (
         <div className="flex overflow-hidden rounded-md max-h-[200px]">

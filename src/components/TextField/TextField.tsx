@@ -49,7 +49,7 @@ const TextField: FC<TextFieldProps> = ({
   onFocus,
   min,
   max,
-  style,
+  ...props
 }) => {
   /**
    * Mutable Type
@@ -68,7 +68,7 @@ const TextField: FC<TextFieldProps> = ({
       validating={validating}
       action={action}
       className={className}
-      style={style}
+      {...props}
     >
       <Field
         name={name}

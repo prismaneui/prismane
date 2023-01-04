@@ -7,7 +7,7 @@ export interface AvatarProps extends PrismaneComponent {
   src: string;
 }
 
-const Avatar: FC<AvatarProps> = ({ src, className, style }) => {
+const Avatar: FC<AvatarProps> = ({ src, className, style, ...props }) => {
   const isImage = /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(src);
 
   return (
@@ -19,6 +19,7 @@ const Avatar: FC<AvatarProps> = ({ src, className, style }) => {
         backgroundImage: `${isImage ? `url(${src})` : `url(${defaultAvatar})`}`,
         ...style,
       }}
+      {...props}
     ></div>
   );
 };

@@ -15,14 +15,14 @@ const Animated: FC<AnimatedProps> = ({
   animationOut,
   alternate,
   className,
-  style,
+  ...props
 }) => {
   return (
     <div
       className={`${!alternate ? animationIn : animationOut} ${
         className ? className : ""
       }`}
-      style={style}
+      {...props}
     >
       {children}
     </div>

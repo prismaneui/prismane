@@ -1,3 +1,4 @@
+import "@fontsource/poppins";
 import "../src/index.css";
 
 export const parameters = {

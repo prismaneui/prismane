@@ -17,7 +17,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "setup-storybook": "$env:NODE_OPTIONS='--openssl-legacy-provider'",
+    "build-storybook": "build-storybook",
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css",
+    "watch:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css --watch"
   },
   "type": "module",
   "files": [
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
+    "@fontsource/poppins": "^4.5.10",
     "@storybook/addon-actions": "^6.5.14",
     "@storybook/addon-essentials": "^6.5.14",
     "@storybook/addon-interactions": "^6.5.14",

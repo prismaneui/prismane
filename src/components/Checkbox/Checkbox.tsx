@@ -16,7 +16,7 @@ export interface CheckboxProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Checkbox: FC<CheckboxProps> = ({ name, className, style }) => {
+const Checkbox: FC<CheckboxProps> = ({ name, className, ...props }) => {
   const { control } = useContext(FormContext);
 
   return (
@@ -30,8 +30,8 @@ const Checkbox: FC<CheckboxProps> = ({ name, className, style }) => {
           } border flex justify-center items-center aspect-square transition-colors rounded-sm h-5 w-5 cursor-pointer ${
             className ? className : ""
           }`}
-          style={style}
           htmlFor={fieldName}
+          {...props}
         >
           <input
             id={fieldName}

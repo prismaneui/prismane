@@ -17,7 +17,7 @@ const Popover: FC<PopoverProps> = ({
   handler,
   position,
   className,
-  style,
+  ...props
 }) => {
   const [shown, setShown] = useState(false);
 
@@ -59,7 +59,7 @@ const Popover: FC<PopoverProps> = ({
           className={`absolute px-5 py-3 !w-[400px] !h-[unset] ${
             shown ? "flex !animate-scale-in" : "hidden"
           } ${definePosition(position)} ${className ? className : ""}`}
-          style={style}
+          {...props}
           shadow
         >
           {children}

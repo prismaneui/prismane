@@ -9,7 +9,7 @@ import { PrismaneComponent } from "../../types";
  * @returns Element
  */
 
-const Loader: FC<PrismaneComponent> = ({ className, style }) => {
+const Loader: FC<PrismaneComponent> = ({ className, ...props }) => {
   return (
     <svg
       width="100%"
@@ -17,7 +17,7 @@ const Loader: FC<PrismaneComponent> = ({ className, style }) => {
       viewBox="0 0 45 45"
       xmlns="http://www.w3.org/2000/svg"
       className={className ? className : "stroke-white"}
-      style={style}
+      {...props}
     >
       <g
         fill="none"

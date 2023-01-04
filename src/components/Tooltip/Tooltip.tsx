@@ -14,7 +14,7 @@ const Tooltip: FC<TooltipProps> = ({
   title,
   position,
   className,
-  style,
+  ...props
 }) => {
   const definePosition = (position: string | undefined) => {
     if (position === "top-start") {
@@ -49,10 +49,10 @@ const Tooltip: FC<TooltipProps> = ({
   return (
     <div className="w-fit h-fit relative group">
       <span
-        className={`hidden group-hover:flex group-hover:animate-fade-in px-3 py-1 text-white bg-base-800 text-sm rounded-xl transition-all whitespace-nowrap absolute ${definePosition(
+        className={`hidden group-hover:flex group-hover:animate-fade-in px-3 py-1 text-white bg-base-800 text-sm rounded-xl transition-all whitespace-nowrap absolute z-50 ${definePosition(
           position
         )} ${className ? className : ""}`}
-        style={style}
+        {...props}
       >
         {title}
       </span>

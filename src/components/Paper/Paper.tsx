@@ -15,6 +15,7 @@ const Paper: FC<PaperProps> = ({
   className,
   style,
   shadow,
+  ...props
 }) => {
   return (
     <div
@@ -26,6 +27,7 @@ const Paper: FC<PaperProps> = ({
         height: height ? height : "fit-content",
         ...style,
       }}
+      {...props}
     >
       {children}
     </div>

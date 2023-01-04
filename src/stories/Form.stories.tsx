@@ -8,11 +8,7 @@ import Card from "../components/Card/Card";
 import Switch from "../components/Switch/Switch";
 import Checkbox from "../components/Checkbox/Checkbox";
 // Utils
-import {
-  validateRequired,
-  validateUsernameRegex,
-  validateMin,
-} from "../utils/validators";
+import { required, username, min } from "../utils/validators";
 
 export default {
   title: "Form",
@@ -52,9 +48,9 @@ export const Complex = () => (
         placeholder="johnny"
         label="Enter username:"
         validators={{
-          required: (v: string) => validateRequired(v),
-          min: (v: string) => validateMin(v, 4, "Username"),
-          regex: (v: string) => validateUsernameRegex(v),
+          required: (v: string) => required(v),
+          min: (v: string) => min(v, 4, "Username"),
+          regex: (v: string) => username(v),
         }}
       />
       <TextField
@@ -63,8 +59,8 @@ export const Complex = () => (
         label="Enter password:"
         type="password"
         validators={{
-          required: (v: string) => validateRequired(v),
-          min: (v: string) => validateMin(v, 8, "Password"),
+          required: (v: string) => required(v),
+          min: (v: string) => min(v, 8, "Password"),
         }}
       />
       <div className="flex justify-between items-center mb-4">

@@ -25,14 +25,13 @@ const PopUp: FC<PopUpProps> = ({
   height,
   className,
   children,
-  style,
   shadow,
+  ...props
 }) => {
   return (
     <Card
       width={width}
       height={height}
-      style={style}
       shadow={shadow}
       className={`drop-shadow-lg px-5 py-5 animate-scale-in relative !overflow-y-auto ${
         className ? className : ""
@@ -56,6 +55,7 @@ const PopUp: FC<PopUpProps> = ({
         )
       }
       actions={actions}
+      {...props}
     >
       {children}
     </Card>

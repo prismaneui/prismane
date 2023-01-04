@@ -12,8 +12,6 @@ export default {
 } as Meta;
 
 const Template = (args) => {
-  T.applyTheme(T.createTheme(T.base));
-
   return <Button {...args}></Button>;
 };
 

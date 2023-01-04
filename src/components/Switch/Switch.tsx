@@ -18,7 +18,7 @@ export interface SwitchProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Switch: FC<SwitchProps> = ({ name, className, style }) => {
+const Switch: FC<SwitchProps> = ({ name, className, ...props }) => {
   const { control } = useContext(FormContext);
 
   return (
@@ -32,8 +32,8 @@ const Switch: FC<SwitchProps> = ({ name, className, style }) => {
           } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${
             className ? className : ""
           }`}
-          style={style}
           htmlFor={fieldName}
+          {...props}
         >
           <input
             id={fieldName}

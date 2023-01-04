@@ -8,7 +8,7 @@ export interface AlertProps extends PrismaneComponent {
   type: "warning" | "error" | "success";
 }
 
-const Alert: FC<AlertProps> = ({ children, type, className, style }) => {
+const Alert: FC<AlertProps> = ({ children, type, className, ...props }) => {
   return (
     <div
       className={`py-3 px-5 text-white text-sm rounded-full animate-slideInOut flex items-center gap-2 ${
@@ -16,7 +16,7 @@ const Alert: FC<AlertProps> = ({ children, type, className, style }) => {
       } ${type === "error" ? "bg-red-400" : ""} ${
         type === "success" ? "bg-green-400" : ""
       } ${className ? className : ""}`}
-      style={style}
+      {...props}
     >
       {type === "warning" ? <Warning size={24} /> : <></>}
       {type === "error" ? <WarningOctagon size={24} /> : <></>}

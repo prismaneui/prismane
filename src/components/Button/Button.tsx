@@ -21,7 +21,6 @@ const Button: FC<ButtonProps> = ({
   children,
   icon,
   submit,
-  onClick,
   loading,
   disabled,
   variant,
@@ -31,7 +30,7 @@ const Button: FC<ButtonProps> = ({
   action,
   round,
   className,
-  style,
+  ...props
 }) => {
   const [state, setState] = useState(false);
 
@@ -58,7 +57,7 @@ const Button: FC<ButtonProps> = ({
           : ""
       }${
         variant === "secondary"
-          ? `border bg-transparent border-base-300 text-base-800 active:bg-base-100 shadow-base-300/50 ${
+          ? `!border bg-transparent border-base-300 text-base-800 active:bg-base-100 shadow-base-300/50 ${
               shadow && "shadow-md"
             } ${
               color === "error"
@@ -88,10 +87,9 @@ const Button: FC<ButtonProps> = ({
         icon && children ? "gap-2" : ""
       } ${round ? "rounded-full" : ""} ${action ? "!p-2" : ""}
       ${full ? "!w-full" : ""} ${className ? className : ""}`}
-      style={style}
-      onClick={onClick}
       type={submit ? "submit" : "button"}
       disabled={disabled}
+      {...props}
     >
       {loading ? (
         <div className="flex justify-center h-10">

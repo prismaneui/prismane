@@ -3,7 +3,7 @@ import { useState } from "react";
 const useAnimation = (length: string) => {
   const duration = Number(
     getComputedStyle(document.documentElement)
-      .getPropertyValue(`--animation-duration-${length}`)
+      .getPropertyValue(`--prismane-animation-duration-${length}`)
       .split("ms")[0]
   );
 
