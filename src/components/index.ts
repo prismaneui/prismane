@@ -15,6 +15,7 @@ export { default as Paper } from "./Paper";
 export { default as Popover } from "./Popover";
 export { default as PopUp } from "./PopUp";
 export { default as ScopeHandler } from "./ScopeHandler";
+export { default as Select } from "./Select";
 export { default as Separator } from "./Separator";
 export { default as Switch } from "./Switch";
 export { default as TextField } from "./TextField";
