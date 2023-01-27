@@ -1,7 +1,7 @@
 {
   "name": "@prismane/core",
   "private": false,
-  "version": "0.0.17",
+  "version": "0.0.16",
   "author": "Martin Petrov",
   "license": "MIT",
   "description": "Prismane - Simple React UI library",
@@ -207,5 +207,13 @@
     "yallist": "^4.0.0",
     "yaml": "^1.10.2",
     "z-schema": "^5.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spleafy/prismane.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spleafy/prismane/issues"
+  },
+  "homepage": "https://github.com/spleafy/prismane#readme"
 }
