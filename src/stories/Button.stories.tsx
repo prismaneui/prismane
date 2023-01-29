@@ -1,10 +1,8 @@
 import React from "react";
 import { Meta } from "@storybook/react";
-import { Pause } from "phosphor-react";
+import { Pause, ArchiveBox } from "phosphor-react";
 // Components
 import Button from "../components/Button/Button";
-// Theme
-import T from "../themes";
 
 export default {
   title: "Button",
@@ -12,7 +10,66 @@ export default {
 } as Meta;
 
 const Template = (args) => {
-  return <Button {...args}></Button>;
+  return (
+    <div className="flex gap-5">
+      <div className="flex flex-col gap-5 w-fit">
+        <div className="flex flex-col gap-2">
+          <h4>Primary Color</h4>
+          <Button {...args}></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Error Color</h4>
+          <Button {...args} color="error"></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Warning Color</h4>
+          <Button {...args} color="warning"></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Base Color</h4>
+          <Button {...args} color="base"></Button>
+        </div>
+      </div>
+      {args.action !== true && (
+        <div className="flex flex-col gap-5 w-fit">
+          <div className="flex flex-col gap-2">
+            <h4>Primary With Icon</h4>
+            <Button {...args} icon={<ArchiveBox />}></Button>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h4>Error With Icon</h4>
+            <Button {...args} color="error" icon={<ArchiveBox />}></Button>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h4>Warning With Icon</h4>
+            <Button {...args} color="warning" icon={<ArchiveBox />}></Button>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h4>Base With Icon</h4>
+            <Button {...args} color="base" icon={<ArchiveBox />}></Button>
+          </div>
+        </div>
+      )}
+      <div className="flex flex-col gap-5 w-fit">
+        <div className="flex flex-col gap-2">
+          <h4>Primary Disabled</h4>
+          <Button {...args} disabled></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Error Disabled</h4>
+          <Button {...args} color="error" disabled></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Warning Disabled</h4>
+          <Button {...args} color="warning" disabled></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Base Disabled</h4>
+          <Button {...args} color="base" disabled></Button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export const Primary = Template.bind({});
@@ -29,46 +86,84 @@ Secondary.args = {
   children: "Secondary",
 };
 
-export const Text = () => <Button variant="text">Text</Button>;
+export const Text = Template.bind({});
 
-export const PrimaryRound = () => (
-  <Button variant="primary" round>
-    Primary
-  </Button>
-);
+Text.args = {
+  variant: "text",
+  children: "Text",
+};
 
-export const SecondaryRound = () => (
-  <Button variant="secondary" round>
-    Secondary
-  </Button>
-);
+export const PrimaryRound = Template.bind({});
 
-export const TextRound = () => (
-  <Button variant="text" round>
-    Text
-  </Button>
-);
+PrimaryRound.args = {
+  variant: "primary",
+  children: "Primary Round",
+  round: true,
+};
 
-export const ActionPrimary = () => (
-  <Button variant="primary" icon={<Pause />} action />
-);
+export const SecondaryRound = Template.bind({});
 
-export const ActionSecondary = () => (
-  <Button variant="secondary" icon={<Pause />} action />
-);
+SecondaryRound.args = {
+  variant: "secondary",
+  children: "Secondary Round",
+  round: true,
+};
 
-export const ActionText = () => (
-  <Button variant="text" icon={<Pause />} action />
-);
+export const TextRound = Template.bind({});
 
-export const ActionPrimaryRound = () => (
-  <Button variant="primary" icon={<Pause />} action round />
-);
+TextRound.args = {
+  variant: "text",
+  children: "Text Round",
+  round: true,
+};
 
-export const ActionSecondaryRound = () => (
-  <Button variant="secondary" icon={<Pause />} action round />
-);
+export const ActionPrimary = Template.bind({});
 
-export const ActionTextRound = () => (
-  <Button variant="text" icon={<Pause />} action round />
-);
+ActionPrimary.args = {
+  variant: "primary",
+  icon: <Pause />,
+  action: true,
+};
+
+export const ActionSecondary = Template.bind({});
+
+ActionSecondary.args = {
+  variant: "secondary",
+  icon: <Pause />,
+  action: true,
+};
+
+export const ActionText = Template.bind({});
+
+ActionText.args = {
+  variant: "text",
+  icon: <Pause />,
+  action: true,
+};
+
+export const ActionPrimaryRound = Template.bind({});
+
+ActionPrimaryRound.args = {
+  variant: "primary",
+  icon: <Pause />,
+  action: true,
+  round: true,
+};
+
+export const ActionSecondaryRound = Template.bind({});
+
+ActionSecondaryRound.args = {
+  variant: "secondary",
+  icon: <Pause />,
+  action: true,
+  round: true,
+};
+
+export const ActionTextRound = Template.bind({});
+
+ActionTextRound.args = {
+  variant: "text",
+  icon: <Pause />,
+  action: true,
+  round: true,
+};

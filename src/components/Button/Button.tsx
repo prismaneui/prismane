@@ -32,8 +32,6 @@ const Button: FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const [state, setState] = useState(false);
-
   return (
     <button
       className={`
@@ -43,15 +41,15 @@ const Button: FC<ButtonProps> = ({
               shadow && "shadow-md"
             } ${
               color === "error"
-                ? `bg-red-600 active:bg-red-500 shadow-red-500/50`
+                ? `!bg-red-500 active:!bg-red-400 !shadow-red-500/50`
                 : ``
             } ${
               color === "warning"
-                ? `bg-yellow-600 active:bg-yellow-500 shadow-yellow-500/50`
+                ? `!bg-yellow-500 active:!bg-yellow-400 !shadow-yellow-500/50`
                 : ``
             } ${
               color === "base"
-                ? `bg-base-600 active:bg-base-500 shadow-base-500/50`
+                ? `!bg-base-600 active:!bg-base-500 !shadow-base-500/50`
                 : ``
             }`
           : ""
@@ -61,31 +59,37 @@ const Button: FC<ButtonProps> = ({
               shadow && "shadow-md"
             } ${
               color === "error"
-                ? `border-red-300 text-red-900 active:bg-red-100 shadow-red-300/50`
+                ? `!border-red-300 !text-red-900 active:!bg-red-100 !shadow-red-300/50`
                 : ``
             } ${
               color === "warning"
-                ? `border-yellow-300 text-yellow-900 active:bg-yellow-100 shadow-yellow-300/50`
+                ? `!border-yellow-300 !text-yellow-900 active:!bg-yellow-100 !shadow-yellow-300/50`
                 : ``
             } ${
               color === "base"
-                ? `border-base-300 text-base-900 active:bg-base-100 shadow-base-300/50`
+                ? `!border-base-300 !text-base-900 active:!bg-base-100 !shadow-base-300/50`
                 : ``
             }`
           : ""
       }${
         variant === "text"
           ? `text-primary-600 active:bg-primary-100 ${
-              color === "error" ? `text-red-600 active:bg-red-100` : ``
+              color === "error" ? `!text-red-600 active:!bg-red-100` : ``
             } ${
-              color === "warning" ? `text-yellow-600 active:bg-yellow-100` : ``
-            } ${color === "base" ? `text-base-600 active:bg-base-500/10` : ``}`
+              color === "warning"
+                ? `!text-yellow-600 active:!bg-yellow-100`
+                : ``
+            } ${
+              color === "base" ? `!text-base-600 active:!bg-base-500/10` : ``
+            }`
           : ""
       } ${
         loading ? "pointer-events-none" : ""
-      } disabled:pointer-events-none disabled:opacity-80 px-6 py-2.5 rounded-md flex items-center justify-center transition-all ${
-        icon && children ? "gap-2" : ""
-      } ${round ? "rounded-full" : ""} ${action ? "!p-2" : ""}
+      } flex items-center justify-center disabled:pointer-events-none disabled:opacity-60 px-6 py-2.5 rounded-md transition-all cursor-pointer ${
+        icon && children ? "gap-3 pl-4" : ""
+      } ${round ? "rounded-full" : ""} ${
+        action ? "!p-2 aspect-square w-fit" : ""
+      }
       ${full ? "!w-full" : ""} ${className ? className : ""}`}
       type={submit ? "submit" : "button"}
       disabled={disabled}
@@ -101,7 +105,11 @@ const Button: FC<ButtonProps> = ({
         </div>
       ) : (
         <>
-          {icon && <div className="text-xl">{icon}</div>}
+          {icon && (
+            <div className="text-xl flex items-center justify-center">
+              {icon}
+            </div>
+          )}
           <span className="text-sm text-inherit">{children}</span>
         </>
       )}

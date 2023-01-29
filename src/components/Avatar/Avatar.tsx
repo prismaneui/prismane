@@ -1,5 +1,4 @@
 import { FC } from "react";
-import defaultAvatar from "../../assets/default.svg";
 // Types
 import { PrismaneComponent } from "../../types";
 
@@ -16,7 +15,7 @@ const Avatar: FC<AvatarProps> = ({ src, className, style, ...props }) => {
         className ? className : ""
       }`}
       style={{
-        backgroundImage: `${isImage ? `url(${src})` : `url(${defaultAvatar})`}`,
+        backgroundImage: `${isImage ? `url(${src})` : `url()`}`,
         ...style,
       }}
       {...props}
