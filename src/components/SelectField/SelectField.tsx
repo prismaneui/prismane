@@ -10,7 +10,7 @@ import { FormContext } from "../../context";
 // Types
 import { PrismaneComponent } from "@/types";
 
-interface SelectProps extends PrismaneComponent {
+interface SelectFieldProps extends PrismaneComponent {
   name: string;
   options: OptionsProps[];
   placeholder: string;
@@ -25,7 +25,7 @@ interface OptionsProps {
   value: string;
 }
 
-const Select: FC<SelectProps> = ({
+const SelectField: FC<SelectFieldProps> = ({
   name,
   placeholder,
   label,
@@ -110,4 +110,4 @@ const Select: FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default SelectField;
