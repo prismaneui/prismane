@@ -70,6 +70,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
 
             setCurrentValue(option.value);
           }}
+          key={index}
         >
           {option.element}
         </div>
