@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default = () => (
-  <div className="w-16 aspect-square bg-slate-700">
+  <div className="w-16 aspect-square bg-base-700">
     <Loader />
   </div>
 );

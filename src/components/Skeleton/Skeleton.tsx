@@ -17,7 +17,7 @@ const Skeleton: FC<SkeletonProps> = ({
 }) => {
   return (
     <div
-      className={`bg-slate-200 animate-pulse p-2 grow ${
+      className={`bg-base-200 animate-pulse p-2 grow ${
         variant === "circular" ? "rounded-full aspect-square" : ""
       } ${variant === "rounded" ? "rounded-md" : ""} ${
         variant === "rectangular" ? "rounded-none" : ""

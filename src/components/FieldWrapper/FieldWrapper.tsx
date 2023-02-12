@@ -36,10 +36,7 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
   style,
 }) => {
   return (
-    <div
-      className={`flex flex-col mb-5 ${className ? className : ""}`}
-      style={style}
-    >
+    <div className="flex flex-col mb-5" style={style}>
       <label
         htmlFor={name}
         className="mb-2 text-base-600 text-sm flex items-center justify-between"
@@ -49,8 +46,8 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
       </label>
       <div
         className={`rounded-lg border border-base-300 px-4 bg-white transition-colors flex items-center gap-2 focus-within:border-primary-400 hover:border-primary-500 ${
-          errors[name] ? "!border-red-500" : ""
-        }`}
+          className ? className : ""
+        } ${errors[name] ? "!border-red-500" : ""}`}
       >
         {children}
         {errors[name] && !validating && (

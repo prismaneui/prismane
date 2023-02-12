@@ -73,6 +73,9 @@ module.exports = {
           900: withOpacityValue("--prismane-colors-base-900"),
         },
       },
+      boxShadow: {
+        "no-inset": "0px 0px 10px -1px rgb(0 0 0 / 0.3)",
+      },
     },
   },
   plugins: [],

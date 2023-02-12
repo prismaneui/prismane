@@ -11,13 +11,15 @@ export interface DropdownProps extends PrismaneComponent {
 const Dropdown: FC<DropdownProps> = ({ items, className, ...props }) => {
   return (
     <Card
-      className={`bg-white drop-shadow-md animate-slide-bottom rounded-md grow !w-[unset] gap-2 ${
-        className ? className : ""
-      }`}
+      className="bg-white shadow-no-inset animate-slide-bottom rounded-md grow !w-[unset] gap-2"
       {...props}
     >
       {items.map((item: ReactNode) => (
-        <div className="flex items-center py-2 px-3 gap-2 rounded-md text-sm text-slate-500 hover:text-slate-700 hover:bg-slate-400/10 cursor-pointer transition-all">
+        <div
+          className={`flex items-center py-2 px-3 gap-2 rounded-md text-sm text-base-500 hover:text-base-700 hover:bg-base-300/40 cursor-pointer transition-all ${
+            className ? className : ""
+          }`}
+        >
           {item}
         </div>
       ))}

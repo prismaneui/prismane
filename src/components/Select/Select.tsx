@@ -1,4 +1,4 @@
-import { ReactNode, FC, useContext, useState } from "react";
+import React, { ReactNode, FC, useContext, useState } from "react";
 import { CaretDown } from "phosphor-react";
 // Components
 import FieldWrapper from "../FieldWrapper";
@@ -12,12 +12,17 @@ import { PrismaneComponent } from "@/types";
 
 interface SelectProps extends PrismaneComponent {
   name: string;
-  options: ReactNode[];
+  options: OptionsProps[];
   placeholder: string;
   label: string;
   action?: ReactNode;
   validating?: boolean;
   validators?: any;
+}
+
+interface OptionsProps {
+  element: ReactNode;
+  value: string;
 }
 
 const Select: FC<SelectProps> = ({
@@ -33,59 +38,75 @@ const Select: FC<SelectProps> = ({
 
   const [expanded, setExpanded] = useState(false);
 
-  return (
-    <div className="flex flex-col relative">
-      <FieldWrapper
-        errors={errors}
-        label={label}
-        action={action}
-        name={name}
-        {...props}
-      >
-        <Field
-          name={name}
-          placeholder={placeholder}
-          register={register}
-          type={"text"}
-          validators={validators}
-          onFocus={() => {
-            setExpanded(true);
-          }}
-          readOnly={true}
-          className="cursor-pointer"
-        />
-        <CaretDown className="text-gray-400" />
-      </FieldWrapper>
-      {expanded ? (
-        <ScopeHandler
-          onEvent={() => {
-            setExpanded(false);
-          }}
-          className="flex !w-full grow absolute top-14 left-0"
-        >
-          <Dropdown
-            items={options?.map((option: ReactNode, index: number) => (
-              <div
-                className="w-full grow"
-                onClick={() => {
-                  setValue(name, option, {
-                    shouldValidate: true,
-                    shouldDirty: true,
-                  });
+  const [currentValue, setCurrentValue] = useState<ReactNode>(placeholder);
 
-                  setExpanded(false);
-                }}
-                key={index}
-              >
-                {option}
-              </div>
-            ))}
+  return (
+    <FieldWrapper
+      errors={errors}
+      label={label}
+      action={action}
+      name={name}
+      className="!px-0"
+      {...props}
+    >
+      <div className="flex flex-col relative w-full px-4">
+        <div className="flex items-center w-full">
+          <Field
+            name={name}
+            placeholder={placeholder}
+            register={register}
+            type={"text"}
+            validators={validators}
+            readOnly={true}
+            className="cursor-pointer hidden"
           />
-        </ScopeHandler>
-      ) : (
-        <></>
-      )}
-    </div>
+          <div
+            onClick={() => {
+              setExpanded(true);
+            }}
+            className="text-sm w-full py-2 text-base-400 cursor-pointer"
+          >
+            {currentValue}
+          </div>
+          <CaretDown className="text-gray-400" />
+        </div>
+        {expanded ? (
+          <ScopeHandler
+            onEvent={() => {
+              setExpanded(false);
+            }}
+            className="flex !w-full grow absolute top-12 left-0"
+          >
+            <Dropdown
+              items={options?.map((option: OptionsProps, index: number) => (
+                <div
+                  className="w-full grow"
+                  onClick={() => {
+                    setValue(name, option.value, {
+                      shouldValidate: true,
+                      shouldDirty: true,
+                    });
+
+                    setCurrentValue(
+                      <span className="!text-base-800 !text-sm">
+                        {option.element}
+                      </span>
+                    );
+
+                    setExpanded(false);
+                  }}
+                  key={index}
+                >
+                  {option.element}
+                </div>
+              ))}
+            />
+          </ScopeHandler>
+        ) : (
+          <></>
+        )}
+      </div>
+    </FieldWrapper>
   );
 };
 

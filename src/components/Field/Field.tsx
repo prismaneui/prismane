@@ -51,7 +51,7 @@ const Field: FC<FieldProps> = ({
       id={name}
       placeholder={placeholder}
       type={type}
-      className={`text-sm w-full py-2 text-base-800 placeholder:text-slate-400 ${
+      className={`text-sm w-full py-2 text-base-800 placeholder:text-base-400 ${
         className ? className : ""
       }`}
       style={style}

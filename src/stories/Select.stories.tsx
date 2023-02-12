@@ -12,10 +12,32 @@ export default {
 export const Default = () => (
   <Form submit={(values: any) => console.log(values)}>
     <Select
-      options={["Ivan", "Petkan", "Gosho"]}
+      options={[
+        { element: "Gosho", value: "gosho" },
+        { element: "Ivan", value: "ivan" },
+        { element: "Petkan", value: "petkan" },
+      ]}
       name="name_select"
-      placeholder=""
+      placeholder="Choose a name"
       label=""
+    />
+    <Button variant="primary" submit>
+      Submit
+    </Button>
+  </Form>
+);
+
+export const Labeled = () => (
+  <Form submit={(values: any) => console.log(values)}>
+    <Select
+      options={[
+        { element: "Gosho", value: "gosho" },
+        { element: "Ivan", value: "ivan" },
+        { element: "Petkan", value: "petkan" },
+      ]}
+      name="name_select"
+      placeholder="Choose a name"
+      label="Choose a name:"
     />
     <Button variant="primary" submit>
       Submit
