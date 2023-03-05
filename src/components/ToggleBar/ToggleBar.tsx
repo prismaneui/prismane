@@ -17,6 +17,7 @@ interface ToggleBarProps extends PrismaneComponent {
   action?: ReactNode;
   validating?: boolean;
   validators?: any;
+  value?: string | number;
 }
 
 interface OptionsProps {
@@ -30,6 +31,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
   action,
   validators,
   options,
+  value,
   ...props
 }) => {
   const { register, errors, setValue, getValues } = useContext(FormContext);
@@ -52,6 +54,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
         type={"text"}
         validators={validators}
         className="hidden"
+        value={value}
       />
       {options.map((option: OptionsProps, index: number) => (
         <div

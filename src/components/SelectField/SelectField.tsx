@@ -18,6 +18,9 @@ interface SelectFieldProps extends PrismaneComponent {
   action?: ReactNode;
   validating?: boolean;
   validators?: any;
+  value?: string | number;
+  defaultValue?: string | number;
+  readOnly?: boolean;
 }
 
 interface OptionsProps {
@@ -32,6 +35,9 @@ const SelectField: FC<SelectFieldProps> = ({
   action,
   validators,
   options,
+  value,
+  defaultValue,
+  readOnly,
   ...props
 }) => {
   const { register, errors, setValue } = useContext(FormContext);
@@ -59,6 +65,8 @@ const SelectField: FC<SelectFieldProps> = ({
             validators={validators}
             readOnly={true}
             className="cursor-pointer hidden"
+            value={value}
+            defaultValue={defaultValue}
           />
           <div
             onClick={() => {

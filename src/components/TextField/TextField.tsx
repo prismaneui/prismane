@@ -18,6 +18,9 @@ export interface TextFieldProps extends PrismaneComponent {
   validators?: any;
   min?: number;
   max?: number;
+  value?: string | number;
+  defaultValue?: string | number;
+  readOnly?: boolean;
 }
 
 /**
@@ -49,6 +52,9 @@ const TextField: FC<TextFieldProps> = ({
   onFocus,
   min,
   max,
+  value,
+  defaultValue,
+  readOnly,
   ...props
 }) => {
   /**
@@ -79,6 +85,9 @@ const TextField: FC<TextFieldProps> = ({
         onFocus={onFocus}
         min={min}
         max={max}
+        value={value}
+        defaultValue={defaultValue}
+        readOnly={readOnly}
       />
       {type === "password" && !errors[name] && (
         <span

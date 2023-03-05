@@ -12,6 +12,8 @@ export interface FieldProps extends PrismaneComponent {
   readOnly?: boolean;
   min?: number;
   max?: number;
+  value?: string | number;
+  defaultValue?: string | number;
 }
 
 /**
@@ -44,6 +46,8 @@ const Field: FC<FieldProps> = ({
   readOnly,
   min,
   max,
+  value,
+  defaultValue,
   style,
 }) => {
   return (
@@ -63,6 +67,8 @@ const Field: FC<FieldProps> = ({
       readOnly={readOnly ? true : false}
       minLength={min}
       maxLength={max}
+      value={value}
+      defaultValue={defaultValue}
     />
   );
 };
