@@ -1,5 +1,6 @@
 import { FC, useContext } from "react";
 import { Controller } from "react-hook-form";
+import { motion } from "framer-motion";
 // Context
 import { FormContext } from "../../context";
 // Types
@@ -14,6 +15,17 @@ const Radio: FC<RadioProps> = ({ name, value, className, ...props }) => {
   const { control } = useContext(FormContext);
 
   const uuid = Math.random().toString(16).slice(2);
+
+  const spring = {
+    type: "spring",
+    stiffness: 1000,
+    damping: 32.5,
+  };
+
+  const variants = {
+    active: { scale: 1 },
+    inactive: { scale: 0 },
+  };
 
   return (
     <Controller
@@ -44,11 +56,14 @@ const Radio: FC<RadioProps> = ({ name, value, className, ...props }) => {
             onChange={onChange}
             value={value}
           />
-          <span
-            className={`h-3 w-3 aspect-square rounded-full transition-all ${
+          <motion.div
+            className={`h-3 w-3 aspect-square rounded-full ${
               value === nameValue ? "bg-primary-500" : ""
             }`}
-          ></span>
+            transition={spring}
+            animate={value === nameValue ? "active" : "inactive"}
+            variants={variants}
+          ></motion.div>
         </label>
       )}
     />

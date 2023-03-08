@@ -1,4 +1,5 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // Types
 import { Positions } from "../../types";
 import { PrismaneComponent } from "../../types";
@@ -16,6 +17,14 @@ const Tooltip: FC<TooltipProps> = ({
   className,
   ...props
 }) => {
+  const [active, setActive] = useState(false);
+
+  const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 27.5,
+  };
+
   const definePosition = (position: string | undefined) => {
     if (position === "top-start") {
       return "bottom-[110%] left-0";
@@ -47,15 +56,40 @@ const Tooltip: FC<TooltipProps> = ({
   };
 
   return (
-    <div className="w-fit h-fit relative group">
-      <span
-        className={`hidden group-hover:flex group-hover:animate-fade-in px-3 py-1 text-white bg-base-800 text-sm rounded-xl transition-all whitespace-nowrap absolute z-50 ${definePosition(
-          position
-        )} ${className ? className : ""}`}
-        {...props}
-      >
-        {title}
-      </span>
+    <div
+      className="w-fit h-fit relative"
+      onMouseEnter={() => {
+        setActive(true);
+      }}
+      onMouseLeave={() => {
+        setActive(false);
+      }}
+    >
+      <AnimatePresence>
+        {active && (
+          <motion.div
+            className={`flex px-3 py-1 text-white bg-base-800 text-sm rounded-lg whitespace-nowrap absolute z-50 ${definePosition(
+              position
+            )} ${className ? className : ""}`}
+            initial={{
+              scale: 0.2,
+              opacity: 0,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+            }}
+            exit={{
+              scale: 0.2,
+              opacity: 0,
+            }}
+            transition={spring}
+            {...props}
+          >
+            {title}
+          </motion.div>
+        )}
+      </AnimatePresence>
       {children}
     </div>
   );

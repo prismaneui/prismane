@@ -52,6 +52,24 @@ const Template = (args) => {
       )}
       <div className="flex flex-col gap-5 w-fit">
         <div className="flex flex-col gap-2">
+          <h4>Primary Loading</h4>
+          <Button {...args} loading></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Error Loading</h4>
+          <Button {...args} color="error" loading></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Warning Loading</h4>
+          <Button {...args} color="warning" loading></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Base Loading</h4>
+          <Button {...args} color="base" loading></Button>
+        </div>
+      </div>
+      <div className="flex flex-col gap-5 w-fit">
+        <div className="flex flex-col gap-2">
           <h4>Primary Disabled</h4>
           <Button {...args} disabled></Button>
         </div>
@@ -84,6 +102,13 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   variant: "secondary",
   children: "Secondary",
+};
+
+export const Tertiary = Template.bind({});
+
+Tertiary.args = {
+  variant: "tertiary",
+  children: "Tertiary",
 };
 
 export const Text = Template.bind({});

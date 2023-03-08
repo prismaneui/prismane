@@ -11,17 +11,17 @@ export interface ChipProps extends PrismaneComponent {
 const Chip: FC<ChipProps> = ({ label, variant, ...props }) => {
   return (
     <div
-      className={`flex gap-2 px-4 py-1.5 rounded-full text-sm cursor-pointer transition-all w-fit ${
+      className={`flex gap-2 px-4 py-1.5 rounded-lg text-sm cursor-pointer transition-all duration-300 w-fit ${
         variant === "primary"
-          ? "bg-primary-200/50 active:bg-primary-300/50  text-base-900"
+          ? "bg-primary-100 hover:bg-primary-200/80 text-primary-700"
           : ""
       } ${
         variant === "secondary"
-          ? "bg-base-200/50 active:bg-base-300/50 text-base-900"
+          ? "bg-base-100 hover:bg-base-200/80 text-base-700"
           : ""
       } ${
         variant === "text"
-          ? "bg-transparent active:bg-primary-100/50 text-primary-500"
+          ? "bg-transparent hover:bg-primary-50 text-primary-700"
           : ""
       }`}
       {...props}

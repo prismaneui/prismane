@@ -1,10 +1,8 @@
 import { ReactNode, FC, useContext, useState } from "react";
-import { CaretDown } from "phosphor-react";
+import { motion } from "framer-motion";
 // Components
 import FieldWrapper from "../FieldWrapper";
 import Field from "../Field";
-import Dropdown from "../Dropdown";
-import ScopeHandler from "../ScopeHandler";
 // Context
 import { FormContext } from "../../context";
 // Types
@@ -18,6 +16,8 @@ interface ToggleBarProps extends PrismaneComponent {
   validating?: boolean;
   validators?: any;
   value?: string | number;
+  variant: "filled" | "smooth" | "outlined" | "raised";
+  border?: boolean;
 }
 
 interface OptionsProps {
@@ -32,6 +32,8 @@ const ToggleBar: FC<ToggleBarProps> = ({
   validators,
   options,
   value,
+  variant,
+  border,
   ...props
 }) => {
   const { register, errors, setValue, getValues } = useContext(FormContext);
@@ -44,7 +46,9 @@ const ToggleBar: FC<ToggleBarProps> = ({
       label={label}
       action={action}
       name={name}
-      className="w-fit !p-0 !gap-0 overflow-hidden"
+      className={`w-fit !p-1 !gap-2 overflow-hidden h-8 bg-base-200 ${
+        !border ? "border-none" : ""
+      }`}
       {...props}
     >
       <Field
@@ -58,13 +62,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       />
       {options.map((option: OptionsProps, index: number) => (
         <div
-          className={`py-2 px-4 flex items-center justify-center w-full cursor-pointer transition-all hover:bg-primary-500/20 ${
-            index !== options.length - 1 ? "border-r border-base-300" : ""
-          } ${
-            currentValue === option.value
-              ? "!bg-primary-500 text-white"
-              : "text-base-900"
-          }`}
+          className="h-full px-6 flex items-center justify-center w-full rounded-md cursor-pointer transition-all relative"
           onClick={() => {
             setValue(name, option.value, {
               shouldValidate: true,
@@ -75,7 +73,29 @@ const ToggleBar: FC<ToggleBarProps> = ({
           }}
           key={index}
         >
-          {option.element}
+          <div
+            className={`flex z-10 transition-all duration-300 ${
+              currentValue === option.value
+                ? `${variant === "filled" ? "text-white" : ""} ${
+                    variant === "smooth" ? "text-primary-500" : ""
+                  } ${variant === "outlined" ? "text-primary-500" : ""} ${
+                    variant === "raised" ? "text-primary-500" : ""
+                  }`
+                : "text-base-700"
+            }`}
+          >
+            {option.element}
+          </div>
+          {currentValue === option.value && (
+            <motion.div
+              className={`flex w-full h-full absolute -top-[2px] -left-[2px] rounded-md border-[2px] border-transparent ${
+                variant === "filled" ? "bg-primary-500" : ""
+              } ${variant === "smooth" ? "bg-primary-200" : ""} ${
+                variant === "outlined" ? "!border-primary-500" : ""
+              } ${variant === "raised" ? "bg-white shadow-lg" : ""}`}
+              layoutId={name}
+            ></motion.div>
+          )}
         </div>
       ))}
     </FieldWrapper>

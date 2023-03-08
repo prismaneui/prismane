@@ -76,7 +76,7 @@ const SelectField: FC<SelectFieldProps> = ({
           >
             {currentValue}
           </div>
-          <CaretDown className="text-gray-400" />
+          {!errors[name] && <CaretDown className="text-gray-400" />}
         </div>
         {expanded ? (
           <ScopeHandler
