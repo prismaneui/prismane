@@ -46,7 +46,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       label={label}
       action={action}
       name={name}
-      className={`w-fit !p-1 !gap-2 overflow-hidden h-8 bg-base-200 ${
+      className={`w-fit !p-1 !gap-2 overflow-hidden h-10 bg-base-200 ${
         !border ? "border-none" : ""
       }`}
       {...props}
@@ -88,7 +88,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
           </div>
           {currentValue === option.value && (
             <motion.div
-              className={`flex w-full h-full absolute -top-[2px] -left-[2px] rounded-md border-[2px] border-transparent ${
+              className={`flex w-full h-full absolute top-0 left-0 rounded-md border-[2px] border-transparent ${
                 variant === "filled" ? "bg-primary-500" : ""
               } ${variant === "smooth" ? "bg-primary-200" : ""} ${
                 variant === "outlined" ? "!border-primary-500" : ""
