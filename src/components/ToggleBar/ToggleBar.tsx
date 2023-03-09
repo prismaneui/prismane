@@ -34,6 +34,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
   value,
   variant,
   border,
+  className,
   ...props
 }) => {
   const { register, errors, setValue, getValues } = useContext(FormContext);
@@ -48,7 +49,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       name={name}
       className={`w-fit !p-1 !gap-2 overflow-hidden h-10 bg-base-200 ${
         !border ? "border-none" : ""
-      }`}
+      } ${className ? className : ""}`}
       {...props}
     >
       <Field
