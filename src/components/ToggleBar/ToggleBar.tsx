@@ -47,7 +47,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       label={label}
       action={action}
       name={name}
-      className={`w-fit p-1 gap-2 overflow-hidden h-10 bg-base-200 ${
+      className={`w-fit p-1 px-0 gap-2 overflow-hidden h-10 bg-base-200 ${
         !border ? "border-none" : ""
       } ${className ? className : ""}`}
       {...props}
