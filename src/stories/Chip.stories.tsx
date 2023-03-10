@@ -1,4 +1,5 @@
 import React from "react";
+import { WarningCircle } from "phosphor-react";
 // Components
 import Chip from "../components/Chip/Chip";
 
@@ -7,32 +8,17 @@ export default {
   component: Chip,
 };
 
-export const Primary = () => (
+export const Default = () => (
   <Chip
-    variant="primary"
-    label="Chip"
+    label={
+      <div className="flex gap-2 items-center">
+        <WarningCircle size={16} />
+        Error
+      </div>
+    }
     onClick={() => {
       alert("Clicked!");
     }}
-  />
-);
-
-export const Secondary = () => (
-  <Chip
-    variant="secondary"
-    label="Secondary"
-    onClick={() => {
-      alert("Clicked!");
-    }}
-  />
-);
-
-export const Text = () => (
-  <Chip
-    variant="text"
-    label="Text"
-    onClick={() => {
-      alert("Clicked!");
-    }}
+    color="pink"
   />
 );

@@ -47,7 +47,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       label={label}
       action={action}
       name={name}
-      className={`w-fit !p-1 !gap-2 overflow-hidden h-10 bg-base-200 ${
+      className={`w-fit p-1 gap-2 overflow-hidden h-10 bg-base-200 ${
         !border ? "border-none" : ""
       } ${className ? className : ""}`}
       {...props}
@@ -63,7 +63,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       />
       {options.map((option: OptionsProps, index: number) => (
         <div
-          className="h-full px-6 flex items-center justify-center w-full rounded-md cursor-pointer transition-all relative"
+          className="h-full px-4 flex items-center justify-center w-full rounded-md cursor-pointer transition-all relative"
           onClick={() => {
             setValue(name, option.value, {
               shouldValidate: true,
