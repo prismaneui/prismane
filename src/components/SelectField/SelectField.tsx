@@ -78,6 +78,11 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
       }
     }, [expanded]);
 
+    const close = () => {
+      setExpanded(false);
+      setCurrentOptions(options);
+    };
+
     return (
       <FieldWrapper
         errors={errors}
@@ -117,7 +122,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
           {expanded ? (
             <ScopeHandler
               onEvent={() => {
-                setExpanded(false);
+                close();
               }}
               className="flex flex-col !w-full grow absolute top-12 left-0"
             >
@@ -146,7 +151,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
                           handleChange(option.value);
                         }
 
-                        setExpanded(false);
+                        close();
                       }}
                       key={index}
                     >

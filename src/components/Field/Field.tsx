@@ -69,6 +69,7 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(
           onChange: (e: any) => {
             handleChange(e.target.value);
           },
+          ref,
         };
 
     return (
@@ -82,7 +83,6 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(
           } PrsmField-root`
         )}
         style={style}
-        {...additional}
         onFocus={onFocus}
         onBlur={onBlur}
         readOnly={readOnly ? true : false}
@@ -90,7 +90,7 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(
         maxLength={max}
         value={value}
         defaultValue={defaultValue}
-        ref={ref}
+        {...additional}
         {...props}
       />
     );

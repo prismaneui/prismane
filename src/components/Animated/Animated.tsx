@@ -157,9 +157,14 @@ const Animated: FC<AnimatedProps> = ({
   };
 
   const transitions = {
-    spring: { type: "spring", stiffness: 350, damping: 25 },
+    spring: { type: "spring", damping: 25, stiffness: 350 },
     tween: { type: "tween", duration: 2 },
     inertia: { type: "inertia", velocity: 50 },
+    linear: {
+      duration: 0.5,
+      delay: 0,
+      ease: [0, 0.7, 0.2, 1],
+    },
   };
 
   return (
@@ -187,7 +192,11 @@ const Animated: FC<AnimatedProps> = ({
         typeof presence === "string" ? animations[presence].animated : presence
       }
       transition={
-        typeof transition === "string" ? transitions[transition] : transition
+        typeof transition === "string"
+          ? transitions[transition]
+          : transition
+          ? transition
+          : transitions["spring"]
       }
       {...props}
     >
