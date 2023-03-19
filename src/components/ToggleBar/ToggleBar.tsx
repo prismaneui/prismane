@@ -9,7 +9,7 @@ import { FormContext } from "../../context";
 // Types
 import { PrismaneComponent } from "@/types";
 // Utils
-import { strip } from "../../utils/internal";
+import { generateUUID, strip } from "../../utils/internal";
 
 interface ToggleBarProps extends PrismaneComponent {
   name: string;
@@ -43,6 +43,8 @@ const ToggleBar: FC<ToggleBarProps> = ({
   const { register, errors, setValue, getValues } = useContext(FormContext);
 
   const [currentValue, setCurrentValue] = useState<ReactNode>(getValues(name));
+
+  const uuid = generateUUID();
 
   return (
     <FieldWrapper
@@ -116,7 +118,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
                     : ""
                 } PrsmToggleBar-itemBox`
               )}
-              layoutId={name}
+              layoutId={`${name}-${uuid}`}
             ></Animated>
           )}
         </div>

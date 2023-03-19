@@ -46,8 +46,8 @@ const Progress: FC<ProgressProps> = ({
         </div>
       )}
       {variant === "line" && (
-        <>
-          <div className="flex w-fit items-center justify-center mr-5 PrsmLoader-lineLabelBox">
+        <div className="flex flex-col w-full">
+          <div className="flex w-full items-center justify-between mb-1 PrsmLoader-lineLabelBox">
             {label}
           </div>
           <div
@@ -66,7 +66,7 @@ const Progress: FC<ProgressProps> = ({
               style={{ width: value.toString() + "%" }}
             ></div>
           </div>
-        </>
+        </div>
       )}
     </>
   );
