@@ -30,7 +30,7 @@ export interface AnimatedProps extends PrismaneComponent {
     | VariantLabels
     | TargetAndTransition;
   alternate?: boolean;
-  transition?: "spring" | "tween" | "inertia" | Transition;
+  transition?: "spring" | "tween" | "inertia" | "linear" | Transition;
   whileHover?: VariantLabels | TargetAndTransition;
   whileTap?: VariantLabels | TargetAndTransition;
   whileInView?: VariantLabels | TargetAndTransition;
