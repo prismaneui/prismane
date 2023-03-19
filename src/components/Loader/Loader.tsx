@@ -1,6 +1,8 @@
 import { FC } from "react";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 /**
  * Loader Params
@@ -14,7 +16,11 @@ const Loader: FC<PrismaneComponent> = ({ className, ...props }) => {
     <svg
       viewBox="0 0 45 45"
       xmlns="http://www.w3.org/2000/svg"
-      className={`w-full h-full ${className ? className : "stroke-white"}`}
+      className={strip(
+        `w-full h-full ${
+          className ? className : "stroke-white"
+        } PrsmLoader-root`
+      )}
       {...props}
     >
       <g

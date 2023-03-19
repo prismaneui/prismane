@@ -1,4 +1,4 @@
-import { useState, useContext, FC, ReactNode } from "react";
+import { useState, useContext, ReactNode, forwardRef } from "react";
 import { Eye, EyeClosed } from "phosphor-react";
 // Components
 import FieldWrapper from "../FieldWrapper/FieldWrapper";
@@ -13,6 +13,7 @@ export interface TextFieldProps extends PrismaneComponent {
   placeholder: string;
   type?: string;
   label: string;
+  icon?: ReactNode;
   action?: ReactNode;
   validating?: boolean;
   validators?: any;
@@ -21,6 +22,8 @@ export interface TextFieldProps extends PrismaneComponent {
   value?: string | number;
   defaultValue?: string | number;
   readOnly?: boolean;
+  disableSpacing?: boolean;
+  handleChange?: Function;
 }
 
 /**
@@ -40,69 +43,83 @@ export interface TextFieldProps extends PrismaneComponent {
  * @returns Element
  */
 
-const TextField: FC<TextFieldProps> = ({
-  name,
-  placeholder,
-  type,
-  label,
-  action,
-  validating,
-  validators,
-  className,
-  onFocus,
-  min,
-  max,
-  value,
-  defaultValue,
-  readOnly,
-  ...props
-}) => {
-  /**
-   * Mutable Type
-   * @description Mutate the password type to text, so the user can see the password he entered.
-   */
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+  (
+    {
+      name,
+      placeholder,
+      type,
+      label,
+      icon,
+      action,
+      validating,
+      validators,
+      className,
+      onFocus,
+      onBlur,
+      min,
+      max,
+      value,
+      defaultValue,
+      readOnly,
+      disableSpacing,
+      handleChange,
+      ...props
+    },
+    ref
+  ) => {
+    /**
+     * Mutable Type
+     * @description Mutate the password type to text, so the user can see the password he entered.
+     */
 
-  const [mutableType, setMutableType] = useState(type);
+    const [mutableType, setMutableType] = useState(type);
 
-  const { register, errors } = useContext(FormContext);
+    const { register, errors } = useContext(FormContext);
 
-  return (
-    <FieldWrapper
-      name={name}
-      label={label}
-      errors={errors}
-      validating={validating}
-      action={action}
-      className={className}
-      {...props}
-    >
-      <Field
+    return (
+      <FieldWrapper
         name={name}
-        placeholder={placeholder}
-        type={mutableType}
-        validators={validators}
-        register={register}
-        onFocus={onFocus}
-        min={min}
-        max={max}
-        value={value}
-        defaultValue={defaultValue}
-        readOnly={readOnly}
-      />
-      {type === "password" && !errors[name] && (
-        <span
-          className="text-xl text-base-500 hover:text-primary-500 transition-all cursor-pointer"
-          onClick={() => {
-            mutableType === "password"
-              ? setMutableType("text")
-              : setMutableType("password");
-          }}
-        >
-          {mutableType === "password" ? <Eye /> : <EyeClosed />}
-        </span>
-      )}
-    </FieldWrapper>
-  );
-};
+        label={label}
+        errors={errors}
+        validating={validating}
+        action={action}
+        icon={icon}
+        disableSpacing={disableSpacing}
+        className={className}
+        {...props}
+      >
+        <Field
+          name={name}
+          placeholder={placeholder}
+          type={mutableType}
+          validators={validators}
+          register={register}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          min={min}
+          max={max}
+          value={value}
+          defaultValue={defaultValue}
+          readOnly={readOnly}
+          handleChange={handleChange}
+          ref={ref}
+        />
+        {type === "password" && !errors[name] && (
+          <span
+            className="text-xl text-base-500 hover:text-primary-500 transition-all cursor-pointer"
+            onClick={() => {
+              mutableType === "password"
+                ? setMutableType("text")
+                : setMutableType("password");
+            }}
+          >
+            {mutableType === "password" ? <Eye /> : <EyeClosed />}
+          </span>
+        )}
+      </FieldWrapper>
+    );
+  }
+);
 
 export default TextField;

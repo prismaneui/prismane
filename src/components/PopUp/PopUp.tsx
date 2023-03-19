@@ -1,11 +1,13 @@
 import { FC, Dispatch, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { X } from "phosphor-react";
 // Components
 import Card from "../Card/Card";
 import Button from "../Button/Button";
-import { X } from "phosphor-react";
+import Animated from "../Animated";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface PopUpProps extends PrismaneComponent {
   children: ReactNode;
@@ -28,39 +30,41 @@ const PopUp: FC<PopUpProps> = ({
   shadow,
   ...props
 }) => {
-  const spring = {
-    type: "spring",
-    stiffness: 350,
-    damping: 25,
-  };
-
   return (
-    <motion.div
+    <Animated
       className="flex justify-center items-center w-fit h-fit"
-      transition={spring}
-      initial={{
-        scale: 0.4,
+      transition={{
+        type: "spring",
+        stiffness: 350,
+        damping: 25,
       }}
-      animate={{
-        scale: 1,
+      entry={{
+        initial: {
+          scale: 0.4,
+        },
+        animated: {
+          scale: 1,
+        },
       }}
     >
       <Card
         width={width}
         height={height}
         shadow={shadow}
-        className={`drop-shadow-lg px-5 py-5 relative !overflow-y-auto ${
-          className ? className : ""
-        }`}
+        className={strip(
+          `drop-shadow-lg px-5 py-5 relative !overflow-y-auto ${
+            className ? className : ""
+          } PrsmPopUp-root`
+        )}
         header={
           header && (
-            <div className="flex w-full justify-between items-center h-fit max-h-[4rem] gap-2">
+            <div className="flex w-full justify-between items-center h-fit max-h-[4rem] gap-2 PrsmPopUp-header">
               {header}
               {setShown && (
                 <Button
                   variant="text"
                   color="base"
-                  className="hover:rotate-90 transition-all"
+                  className="hover:rotate-90 transition-all hover:bg-base-50"
                   onClick={() => setShown(false)}
                   icon={<X />}
                   action
@@ -75,7 +79,7 @@ const PopUp: FC<PopUpProps> = ({
       >
         {children}
       </Card>
-    </motion.div>
+    </Animated>
   );
 };
 

@@ -11,8 +11,7 @@ export default {
 export const Default = () => (
   <Form submit={(values) => console.log(values)}>
     <div className="flex flex-col gap-5">
-      <span>Turn on notifications?</span>
-      <Checkbox name="notifications" />
+      <Checkbox name="notifications" label="Turn on notifications?" />
     </div>
   </Form>
 );

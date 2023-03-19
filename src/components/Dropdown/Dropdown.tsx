@@ -1,49 +1,49 @@
-import { FC, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { FC, ReactNode, useState } from "react";
+import { MagnifyingGlass } from "phosphor-react";
 // Components
 import Card from "../Card/Card";
+import Animated from "../Animated";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface DropdownProps extends PrismaneComponent {
   items: ReactNode[];
+  search?: boolean;
+  empty?: ReactNode;
 }
 
-const Dropdown: FC<DropdownProps> = ({ items, className, ...props }) => {
-  const spring = {
-    type: "spring",
-    stiffness: 300,
-    damping: 27.5,
-  };
-
+const Dropdown: FC<DropdownProps> = ({
+  items,
+  search,
+  empty,
+  children,
+  className,
+  ...props
+}) => {
   return (
-    <motion.div
-      className="flex justify-center items-center w-full h-fit"
-      transition={spring}
-      initial={{
-        scale: 0.5,
-        translateX: "-48px",
-      }}
-      animate={{
-        scale: 1,
-        translateX: 0,
-      }}
-    >
+    <Animated entry={"slideBottom"} className="w-full">
       <Card
-        className="bg-white shadow-no-inset rounded-md grow !w-[unset] gap-2"
+        className="bg-white shadow-no-inset rounded-md grow !w-[unset] gap-2 PrsmDropdown-root"
         {...props}
       >
-        {items.map((item: ReactNode) => (
+        {children}
+        {items.map((item: ReactNode, index: number) => (
           <div
-            className={`flex items-center py-2 px-3 gap-2 rounded-md text-sm text-base-500 hover:text-base-700 hover:bg-base-300/40 cursor-pointer transition-all ${
-              className ? className : ""
-            }`}
+            className={strip(
+              `flex items-center py-2 px-3 gap-2 rounded-md text-sm text-base-500 dark:text-white hover:text-base-700 dark:hover:text-base-300/80 hover:bg-base-300/40 dark:hover:bg-base-900 cursor-pointer transition-all ${
+                className ? className : ""
+              } PrsmDropdown-item`
+            )}
+            key={index}
           >
             {item}
           </div>
         ))}
+        {items.length === 0 && empty}
       </Card>
-    </motion.div>
+    </Animated>
   );
 };
 

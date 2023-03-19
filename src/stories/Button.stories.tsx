@@ -26,6 +26,10 @@ const Template = (args) => {
           <Button {...args} color="warning"></Button>
         </div>
         <div className="flex flex-col gap-2">
+          <h4>Success Color</h4>
+          <Button {...args} color="success"></Button>
+        </div>
+        <div className="flex flex-col gap-2">
           <h4>Base Color</h4>
           <Button {...args} color="base"></Button>
         </div>
@@ -43,6 +47,10 @@ const Template = (args) => {
           <div className="flex flex-col gap-2">
             <h4>Warning With Icon</h4>
             <Button {...args} color="warning" icon={<ArchiveBox />}></Button>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h4>Success With Icon</h4>
+            <Button {...args} color="success" icon={<ArchiveBox />}></Button>
           </div>
           <div className="flex flex-col gap-2">
             <h4>Base With Icon</h4>
@@ -64,6 +72,10 @@ const Template = (args) => {
           <Button {...args} color="warning" loading></Button>
         </div>
         <div className="flex flex-col gap-2">
+          <h4>Success Loading</h4>
+          <Button {...args} color="success" loading></Button>
+        </div>
+        <div className="flex flex-col gap-2">
           <h4>Base Loading</h4>
           <Button {...args} color="base" loading></Button>
         </div>
@@ -80,6 +92,10 @@ const Template = (args) => {
         <div className="flex flex-col gap-2">
           <h4>Warning Disabled</h4>
           <Button {...args} color="warning" disabled></Button>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h4>Success Disabled</h4>
+          <Button {...args} color="success" disabled></Button>
         </div>
         <div className="flex flex-col gap-2">
           <h4>Base Disabled</h4>

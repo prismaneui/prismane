@@ -1,6 +1,8 @@
 import { useEffect, useRef, FC, RefObject } from "react";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface ScopeHandlerProps extends PrismaneComponent {
   onEvent: Function;
@@ -34,7 +36,9 @@ const ScopeHandler: FC<ScopeHandlerProps> = ({
   return (
     <div
       ref={ref}
-      className={`z-10 w-fit h-fit ${className ? className : ""}`}
+      className={strip(
+        `z-10 w-fit h-fit ${className ? className : ""} PrsmScopeHandler-root`
+      )}
       {...props}
     >
       {children}

@@ -1,15 +1,19 @@
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { Warning, WarningOctagon, CheckCircle, X } from "phosphor-react";
 import { motion, AnimatePresence } from "framer-motion";
+// Components
+import Animated from "../Animated";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface AlertProps extends PrismaneComponent {
   children: ReactNode;
   type: "warning" | "error" | "success";
   round?: boolean;
   action?: ReactNode;
-  timeout?: number;
+  timeout?: number | "infinite";
 }
 
 const Alert: FC<AlertProps> = ({
@@ -23,28 +27,43 @@ const Alert: FC<AlertProps> = ({
 }) => {
   const [shown, setShown] = useState(true);
 
-  setTimeout(
-    () => {
-      setShown(false);
-    },
-    timeout ? timeout : 5000
-  );
+  useEffect(() => {
+    if (timeout !== "infinite") {
+      setTimeout(
+        () => {
+          setShown(false);
+        },
+        timeout ? timeout : 5000
+      );
+    }
+  }, []);
 
   return (
     <AnimatePresence>
       {shown && (
-        <motion.div
-          className={`py-3 px-5 text-sm rounded-lg animate-slideInOut flex items-center justify-between gap-20 ${
-            type === "warning" ? "bg-yellow-100 text-yellow-700" : ""
-          } ${type === "error" ? "bg-red-100 text-red-700" : ""} ${
-            type === "success" ? "bg-green-100 text-green-700" : ""
-          } ${round ? "!rounded-full" : ""} ${className ? className : ""}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <Animated
+          className={strip(
+            `py-3 px-5 text-sm rounded-lg animate-slideInOut flex items-center justify-between gap-20 ${
+              type === "warning"
+                ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-100"
+                : ""
+            } ${
+              type === "error"
+                ? "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-100"
+                : ""
+            } ${
+              type === "success"
+                ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-100"
+                : ""
+            } ${round ? "!rounded-full" : ""} ${
+              className ? className : ""
+            } PrsmAlert-root`
+          )}
+          entry="fadeIn"
+          presence="fadeOut"
           {...props}
         >
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 PrsmAlert-icon">
             {type === "warning" ? (
               <Warning size={24} className="self-start" />
             ) : (
@@ -65,8 +84,9 @@ const Alert: FC<AlertProps> = ({
           {action ? (
             action
           ) : (
-            <motion.div
-              className="flex justify-center items-center w-6 h-6 aspect-square cursor-pointer"
+            <Animated
+              entry="fadeIn"
+              className="flex justify-center items-center w-6 h-6 aspect-square cursor-pointer focus:ring-1 rign-primary-200 PrsmAlert-defaultAction"
               whileHover={{
                 rotate: "90deg",
               }}
@@ -75,9 +95,9 @@ const Alert: FC<AlertProps> = ({
               }}
             >
               <X size={24} />
-            </motion.div>
+            </Animated>
           )}
-        </motion.div>
+        </Animated>
       )}
     </AnimatePresence>
   );

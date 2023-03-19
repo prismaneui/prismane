@@ -14,22 +14,23 @@ export interface PrismaneComponent {
 }
 
 export type Animations =
-  | "animate-scale-in"
-  | "animate-scale-out"
-  | "animate-slide-top"
-  | "animate-slide-left"
-  | "animate-slide-right"
-  | "animate-slide-bottom"
-  | "animate-slide-out-top"
-  | "animate-slide-out-left"
-  | "animate-slide-out-right"
-  | "animate-slide-out-bottom"
-  | "animate-slide-in-top"
-  | "animate-slide-in-left"
-  | "animate-slide-in-right"
-  | "animate-slide-in-bottom"
-  | "animate-fade-in"
-  | "animate-fade-out";
+  | "scaleIn"
+  | "scaleOut"
+  | "slideTop"
+  | "slideLeft"
+  | "slideRight"
+  | "slideBottom"
+  | "slideOutTop"
+  | "slideOutLeft"
+  | "slideOutRight"
+  | "slideOutBottom"
+  | "slideInTop"
+  | "slideInLeft"
+  | "slideInRight"
+  | "slideInBottom"
+  | "fadeIn"
+  | "fadeOut"
+  | "none";
 
 export type Positions =
   | "top-start"

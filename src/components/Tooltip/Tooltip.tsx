@@ -1,8 +1,11 @@
 import { FC, ReactNode, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// Components
+import Animated from "../Animated";
 // Types
-import { Positions } from "../../types";
-import { PrismaneComponent } from "../../types";
+import { Positions, PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface TooltipProps extends PrismaneComponent {
   children: ReactNode;
@@ -18,12 +21,6 @@ const Tooltip: FC<TooltipProps> = ({
   ...props
 }) => {
   const [active, setActive] = useState(false);
-
-  const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 27.5,
-  };
 
   const definePosition = (position: string | undefined) => {
     if (position === "top-start") {
@@ -67,27 +64,23 @@ const Tooltip: FC<TooltipProps> = ({
     >
       <AnimatePresence>
         {active && (
-          <motion.div
-            className={`flex px-3 py-1 text-white bg-base-800 text-sm rounded-lg whitespace-nowrap absolute z-50 ${definePosition(
-              position
-            )} ${className ? className : ""}`}
-            initial={{
-              scale: 0.2,
-              opacity: 0,
+          <Animated
+            className={strip(
+              `flex px-3 py-1 text-white bg-base-800 dark:!bg-white dark:text-base-800 text-sm rounded-md whitespace-nowrap absolute z-50 ${definePosition(
+                position
+              )} ${className ? className : ""} PrsmTooltip-root`
+            )}
+            entry="scaleIn"
+            presence="scaleOut"
+            transition={{
+              type: "spring",
+              stiffness: 700,
+              damping: 27.5,
             }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-            }}
-            exit={{
-              scale: 0.2,
-              opacity: 0,
-            }}
-            transition={spring}
             {...props}
           >
             {title}
-          </motion.div>
+          </Animated>
         )}
       </AnimatePresence>
       {children}

@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 import { FieldValues, UseFormRegister, Validate } from "react-hook-form";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface FieldProps extends PrismaneComponent {
   name: string;
@@ -14,6 +16,7 @@ export interface FieldProps extends PrismaneComponent {
   max?: number;
   value?: string | number;
   defaultValue?: string | number;
+  handleChange?: Function;
 }
 
 /**
@@ -34,43 +37,64 @@ export interface FieldProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Field: FC<FieldProps> = ({
-  name,
-  placeholder,
-  type,
-  register,
-  validators,
-  onFocus,
-  onBlur,
-  className,
-  readOnly,
-  min,
-  max,
-  value,
-  defaultValue,
-  style,
-}) => {
-  return (
-    <input
-      id={name}
-      placeholder={placeholder}
-      type={type}
-      className={`text-sm w-full py-2 text-base-800 placeholder:text-base-400 ${
-        className ? className : ""
-      }`}
-      style={style}
-      {...register(name, {
-        validate: validators,
-      })}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      readOnly={readOnly ? true : false}
-      minLength={min}
-      maxLength={max}
-      value={value}
-      defaultValue={defaultValue}
-    />
-  );
-};
+const Field = forwardRef<HTMLInputElement, FieldProps>(
+  (
+    {
+      name,
+      placeholder,
+      type,
+      register,
+      validators,
+      onFocus,
+      onBlur,
+      className,
+      readOnly,
+      min,
+      max,
+      value,
+      defaultValue,
+      handleChange,
+      style,
+      ...props
+    },
+    ref
+  ) => {
+    const additional = !handleChange
+      ? {
+          ...register(name, {
+            validate: validators,
+          }),
+        }
+      : {
+          onChange: (e: any) => {
+            handleChange(e.target.value);
+          },
+        };
+
+    return (
+      <input
+        id={name}
+        placeholder={placeholder}
+        type={type}
+        className={strip(
+          `text-sm w-full py-2 text-base-800 dark:text-base-300 placeholder:text-base-400 dark:placeholder:text-base-300 ${
+            className ? className : ""
+          } PrsmField-root`
+        )}
+        style={style}
+        {...additional}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        readOnly={readOnly ? true : false}
+        minLength={min}
+        maxLength={max}
+        value={value}
+        defaultValue={defaultValue}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
 
 export default Field;

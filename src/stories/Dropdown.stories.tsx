@@ -7,4 +7,6 @@ export default {
   component: Dropdown,
 };
 
-export const Default = () => <Dropdown items={["Ivan", "Petkan", "Petran"]} />;
+export const Default = () => (
+  <Dropdown items={["Ivan", "Petkan", "Petran"]} className="w-96" />
+);

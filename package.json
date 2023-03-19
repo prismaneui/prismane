@@ -17,10 +17,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "setup-storybook": "$env:NODE_OPTIONS='--openssl-legacy-provider'",
-    "build-storybook": "build-storybook",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css",
-    "watch:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css --watch"
+    "setup-storybook": "$env:NODE_OPTIONS='--openssl-legacy-provider'"
   },
   "type": "module",
   "files": [

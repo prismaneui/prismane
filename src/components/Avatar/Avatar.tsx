@@ -1,6 +1,8 @@
 import { FC } from "react";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface AvatarProps extends PrismaneComponent {
   src: string;
@@ -11,9 +13,11 @@ const Avatar: FC<AvatarProps> = ({ src, className, style, ...props }) => {
 
   return (
     <div
-      className={`h-full aspect-square bg-no-repeat bg-center bg-cover ${
-        className ? className : ""
-      }`}
+      className={strip(
+        `h-full aspect-square bg-no-repeat bg-center bg-cover ${
+          className ? className : ""
+        } PrsmAvatar-root`
+      )}
       style={{
         backgroundImage: `${isImage ? `url(${src})` : `url()`}`,
         ...style,

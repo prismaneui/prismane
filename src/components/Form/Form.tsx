@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { FormContext } from "../../context";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface FormProps extends PrismaneComponent {
   submit: any;
@@ -32,7 +34,9 @@ const Form: FC<FormProps> = ({
 
   return (
     <form
-      className={`select-none ${className ? className : ""}`}
+      className={strip(
+        `select-none ${className ? className : ""} PrsmForm-root`
+      )}
       onSubmit={options.handleSubmit((values) => submit(values, options))}
       {...props}
     >

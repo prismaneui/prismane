@@ -1,10 +1,18 @@
-import React, { ReactNode, FC, useContext, useState } from "react";
-import { CaretDown } from "phosphor-react";
+import {
+  ReactNode,
+  useContext,
+  useState,
+  useRef,
+  forwardRef,
+  useEffect,
+} from "react";
+import { CaretDown, MagnifyingGlass } from "phosphor-react";
 // Components
 import FieldWrapper from "../FieldWrapper";
 import Field from "../Field";
 import Dropdown from "../Dropdown";
 import ScopeHandler from "../ScopeHandler";
+import TextField from "../TextField";
 // Context
 import { FormContext } from "../../context";
 // Types
@@ -15,12 +23,17 @@ interface SelectFieldProps extends PrismaneComponent {
   options: OptionsProps[];
   placeholder: string;
   label: string;
+  icon?: ReactNode;
   action?: ReactNode;
   validating?: boolean;
   validators?: any;
   value?: string | number;
   defaultValue?: string | number;
+  search?: boolean;
   readOnly?: boolean;
+  disableSpacing?: boolean;
+  empty?: ReactNode;
+  handleChange?: Function;
 }
 
 interface OptionsProps {
@@ -28,94 +41,155 @@ interface OptionsProps {
   value: string;
 }
 
-const SelectField: FC<SelectFieldProps> = ({
-  name,
-  placeholder,
-  label,
-  action,
-  validators,
-  options,
-  value,
-  defaultValue,
-  readOnly,
-  ...props
-}) => {
-  const { register, errors, setValue } = useContext(FormContext);
+const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
+  (
+    {
+      name,
+      placeholder,
+      label,
+      icon,
+      action,
+      validators,
+      options,
+      value,
+      search,
+      defaultValue,
+      readOnly,
+      disableSpacing,
+      empty,
+      handleChange,
+      ...props
+    },
+    ref
+  ) => {
+    const { register, errors, setValue } = useContext(FormContext);
 
-  const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(false);
 
-  const [currentValue, setCurrentValue] = useState<ReactNode>(placeholder);
+    const [currentValue, setCurrentValue] = useState<ReactNode>(placeholder);
 
-  return (
-    <FieldWrapper
-      errors={errors}
-      label={label}
-      action={action}
-      name={name}
-      className="!px-0"
-      {...props}
-    >
-      <div className="flex flex-col relative w-full px-4">
-        <div className="flex items-center w-full">
-          <Field
-            name={name}
-            placeholder={placeholder}
-            register={register}
-            type={"text"}
-            validators={validators}
-            readOnly={true}
-            className="cursor-pointer hidden"
-            value={value}
-            defaultValue={defaultValue}
-          />
-          <div
-            onClick={() => {
-              setExpanded(true);
-            }}
-            className="text-sm w-full py-2 text-base-400 cursor-pointer"
-          >
-            {currentValue}
-          </div>
-          {!errors[name] && <CaretDown className="text-gray-400" />}
-        </div>
-        {expanded ? (
-          <ScopeHandler
-            onEvent={() => {
-              setExpanded(false);
-            }}
-            className="flex !w-full grow absolute top-12 left-0"
-          >
-            <Dropdown
-              items={options?.map((option: OptionsProps, index: number) => (
-                <div
-                  className="w-full grow"
-                  onClick={() => {
-                    setValue(name, option.value, {
-                      shouldValidate: true,
-                      shouldDirty: true,
-                    });
+    const [currentOptions, setCurrentOptions] = useState(options);
 
-                    setCurrentValue(
-                      <span className="!text-base-800 !text-sm">
-                        {option.element}
-                      </span>
-                    );
+    const searchRef: any = useRef(null);
 
-                    setExpanded(false);
-                  }}
-                  key={index}
-                >
-                  {option.element}
-                </div>
-              ))}
+    useEffect(() => {
+      if (expanded && searchRef.current) {
+        searchRef.current.focus();
+      }
+    }, [expanded]);
+
+    return (
+      <FieldWrapper
+        errors={errors}
+        label={label}
+        icon={icon}
+        action={action}
+        name={name}
+        disableSpacing={disableSpacing}
+        {...props}
+        className="relative"
+      >
+        <div className="flex flex-col w-full">
+          <div className="flex items-center w-full PrsmSelectField-root">
+            <Field
+              name={name}
+              placeholder={placeholder}
+              register={register}
+              type={"text"}
+              validators={validators}
+              readOnly={true}
+              className="cursor-pointer hidden"
+              value={value}
+              ref={ref}
+              defaultValue={defaultValue}
+              handleChange={() => {}}
             />
-          </ScopeHandler>
-        ) : (
-          <></>
-        )}
-      </div>
-    </FieldWrapper>
-  );
-};
+            <div
+              onClick={() => {
+                setExpanded(true);
+              }}
+              className="text-sm w-full py-2 text-base-400 cursor-pointer PrsmSelectField-box"
+            >
+              {currentValue}
+            </div>
+            {!errors[name] && <CaretDown className="text-gray-400" />}
+          </div>
+          {expanded ? (
+            <ScopeHandler
+              onEvent={() => {
+                setExpanded(false);
+              }}
+              className="flex flex-col !w-full grow absolute top-12 left-0"
+            >
+              <Dropdown
+                className="w-full grow"
+                search={search}
+                items={currentOptions?.map(
+                  (option: OptionsProps, index: number) => (
+                    <div
+                      className="w-full grow"
+                      onClick={() => {
+                        if (!handleChange) {
+                          setValue(name, option.value, {
+                            shouldValidate: true,
+                            shouldDirty: true,
+                          });
+                        }
+
+                        setCurrentValue(
+                          <span className="!text-base-800 !text-sm">
+                            {option.element}
+                          </span>
+                        );
+
+                        if (handleChange) {
+                          handleChange(option.value);
+                        }
+
+                        setExpanded(false);
+                      }}
+                      key={index}
+                    >
+                      {option.element}
+                    </div>
+                  )
+                )}
+                empty={
+                  empty ? (
+                    empty
+                  ) : (
+                    <span className="text-sm text-center PrsmSelectField-emptySearch">
+                      No items found!
+                    </span>
+                  )
+                }
+              >
+                {search && (
+                  <TextField
+                    name=""
+                    label=""
+                    placeholder="Search"
+                    icon={<MagnifyingGlass />}
+                    handleChange={(v: any) => {
+                      setCurrentOptions(
+                        options.filter((option) =>
+                          option.value.toLowerCase().includes(v.toLowerCase())
+                        )
+                      );
+                    }}
+                    ref={searchRef}
+                    disableSpacing
+                  />
+                )}
+              </Dropdown>
+            </ScopeHandler>
+          ) : (
+            <></>
+          )}
+        </div>
+      </FieldWrapper>
+    );
+  }
+);
 
 export default SelectField;

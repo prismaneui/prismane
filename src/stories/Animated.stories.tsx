@@ -13,7 +13,7 @@ export default {
 
 export const Default: FC = () => {
   return (
-    <Animated animationIn="animate-slide-left">
+    <Animated entry="fadeIn">
       <h1>Hello World</h1>
     </Animated>
   );
@@ -24,11 +24,7 @@ export const Alternate: FC = () => {
 
   return (
     <>
-      <Animated
-        animationIn="animate-fade-in"
-        animationOut="animate-fade-out"
-        alternate={alternate}
-      >
+      <Animated entry="scaleIn" exit="scaleOut" alternate={alternate}>
         <h1>Hello World</h1>
       </Animated>
       <Button
@@ -39,5 +35,20 @@ export const Alternate: FC = () => {
         Alternate Animation
       </Button>
     </>
+  );
+};
+
+export const Custom_Animation: FC = () => {
+  return (
+    <Animated
+      entry={{
+        initial: { x: 0, y: 0, rotate: 0 },
+        animated: { x: 200, y: 200, rotate: 45 },
+      }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 1.2 }}
+    >
+      <span className="font-bold text-2xl text-base-900">Hover & Click Me</span>
+    </Animated>
   );
 };

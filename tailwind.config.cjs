@@ -11,42 +11,9 @@ const withOpacityValue = (variable) => {
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
-      animation: {
-        "scale-in":
-          "scale-in var(--prismane-animation-duration-middle) ease-in-out forwards",
-        "scale-out":
-          "scale-out var(--prismane-animation-duration-middle) ease-in-out forwards",
-        "slide-top":
-          "slide-top var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-left":
-          "slide-left var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-right":
-          "slide-right var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-bottom":
-          "slide-bottom var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-out-top":
-          "slide-out-top var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-out-left":
-          "slide-out-left var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-out-right":
-          "slide-out-right var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-out-bottom":
-          "slide-out-bottom var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-in-top":
-          "slide-in-top var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-in-left":
-          "slide-in-left var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-in-right":
-          "slide-in-right var(--prismane-animation-duration-short) ease-in-out forwards",
-        "slide-in-bottom":
-          "slide-in-bottom var(--prismane-animation-duration-short) ease-in-out forwards",
-        "fade-in":
-          "fade-in var(--prismane-animation-duration-short) ease-in-out forwards",
-        "fade-out":
-          "fade-out var(--prismane-animation-duration-short) ease-in-out forwards",
-      },
       colors: {
         primary: {
           50: withOpacityValue("--prismane-colors-primary-50"),

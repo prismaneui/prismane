@@ -17,12 +17,10 @@ export const Default = () => (
     <div className="flex flex-col gap-5 w-96">
       <span>Turn on notifications?</span>
       <div className="flex items-center gap-2">
-        <Radio name="notifications" value="Yes" />
-        <span>Yes</span>
+        <Radio name="notifications" value="Yes" label="Yes" />
       </div>
       <div className="flex items-center gap-2">
-        <Radio name="notifications" value="No" />
-        <span>No</span>
+        <Radio name="notifications" value="No" label="No" />
       </div>
       <Button variant="primary" submit>
         Submit

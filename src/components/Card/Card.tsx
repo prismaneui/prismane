@@ -3,6 +3,8 @@ import { FC, ReactNode } from "react";
 import Paper from "../Paper/Paper";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface CardProps extends PrismaneComponent {
   children: ReactNode;
@@ -36,17 +38,25 @@ const Card: FC<CardProps> = ({
 }) => {
   return (
     <Paper
-      className={`p-2 flex flex-col gap-5 ${className ? className : ""}`}
+      className={strip(
+        `p-2 flex flex-col gap-5 ${className ? className : ""} PrsmCard-root`
+      )}
       width={width}
       height={height}
       shadow={shadow}
       {...props}
     >
       {header && (
-        <div className="flex overflow-hidden rounded-md">{header}</div>
+        <div className="flex overflow-hidden rounded-md PrsmCard-header">
+          {header}
+        </div>
       )}
       {children}
-      {actions && <div className="flex overflow-x-hidden gap-3">{actions}</div>}
+      {actions && (
+        <div className="flex overflow-x-hidden gap-3 PrsmCard-actions">
+          {actions}
+        </div>
+      )}
     </Paper>
   );
 };

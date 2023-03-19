@@ -4,13 +4,17 @@ import { WarningCircle } from "phosphor-react";
 import Loader from "../Loader/Loader";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface FieldWrapperProps extends PrismaneComponent {
   name: string;
   label: string;
+  icon?: ReactNode;
   action?: ReactNode;
   errors: any;
   validating?: boolean;
+  disableSpacing?: boolean;
 }
 
 /**
@@ -28,30 +32,56 @@ export interface FieldWrapperProps extends PrismaneComponent {
 const FieldWrapper: FC<FieldWrapperProps> = ({
   name,
   label,
+  icon,
   action,
   children,
   errors,
   validating,
+  disableSpacing,
   className,
   style,
 }) => {
   return (
-    <div className="flex flex-col mb-5" style={style}>
+    <div
+      className={strip(
+        `flex flex-col gap-2 PrsmFieldWrapper-root ${
+          !disableSpacing ? "mb-5" : "mb-0"
+        }`
+      )}
+      style={style}
+    >
       <label
         htmlFor={name}
-        className="mb-2 text-base-600 text-sm flex items-center justify-between"
+        className="text-base-600 dark:text-base-400 text-sm flex items-center justify-between PrsmFieldWrapper-label"
       >
         {label}
         {action}
       </label>
       <div
-        className={`rounded-lg border border-base-300 px-4 bg-white transition-colors flex items-center gap-2 focus-within:border-primary-400 hover:border-primary-500 ${
-          className ? className : ""
-        } ${errors[name] ? "!border-red-500" : ""}`}
+        className={strip(
+          `rounded-lg border border-base-300 dark:border-base-700 px-4 bg-white dark:bg-base-800 transition-colors flex items-center gap-2 focus-within:border-primary-400 dark:focus-within:border-primary-800 hover:border-primary-500 dark:hover:border-primary-900 ${
+            className ? className : ""
+          } ${
+            errors[name] ? "!border-red-500 dark:!border-red-700" : ""
+          } PrsmFieldWrapper-box`
+        )}
       >
+        {icon && (
+          <div
+            className={strip(
+              `text-xl flex items-center justify-center mr-1 ${
+                errors[name]
+                  ? "text-red-500 dark:!text-red-700"
+                  : "text-base-600 dark:text-white"
+              } PrsmFieldWrapper-icon`
+            )}
+          >
+            {icon}
+          </div>
+        )}
         {children}
         {errors[name] && !validating && (
-          <WarningCircle className="text-red-500 text-xl" />
+          <WarningCircle className="text-red-500 dark:!text-red-700 text-xl" />
         )}
         {validating && (
           <div className="h-6">
@@ -60,9 +90,11 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
         )}
       </div>
       <div
-        className={`text-red-500 mt-2 text-sm flex gap-2 items-center line-clamp-1  transition-all ${
-          errors[name] ? "h-6" : "h-0"
-        }`}
+        className={strip(
+          `text-red-500 dark:text-red-700 text-sm flex gap-2 items-center line-clamp-1  transition-all ${
+            errors[name] ? "h-6" : "h-0"
+          } PrsmFieldWrapper-error`
+        )}
       >
         {errors[name] ? errors[name].message : ""}
       </div>

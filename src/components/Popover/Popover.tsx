@@ -2,9 +2,11 @@ import { useState, FC, ReactNode } from "react";
 // Components
 import ScopeHandler from "../ScopeHandler/ScopeHandler";
 import Paper from "../Paper/Paper";
+import Animated from "../Animated";
 // Types
-import { Positions } from "../../types";
-import { PrismaneComponent } from "../../types";
+import { Positions, PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface PopoverProps extends PrismaneComponent {
   children: ReactNode;
@@ -53,17 +55,28 @@ const Popover: FC<PopoverProps> = ({
 
   return (
     <ScopeHandler onEvent={() => setShown(false)}>
-      <div className="w-fit h-fit relative" onClick={() => setShown(true)}>
+      <div className="w-fit h-fit" onClick={() => setShown(true)}>
         {handler}
-        <Paper
-          className={`absolute px-5 py-3 !w-[400px] !h-[unset] ${
-            shown ? "flex !animate-scale-in" : "hidden"
-          } ${definePosition(position)} ${className ? className : ""}`}
-          {...props}
-          shadow
+        <Animated
+          entry={
+            shown
+              ? "scaleIn"
+              : { initial: { scale: 0 }, animated: { scale: 0 } }
+          }
+          className="relative mt-2"
         >
-          {children}
-        </Paper>
+          <Paper
+            className={strip(
+              `absolute px-5 py-3 !w-[400px] !h-[unset] flex ${definePosition(
+                position
+              )} ${className ? className : ""} PrsmPopover-root`
+            )}
+            {...props}
+            shadow
+          >
+            {children}
+          </Paper>
+        </Animated>
       </div>
     </ScopeHandler>
   );

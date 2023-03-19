@@ -1,6 +1,8 @@
 import { FC } from "react";
 // Types
 import { PrismaneComponent } from "../../types";
+// Utils
+import { strip } from "../../utils/internal";
 
 export interface PaperProps extends PrismaneComponent {
   width?: string;
@@ -19,9 +21,11 @@ const Paper: FC<PaperProps> = ({
 }) => {
   return (
     <div
-      className={`bg-white flex flex-col rounded-md overflow-hidden ${
-        shadow ? "shadow-md" : ""
-      } ${className ? className : ""}`}
+      className={strip(
+        `bg-white dark:bg-base-800 flex flex-col rounded-md overflow-hidden ${
+          shadow ? "shadow-md" : ""
+        } ${className ? className : ""} PrsmPaper-root`
+      )}
       style={{
         width: width ? width : "fit-content",
         height: height ? height : "fit-content",
