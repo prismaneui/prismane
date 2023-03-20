@@ -52,14 +52,14 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
     >
       <label
         htmlFor={name}
-        className="text-base-600 dark:text-base-400 text-sm flex items-center justify-between PrsmFieldWrapper-label"
+        className="text-base-600 dark:text-base-200 text-sm flex items-center justify-between PrsmFieldWrapper-label"
       >
         {label}
         {action}
       </label>
       <div
         className={strip(
-          `rounded-lg border border-base-300 dark:border-base-700 px-4 bg-white dark:bg-base-800 transition-colors flex items-center gap-2 focus-within:border-primary-400 dark:focus-within:border-primary-800 hover:border-primary-500 dark:hover:border-primary-900 ${
+          `rounded-lg border border-base-300 dark:border-base-700 px-4 bg-white dark:bg-base-800 transition-colors flex items-center gap-2 focus-within:border-primary-400 dark:focus-within:border-primary-600 hover:border-primary-500 dark:hover:border-primary-700 ${
             className ? className : ""
           } ${
             errors[name] ? "!border-red-500 dark:!border-red-700" : ""

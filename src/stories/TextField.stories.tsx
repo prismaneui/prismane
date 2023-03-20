@@ -73,3 +73,18 @@ export const No_Register = () => (
     </Button>
   </Form>
 );
+
+export const Textarea = () => (
+  <Form submit={(values) => console.log(values)} className="w-96">
+    <TextField
+      name="field_1"
+      placeholder="Multiline Field"
+      label="Multiline Field:"
+      defaultValue="Multiline Default Value"
+      textarea
+    />
+    <Button variant="primary" submit>
+      Submit
+    </Button>
+  </Form>
+);

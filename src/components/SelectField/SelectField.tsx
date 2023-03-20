@@ -127,12 +127,11 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
               className="flex flex-col !w-full grow absolute top-12 left-0"
             >
               <Dropdown
-                className="w-full grow"
                 search={search}
                 items={currentOptions?.map(
                   (option: OptionsProps, index: number) => (
                     <div
-                      className="w-full grow"
+                      className="w-full"
                       onClick={() => {
                         if (!handleChange) {
                           setValue(name, option.value, {
@@ -142,7 +141,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
                         }
 
                         setCurrentValue(
-                          <span className="!text-base-800 !text-sm">
+                          <span className="!text-base-800 dark:!text-base-300 !text-sm">
                             {option.element}
                           </span>
                         );

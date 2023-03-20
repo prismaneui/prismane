@@ -24,6 +24,7 @@ export interface TextFieldProps extends PrismaneComponent {
   readOnly?: boolean;
   disableSpacing?: boolean;
   handleChange?: Function;
+  textarea?: boolean;
 }
 
 /**
@@ -43,7 +44,10 @@ export interface TextFieldProps extends PrismaneComponent {
  * @returns Element
  */
 
-const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+const TextField = forwardRef<
+  HTMLInputElement | HTMLTextAreaElement,
+  TextFieldProps
+>(
   (
     {
       name,
@@ -64,6 +68,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       readOnly,
       disableSpacing,
       handleChange,
+      textarea,
       ...props
     },
     ref
@@ -104,6 +109,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           readOnly={readOnly}
           handleChange={handleChange}
           ref={ref}
+          textarea={textarea}
         />
         {type === "password" && !errors[name] && (
           <span

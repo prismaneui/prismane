@@ -45,15 +45,15 @@ const Alert: FC<AlertProps> = ({
           className={strip(
             `py-3 px-5 text-sm rounded-lg animate-slideInOut flex items-center justify-between gap-20 ${
               type === "warning"
-                ? "bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-100"
+                ? "bg-amber-100 dark:bg-amber-700/20 text-amber-700 dark:text-amber-500 PrsmAlert-warning"
                 : ""
             } ${
               type === "error"
-                ? "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-100"
+                ? "bg-red-100 dark:bg-red-700/20 text-red-700 dark:text-red-500 PrsmAlert-error"
                 : ""
             } ${
               type === "success"
-                ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-100"
+                ? "bg-green-100 dark:bg-green-700/20 text-green-700 dark:text-green-500 PrsmAlert-success"
                 : ""
             } ${round ? "!rounded-full" : ""} ${
               className ? className : ""
@@ -65,17 +65,23 @@ const Alert: FC<AlertProps> = ({
         >
           <div className="flex items-center gap-4 PrsmAlert-icon">
             {type === "warning" ? (
-              <Warning size={24} className="self-start" />
+              <Warning size={24} className="self-start PrsmAlert-iconWarning" />
             ) : (
               <></>
             )}
             {type === "error" ? (
-              <WarningOctagon size={24} className="self-start" />
+              <WarningOctagon
+                size={24}
+                className="self-start PrsmAlert-iconError"
+              />
             ) : (
               <></>
             )}
             {type === "success" ? (
-              <CheckCircle size={24} className="self-start" />
+              <CheckCircle
+                size={24}
+                className="self-start PrsmAlert-iconSuccess"
+              />
             ) : (
               <></>
             )}

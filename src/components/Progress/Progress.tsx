@@ -42,17 +42,19 @@ const Progress: FC<ProgressProps> = ({
             strokeDashoffset={6 * (100 - value)}
             className="-rotate-90 w-full h-full transition-all absolute top-0 left-0 PrsmLoader-circle"
           />
-          {label}
+          <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
+            {label}
+          </div>
         </div>
       )}
       {variant === "line" && (
         <div className="flex flex-col w-full">
-          <div className="flex w-full items-center justify-between mb-1 PrsmLoader-lineLabelBox">
+          <div className="flex w-full items-center justify-between mb-1 text-base-600 dark:text-base-200 PrsmLoader-lineLabelBox">
             {label}
           </div>
           <div
             className={strip(
-              `w-full bg-base-200 rounded-full transition-all ${
+              `w-full bg-base-200 dark:bg-base-700 rounded-full transition-all ${
                 className ? className : ""
               } PrsmLoader-rootLine`
             )}

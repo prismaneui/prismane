@@ -21,9 +21,13 @@ const Skeleton: FC<SkeletonProps> = ({
     <div
       className={strip(
         `bg-base-200 dark:bg-base-700 animate-pulse p-2 grow ${
-          variant === "circular" ? "rounded-full aspect-square" : ""
-        } ${variant === "rounded" ? "rounded-md" : ""} ${
-          variant === "rectangular" ? "rounded-none" : ""
+          variant === "circular"
+            ? "rounded-full aspect-square PrsmSkeleton-circular"
+            : ""
+        } ${variant === "rounded" ? "rounded-md PrsmSkeleton-rounded" : ""} ${
+          variant === "rectangular"
+            ? "rounded-none PrsmSkeleton-rectangular"
+            : ""
         } ${className ? className : ""} PrsmSkeleton-root`
       )}
       style={{

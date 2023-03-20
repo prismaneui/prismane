@@ -1,4 +1,4 @@
-import { FC, useContext, ReactNode } from "react";
+import { FC, useContext, ReactNode, useState, useEffect } from "react";
 import { Controller } from "react-hook-form";
 // Components
 import Animated from "../Animated";
@@ -18,10 +18,14 @@ export interface RadioProps extends PrismaneComponent {
 const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
   const { control } = useContext(FormContext);
 
-  const uuid = generateUUID();
+  const [uuid, setUuid] = useState("");
+
+  useEffect(() => {
+    setUuid(generateUUID());
+  }, []);
 
   return (
-    <div className="flex w-fit items-center gap-2">
+    <div className="flex w-fit items-center gap-3">
       <Controller
         control={control}
         name={name}
@@ -32,13 +36,9 @@ const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
             className={strip(
               `${
                 value === nameValue
-                  ? "border-primary-500 dark:border-primary-700"
-                  : "border-base-400 dark:border-base-600"
-              } ${
-                value === nameValue
-                  ? "hover:border-primary-600"
-                  : "hover:border-base-500"
-              } border flex justify-center items-center aspect-square transition-colors rounded-full h-5 w-5 cursor-pointer ${
+                  ? "border-primary-500 dark:border-primary-700 hover:border-primary-600 PrsmRadio-active"
+                  : "border-base-400 dark:border-base-600 hover:border-base-500 PrsmRadio-inactive"
+              } focus:ring-1 border flex justify-center items-center aspect-square transition-colors rounded-full h-5 w-5 cursor-pointer ${
                 className ? className : ""
               } PrsmRadio-root`
             )}
@@ -58,8 +58,8 @@ const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
               className={strip(
                 `h-3 w-3 aspect-square rounded-full ${
                   value === nameValue
-                    ? "bg-primary-500 dark:bg-primary-600"
-                    : ""
+                    ? "bg-primary-500 dark:bg-primary-600 PrsmRadio-boxActive"
+                    : "PrsmRadio-boxInactive"
                 } PrsmRadio-box`
               )}
               entry="scaleIn"
@@ -69,7 +69,9 @@ const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
           </label>
         )}
       />
-      {label}
+      <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
+        {label}
+      </div>
     </div>
   );
 };

@@ -35,12 +35,8 @@ const Switch: FC<SwitchProps> = ({ name, className, ...props }) => {
           className={strip(
             `${
               value
-                ? "bg-primary-500 dark:bg-primary-700"
-                : "bg-base-300 dark:bg-base-700"
-            } ${
-              value
-                ? "hover:bg-primary-600 dark:hover:bg-primary-700"
-                : "hover:bg-base-400 dark:hover:bg-base-600"
+                ? "bg-primary-500 dark:bg-primary-700 hover:bg-primary-600 dark:hover:bg-primary-700 PrsmSwitch-active"
+                : "bg-base-300 dark:bg-base-700 hover:bg-base-400 dark:hover:bg-base-600 PrsmSwitch-inactive"
             } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${
               className ? className : ""
             } PrsmSwitch-root`

@@ -34,10 +34,8 @@ const Checkbox: FC<CheckboxProps> = ({ name, label, className, ...props }) => {
             className={strip(
               `${
                 value
-                  ? "border-primary-500 dark:border-primary-700"
-                  : "border-base-400 dark:border-base-600"
-              } ${
-                value ? "hover:border-primary-600" : "hover:border-base-500"
+                  ? "border-primary-500 dark:border-primary-700 hover:border-primary-600 PrsmCheckbox-active"
+                  : "border-base-400 dark:border-base-600 hover:border-base-500 PrsmCheckbox-inactive"
               } border flex justify-center items-center aspect-square transition-colors rounded h-5 w-5 cursor-pointer ${
                 className ? className : ""
               } PrsmCheckbox-root`
@@ -61,7 +59,9 @@ const Checkbox: FC<CheckboxProps> = ({ name, label, className, ...props }) => {
           </label>
         )}
       />
-      {label}
+      <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
+        {label}
+      </div>
     </div>
   );
 };

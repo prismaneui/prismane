@@ -44,21 +44,21 @@ const Button: FC<ButtonProps> = ({
               shadow && "shadow-md"
             } ${
               color === "error"
-                ? `!bg-red-500 dark:!bg-red-700 hover:!bg-red-600/90 !shadow-red-500/50`
+                ? `!bg-red-500 dark:!bg-red-700 hover:!bg-red-600/90 !shadow-red-500/50 PrsmButton-primaryError`
                 : ``
             } ${
               color === "warning"
-                ? `!bg-amber-500 dark:!bg-amber-700 hover:!bg-amber-600/90 !shadow-amber-500/50`
+                ? `!bg-amber-500 dark:!bg-amber-700 hover:!bg-amber-600/90 !shadow-amber-500/50 PrsmButton-primaryWarning`
                 : ``
             } ${
               color === "success"
-                ? `!bg-green-500 dark:!bg-green-700 hover:!bg-green-600/90 !shadow-green-500/50`
+                ? `!bg-green-500 dark:!bg-green-700 hover:!bg-green-600/90 !shadow-green-500/50 PrsmButton-primarySuccess`
                 : ``
             } ${
               color === "base"
-                ? `!bg-base-500 dark:!bg-base-700 hover:!bg-base-600/90 !shadow-base-500/50`
+                ? `!bg-base-500 dark:!bg-base-700 hover:!bg-base-600/90 !shadow-base-500/50 PrsmButton-primaryBase`
                 : ``
-            }`
+            } PrsmButton-primary`
           : ""
       }${
         variant === "secondary"
@@ -72,7 +72,7 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-red-500 dark:hover:!bg-red-700 hover:!text-white"
                       : "hover:!bg-red-100 dark:hover:!bg-red-700/30"
-                  }`
+                  } PrsmButton-secondaryError`
                 : ``
             } ${
               color === "warning"
@@ -80,15 +80,15 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-amber-500 dark:hover:!bg-amber-700 hover:!text-white"
                       : "hover:!bg-amber-100 dark:hover:!bg-amber-700/30"
-                  }`
+                  } PrsmButton-secondaryWarning`
                 : ``
             } ${
               color === "success"
-                ? `!bg-green-50 dark:!bg-green-700/20 !text-green-700 dark:!text-green-200 ${
+                ? `!bg-green-50 dark:!bg-green-700/20 !text-green-700 dark:!text-green-200  ${
                     fillOnHover
                       ? "hover:!bg-green-500 dark:hover:!bg-green-700 hover:!text-white"
                       : "hover:!bg-green-100 dark:hover:!bg-green-700/30"
-                  }`
+                  } PrsmButton-secondarySuccess`
                 : ``
             } ${
               color === "base"
@@ -96,9 +96,9 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-base-500 dark:hover:!bg-base-700 hover:!text-white"
                       : "hover:!bg-base-100 dark:hover:!bg-base-700/40"
-                  }`
+                  } PrsmButton-secondaryBase`
                 : ``
-            }`
+            } PrsmButton-secondary`
           : ""
       }${
         variant === "tertiary"
@@ -112,7 +112,7 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-red-500 dark:hover:!bg-red-700 hover:!text-white"
                       : "hover:!bg-red-50 dark:hover:!bg-red-700/20"
-                  }`
+                  } PrsmButton-tertiaryError`
                 : ``
             } ${
               color === "warning"
@@ -120,7 +120,7 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-amber-500 dark:hover:!bg-amber-700 hover:!text-white"
                       : "hover:!bg-amber-50 dark:hover:!bg-amber-700/20"
-                  }`
+                  } PrsmButton-tertiaryWarning`
                 : ``
             } ${
               color === "success"
@@ -128,7 +128,7 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-green-500 dark:hover:!bg-green-700 hover:!text-white"
                       : "hover:!bg-green-50 dark:hover:!bg-green-700/20"
-                  }`
+                  } PrsmButton-tertiarySuccess`
                 : ``
             } ${
               color === "base"
@@ -136,29 +136,29 @@ const Button: FC<ButtonProps> = ({
                     fillOnHover
                       ? "hover:!bg-base-500 dark:hover:!bg-base-700 hover:!text-white"
                       : "hover:!bg-base-100 dark:hover:!bg-base-700/30"
-                  }`
+                  } PrsmButton-tertiaryBase`
                 : ``
-            }`
+            } PrsmButton-tertiary`
           : ""
       }${
         variant === "text"
           ? `text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-400 ${
               color === "error"
-                ? `!text-red-600 hover:!text-red-800 dark:!text-red-500 dark:hover:!text-red-400`
+                ? `!text-red-600 hover:!text-red-800 dark:!text-red-500 dark:hover:!text-red-400 PrsmButton-textError`
                 : ``
             } ${
               color === "warning"
-                ? `!text-amber-600 hover:!text-amber-800 dark:!text-amber-500 dark:hover:!text-amber-400`
+                ? `!text-amber-600 hover:!text-amber-800 dark:!text-amber-500 dark:hover:!text-amber-400 PrsmButton-textWarning`
                 : ``
             } ${
               color === "success"
-                ? `!text-green-600 hover:!text-green-800 dark:!text-green-500 dark:hover:!text-green-400`
+                ? `!text-green-600 hover:!text-green-800 dark:!text-green-500 dark:hover:!text-green-400 PrsmButton-textSuccess`
                 : ``
             } ${
               color === "base"
-                ? `!text-base-600 hover:!text-base-800 dark:!text-base-500 dark:hover:!text-base-400`
+                ? `!text-base-600 hover:!text-base-800 dark:!text-base-500 dark:hover:!text-base-400 PrsmButton-textBase`
                 : ``
-            }`
+            } PrsmButton-text`
           : ""
       } ${
         loading ? "pointer-events-none" : ""

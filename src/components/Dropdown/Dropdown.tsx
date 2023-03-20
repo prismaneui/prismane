@@ -32,10 +32,11 @@ const Dropdown: FC<DropdownProps> = ({
         {items.map((item: ReactNode, index: number) => (
           <div
             className={strip(
-              `flex items-center py-2 px-3 gap-2 rounded-md text-sm text-base-500 dark:text-white hover:text-base-700 dark:hover:text-base-300/80 hover:bg-base-300/40 dark:hover:bg-base-900 cursor-pointer transition-all ${
+              `flex items-center py-2 px-3 gap-2 rounded-md text-sm text-base-500 dark:text-white hover:text-base-700 dark:hover:text-base-300/80 hover:bg-base-300/40 dark:hover:bg-base-900 cursor-pointer transition-all focus:bg-base-200 dark:focus:bg-base-800 ${
                 className ? className : ""
               } PrsmDropdown-item`
             )}
+            tabIndex={0}
             key={index}
           >
             {item}

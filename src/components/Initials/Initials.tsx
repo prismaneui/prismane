@@ -3,11 +3,11 @@ import { FC } from "react";
 import { PrismaneComponent } from "../../types";
 
 interface InitialsProps extends PrismaneComponent {
-  text: string;
+  name: string;
 }
 
-export const Initials: FC<InitialsProps> = ({ text }) => {
-  const arr = text.split(" ");
+export const Initials: FC<InitialsProps> = ({ name }) => {
+  const arr = name.split(" ");
 
   const first = arr[0].charAt(0).toUpperCase();
 

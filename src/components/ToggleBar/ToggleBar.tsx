@@ -1,5 +1,4 @@
-import { ReactNode, FC, useContext, useState } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, FC, useContext, useState, useEffect } from "react";
 // Components
 import FieldWrapper from "../FieldWrapper";
 import Field from "../Field";
@@ -44,7 +43,11 @@ const ToggleBar: FC<ToggleBarProps> = ({
 
   const [currentValue, setCurrentValue] = useState<ReactNode>(getValues(name));
 
-  const uuid = generateUUID();
+  const [uuid, setUuid] = useState("");
+
+  useEffect(() => {
+    setUuid(generateUUID());
+  }, []);
 
   return (
     <FieldWrapper
@@ -85,10 +88,22 @@ const ToggleBar: FC<ToggleBarProps> = ({
             className={strip(
               `flex z-10 transition-all duration-300 ${
                 currentValue === option.value
-                  ? `${variant === "filled" ? "text-white" : ""} ${
-                      variant === "smooth" ? "text-primary-500" : ""
-                    } ${variant === "outlined" ? "text-primary-500" : ""} ${
-                      variant === "raised" ? "text-primary-500" : ""
+                  ? `${
+                      variant === "filled"
+                        ? "text-white PrsmToggleBar-itemFilled"
+                        : ""
+                    } ${
+                      variant === "smooth"
+                        ? "text-primary-500 PrsmToggleBar-itemSmooth"
+                        : ""
+                    } ${
+                      variant === "outlined"
+                        ? "text-primary-500 PrsmToggleBar-itemOutlined"
+                        : ""
+                    } ${
+                      variant === "raised"
+                        ? "text-primary-500 PrsmToggleBar-itemRaised"
+                        : ""
                     }`
                   : "text-base-700"
               } PrsmToggleBar-item`
@@ -102,19 +117,19 @@ const ToggleBar: FC<ToggleBarProps> = ({
               className={strip(
                 `flex w-full h-full absolute top-0 left-0 rounded-md border-transparent ${
                   variant === "filled"
-                    ? "bg-primary-500 dark:bg-primary-700"
+                    ? "bg-primary-500 dark:bg-primary-700 PrsmToggleBar-itemBoxFilled"
                     : ""
                 } ${
                   variant === "smooth"
-                    ? "bg-primary-200 dark:bg-primary-700/20"
+                    ? "bg-primary-200 dark:bg-primary-700/20 PrsmToggleBar-itemBoxSmooth"
                     : ""
                 } ${
                   variant === "outlined"
-                    ? "!border-2 !border-primary-500 dark:!border-primary-700"
+                    ? "!border-2 !border-primary-500 dark:!border-primary-700 PrsmToggleBar-itemBoxOutlined"
                     : ""
                 } ${
                   variant === "raised"
-                    ? "bg-white dark:bg-base-900 shadow-lg dark:shadow-base-900"
+                    ? "bg-white dark:bg-base-900 shadow-lg dark:shadow-base-900 PrsmToggleBar-itemBoxRaised"
                     : ""
                 } PrsmToggleBar-itemBox`
               )}

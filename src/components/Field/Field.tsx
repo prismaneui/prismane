@@ -17,6 +17,7 @@ export interface FieldProps extends PrismaneComponent {
   value?: string | number;
   defaultValue?: string | number;
   handleChange?: Function;
+  textarea?: boolean;
 }
 
 /**
@@ -37,7 +38,10 @@ export interface FieldProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Field = forwardRef<HTMLInputElement, FieldProps>(
+const Field = forwardRef<
+  HTMLInputElement | HTMLTextAreaElement | any,
+  FieldProps
+>(
   (
     {
       name,
@@ -54,11 +58,29 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(
       value,
       defaultValue,
       handleChange,
-      style,
+      textarea,
       ...props
     },
     ref
   ) => {
+    const initial = {
+      id: name,
+      placeholder: placeholder,
+      type: type,
+      className: strip(
+        `text-sm w-full py-2 text-base-800 dark:text-base-300 placeholder:text-base-400 dark:placeholder:text-base-300 resize-none ${
+          textarea ? "h-20" : ""
+        } ${className ? className : ""} PrsmField-root`
+      ),
+      onFocus: onFocus,
+      onBlur: onBlur,
+      readOnly: readOnly,
+      minLength: min,
+      maxLength: max,
+      value: value,
+      defaultValue: defaultValue,
+    };
+
     const additional = !handleChange
       ? {
           ...register(name, {
@@ -72,27 +94,10 @@ const Field = forwardRef<HTMLInputElement, FieldProps>(
           ref,
         };
 
-    return (
-      <input
-        id={name}
-        placeholder={placeholder}
-        type={type}
-        className={strip(
-          `text-sm w-full py-2 text-base-800 dark:text-base-300 placeholder:text-base-400 dark:placeholder:text-base-300 ${
-            className ? className : ""
-          } PrsmField-root`
-        )}
-        style={style}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        readOnly={readOnly ? true : false}
-        minLength={min}
-        maxLength={max}
-        value={value}
-        defaultValue={defaultValue}
-        {...additional}
-        {...props}
-      />
+    return !textarea ? (
+      <input {...initial} {...additional} {...props} />
+    ) : (
+      <textarea {...initial} {...additional} {...props} />
     );
   }
 );
