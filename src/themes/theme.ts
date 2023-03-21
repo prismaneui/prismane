@@ -24,6 +24,11 @@ export const applyTheme = (theme: PrismaneMappedTheme | null): void => {
       return;
     }
 
+    if (property === "mode") {
+      root.classList.remove("dark", "light");
+      root.classList.add(theme[property] as string);
+    }
+
     root.style.setProperty(property, theme[property]);
   });
 };

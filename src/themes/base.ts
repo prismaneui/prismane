@@ -2,6 +2,7 @@ import twcolors from "tailwindcss/colors";
 import { PrismaneTheme } from "./utils";
 
 export const base: PrismaneTheme = {
+  mode: "light",
   colors: {
     primary: twcolors["indigo"],
     base: twcolors["slate"],

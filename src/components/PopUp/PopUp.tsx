@@ -64,7 +64,7 @@ const PopUp: FC<PopUpProps> = ({
                 <Button
                   variant="text"
                   color="base"
-                  className="hover:rotate-90 transition-all hover:bg-base-50"
+                  className="hover:rotate-90 transition-all hover:bg-base-100 dark:hover:bg-base-700/30"
                   onClick={() => setShown(false)}
                   icon={<X />}
                   action

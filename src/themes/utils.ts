@@ -12,6 +12,7 @@ interface PrismaneColors {
 }
 
 export interface PrismaneTheme {
+  mode?: "light" | "dark";
   colors?: {
     primary?: PrismaneColors;
     base?: PrismaneColors;
@@ -87,6 +88,7 @@ export const mapTheme = (config: PrismaneTheme): PrismaneMappedTheme | null => {
       config["animation-duration"]?.middle || "",
     "--prismane-animation-duration-long":
       config["animation-duration"]?.long || "",
+    mode: config.mode || "",
   };
 };
 
