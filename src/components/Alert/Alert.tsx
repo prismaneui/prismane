@@ -1,8 +1,6 @@
-"use client";
-
 import { FC, ReactNode, useEffect, useState } from "react";
 import { Warning, WarningOctagon, CheckCircle, X } from "phosphor-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 // Components
 import Animated from "../Animated";
 // Types

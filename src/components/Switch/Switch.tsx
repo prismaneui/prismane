@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useContext } from "react";
 import { Controller } from "react-hook-form";
 // Animated

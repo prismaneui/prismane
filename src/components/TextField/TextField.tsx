@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useContext, ReactNode, forwardRef } from "react";
 import { Eye, EyeClosed } from "phosphor-react";
 // Components

@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, FC, RefObject } from "react";
 // Types
 import { PrismaneComponent } from "../../types";

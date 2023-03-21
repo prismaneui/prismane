@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, ReactNode, useState } from "react";
 // Components
 import Card from "../Card/Card";
