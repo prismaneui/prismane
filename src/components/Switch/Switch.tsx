@@ -1,6 +1,7 @@
+"use client";
+
 import { FC, useContext } from "react";
 import { Controller } from "react-hook-form";
-import { motion } from "framer-motion";
 // Animated
 import Animated from "../Animated";
 // Context

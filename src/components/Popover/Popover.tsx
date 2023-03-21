@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, FC, ReactNode } from "react";
 // Components
 import ScopeHandler from "../ScopeHandler/ScopeHandler";

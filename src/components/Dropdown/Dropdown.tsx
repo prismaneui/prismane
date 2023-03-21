@@ -1,5 +1,6 @@
+"use client";
+
 import { FC, ReactNode, useState } from "react";
-import { MagnifyingGlass } from "phosphor-react";
 // Components
 import Card from "../Card/Card";
 import Animated from "../Animated";
