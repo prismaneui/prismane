@@ -115,7 +115,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
             <Animated
               entry="none"
               className={strip(
-                `flex w-full h-full absolute top-0 left-0 rounded-md border-transparent ${
+                `flex !w-full h-full absolute top-0 left-0 rounded-md border-transparent ${
                   variant === "filled"
                     ? "bg-primary-500 dark:bg-primary-700 PrsmToggleBar-itemBoxFilled"
                     : ""
