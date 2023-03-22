@@ -58,6 +58,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
       disableSpacing,
       empty,
       handleChange,
+      className,
       ...props
     },
     ref
@@ -92,7 +93,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
         name={name}
         disableSpacing={disableSpacing}
         {...props}
-        className="relative"
+        className={`relative ${className ? className : ""}`}
       >
         <div className="flex flex-col w-full">
           <div className="flex items-center w-full PrsmSelectField-root">

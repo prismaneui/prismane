@@ -17,7 +17,13 @@ export interface ChipProps extends PrismaneComponent {
     | "base";
 }
 
-const Chip: FC<ChipProps> = ({ icon, color, children, ...props }) => {
+const Chip: FC<ChipProps> = ({
+  icon,
+  color,
+  children,
+  className,
+  ...props
+}) => {
   return (
     <div
       className={strip(
@@ -57,7 +63,7 @@ const Chip: FC<ChipProps> = ({ icon, color, children, ...props }) => {
                   : ""
               }`
             : "bg-primary-100 dark:bg-primary-700/20 hover:bg-primary-200/80 dark:hover:bg-primary-700/30 text-primary-700 dark:text-primary-500"
-        } PrsmChip-root`
+        } ${className ? className : ""} PrsmChip-root`
       )}
       {...props}
     >

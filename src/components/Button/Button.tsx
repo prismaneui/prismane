@@ -162,7 +162,7 @@ const Button: FC<ButtonProps> = ({
           : ""
       } ${
         loading ? "pointer-events-none" : ""
-      } flex items-center justify-center disabled:pointer-events-none disabled:opacity-60 px-6 py-2.5 rounded-md transition-all duration-300 cursor-pointer ${
+      } flex items-center justify-center disabled:pointer-events-none disabled:opacity-60 px-6 py-2.5 rounded-md transition-all duration-300 cursor-pointer text-sm ${
         icon && children ? "gap-3 pl-4" : ""
       } ${round ? "rounded-full" : ""} ${
         action ? "!p-2 aspect-square w-fit" : ""
@@ -181,9 +181,7 @@ const Button: FC<ButtonProps> = ({
               {icon}
             </div>
           )}
-          <span className="text-sm text-inherit PrsmButton-text">
-            {children}
-          </span>
+          {children}
         </>
       )}
     </button>
