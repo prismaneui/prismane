@@ -33,7 +33,7 @@
     },
     "./style": "./dist/style.css"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.20.5",
     "@fontsource/poppins": "^4.5.10",
     "@storybook/addon-actions": "^6.5.14",
@@ -63,7 +63,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {
+  "devDependencies": {
     "acorn": "^7.4.1",
     "acorn-node": "^1.8.2",
     "acorn-walk": "^7.2.0",

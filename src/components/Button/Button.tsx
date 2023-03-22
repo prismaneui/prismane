@@ -181,7 +181,7 @@ const Button: FC<ButtonProps> = ({
               {icon}
             </div>
           )}
-          {children}
+          <span className="text-inherit">{children}</span>
         </>
       )}
     </button>

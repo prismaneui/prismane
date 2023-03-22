@@ -29,11 +29,6 @@ html {
   font-size: calc(4 * var(--prismane-spacing));
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   margin: 0;
   font-family: inherit;
@@ -57,43 +52,5 @@ input:-webkit-autofill {
 
   input {
     @apply bg-transparent focus:outline-none;
-  }
-
-  h1 {
-    @apply text-2xl;
-  }
-
-  h2 {
-    @apply text-xl;
-  }
-
-  h3 {
-    @apply text-lg;
-  }
-
-  h4 {
-    @apply text-base;
-  }
-
-  h5 {
-    @apply text-sm;
-  }
-
-  h6 {
-    @apply text-xs;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold text-base-800;
-  }
-
-  p,
-  span {
-    @apply text-base text-base-600;
   }
 }
