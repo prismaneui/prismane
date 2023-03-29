@@ -65,6 +65,26 @@ export const Icon = () => (
   </Form>
 );
 
+export const Default_Value = () => (
+  <Form submit={(values: any) => console.log(values)} className="w-96">
+    <SelectField
+      icon={<User />}
+      options={[
+        { element: "Gosho", value: "gosho" },
+        { element: "Ivan", value: "ivan" },
+        { element: "Petkan", value: "petkan" },
+      ]}
+      name="name_select"
+      placeholder="Choose a name"
+      label="Choose a name:"
+      defaultValue="gosho"
+    />
+    <Button variant="primary" submit>
+      Submit
+    </Button>
+  </Form>
+);
+
 export const No_Register = () => (
   <Form submit={(values: any) => console.log(values)} className="w-96">
     <SelectField

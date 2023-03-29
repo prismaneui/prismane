@@ -1,6 +1,13 @@
-import { ReactNode, StyleHTMLAttributes } from "react";
+import React from "react";
 
 export interface PrismaneComponent {
+  // onClick?: any;
+  // onHover?: (event?: React.MouseEvent<HTMLElement>) => void;
+  // onMouseOver?: (event?: React.MouseEvent<HTMLElement>) => void;
+  // onScroll?: (event?: React.UIEvent<HTMLElement>) => void;
+  // onChange?: (event?: React.ChangeEvent<HTMLElement>) => void;
+  // onFocus?: (event?: React.FocusEvent<HTMLElement>) => void;
+  // onBlur?: (event?: React.FocusEvent<HTMLElement>) => void;
   onClick?: any;
   onHover?: any;
   onMouseOver?: any;
@@ -9,8 +16,8 @@ export interface PrismaneComponent {
   onFocus?: any;
   onBlur?: any;
   className?: string;
-  style?: StyleHTMLAttributes<HTMLElement>;
-  children?: ReactNode | any;
+  style?: React.CSSProperties;
+  children?: React.ReactNode | any;
 }
 
 export type Animations =
@@ -45,3 +52,18 @@ export type Positions =
   | "left-end"
   | "left"
   | "left-start";
+
+export type Sizes = "xs" | "sm" | "base" | "md" | "lg";
+
+export type Colors =
+  | "primary"
+  | "base"
+  | "slate"
+  | "red"
+  | "orange"
+  | "green"
+  | "sky"
+  | "indigo"
+  | "pink";
+
+export type Actions = "error" | "warning" | "success" | "info";

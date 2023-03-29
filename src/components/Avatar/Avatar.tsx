@@ -1,6 +1,6 @@
 import { FC } from "react";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneComponent, Sizes } from "../../types";
 // Utils
 import { strip } from "../../utils/internal";
 
@@ -10,6 +10,7 @@ export interface AvatarProps extends PrismaneComponent {
   alt?: string;
   sizes?: string;
   color?: string;
+  size?: Sizes;
 }
 
 const Avatar: FC<AvatarProps> = ({
@@ -18,6 +19,7 @@ const Avatar: FC<AvatarProps> = ({
   alt,
   sizes,
   color,
+  size = "base",
   children,
   className,
   ...props
@@ -30,8 +32,12 @@ const Avatar: FC<AvatarProps> = ({
     <div
       className={strip(
         `h-full aspect-square overflow-hidden rounded-full ${
-          className ? className : ""
-        } PrsmAvatar-root`
+          size === "xs" ? "w-8 h-8" : ""
+        } ${size === "sm" ? "w-12 h-12" : ""} ${
+          size === "base" ? "w-16 h-16" : ""
+        } ${size === "md" ? "w-20 h-20" : ""} ${
+          size === "lg" ? "w-24 h-24" : ""
+        } ${className ? className : ""} PrsmAvatar-root`
       )}
       {...props}
     >

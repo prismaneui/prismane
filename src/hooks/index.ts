@@ -1,3 +1,4 @@
 import useAnimation from "./useAnimation";
+import useId from "./useId";
 
-export default { useAnimation };
+export default { useAnimation, useId };

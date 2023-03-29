@@ -15,56 +15,15 @@ export const Default = () => (
     submit={(values: any) => console.log(values)}
     initial={{ shape: "star" }}
   >
-    <div className="flex gap-5 flex-wrap">
+    <div className="flex gap-5 flex-col">
       <ToggleBar
         options={[
           { element: <Star size={20} />, value: "star" },
           { element: <Circle size={20} />, value: "circle" },
           { element: <Square size={20} />, value: "square" },
         ]}
-        name="shape_1"
+        name="shape"
         label=""
-        variant="filled"
-      />
-      <ToggleBar
-        options={[
-          { element: <Star size={20} />, value: "star" },
-          { element: <Circle size={20} />, value: "circle" },
-          { element: <Square size={20} />, value: "square" },
-        ]}
-        name="shape_2"
-        label=""
-        variant="smooth"
-      />
-      <ToggleBar
-        options={[
-          { element: <Star size={20} />, value: "star" },
-          { element: <Circle size={20} />, value: "circle" },
-          { element: <Square size={20} />, value: "square" },
-        ]}
-        name="shape_3"
-        label=""
-        variant="outlined"
-      />
-      <ToggleBar
-        options={[
-          { element: <Star size={20} />, value: "star" },
-          { element: <Circle size={20} />, value: "circle" },
-          { element: <Square size={20} />, value: "square" },
-        ]}
-        name="shape_4"
-        label=""
-        variant="raised"
-      />
-      <ToggleBar
-        options={[
-          { element: "First", value: "star" },
-          { element: "Second", value: "circle" },
-          { element: "Third", value: "square" },
-        ]}
-        name="shape_5"
-        label=""
-        variant="filled"
       />
     </div>
     <Button variant="primary" submit>
@@ -86,7 +45,27 @@ export const Labeled = () => (
       ]}
       name="shape"
       label="Choose a shape:"
-      variant="raised"
+    />
+    <Button variant="primary" submit>
+      Submit
+    </Button>
+  </Form>
+);
+
+export const No_Register = () => (
+  <Form submit={(values: any) => console.log(values)}>
+    <ToggleBar
+      options={[
+        { element: <Star size={20} />, value: "star" },
+        { element: <Circle size={20} />, value: "circle" },
+        { element: <Square size={20} />, value: "square" },
+      ]}
+      name="shape"
+      label="Choose a shape:"
+      defaultValue="circle"
+      handleChange={(v: any) => {
+        console.log(v);
+      }}
     />
     <Button variant="primary" submit>
       Submit

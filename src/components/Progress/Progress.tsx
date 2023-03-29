@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { Circle } from "phosphor-react";
 // Types
-import { PrismaneComponent } from "@/types";
+import { PrismaneComponent } from "../../types";
 // Utils
 import { strip } from "../../utils/internal";
 

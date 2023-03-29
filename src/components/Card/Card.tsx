@@ -7,7 +7,6 @@ import { PrismaneComponent } from "../../types";
 import { strip } from "../../utils/internal";
 
 export interface CardProps extends PrismaneComponent {
-  children: ReactNode;
   width?: string;
   height?: string;
   shadow?: boolean;

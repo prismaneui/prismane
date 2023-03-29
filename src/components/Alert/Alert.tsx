@@ -1,25 +1,27 @@
 import { FC, ReactNode, useEffect, useState } from "react";
-import { Warning, WarningOctagon, CheckCircle, X } from "phosphor-react";
+import { Warning, WarningOctagon, CheckCircle, Info, X } from "phosphor-react";
 import { AnimatePresence } from "framer-motion";
 // Components
 import Animated from "../Animated";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Actions, PrismaneComponent } from "../../types";
 // Utils
 import { strip } from "../../utils/internal";
 
 export interface AlertProps extends PrismaneComponent {
   children: ReactNode;
-  type: "warning" | "error" | "success";
+  variant: Actions;
   round?: boolean;
+  icon?: ReactNode;
   action?: ReactNode;
   timeout?: number | "infinite";
 }
 
 const Alert: FC<AlertProps> = ({
   children,
-  type,
+  variant,
   round,
+  icon,
   action,
   timeout,
   className,
@@ -44,16 +46,20 @@ const Alert: FC<AlertProps> = ({
         <Animated
           className={strip(
             `py-3 px-5 text-sm rounded-lg animate-slideInOut flex items-center justify-between gap-20 ${
-              type === "warning"
+              variant === "warning"
                 ? "bg-amber-100 dark:bg-amber-700/20 text-amber-700 dark:text-amber-500 PrsmAlert-warning"
                 : ""
             } ${
-              type === "error"
+              variant === "error"
                 ? "bg-red-100 dark:bg-red-700/20 text-red-700 dark:text-red-500 PrsmAlert-error"
                 : ""
             } ${
-              type === "success"
+              variant === "success"
                 ? "bg-green-100 dark:bg-green-700/20 text-green-700 dark:text-green-500 PrsmAlert-success"
+                : ""
+            } ${
+              variant === "info"
+                ? "bg-sky-100 dark:bg-sky-700/20 text-sky-700 dark:text-sky-500 PrsmAlert-info"
                 : ""
             } ${round ? "!rounded-full" : ""} ${
               className ? className : ""
@@ -64,24 +70,48 @@ const Alert: FC<AlertProps> = ({
           {...props}
         >
           <div className="flex items-center gap-4 PrsmAlert-icon">
-            {type === "warning" ? (
-              <Warning size={24} className="self-start PrsmAlert-iconWarning" />
+            {variant === "warning" ? (
+              icon ? (
+                icon
+              ) : (
+                <Warning
+                  size={24}
+                  className="self-start PrsmAlert-iconWarning"
+                />
+              )
             ) : (
               <></>
             )}
-            {type === "error" ? (
-              <WarningOctagon
-                size={24}
-                className="self-start PrsmAlert-iconError"
-              />
+            {variant === "error" ? (
+              icon ? (
+                icon
+              ) : (
+                <WarningOctagon
+                  size={24}
+                  className="self-start PrsmAlert-iconError"
+                />
+              )
             ) : (
               <></>
             )}
-            {type === "success" ? (
-              <CheckCircle
-                size={24}
-                className="self-start PrsmAlert-iconSuccess"
-              />
+            {variant === "success" ? (
+              icon ? (
+                icon
+              ) : (
+                <CheckCircle
+                  size={24}
+                  className="self-start PrsmAlert-iconSuccess"
+                />
+              )
+            ) : (
+              <></>
+            )}
+            {variant === "info" ? (
+              icon ? (
+                icon
+              ) : (
+                <Info size={24} className="self-start PrsmAlert-iconInfo" />
+              )
             ) : (
               <></>
             )}
@@ -92,7 +122,7 @@ const Alert: FC<AlertProps> = ({
           ) : (
             <Animated
               entry="fadeIn"
-              className="flex justify-center items-center w-6 h-6 aspect-square cursor-pointer focus:ring-1 rign-primary-200 PrsmAlert-defaultAction"
+              className="flex justify-center items-center w-6 h-6 aspect-square cursor-pointer PrsmAlert-defaultAction"
               whileHover={{
                 rotate: "90deg",
               }}

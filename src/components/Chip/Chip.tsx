@@ -1,25 +1,17 @@
 import { FC, ReactNode } from "react";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Colors, PrismaneComponent } from "../../types";
 // Utils
 import { strip } from "../../utils/internal";
 
 export interface ChipProps extends PrismaneComponent {
   icon?: ReactNode;
-  color?:
-    | "slate"
-    | "red"
-    | "orange"
-    | "green"
-    | "sky"
-    | "indigo"
-    | "pink"
-    | "base";
+  color?: Colors;
 }
 
 const Chip: FC<ChipProps> = ({
   icon,
-  color,
+  color = "primary",
   children,
   className,
   ...props

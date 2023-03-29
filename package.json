@@ -13,11 +13,10 @@
     "core"
   ],
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "setup-storybook": "$env:NODE_OPTIONS='--openssl-legacy-provider'"
+    "storybook": "yarn run setup-storybook && start-storybook -p 6006",
+    "setup-storybook": "set NODE_OPTIONS='--openssl-legacy-provider'",
+    "patch": "yarn build && npm version patch && npm publish"
   },
   "type": "module",
   "files": [
@@ -35,15 +34,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.20.5",
-    "@fontsource/poppins": "^4.5.10",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^6.5.14",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-vite": "^0.2.5",
-    "@storybook/react": "^6.5.14",
-    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "autoprefixer": "^10.4.13",
@@ -64,6 +54,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@fontsource/poppins": "^4.5.10",
+    "@storybook/addon-actions": "^6.5.14",
+    "@storybook/addon-essentials": "^6.5.14",
+    "@storybook/addon-interactions": "^6.5.14",
+    "@storybook/addon-links": "^6.5.14",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/react": "^6.5.14",
+    "@storybook/testing-library": "^0.0.13",
     "acorn": "^7.4.1",
     "acorn-node": "^1.8.2",
     "acorn-walk": "^7.2.0",
@@ -214,5 +213,5 @@
   "bugs": {
     "url": "https://github.com/spleafy/prismane/issues"
   },
-  "homepage": "https://github.com/spleafy/prismane#readme"
+  "homepage": "https://www.prismane.io"
 }

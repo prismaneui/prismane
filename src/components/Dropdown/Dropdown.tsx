@@ -22,7 +22,7 @@ const Dropdown: FC<DropdownProps> = ({
   ...props
 }) => {
   return (
-    <Animated entry={"slideBottom"} className="w-full">
+    <Animated entry={"slideBottom"} className="!w-full">
       <Card
         className="bg-white shadow-no-inset rounded-md grow !w-[unset] gap-2 PrsmDropdown-root"
         {...props}

@@ -72,7 +72,7 @@ const FieldWrapper: FC<FieldWrapperProps> = ({
               `text-xl flex items-center justify-center mr-1 ${
                 errors[name]
                   ? "text-red-500 dark:!text-red-700"
-                  : "text-base-600 dark:text-white"
+                  : "text-base-400 dark:text-base-500"
               } PrsmFieldWrapper-icon`
             )}
           >

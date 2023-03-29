@@ -1,4 +1,4 @@
-import { FC, useContext, ReactNode, useState, useEffect } from "react";
+import { FC, useContext, ReactNode } from "react";
 import { Controller } from "react-hook-form";
 // Components
 import Animated from "../Animated";
@@ -6,8 +6,10 @@ import Animated from "../Animated";
 import { FormContext } from "../../context";
 // Types
 import { PrismaneComponent } from "../../types";
+// Hooks
+import useId from "../../hooks/useId";
 // Utils
-import { generateUUID, strip } from "../../utils/internal";
+import { strip } from "../../utils/internal";
 
 export interface RadioProps extends PrismaneComponent {
   name: string;
@@ -18,11 +20,7 @@ export interface RadioProps extends PrismaneComponent {
 const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
   const { control } = useContext(FormContext);
 
-  const [uuid, setUuid] = useState("");
-
-  useEffect(() => {
-    setUuid(generateUUID());
-  }, []);
+  const uuid = useId();
 
   return (
     <div className="flex w-fit items-center gap-3">

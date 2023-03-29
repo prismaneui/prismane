@@ -1,25 +1,20 @@
-import { ReactNode, FC, useContext, useState, useEffect } from "react";
+import { ReactNode, FC, useContext, useState } from "react";
 // Components
 import FieldWrapper from "../FieldWrapper";
 import Field from "../Field";
-import Animated from "../Animated";
 // Context
 import { FormContext } from "../../context";
 // Types
-import { PrismaneComponent } from "@/types";
-// Utils
-import { generateUUID, strip } from "../../utils/internal";
+import { PrismaneComponent } from "../../types";
 
 interface ToggleBarProps extends PrismaneComponent {
   name: string;
   options: OptionsProps[];
   label: string;
   action?: ReactNode;
-  validating?: boolean;
   validators?: any;
-  value?: string | number;
-  variant: "filled" | "smooth" | "outlined" | "raised";
-  border?: boolean;
+  defaultValue?: string | number;
+  handleChange?: Function;
 }
 
 interface OptionsProps {
@@ -33,21 +28,16 @@ const ToggleBar: FC<ToggleBarProps> = ({
   action,
   validators,
   options,
-  value,
-  variant,
-  border,
+  defaultValue,
+  handleChange,
   className,
   ...props
 }) => {
   const { register, errors, setValue, getValues } = useContext(FormContext);
 
-  const [currentValue, setCurrentValue] = useState<ReactNode>(getValues(name));
-
-  const [uuid, setUuid] = useState("");
-
-  useEffect(() => {
-    setUuid(generateUUID());
-  }, []);
+  const [currentValue, setCurrentValue] = useState<ReactNode>(
+    defaultValue ? defaultValue : getValues(name)
+  );
 
   return (
     <FieldWrapper
@@ -55,11 +45,7 @@ const ToggleBar: FC<ToggleBarProps> = ({
       label={label}
       action={action}
       name={name}
-      className={strip(
-        `w-fit py-1 px-1 gap-2 overflow-hidden h-10 bg-base-200 ${
-          !border ? "border-none" : ""
-        } ${className ? className : ""} PrsmToggleBar-root`
-      )}
+      className="w-fit !h-10 !p-0 !gap-0 overflow-hidden group"
       {...props}
     >
       <Field
@@ -69,73 +55,37 @@ const ToggleBar: FC<ToggleBarProps> = ({
         type={"text"}
         validators={validators}
         className="hidden"
-        value={value}
+        defaultValue={defaultValue}
+        handleChange={handleChange ? () => {} : undefined}
       />
       {options.map((option: OptionsProps, index: number) => (
         <div
-          className="h-full px-4 flex items-center justify-center w-full rounded-md cursor-pointer transition-all relative PrsmToggleBar-box"
+          className={`p-3 !h-full flex items-center justify-center w-full cursor-pointer transition-all hover:bg-primary-100 dark:hover:bg-primary-700/20 text-primary-900 dark:text-white ${
+            index !== options.length - 1
+              ? "border-r border-base-300 dark:border-base-700 group-hover:border-primary-500 dark:group-hover:border-primary-700"
+              : ""
+          } ${
+            currentValue === option.value
+              ? "!bg-primary-200 dark:!bg-primary-700/30"
+              : ""
+          }`}
           onClick={() => {
-            setValue(name, option.value, {
-              shouldValidate: true,
-              shouldDirty: true,
-            });
+            if (!handleChange) {
+              setValue(name, option.value, {
+                shouldValidate: true,
+                shouldDirty: true,
+              });
+            }
 
             setCurrentValue(option.value);
+
+            if (handleChange) {
+              handleChange(option.value);
+            }
           }}
           key={index}
         >
-          <div
-            className={strip(
-              `flex z-10 transition-all duration-300 ${
-                currentValue === option.value
-                  ? `${
-                      variant === "filled"
-                        ? "text-white PrsmToggleBar-itemFilled"
-                        : ""
-                    } ${
-                      variant === "smooth"
-                        ? "text-primary-500 PrsmToggleBar-itemSmooth"
-                        : ""
-                    } ${
-                      variant === "outlined"
-                        ? "text-primary-500 PrsmToggleBar-itemOutlined"
-                        : ""
-                    } ${
-                      variant === "raised"
-                        ? "text-primary-500 PrsmToggleBar-itemRaised"
-                        : ""
-                    }`
-                  : "text-base-700"
-              } PrsmToggleBar-item`
-            )}
-          >
-            {option.element}
-          </div>
-          {currentValue === option.value && (
-            <Animated
-              entry="none"
-              className={strip(
-                `flex !w-full h-full absolute top-0 left-0 rounded-md border-transparent ${
-                  variant === "filled"
-                    ? "bg-primary-500 dark:bg-primary-700 PrsmToggleBar-itemBoxFilled"
-                    : ""
-                } ${
-                  variant === "smooth"
-                    ? "bg-primary-200 dark:bg-primary-700/20 PrsmToggleBar-itemBoxSmooth"
-                    : ""
-                } ${
-                  variant === "outlined"
-                    ? "!border-2 !border-primary-500 dark:!border-primary-700 PrsmToggleBar-itemBoxOutlined"
-                    : ""
-                } ${
-                  variant === "raised"
-                    ? "bg-white dark:bg-base-900 shadow-lg dark:shadow-base-900 PrsmToggleBar-itemBoxRaised"
-                    : ""
-                } PrsmToggleBar-itemBox`
-              )}
-              layoutId={`${name}-${uuid}`}
-            ></Animated>
-          )}
+          {option.element}
         </div>
       ))}
     </FieldWrapper>

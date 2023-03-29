@@ -16,7 +16,7 @@ import TextField from "../TextField";
 // Context
 import { FormContext } from "../../context";
 // Types
-import { PrismaneComponent } from "@/types";
+import { PrismaneComponent } from "../../types";
 
 interface SelectFieldProps extends PrismaneComponent {
   name: string;
@@ -67,7 +67,18 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
 
     const [expanded, setExpanded] = useState(false);
 
-    const [currentValue, setCurrentValue] = useState<ReactNode>(placeholder);
+    const [currentValue, setCurrentValue] = useState<ReactNode>(
+      defaultValue ? (
+        <span className="!text-base-800 dark:!text-base-300 !text-sm">
+          {
+            options.filter((option: any) => option.value === defaultValue)[0]
+              .element
+          }
+        </span>
+      ) : (
+        placeholder
+      )
+    );
 
     const [currentOptions, setCurrentOptions] = useState(options);
 
@@ -108,7 +119,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
               value={value}
               ref={ref}
               defaultValue={defaultValue}
-              handleChange={() => {}}
+              handleChange={handleChange ? () => {} : undefined}
             />
             <div
               onClick={() => {

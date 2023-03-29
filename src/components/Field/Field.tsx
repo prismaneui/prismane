@@ -68,7 +68,7 @@ const Field = forwardRef<
       placeholder: placeholder,
       type: type,
       className: strip(
-        `text-sm w-full py-2 text-base-800 dark:text-base-300 placeholder:text-base-400 dark:placeholder:text-base-300 resize-none ${
+        `text-sm w-full py-2 text-base-800 dark:text-base-300 placeholder:text-base-400 dark:placeholder:text-base-400 resize-none ${
           textarea ? "h-20" : ""
         } ${className ? className : ""} PrsmField-root`
       ),

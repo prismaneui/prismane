@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 // Components
 import Animated from "../Animated";
 // Types
-import { Positions, PrismaneComponent } from "../../types";
+import { Colors, Positions, PrismaneComponent } from "../../types";
 // Utils
 import { strip } from "../../utils/internal";
 
@@ -10,7 +10,7 @@ export interface BadgeProps extends PrismaneComponent {
   children: ReactNode;
   label: ReactNode;
   position?: Positions;
-  color?: string;
+  color?: Colors;
 }
 
 const Badge: FC<BadgeProps> = ({

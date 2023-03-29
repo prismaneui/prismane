@@ -13,34 +13,44 @@ export const Default = () => (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <h4>Error Alert</h4>
-        <Alert type="error">This is an error alert!</Alert>
+        <Alert variant="error">This is an error alert!</Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Warning Alert</h4>
-        <Alert type="warning">This is a warning alert!</Alert>
+        <Alert variant="warning">This is a warning alert!</Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Success Alert</h4>
-        <Alert type="success">This is a success alert!</Alert>
+        <Alert variant="success">This is a success alert!</Alert>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h4>Success Alert</h4>
+        <Alert variant="info">This is an info alert!</Alert>
       </div>
     </div>
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <h4>Error Alert Round</h4>
-        <Alert type="error" round>
+        <Alert variant="error" round>
           This is an error alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Warning Alert Round</h4>
-        <Alert type="warning" round>
+        <Alert variant="warning" round>
           This is a warning alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Success Alert Round</h4>
-        <Alert type="success" round>
+        <Alert variant="success" round>
           This is a success alert!
+        </Alert>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h4>Info Alert</h4>
+        <Alert variant="info" round>
+          This is an info alert!
         </Alert>
       </div>
     </div>
@@ -52,40 +62,52 @@ export const No_Timeout = () => (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <h4>Error Alert</h4>
-        <Alert timeout={"infinite"} type="error">
+        <Alert timeout={"infinite"} variant="error">
           This is an error alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Warning Alert</h4>
-        <Alert timeout={"infinite"} type="warning">
+        <Alert timeout={"infinite"} variant="warning">
           This is a warning alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Success Alert</h4>
-        <Alert timeout={"infinite"} type="success">
+        <Alert timeout={"infinite"} variant="success">
           This is a success alert!
+        </Alert>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h4>Info Alert</h4>
+        <Alert timeout={"infinite"} variant="info">
+          This is an info alert!
         </Alert>
       </div>
     </div>
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <h4>Error Alert Round</h4>
-        <Alert timeout={"infinite"} type="error" round>
+        <Alert timeout={"infinite"} variant="error" round>
           This is an error alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Warning Alert Round</h4>
-        <Alert timeout={"infinite"} type="warning" round>
+        <Alert timeout={"infinite"} variant="warning" round>
           This is a warning alert!
         </Alert>
       </div>
       <div className="flex flex-col gap-2">
         <h4>Success Alert Round</h4>
-        <Alert timeout={"infinite"} type="success" round>
+        <Alert timeout={"infinite"} variant="success" round>
           This is a success alert!
+        </Alert>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h4>Success Alert Round</h4>
+        <Alert timeout={"infinite"} variant="info" round>
+          This is an info alert!
         </Alert>
       </div>
     </div>
@@ -99,7 +121,7 @@ export const Custom_Action = () => (
         <h4>Error Alert</h4>
         <Alert
           timeout={"infinite"}
-          type="error"
+          variant="error"
           action={
             <Button variant="tertiary" color="error" className="py-2">
               See more
@@ -113,7 +135,7 @@ export const Custom_Action = () => (
         <h4>Warning Alert</h4>
         <Alert
           timeout={"infinite"}
-          type="warning"
+          variant="warning"
           action={
             <Button variant="tertiary" color="warning" className="py-2">
               See more
@@ -127,7 +149,7 @@ export const Custom_Action = () => (
         <h4>Success Alert</h4>
         <Alert
           timeout={"infinite"}
-          type="success"
+          variant="success"
           action={
             <Button variant="tertiary" color="success" className="py-2">
               See more
@@ -137,13 +159,27 @@ export const Custom_Action = () => (
           This is a success alert!
         </Alert>
       </div>
+      <div className="flex flex-col gap-2">
+        <h4>Info Alert</h4>
+        <Alert
+          timeout={"infinite"}
+          variant="info"
+          action={
+            <Button variant="tertiary" color="info" className="py-2">
+              See more
+            </Button>
+          }
+        >
+          This is an info alert!
+        </Alert>
+      </div>
     </div>
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <h4>Error Alert Round</h4>
         <Alert
           timeout={"infinite"}
-          type="error"
+          variant="error"
           action={
             <Button variant="tertiary" color="error" className="py-2" round>
               See more
@@ -158,7 +194,7 @@ export const Custom_Action = () => (
         <h4>Warning Alert Round</h4>
         <Alert
           timeout={"infinite"}
-          type="warning"
+          variant="warning"
           action={
             <Button variant="tertiary" color="warning" className="py-2" round>
               See more
@@ -173,7 +209,7 @@ export const Custom_Action = () => (
         <h4>Success Alert Round</h4>
         <Alert
           timeout={"infinite"}
-          type="success"
+          variant="success"
           action={
             <Button variant="tertiary" color="success" className="py-2" round>
               See more
@@ -182,6 +218,21 @@ export const Custom_Action = () => (
           round
         >
           This is a success alert!
+        </Alert>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h4>Success Alert Round</h4>
+        <Alert
+          timeout={"infinite"}
+          variant="info"
+          action={
+            <Button variant="tertiary" color="info" className="py-2" round>
+              See more
+            </Button>
+          }
+          round
+        >
+          This is an info alert!
         </Alert>
       </div>
     </div>

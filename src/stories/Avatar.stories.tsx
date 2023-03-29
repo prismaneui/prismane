@@ -10,23 +10,38 @@ export default {
 };
 
 export const Default = () => (
-  <div className="w-16 aspect-square">
-    <Avatar src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png" />
+  <div className="flex items-center gap-5">
+    <Avatar
+      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
+      size="xs"
+    />
+    <Avatar
+      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
+      size="sm"
+    />
+    <Avatar
+      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
+      size="base"
+    />
+    <Avatar
+      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
+      size="md"
+    />
+    <Avatar
+      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
+      size="lg"
+    />
   </div>
 );
 
 export const Letter = () => (
-  <div className="w-16 aspect-square">
-    <Avatar>
-      <Initials name="John Doe" />
-    </Avatar>
-  </div>
+  <Avatar>
+    <Initials name="John Doe" />
+  </Avatar>
 );
 
 export const Icon = () => (
-  <div className="w-16 aspect-square">
-    <Avatar>
-      <Skull size={24} />
-    </Avatar>
-  </div>
+  <Avatar>
+    <Skull size={24} />
+  </Avatar>
 );

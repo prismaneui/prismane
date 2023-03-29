@@ -17,10 +17,7 @@
     "outDir": "dist",
     "declaration": true,
     "declarationMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["src", "custom.d.ts"],
   "exclude": ["src/stories/**", "node_modules"]
