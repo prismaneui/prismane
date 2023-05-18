@@ -1,18 +1,22 @@
-import { FC, ReactNode } from "react";
+import { forwardRef, ForwardedRef, ReactNode } from "react";
 // Component
-import Paper from "../Paper/Paper";
+import Paper, { PaperProps } from "../Paper/Paper";
+import Flex from "../Flex/Flex";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Versatile, PrismaneWithInternal } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, fr } from "../../utils";
 
-export interface CardProps extends PrismaneComponent {
-  width?: string;
-  height?: string;
+// Internal Components
+import CardHeader, { CardHeaderProps } from "./CardHeader/CardHeader";
+import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
+
+export { type CardHeaderProps };
+export { type CardFooterProps };
+
+export type CardProps<E extends Versatile> = {
   shadow?: boolean;
-  header?: ReactNode;
-  actions?: ReactNode;
-}
+} & PaperProps<E>;
 
 /**
  * Card Props
@@ -25,39 +29,29 @@ export interface CardProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Card: FC<CardProps> = ({
-  children,
-  width,
-  height,
-  className,
-  shadow,
-  header,
-  actions,
-  ...props
-}) => {
-  return (
-    <Paper
-      className={strip(
-        `p-2 flex flex-col gap-5 ${className ? className : ""} PrsmCard-root`
-      )}
-      width={width}
-      height={height}
-      shadow={shadow}
-      {...props}
-    >
-      {header && (
-        <div className="flex overflow-hidden rounded-md PrsmCard-header">
-          {header}
-        </div>
-      )}
-      {children}
-      {actions && (
-        <div className="flex overflow-x-hidden gap-3 PrsmCard-actions">
-          {actions}
-        </div>
-      )}
-    </Paper>
-  );
-};
+const Card: PrismaneWithInternal<
+  CardProps<Versatile>,
+  { Header: CardHeaderProps; Footer: CardFooterProps }
+> = forwardRef(
+  <E extends Versatile>(
+    { children, className, shadow, ...props }: CardProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Paper
+        p={fr(2)}
+        className={strip(`${className ? className : ""} PrismaneCard-root`)}
+        shadow={shadow}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Paper>
+    );
+  }
+);
+
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
 
 export default Card;

@@ -1,77 +1,160 @@
-import { FC, useContext, ReactNode } from "react";
-import { Controller } from "react-hook-form";
+import { forwardRef } from "react";
 // Components
-import Animated from "../Animated";
+import Animation from "../Animation";
+import Field from "../Field/Field";
+import Flex, { FlexProps } from "../Flex/Flex";
+import Transition, { TransitionProps } from "../Transition/Transition";
+import Text from "../Text/Text";
 // Context
-import { FormContext } from "../../context";
+import { useRadioContext } from "./RadioContext";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneFieldComponent, PrismaneWithInternal } from "../../types";
 // Hooks
+import { useFieldProps } from "../Field";
 import useId from "../../hooks/useId";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface RadioProps extends PrismaneComponent {
-  name: string;
-  value: string;
-  label?: ReactNode;
-}
+// Internal Components
+import RadioGroup, { RadioGroupProps } from "./RadioGroup/RadioGroup";
 
-const Radio: FC<RadioProps> = ({ name, value, label, className, ...props }) => {
-  const { control } = useContext(FormContext);
+export { type RadioGroupProps };
 
-  const uuid = useId();
+export type RadioProps = FlexProps<"div"> &
+  TransitionProps<"div"> &
+  PrismaneFieldComponent;
 
-  return (
-    <div className="flex w-fit items-center gap-3">
-      <Controller
-        control={control}
-        name={name}
-        render={({
-          field: { onChange, onBlur, value: nameValue, name: fieldName },
-        }) => (
-          <label
+const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
+  forwardRef<HTMLInputElement, RadioProps>(
+    (
+      {
+        label,
+        error,
+        name,
+        value,
+        defaultValue,
+        size = "base",
+        onChange,
+        onBlur,
+        onFocus,
+        className,
+        sx,
+        ...props
+      },
+      ref
+    ) => {
+      const [rest, field] = useFieldProps(props);
+
+      const uuid = useId();
+
+      const group = useRadioContext();
+
+      return (
+        <Flex
+          as="label"
+          w="fit-content"
+          align="center"
+          gap={fr(2)}
+          op={field.disabled ? 0.4 : 1}
+          pe={field.disabled && "none"}
+          htmlFor={`${group.name || name}-${uuid}`}
+        >
+          <Transition
+            as={Flex}
+            transition="colors"
+            justify="center"
+            align="center"
+            w={variants(group.size || size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
+            })}
+            h={variants(group.size || size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
+            })}
+            bg={(theme) =>
+              value === group.value || !group.value
+                ? theme.mode === "dark"
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["primary", 500], { hover: ["primary", 600] }]
+                : theme.mode === "dark"
+                ? ["base", 800]
+                : ["base", 200]
+            }
+            br="full"
+            cs="pointer"
+            bdw={1}
+            bdc={(theme) =>
+              theme.mode === "dark"
+                ? value === group.value || !group.value
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["base", 700], { hover: ["base", 600] }]
+                : value === group.value || !group.value
+                ? [["primary", 500], { hover: ["primary", 600] }]
+                : [["base", 300], { hover: ["base", 400] }]
+            }
+            sx={{
+              aspectRatio: "1/1",
+              ...sx,
+            }}
             className={strip(
-              `${
-                value === nameValue
-                  ? "border-primary-500 dark:border-primary-700 hover:border-primary-600 PrsmRadio-active"
-                  : "border-base-400 dark:border-base-600 hover:border-base-500 PrsmRadio-inactive"
-              } focus:ring-1 border flex justify-center items-center aspect-square transition-colors rounded-full h-5 w-5 cursor-pointer ${
-                className ? className : ""
-              } PrsmRadio-root`
+              `${className ? className : ""} PrismaneRadio-root`
             )}
-            htmlFor={`${fieldName}-${uuid}`}
-            {...props}
+            {...rest}
           >
-            <input
-              id={`${fieldName}-${uuid}`}
-              name={name}
+            <Field
+              id={`${group.name || name}-${uuid}`}
+              name={group.name || name}
               type="radio"
-              className="hidden"
-              onBlur={onBlur}
-              onChange={onChange}
+              dp="none"
+              onBlur={group.onBlur || onBlur}
+              onChange={group.onChange || onChange}
+              onFocus={onFocus}
               value={value}
+              defaultValue={defaultValue}
+              ref={ref}
+              {...field}
             />
-            <Animated
-              className={strip(
-                `h-3 w-3 aspect-square rounded-full ${
-                  value === nameValue
-                    ? "bg-primary-500 dark:bg-primary-600 PrsmRadio-boxActive"
-                    : "PrsmRadio-boxInactive"
-                } PrsmRadio-box`
-              )}
-              entry="scaleIn"
-              exit="scaleOut"
-              alternate={value !== nameValue}
+            <Animation
+              h={variants(group.size || size, {
+                xs: fr(1.5),
+                sm: fr(2),
+                base: fr(2.5),
+                md: fr(3),
+                lg: fr(3.5),
+              })}
+              w={variants(group.size || size, {
+                xs: fr(1.5),
+                sm: fr(2),
+                base: fr(2.5),
+                md: fr(3),
+                lg: fr(3.5),
+              })}
+              br="full"
+              bg={(value === group.value || !group.value) && "white"}
+              sx={{
+                aspectRatio: "1/1",
+              }}
+              className="PrismaneRadio-thumb"
+              animation="scale"
+              animated={value === group.value}
             />
-          </label>
-        )}
-      />
-      <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
-        {label}
-      </div>
-    </div>
+          </Transition>
+          <Flex direction="column" align="center" gap={fr(2)}>
+            <Field.Label size={group.size || size}>{label}</Field.Label>
+            <Field.Error size={group.size || size}>{error}</Field.Error>
+          </Flex>
+        </Flex>
+      );
+    }
   );
-};
+
+Radio.Group = RadioGroup;
 
 export default Radio;

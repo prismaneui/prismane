@@ -1,22 +1,30 @@
-import { FC } from "react";
+import { ForwardedRef, forwardRef } from "react";
 // Components
-import Flex from "../Flex";
+import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Versatile } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-const Center: FC<PrismaneComponent> = ({ children, className, ...props }) => {
-  return (
-    <Flex
-      justify="center"
-      align="center"
-      className={strip(`${className ? className : ""} PrsmCenter-root`)}
-      {...props}
-    >
-      {children}
-    </Flex>
-  );
-};
+export type CenterProps<E extends Versatile> = FlexProps<E>;
+
+const Center = forwardRef(
+  <E extends Versatile>(
+    { children, className, ...props }: CenterProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Flex
+        justify="center"
+        align="center"
+        className={strip(`${className ? className : ""} PrismaneCenter-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Flex>
+    );
+  }
+);
 
 export default Center;

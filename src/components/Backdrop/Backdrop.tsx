@@ -1,22 +1,35 @@
-import { FC } from "react";
-// Types
-import { PrismaneComponent } from "../../types";
+import { forwardRef } from "react";
+// Components
+import Center, { CenterProps } from "../Center/Center";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-const Backdrop: FC<PrismaneComponent> = ({ children, className, ...props }) => {
-  return (
-    <div
-      className={strip(
-        `fixed w-full h-full flex justify-center items-center bg-base-900/20 dark:bg-base-900/80 z-20 top-0 left-0 ${
-          className ? className : ""
-        } PrsmBackdrop-root`
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-};
+export type BackdropProps = CenterProps<"div">;
+
+const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <Center
+        w="100vw"
+        h="100vh"
+        pos="fixed"
+        t={0}
+        l={0}
+        z={200}
+        sx={{
+          backdropFilter: "blur(4px)",
+        }}
+        bg={(theme) =>
+          theme.mode === "dark" ? ["base", 900, 0.2] : ["base", 500, 0.2]
+        }
+        className={strip(`${className ? className : ""} PrismaneBackdrop-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Center>
+    );
+  }
+);
 
 export default Backdrop;

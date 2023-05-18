@@ -1,4 +1,3 @@
-import base from "./base";
-import theme from "./theme";
-
-export default { ...base, ...theme };
+export { default as ThemeProvider } from "./ThemeProvider";
+export * from "./base";
+export * from "./theme";

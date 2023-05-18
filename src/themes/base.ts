@@ -1,23 +1,15 @@
-import twcolors from "tailwindcss/colors";
-import { PrismaneTheme } from "./utils";
+import { PrismaneTheme } from "../types";
+import { PRISMANE_COLORS } from "../constants";
 
 export const base: PrismaneTheme = {
   mode: "light",
   colors: {
-    primary: twcolors["indigo"],
-    base: twcolors["slate"],
+    primary: PRISMANE_COLORS.diamond,
+    base: PRISMANE_COLORS.slate,
   },
   spacing: "4px",
-  "animation-duration": {
-    short: "300ms",
-    middle: "500ms",
-    long: "700ms",
-  },
 };
-
-export const colors = twcolors;
 
 export default {
   base,
-  colors,
 };

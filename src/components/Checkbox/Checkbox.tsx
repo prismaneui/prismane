@@ -1,18 +1,20 @@
-import { FC, useContext, ReactNode } from "react";
-import { Controller } from "react-hook-form";
-// Animated
-import Animated from "../Animated";
-// Context
-import { FormContext } from "../../context";
+import { forwardRef } from "react";
+import { Check, Minus } from "@phosphor-icons/react";
+// Components
+import Animation from "../Animation/Animation";
+import Flex, { FlexProps } from "../Flex/Flex";
+import Transition, { TransitionProps } from "../Transition/Transition";
+import Field from "../Field/Field";
+// Hooks
+import { useFieldProps } from "../Field";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneFieldComponent } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface CheckboxProps extends PrismaneComponent {
-  name: string;
-  label?: ReactNode;
-}
+export type CheckboxProps = { indeterminate?: boolean } & FlexProps<"div"> &
+  TransitionProps<"div"> &
+  PrismaneFieldComponent;
 
 /**
  * Checkbox Params
@@ -21,49 +23,130 @@ export interface CheckboxProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Checkbox: FC<CheckboxProps> = ({ name, label, className, ...props }) => {
-  const { control } = useContext(FormContext);
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  (
+    {
+      indeterminate = false,
+      label,
+      error,
+      name,
+      value,
+      defaultValue,
+      size = "base",
+      onChange,
+      onBlur,
+      onFocus,
+      className,
+      sx,
+      ...props
+    },
+    ref
+  ) => {
+    const [rest, field] = useFieldProps(props);
 
-  return (
-    <div className="flex w-fit items-center gap-2">
-      <Controller
-        control={control}
-        name={name}
-        render={({ field: { onChange, onBlur, value, name: fieldName } }) => (
-          <label
-            className={strip(
-              `${
-                value
-                  ? "border-primary-500 dark:border-primary-700 hover:border-primary-600 PrsmCheckbox-active"
-                  : "border-base-400 dark:border-base-600 hover:border-base-500 PrsmCheckbox-inactive"
-              } border flex justify-center items-center aspect-square transition-colors rounded h-5 w-5 cursor-pointer ${
-                className ? className : ""
-              } PrsmCheckbox-root`
-            )}
-            htmlFor={fieldName}
-            {...props}
+    return (
+      <Flex
+        as="label"
+        w="fit-content"
+        align="center"
+        gap={fr(2)}
+        op={field.disabled ? 0.4 : 1}
+        pe={field.disabled && "none"}
+        htmlFor={name}
+      >
+        <Transition
+          as={Flex}
+          transition="colors"
+          justify="center"
+          align="center"
+          h={variants(size, {
+            xs: fr(3.5),
+            sm: fr(4),
+            base: fr(5),
+            md: fr(6),
+            lg: fr(7),
+          })}
+          w={variants(size, {
+            xs: fr(3.5),
+            sm: fr(4),
+            base: fr(5),
+            md: fr(6),
+            lg: fr(7),
+          })}
+          bg={(theme) =>
+            theme.mode === "dark" ? ["base", 800] : ["base", 200]
+          }
+          br="sm"
+          bdw={1}
+          bdc={(theme) =>
+            theme.mode === "dark"
+              ? value
+                ? [["primary", 700], { hover: ["primary", 600] }]
+                : [["base", 600], { hover: ["base", 500] }]
+              : value
+              ? [["primary", 500], { hover: ["primary", 600] }]
+              : [["base", 400], { hover: ["base", 500] }]
+          }
+          cs="pointer"
+          sx={{
+            aspectRatio: 1,
+            ...sx,
+          }}
+          className={strip(
+            `${className ? className : ""} ${
+              value ? "PrismaneCheckbox-active" : "PrismaneCheckbox-inactive"
+            } PrismaneCheckbox-root`
+          )}
+          {...rest}
+        >
+          <Field
+            id={name}
+            name={name}
+            type="checkbox"
+            dp="none"
+            onBlur={onBlur}
+            onChange={onChange}
+            onFocus={onFocus}
+            value={value}
+            defaultValue={defaultValue}
+            ref={ref}
+            {...field}
+          />
+          <Animation
+            as={Flex}
+            justify="center"
+            align="center"
+            w="100%"
+            h="100%"
+            fs={variants(size, {
+              xs: "xs",
+              sm: "sm",
+              base: "sm",
+              md: "base",
+              lg: "md",
+            })}
+            cl="white"
+            bg={(theme) =>
+              theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
+            }
+            br="xs"
+            className="PrismaneCheckbox-thumb"
+            animated={value}
+            animation={{
+              out: { opacity: 0, transform: "scale(0.8)" },
+              in: { opacity: 1, transform: "scale(1)" },
+            }}
           >
-            <input
-              id={fieldName}
-              type="checkbox"
-              className="hidden"
-              onBlur={onBlur}
-              onChange={onChange}
-            />
-            <Animated
-              className="h-3 w-3 aspect-square rounded-sm bg-primary-500 dark:bg-primary-600 PrsmCheckbox-box"
-              entry="scaleIn"
-              exit="scaleOut"
-              alternate={!value}
-            ></Animated>
-          </label>
-        )}
-      />
-      <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
-        {label}
-      </div>
-    </div>
-  );
-};
+            {indeterminate ? <Minus weight="bold" /> : <Check weight="bold" />}
+          </Animation>
+        </Transition>
+        <Flex direction="column" align="center" gap={fr(2)}>
+          <Field.Label size={size}>{label}</Field.Label>
+          <Field.Error size={size}>{error}</Field.Error>
+        </Flex>
+      </Flex>
+    );
+  }
+);
 
 export default Checkbox;

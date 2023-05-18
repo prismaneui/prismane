@@ -1,209 +1,201 @@
-import {
-  ReactNode,
-  useContext,
-  useState,
-  useRef,
-  forwardRef,
-  useEffect,
-} from "react";
-import { CaretDown, MagnifyingGlass } from "phosphor-react";
+import { forwardRef, useState, useRef, ReactNode } from "react";
+import { CaretUpDown } from "@phosphor-icons/react";
 // Components
-import FieldWrapper from "../FieldWrapper";
-import Field from "../Field";
-import Dropdown from "../Dropdown";
-import ScopeHandler from "../ScopeHandler";
-import TextField from "../TextField";
-// Context
-import { FormContext } from "../../context";
-// Types
-import { PrismaneComponent } from "../../types";
+import Field, { FieldProps } from "../Field/Field";
+import Menu from "../Menu/Menu";
+import Icon from "../Icon/Icon";
+import Flex from "../Flex/Flex";
+// Hooks
+import { useFieldProps } from "../Field";
+import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
+import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+import useOutsideClick from "../../hooks/useOutsideClick";
+// Utils
+import { strip, variants, fr } from "../../utils";
 
-interface SelectFieldProps extends PrismaneComponent {
-  name: string;
-  options: OptionsProps[];
-  placeholder: string;
-  label: string;
-  icon?: ReactNode;
-  action?: ReactNode;
-  validating?: boolean;
-  validators?: any;
-  value?: string | number;
-  defaultValue?: string | number;
-  search?: boolean;
-  readOnly?: boolean;
-  disableSpacing?: boolean;
-  empty?: ReactNode;
-  handleChange?: Function;
-}
+export type SelectFieldProps = {
+  options: { value: string; element: ReactNode }[];
+  item?: (
+    chosen: boolean,
+    value: string,
+    element: ReactNode,
+    active: boolean
+  ) => ReactNode;
+} & FieldProps<"input">;
 
-interface OptionsProps {
-  element: ReactNode;
-  value: string;
-}
+/**
+    SelectField component displays a dropdown menu to select an option from a list.
+    @param {object} props - The props object of SelectField component.
+    @param {array} [props.options] - The options to display in the dropdown menu, each object must have value and element keys.
+    @param {string} [props.placeholder] - The placeholder text for the SelectField.
+    @param {boolean} [props.readOnly] - Set to true to make the SelectField read-only.
+    @param {object} props.error - The error message to display in case of invalid input.
+    @param {string} props.size - The size of the SelectField component.
+    @param {string} [props.className] - The className of the SelectField component.
+    @param {string} props.label - The label for the SelectField component.
+    @param {function} [props.onChange] - The callback function to execute when the value of SelectField changes.
+    @returns {JSX.Element} Returns the SelectField component.
+    */
 
-const SelectField = forwardRef<HTMLInputElement, SelectFieldProps>(
+const SelectField = forwardRef<
+  HTMLInputElement | HTMLTextAreaElement,
+  SelectFieldProps
+>(
   (
-    {
-      name,
-      placeholder,
-      label,
-      icon,
-      action,
-      validators,
-      options,
-      value,
-      search,
-      defaultValue,
-      readOnly,
-      disableSpacing,
-      empty,
-      handleChange,
-      className,
-      ...props
-    },
+    { options, item, label, error, size = "base", className, ...props },
     ref
   ) => {
-    const { register, errors, setValue } = useContext(FormContext);
+    const [open, setOpen] = useState(false);
 
-    const [expanded, setExpanded] = useState(false);
+    let active = useRef(-1);
 
-    const [currentValue, setCurrentValue] = useState<ReactNode>(
-      defaultValue ? (
-        <span className="!text-base-800 dark:!text-base-300 !text-sm">
-          {
-            options.filter((option: any) => option.value === defaultValue)[0]
-              .element
-          }
-        </span>
-      ) : (
-        placeholder
-      )
+    const fieldRef = useRef(ref || null);
+
+    const wrapperRef = useRef(null);
+
+    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+
+    useOutsideClick(wrapperRef, () => {
+      setOpen(false);
+      active.current = -1;
+    });
+
+    const [rest, field] = useFieldProps(props);
+
+    useKeyboardShortcut(
+      ["arrowdown"],
+      () => {
+        active.current =
+          active.current === options.length - 1 ? 0 : active.current + 1;
+      },
+      open
     );
 
-    const [currentOptions, setCurrentOptions] = useState(options);
+    useKeyboardShortcut(
+      ["arrowup"],
+      () => {
+        active.current =
+          active.current <= 0 ? options.length - 1 : active.current - 1;
+      },
+      open
+    );
 
-    const searchRef: any = useRef(null);
+    useKeyboardShortcut(
+      ["enter"],
+      () => {
+        const value = options[active.current]?.value;
 
-    useEffect(() => {
-      if (expanded && searchRef.current) {
-        searchRef.current.focus();
-      }
-    }, [expanded]);
+        if (value !== undefined) {
+          emulateChange(value);
+          setOpen(false);
+          active.current = -1;
+        }
+      },
+      open
+    );
 
-    const close = () => {
-      setExpanded(false);
-      setCurrentOptions(options);
-    };
+    useKeyboardShortcut(
+      ["escape"],
+      () => {
+        setOpen(false);
+        active.current = -1;
+      },
+      open
+    );
 
     return (
-      <FieldWrapper
-        errors={errors}
-        label={label}
-        icon={icon}
-        action={action}
-        name={name}
-        disableSpacing={disableSpacing}
-        {...props}
-        className={`relative ${className ? className : ""}`}
-      >
-        <div className="flex flex-col w-full">
-          <div className="flex items-center w-full PrsmSelectField-root">
-            <Field
-              name={name}
-              placeholder={placeholder}
-              register={register}
-              type={"text"}
-              validators={validators}
-              readOnly={true}
-              className="cursor-pointer hidden"
-              value={value}
-              ref={ref}
-              defaultValue={defaultValue}
-              handleChange={handleChange ? () => {} : undefined}
-            />
-            <div
-              onClick={() => {
-                setExpanded(true);
-              }}
-              className="text-sm w-full py-2 text-base-400 cursor-pointer PrsmSelectField-box"
-            >
-              {currentValue}
-            </div>
-            {!errors[name] && <CaretDown className="text-gray-400" />}
-          </div>
-          {expanded ? (
-            <ScopeHandler
-              onEvent={() => {
-                close();
-              }}
-              className="flex flex-col !w-full grow absolute top-12 left-0"
-            >
-              <Dropdown
-                search={search}
-                items={currentOptions?.map(
-                  (option: OptionsProps, index: number) => (
-                    <div
-                      className="w-full"
-                      onClick={() => {
-                        if (!handleChange) {
-                          setValue(name, option.value, {
-                            shouldValidate: true,
-                            shouldDirty: true,
-                          });
-                        }
-
-                        setCurrentValue(
-                          <span className="!text-base-800 dark:!text-base-300 !text-sm">
-                            {option.element}
-                          </span>
-                        );
-
-                        if (handleChange) {
-                          handleChange(option.value);
-                        }
-
-                        close();
-                      }}
-                      key={index}
+      <Field.Wrapper size={size} ref={wrapperRef} {...rest}>
+        <Field.Label size={size}>{label}</Field.Label>
+        <Field
+          type="text"
+          size={size}
+          error={error}
+          onClick={() => setOpen(true)}
+          py={"0"}
+          addons={
+            <>
+              <Field.Addon>
+                <Icon
+                  size={variants(size, {
+                    xs: fr(4),
+                    sm: fr(4.5),
+                    base: fr(5),
+                    md: fr(6),
+                    lg: fr(7.5),
+                  })}
+                  cl={[["base", 500], { hover: ["primary", 500] }]}
+                >
+                  <CaretUpDown />
+                </Icon>
+              </Field.Addon>
+            </>
+          }
+          className={strip(
+            `${className ? className : ""} PrismaneSelectField-root`
+          )}
+          readOnly
+          ref={fieldRef}
+          {...field}
+        />
+        <Flex pos="relative">
+          <Flex pos="absolute" t={0} w="100%">
+            <Menu open={open} maw="100%" wrap="wrap" grow>
+              {options.map((option, index) => (
+                <Flex
+                  onClick={() => {
+                    emulateChange(option.value);
+                    setOpen(false);
+                  }}
+                  className="PrismaneSelectField-item"
+                  key={index}
+                >
+                  {!item ? (
+                    <Menu.Item
+                      w="100%"
+                      bg={(theme) =>
+                        theme.mode === "dark"
+                          ? option.value === props.value
+                            ? ["primary", 600]
+                            : [
+                                active.current === index
+                                  ? ["base", 700, 0.4]
+                                  : "transparent",
+                                { hover: ["base", 700, 0.4] },
+                              ]
+                          : option.value === props.value
+                          ? ["primary", 500]
+                          : [
+                              active.current === index
+                                ? ["base", 500, 0.15]
+                                : "transparent",
+                              { hover: ["base", 500, 0.15] },
+                            ]
+                      }
+                      cl={(theme) =>
+                        theme.mode === "dark"
+                          ? ["base", 200]
+                          : option.value === props.value
+                          ? "white"
+                          : ["base", 700]
+                      }
                     >
                       {option.element}
-                    </div>
-                  )
-                )}
-                empty={
-                  empty ? (
-                    empty
+                    </Menu.Item>
                   ) : (
-                    <span className="text-sm text-center PrsmSelectField-emptySearch">
-                      No items found!
-                    </span>
-                  )
-                }
-              >
-                {search && (
-                  <TextField
-                    name=""
-                    label=""
-                    placeholder="Search"
-                    icon={<MagnifyingGlass />}
-                    handleChange={(v: any) => {
-                      setCurrentOptions(
-                        options.filter((option) =>
-                          option.value.toLowerCase().includes(v.toLowerCase())
-                        )
-                      );
-                    }}
-                    ref={searchRef}
-                    disableSpacing
-                  />
-                )}
-              </Dropdown>
-            </ScopeHandler>
-          ) : (
-            <></>
-          )}
-        </div>
-      </FieldWrapper>
+                    item(
+                      option.value === props.value,
+                      option.value,
+                      option.element,
+                      active.current === index
+                    )
+                  )}
+                </Flex>
+              ))}
+            </Menu>
+          </Flex>
+        </Flex>
+        <Field.Error size={size}>{error}</Field.Error>
+      </Field.Wrapper>
     );
   }
 );

@@ -1,50 +1,48 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 // Components
-import Box from "../Box";
+import Square, { SquareProps } from "../Square/Square";
 // Types
-import { PrismaneComponent, Sizes, Colors } from "../../types";
+import {
+  PrismaneBreakpoints,
+  PrismaneComponent,
+  PrismaneStyles,
+} from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, dual, fr } from "../../utils";
 
-interface IconProps extends PrismaneComponent {
-  size?: Sizes;
-  color?: Colors | "white";
-}
+export type IconProps = {
+  size?: PrismaneStyles | PrismaneBreakpoints;
+} & SquareProps<"div">;
 
-const Icon: FC<IconProps> = ({
-  size = "base",
-  color = "white",
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <Box
-      element="span"
-      className={strip(
-        `${color === "slate" ? `text--500slate` : ""} ${
-          color === "red" ? `text-red-500` : ""
-        } ${color === "orange" ? `text-orange-500` : ""} ${
-          color === "green" ? `text-green-500` : ""
-        } ${color === "sky" ? `text-sky-500` : ""} ${
-          color === "indigo" ? `text-indigo-500` : ""
-        } ${color === "pink" ? `text-pink-500` : ""} ${
-          color === "base" ? `text-base-500` : ""
-        } ${color === "primary" ? `text-primary-500` : ""} ${
-          color === "white" ? `text-white` : ""
-        } ${size === "xs" ? "w-6 text-base" : ""} ${
-          size === "sm" ? "w-7 text-lg" : ""
-        } ${size === "base" ? "w-8 text-xl" : ""} ${
-          size === "md" ? "w-9 text-2xl" : ""
-        } ${size === "lg" ? "w-10 text-3xl" : ""} ${
-          className ? className : ""
-        } rounded flex items-center justify-center w-fit aspect-square PrsmIcon-root`
-      )}
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-};
+const Icon = forwardRef<HTMLDivElement, IconProps>(
+  ({ size = "base", children, className, sx, ...props }, ref) => {
+    return (
+      <Square
+        size={dual(size, {
+          xs: fr(4),
+          sm: fr(5),
+          base: fr(6),
+          md: fr(7),
+          lg: fr(8),
+        })}
+        className={strip(`${className ? className : ""} PrismaneIcon-root`)}
+        sx={{
+          fontSize: dual(size, {
+            xs: fr(4),
+            sm: fr(5),
+            base: fr(6),
+            md: fr(7),
+            lg: fr(8),
+          }),
+          ...sx,
+        }}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Square>
+    );
+  }
+);
 
 export default Icon;

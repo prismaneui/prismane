@@ -1,41 +1,35 @@
-import { FC } from "react";
+import { ForwardedRef, forwardRef } from "react";
+// Components
+import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Versatile } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-export interface PaperProps extends PrismaneComponent {
-  width?: string;
-  height?: string;
+export type PaperProps<E extends Versatile> = {
   shadow?: boolean;
-}
+} & FlexProps<E>;
 
-const Paper: FC<PaperProps> = ({
-  width,
-  height,
-  children,
-  className,
-  style,
-  shadow,
-  ...props
-}) => {
-  return (
-    <div
-      className={strip(
-        `bg-white dark:bg-base-800 flex flex-col rounded-md overflow-hidden ${
-          shadow ? "shadow-md" : ""
-        } ${className ? className : ""} PrsmPaper-root`
-      )}
-      style={{
-        width: width ? width : "fit-content",
-        height: height ? height : "fit-content",
-        ...style,
-      }}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-};
+const Paper = forwardRef(
+  <E extends Versatile>(
+    { children, className, shadow, ...props }: PaperProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Flex
+        direction="column"
+        br="md"
+        bg={(theme) => (theme.mode === "dark" ? ["base", 800] : "white")}
+        of="hidden"
+        bsh={shadow && "base"}
+        className={strip(`${className ? className : ""} PrismanePaper-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Flex>
+    );
+  }
+);
 
 export default Paper;

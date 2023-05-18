@@ -1,15 +1,13 @@
 import { useState } from "react";
 
-const useAnimation = (length: string) => {
-  const duration = Number(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue(`--prismane-animation-duration-${length}`)
-      .split("ms")[0]
-  );
+const useAnimation = (initial = false, duration = 150, timing = "ease") => {
+  const [animating, setAnimating] = useState(initial);
 
-  const [alternate, setAlternate] = useState(false);
+  const animate = () => {
+    setAnimating(!animating);
+  };
 
-  return { alternate, setAlternate, duration };
+  return { animating, animate, duration, timing };
 };
 
 export default useAnimation;

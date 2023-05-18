@@ -1,142 +1,197 @@
-import { FC, ReactNode, useEffect, useState } from "react";
-import { Warning, WarningOctagon, CheckCircle, Info, X } from "phosphor-react";
-import { AnimatePresence } from "framer-motion";
+import { forwardRef, ReactNode, useState } from "react";
+import {
+  Warning,
+  WarningOctagon,
+  CheckCircle,
+  Info,
+} from "@phosphor-icons/react";
 // Components
-import Animated from "../Animated";
+import Animation, { AnimationProps } from "../Animation/Animation";
+import Flex, { FlexProps } from "../Flex/Flex";
+import Text from "../Text/Text";
+import CloseButton from "../CloseButton/CloseButton";
+// Hooks
+import useAnimation from "../../hooks/useAnimation";
+import usePresence from "../../hooks/usePresence";
 // Types
-import { Actions, PrismaneComponent } from "../../types";
+import { PrismaneActions, PrismaneWithInternal } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface AlertProps extends PrismaneComponent {
-  children: ReactNode;
-  variant: Actions;
-  round?: boolean;
+// Internal Components
+import AlertTitle, { AlertTitleProps } from "./AlertTitle/AlertTitle";
+import AlertDescription, {
+  AlertDescriptionProps,
+} from "./AlertDescription/AlertDescription";
+
+export { type AlertTitleProps };
+export { type AlertDescriptionProps };
+
+export type AlertProps = {
+  variant?: PrismaneActions;
   icon?: ReactNode;
   action?: ReactNode;
-  timeout?: number | "infinite";
-}
+  duration?: number | "infinite";
+  closable?: boolean;
+} & AnimationProps<"div"> &
+  FlexProps<"div">;
 
-const Alert: FC<AlertProps> = ({
-  children,
-  variant,
-  round,
-  icon,
-  action,
-  timeout,
-  className,
-  ...props
-}) => {
-  const [shown, setShown] = useState(true);
+const Alert: PrismaneWithInternal<
+  AlertProps,
+  {
+    Title: AlertTitleProps;
+    Description: AlertDescriptionProps;
+  }
+> = forwardRef<HTMLDivElement, AlertProps>(
+  (
+    { variant = "info", icon, action, closable, children, className, ...props },
+    ref
+  ) => {
+    const [shown, setShown] = useState(true);
 
-  useEffect(() => {
-    if (timeout !== "infinite") {
-      setTimeout(
-        () => {
-          setShown(false);
-        },
-        timeout ? timeout : 5000
-      );
-    }
-  }, []);
+    const { animate, animating, duration, timing } = useAnimation(
+      shown as boolean
+    );
 
-  return (
-    <AnimatePresence>
-      {shown && (
-        <Animated
-          className={strip(
-            `py-3 px-5 text-sm rounded-lg animate-slideInOut flex items-center justify-between gap-20 ${
-              variant === "warning"
-                ? "bg-amber-100 dark:bg-amber-700/20 text-amber-700 dark:text-amber-500 PrsmAlert-warning"
-                : ""
-            } ${
-              variant === "error"
-                ? "bg-red-100 dark:bg-red-700/20 text-red-700 dark:text-red-500 PrsmAlert-error"
-                : ""
-            } ${
-              variant === "success"
-                ? "bg-green-100 dark:bg-green-700/20 text-green-700 dark:text-green-500 PrsmAlert-success"
-                : ""
-            } ${
-              variant === "info"
-                ? "bg-sky-100 dark:bg-sky-700/20 text-sky-700 dark:text-sky-500 PrsmAlert-info"
-                : ""
-            } ${round ? "!rounded-full" : ""} ${
-              className ? className : ""
-            } PrsmAlert-root`
-          )}
-          entry="fadeIn"
-          presence="fadeOut"
-          {...props}
-        >
-          <div className="flex items-center gap-4 PrsmAlert-icon">
-            {variant === "warning" ? (
-              icon ? (
-                icon
+    const presence = usePresence(shown as boolean, duration, animate);
+
+    return (
+      <>
+        {presence && (
+          <Animation
+            as={Flex}
+            justify="between"
+            align="center"
+            gap={fr(20)}
+            animation="fade"
+            animated={animating}
+            duration={duration}
+            timing={timing}
+            py={fr(3)}
+            px={fr(4)}
+            br="base"
+            dp="flex"
+            bg={(theme) =>
+              theme.mode === "dark"
+                ? variants(variant, {
+                    warning: ["copper", 700, 0.2],
+                    error: ["red", 700, 0.2],
+                    success: ["green", 700, 0.2],
+                    info: ["diamond", 700, 0.2],
+                  })
+                : variants(variant, {
+                    warning: ["copper", 500, 0.2],
+                    error: ["red", 500, 0.2],
+                    success: ["green", 500, 0.2],
+                    info: ["diamond", 500, 0.2],
+                  })
+            }
+            cl={(theme) =>
+              theme.mode === "dark"
+                ? variants(variant, {
+                    warning: ["copper", 500],
+                    error: ["red", 500],
+                    success: ["green", 500],
+                    info: ["diamond", 500],
+                  })
+                : variants(variant, {
+                    warning: ["copper", 700],
+                    error: ["red", 700],
+                    success: ["green", 700],
+                    info: ["diamond", 700],
+                  })
+            }
+            className={strip(
+              `${className ? className : ""} PrismaneAlert-root`
+            )}
+            ref={ref}
+            {...props}
+          >
+            <Flex align="center" gap={fr(4)} className="PrismaneAlert-icon">
+              {variant === "warning" ? (
+                icon ? (
+                  icon
+                ) : (
+                  <Warning
+                    size={24}
+                    className="PrismaneAlert-iconWarning"
+                    style={{ alignSelf: "flex-start" }}
+                  />
+                )
               ) : (
-                <Warning
-                  size={24}
-                  className="self-start PrsmAlert-iconWarning"
+                <></>
+              )}
+              {variant === "error" ? (
+                icon ? (
+                  icon
+                ) : (
+                  <WarningOctagon
+                    size={24}
+                    className="PrismaneAlert-iconError"
+                    style={{ alignSelf: "flex-start" }}
+                  />
+                )
+              ) : (
+                <></>
+              )}
+              {variant === "success" ? (
+                icon ? (
+                  icon
+                ) : (
+                  <CheckCircle
+                    size={24}
+                    className="PrismaneAlert-iconSuccess"
+                    style={{ alignSelf: "flex-start" }}
+                  />
+                )
+              ) : (
+                <></>
+              )}
+              {variant === "info" ? (
+                icon ? (
+                  icon
+                ) : (
+                  <Info
+                    size={24}
+                    className="PrismaneAlert-iconInfo"
+                    style={{ alignSelf: "flex-start" }}
+                  />
+                )
+              ) : (
+                <></>
+              )}
+
+              <Text fs="sm">
+                <Flex direction="column" gap={fr(2)}>
+                  {children}
+                </Flex>
+              </Text>
+            </Flex>
+            {closable &&
+              (action ? (
+                action
+              ) : (
+                <CloseButton
+                  size="sm"
+                  color={variants(variant, {
+                    warning: "copper",
+                    error: "red",
+                    success: "green",
+                    info: "diamond",
+                  })}
+                  onClick={() => {
+                    setShown(false);
+                  }}
                 />
-              )
-            ) : (
-              <></>
-            )}
-            {variant === "error" ? (
-              icon ? (
-                icon
-              ) : (
-                <WarningOctagon
-                  size={24}
-                  className="self-start PrsmAlert-iconError"
-                />
-              )
-            ) : (
-              <></>
-            )}
-            {variant === "success" ? (
-              icon ? (
-                icon
-              ) : (
-                <CheckCircle
-                  size={24}
-                  className="self-start PrsmAlert-iconSuccess"
-                />
-              )
-            ) : (
-              <></>
-            )}
-            {variant === "info" ? (
-              icon ? (
-                icon
-              ) : (
-                <Info size={24} className="self-start PrsmAlert-iconInfo" />
-              )
-            ) : (
-              <></>
-            )}
-            {children}
-          </div>
-          {action ? (
-            action
-          ) : (
-            <Animated
-              entry="fadeIn"
-              className="flex justify-center items-center w-6 h-6 aspect-square cursor-pointer PrsmAlert-defaultAction"
-              whileHover={{
-                rotate: "90deg",
-              }}
-              onClick={() => {
-                setShown(false);
-              }}
-            >
-              <X size={24} />
-            </Animated>
-          )}
-        </Animated>
-      )}
-    </AnimatePresence>
-  );
-};
+              ))}
+          </Animation>
+        )}
+      </>
+    );
+  }
+);
+
+Alert.Title = AlertTitle;
+Alert.Description = AlertDescription;
 
 export default Alert;

@@ -1,81 +1,94 @@
-import { FC } from "react";
+import { forwardRef, ForwardedRef } from "react";
 // Components
-import Box from "../Box";
+import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneStyles, Versatile } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants } from "../../utils";
 
-interface FlexProps extends PrismaneComponent {
+export type FlexProps<E extends Versatile> = {
   justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
   align?: "start" | "end" | "center" | "baseline" | "stretch";
-  gap?: string;
-  direction?: "row" | "row-reverse" | "col" | "col-reverse";
+  gap?: PrismaneStyles;
+  direction?: "row" | "row-reverse" | "column" | "column-reverse";
   self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
-  basis?: string;
+  basis?: PrismaneStyles | string;
   grow?: boolean;
   shrink?: boolean;
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
-}
+} & BoxProps<E>;
 
-const Flex: FC<FlexProps> = ({
-  justify = "start",
-  align = "start",
-  gap,
-  direction = "row",
-  self = "auto",
-  basis,
-  grow = false,
-  shrink = true,
-  wrap = "nowrap",
-  children,
-  className,
-  style,
-  ...props
-}) => {
-  return (
-    <Box
-      className={strip(
-        `flex ${justify === "start" ? "justify-start" : ""} ${
-          justify === "end" ? "justify-end" : ""
-        } ${justify === "center" ? "justify-center" : ""} ${
-          justify === "between" ? "justify-between" : ""
-        } ${justify === "around" ? "justify-around" : ""} ${
-          justify === "evenly" ? "justify-evenly" : ""
-        } ${justify === "around" ? "justify-around" : ""} ${
-          align === "start" ? "items-start" : ""
-        } ${align === "end" ? "items-end" : ""} ${
-          align === "center" ? "items-center" : ""
-        } ${align === "baseline" ? "items-baseline" : ""} ${
-          align === "stretch" ? "items-stretch" : ""
-        } ${align === "baseline" ? "items-baseline" : ""} ${
-          direction === "row" ? "flex-row" : ""
-        } ${direction === "row-reverse" ? "flex-row-reverse" : ""} ${
-          direction === "col" ? "flex-col" : ""
-        } ${direction === "col-reverse" ? "flex-col-reverse" : ""} ${
-          self === "auto" ? "self-auto" : ""
-        } ${self === "start" ? "self-start" : ""} ${
-          self === "end" ? "self-end" : ""
-        } ${self === "center" ? "self-center" : ""} ${
-          self === "stretch" ? "self-stretch" : ""
-        } ${self === "baseline" ? "self-baseline" : ""} ${
-          grow ? "grow" : "grow-0"
-        } ${shrink ? "shrink" : "shrink-0"} ${
-          wrap === "nowrap" ? "flex-nowrap" : ""
-        } ${wrap === "wrap" ? "flex-wrap" : ""} ${
-          wrap === "wrap-reverse" ? "flex-wrap-reverse" : ""
-        } ${className ? className : ""} PrsmFlex-root`
-      )}
-      style={{
-        flexBasis: basis,
-        gap,
-        ...style,
-      }}
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-};
+const Flex = forwardRef(
+  <E extends Versatile>(
+    {
+      justify,
+      align,
+      gap,
+      direction,
+      self,
+      basis,
+      grow,
+      shrink,
+      wrap,
+      children,
+      className,
+      sx,
+      ...props
+    }: FlexProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Box
+        dp="flex"
+        sx={{
+          justifyContent: variants(justify, {
+            start: "flex-start",
+            end: "flex-end",
+            center: "center",
+            between: "space-between",
+            around: "space-around",
+            evenly: "space-evenly",
+          }),
+          alignItems: variants(align, {
+            start: "flex-start",
+            end: "flex-end",
+            center: "center",
+            baseline: "baseline",
+            stretch: "stretch",
+          }),
+          flexDirection: variants(direction, {
+            row: "row",
+            "row-reverse": "row-reverse",
+            column: "column",
+            "column-reverse": "column-reverse",
+          }),
+          alignSelf: variants(self, {
+            auto: "auto",
+            start: "flex-start",
+            end: "flex-end",
+            center: "center",
+            stretch: "stretch",
+            baseline: "baseline",
+          }),
+          flexWrap: variants(wrap, {
+            nowrap: "nowrap",
+            wrap: "wrap",
+            "wrap-reverse": "wrap-reverse",
+          }),
+          flexGrow: grow ? 1 : 0,
+          flexShrink: shrink ? 1 : 0,
+          flexBasis: basis,
+          gap: gap,
+          ...sx,
+        }}
+        className={strip(`${className ? className : ""} PrismaneFlex-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
 
 export default Flex;

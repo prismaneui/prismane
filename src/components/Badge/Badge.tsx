@@ -1,128 +1,126 @@
-import { FC, ReactNode } from "react";
+import { ForwardedRef, forwardRef, ReactNode } from "react";
 // Components
-import Animated from "../Animated";
+import Box from "../Box/Box";
+import Circle, { CircleProps } from "../Circle/Circle";
+import Text from "../Text/Text";
 // Types
-import { Colors, Positions, PrismaneComponent } from "../../types";
+import {
+  PrismaneColors,
+  PrismanePositions,
+  Versatile,
+  PrismaneBreakpoints,
+} from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface BadgeProps extends PrismaneComponent {
-  children: ReactNode;
-  label: ReactNode;
-  position?: Positions;
-  color?: Colors;
-}
+export type BadgeProps<E extends Versatile> = {
+  label?: ReactNode;
+  position?: PrismanePositions;
+  color?: PrismaneColors;
+  size?: PrismaneBreakpoints;
+} & CircleProps<E>;
 
-const Badge: FC<BadgeProps> = ({
-  children,
-  label,
-  position,
-  color,
-  className,
-  ...props
-}) => {
-  return (
-    <div className="w-fit h-fit relative">
-      <Animated
-        entry="scaleIn"
-        className={strip(
-          `flex items-center justify-center h-6 min-w-[24px] aspect-square text-sm rounded-full whitespace-nowrap absolute z-50 w-fit ${
-            color
-              ? `${
-                  color === "slate"
-                    ? "bg-slate-500 dark:bg-slate-700 text-slate-200 dark:text-slate-200"
-                    : ""
-                } ${
-                  color === "red"
-                    ? "bg-red-500 dark:bg-red-700 text-red-200 dark:text-red-200"
-                    : ""
-                } ${
-                  color === "orange"
-                    ? "bg-orange-500 dark:bg-orange-700 text-orange-200 dark:text-orange-200"
-                    : ""
-                } ${
-                  color === "green"
-                    ? "bg-green-500 dark:bg-green-700 text-green-200 dark:text-green-200"
-                    : ""
-                } ${
-                  color === "sky"
-                    ? "bg-sky-500 dark:bg-sky-700 text-sky-200 dark:text-sky-200"
-                    : ""
-                } ${
-                  color === "indigo"
-                    ? "bg-indigo-500 dark:bg-indigo-700 text-indigo-200 dark:text-indigo-200"
-                    : ""
-                } ${
-                  color === "pink"
-                    ? "bg-pink-500 dark:bg-pink-700 text-pink-200 dark:text-pink-200"
-                    : ""
-                } ${
-                  color === "base"
-                    ? "bg-base-500 dark:bg-base-700 text-base-200 dark:text-base-200"
-                    : ""
-                }`
-              : "bg-primary-500 dark:bg-primary-700 text-primary-200 dark:text-primary-200"
-          } ${
-            position
-              ? `${
-                  position === "top-start"
-                    ? "bottom-[80%] -left-1/2 PrsmBadge-positionTopStart"
-                    : ""
-                } ${
-                  position === "top"
-                    ? "bottom-[80%] left-1/2 !-translate-x-1/2 PrsmBadge-positionTop"
-                    : ""
-                } ${
-                  position === "top-end"
-                    ? "bottom-[80%] -right-1/2 PrsmBadge-positionTopEnd"
-                    : ""
-                } ${
-                  position === "right-start"
-                    ? "-top-1/2 left-[80%] PrsmBadge-positionRightStart"
-                    : ""
-                } ${
-                  position === "right"
-                    ? "top-1/2 left-[80%] !-translate-y-1/2 PrsmBadge-positionRight"
-                    : ""
-                } ${
-                  position === "right-end"
-                    ? "-bottom-1/2 left-[80%] PrsmBadge-positionRightEnd"
-                    : ""
-                } ${
-                  position === "bottom-end"
-                    ? "top-[80%] -right-1/2 PrsmBadge-positionBottomEnd"
-                    : ""
-                } ${
-                  position === "bottom"
-                    ? "top-[80%] left-1/2 !-translate-x-1/2 PrsmBadge-positionBottom"
-                    : ""
-                } ${
-                  position === "bottom-start"
-                    ? "top-[80%] -left-1/2 PrsmBadge-positionBottomStart"
-                    : ""
-                } ${
-                  position === "left-start"
-                    ? "-top-1/2 right-[80%] PrsmBadge-positionLeftStart"
-                    : ""
-                } ${
-                  position === "left"
-                    ? "top-1/2 right-[80%] !-translate-y-1/2 PrsmBadge-positionLeft"
-                    : ""
-                } ${
-                  position === "left-end"
-                    ? "-bottom-1/2 right-[80%] PrsmBadge-positionLeftEnd"
-                    : ""
-                }`
-              : "top-[80%] left-1/2 !-translate-x-1/2 PrsmBadge-positionDefault"
-          } ${className ? className : ""} PrsmBadge-root`
-        )}
-        {...props}
-      >
-        {label}
-      </Animated>
-      {children}
-    </div>
-  );
-};
+const Badge = forwardRef(
+  <E extends Versatile>(
+    {
+      label = 0,
+      position = "top-start",
+      color = "primary",
+      size = "base",
+      children,
+      className,
+      sx,
+      ...props
+    }: BadgeProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Box w="fit-content" h="fit-content" pos="relative">
+        <Circle
+          h={variants(size, {
+            xs: fr(4),
+            sm: fr(5),
+            base: fr(6),
+            md: fr(7),
+            lg: fr(8),
+          })}
+          miw={variants(size, {
+            xs: fr(4),
+            sm: fr(5),
+            base: fr(6),
+            md: fr(7),
+            lg: fr(8),
+          })}
+          z={50}
+          pos="absolute"
+          t={variants(position, {
+            "right-start": "-50%",
+            right: "50%",
+            "bottom-end": "80%",
+            bottom: "80%",
+            "bottom-start": "80%",
+            "left-start": "-50%",
+            left: "50%",
+          })}
+          b={variants(position, {
+            "top-start": "80%",
+            top: "80%",
+            "top-end": "80%",
+            "right-end": "-50%",
+            "left-end": "-50%",
+          })}
+          r={variants(position, {
+            "top-end": "-50%",
+            "bottom-end": "-50%",
+            "left-start": "80%",
+            left: "80%",
+            "left-end": "80%",
+          })}
+          l={variants(position, {
+            "top-start": "-50%",
+            top: "50%",
+            "right-start": "80%",
+            right: "80%",
+            "right-end": "80%",
+            "bottom-start": "-50%",
+            bottom: "50%",
+          })}
+          bg={(theme) => (theme.mode === "dark" ? [color, 700] : [color, 500])}
+          cl={[color, 200]}
+          sx={{
+            transform: variants(position, {
+              top: "translateX(-50%)",
+              bottom: "translateX(-50%)",
+              left: "translateY(-50%)",
+              right: "translateY(-50%)",
+            }),
+            whiteSpace: "nowrap",
+            ...sx,
+          }}
+          className={strip(
+            `${
+              className ? className : ""
+            } PrismaneBadge-${position} PrismaneBadge-root`
+          )}
+          ref={ref}
+          {...props}
+        >
+          <Text
+            fs={variants(size, {
+              xs: "xs",
+              sm: "sm",
+              base: "sm",
+              md: "base",
+              lg: "md",
+            })}
+          >
+            {label}
+          </Text>
+        </Circle>
+        {children}
+      </Box>
+    );
+  }
+);
 
 export default Badge;

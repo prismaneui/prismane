@@ -1,0 +1,35 @@
+import { forwardRef } from "react";
+import { X } from "@phosphor-icons/react";
+// Components
+import ActionButton, { ActionButtonProps } from "../ActionButton/ActionButton";
+// Utils
+import { variants } from "../../utils";
+
+export type CloseButtonProps = ActionButtonProps;
+
+const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
+  ({ size = "base", variant = "secondary", color = "base", ...props }, ref) => {
+    return (
+      <ActionButton
+        color={color}
+        size={size}
+        variant={variant}
+        ref={ref}
+        {...props}
+      >
+        <X
+          size={variants(size, {
+            xs: 8,
+            sm: 12,
+            base: 16,
+            md: 20,
+            lg: 24,
+          })}
+          weight="bold"
+        />
+      </ActionButton>
+    );
+  }
+);
+
+export default CloseButton;

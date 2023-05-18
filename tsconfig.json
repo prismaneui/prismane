@@ -13,12 +13,13 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsxdev",
+    "jsx": "react-jsx",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true,
-    "baseUrl": "."
+    "declarationMap": true
+    // "baseUrl": "./src",
   },
-  "include": ["src", "custom.d.ts"],
+
+  "include": ["src"],
   "exclude": ["src/stories/**", "node_modules"]
 }

@@ -1,37 +1,35 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 // Components
-import Box from "../Box";
+import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneComponent, PrismaneStyles } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-interface AspectRatioProps extends PrismaneComponent {
+export type AspectRatioProps = {
   ratio?: string;
-  width?: string;
-}
+  size?: PrismaneStyles;
+} & BoxProps<"div">;
 
-const AspectRatio: FC<AspectRatioProps> = ({
-  ratio,
-  width,
-  children,
-  className,
-  style,
-  ...props
-}) => {
-  return (
-    <Box
-      className={strip(`${className ? className : ""} PrsmAspectRatio-root`)}
-      style={{
-        aspectRatio: ratio,
-        width: width ? width : "100%",
-        ...style,
-      }}
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-};
+const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
+  ({ ratio, size, children, className, style, ...props }, ref) => {
+    return (
+      <Box
+        className={strip(
+          `${className ? className : ""} PrismaneAspectRatio-root`
+        )}
+        w={size}
+        style={{
+          aspectRatio: ratio,
+          ...style,
+        }}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
 
 export default AspectRatio;

@@ -1,40 +1,34 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex from "../Flex";
 // Types
-import { PrismaneComponent, Sizes } from "../../types";
+import { PrismaneComponent, PrismaneBreakpoints } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-interface ContainerProps extends PrismaneComponent {
-  maxSize?: Sizes;
+export interface ContainerProps extends PrismaneComponent {
+  maxSize?: PrismaneBreakpoints;
 }
 
-const Container: FC<ContainerProps> = ({
-  maxSize,
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <Flex
-      align="center"
-      direction="col"
-      grow
-      className={strip(
-        `${className ? className : ""} w-full ${
-          maxSize === "xs" ? "max-w-xs" : ""
-        } ${maxSize === "sm" ? "max-w-sm" : ""} ${
-          maxSize === "base" ? "max-w-md" : ""
-        } ${maxSize === "md" ? "max-w-lg" : ""} ${
-          maxSize === "lg" ? "max-w-xl" : ""
-        } PrsmContainer-root`
-      )}
-      {...props}
-    >
-      {children}
-    </Flex>
-  );
-};
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ maxSize, children, className, ...props }, ref) => {
+    return (
+      <Flex
+        w="100%"
+        align="center"
+        direction="column"
+        maw={maxSize}
+        grow
+        className={strip(
+          `${className ? className : ""} PrismaneContainer-root`
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Flex>
+    );
+  }
+);
 
 export default Container;

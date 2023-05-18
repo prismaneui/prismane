@@ -1,129 +1,133 @@
-import { useState, useContext, ReactNode, forwardRef } from "react";
-import { Eye, EyeClosed } from "phosphor-react";
+import { forwardRef } from "react";
 // Components
-import FieldWrapper from "../FieldWrapper/FieldWrapper";
-import Field from "../Field/Field";
-// Context
-import { FormContext } from "../../context";
-// Types
-import { PrismaneComponent } from "../../types";
+import Field, { FieldProps } from "../Field/Field";
+// Hooks
+import { useFieldProps } from "../Field";
+// Utils
+import { strip, fr, variants } from "../../utils";
 
-export interface TextFieldProps extends PrismaneComponent {
-  name: string;
-  placeholder: string;
-  type?: string;
-  label: string;
-  icon?: ReactNode;
-  action?: ReactNode;
-  validating?: boolean;
-  validators?: any;
-  min?: number;
-  max?: number;
-  value?: string | number;
-  defaultValue?: string | number;
-  readOnly?: boolean;
-  disableSpacing?: boolean;
-  handleChange?: Function;
-  textarea?: boolean;
-}
+export type TextFieldProps = {
+  prefix?: string;
+  suffix?: string;
+} & FieldProps<"input">;
 
 /**
- * TextField Params
- * @param {Object} props
- * @param {string} props.name The name the field will be registered with
- * @param {string} props.placeholder The placeholder of the field
- * @param {string | HTMLElement} props.label The label text or element for the label element
- * @param {string | ReactNode=} props.action The label action text or element for the label element
- * @param {any} props.validators The validator functions of the field
- * @param {string=} props.className The additional classes for the text field component
- * @param {any=} props.onFocus The function for the onFocus event
- * @param {any=} props.onChange The function for the onChange event
- * @param {boolean=} props.validating The validating boolean for async validation display
- * @param {number=} props.min The min length of the field
- * @param {number=} props.max The max length of the field
- * @returns Element
- */
+    A component for rendering a text input field.
+    @param {string} name - The name of the input field.
+    @param {string} placeholder - The placeholder text to display in the input field.
+    @param {string} label - The label to display above the input field.
+    @param {ReactNode} icon - An optional icon to display inside the input field.
+    @param {string} size - The size of the input field.
+    @param {boolean} validating - A flag indicating whether the input field is currently being validated.
+    @param {string} className - An optional CSS class to apply to the root element.
+    @param {function} onFocus - An optional function to call when the input field receives focus.
+    @param {function} onBlur - An optional function to call when the input field loses focus.
+    @param {function} onChange - An optional function to call when the value of the input field changes.
+    @param {string} value - The current value of the input field.
+    @param {string} error - The error of the input field.
+    @param {string} defaultValue - The default value of the input field.
+    @param {boolean} readOnly - A flag indicating whether the input field is read-only.
+    @returns {JSX.Element} A JSX element representing the TextField component.
+    */
 
 const TextField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   TextFieldProps
 >(
   (
-    {
-      name,
-      placeholder,
-      type,
-      label,
-      icon,
-      action,
-      validating,
-      validators,
-      className,
-      onFocus,
-      onBlur,
-      min,
-      max,
-      value,
-      defaultValue,
-      readOnly,
-      disableSpacing,
-      handleChange,
-      textarea,
-      ...props
-    },
+    { label, error, size = "base", prefix, suffix, className, ...props },
     ref
   ) => {
-    /**
-     * Mutable Type
-     * @description Mutate the password type to text, so the user can see the password he entered.
-     */
-
-    const [mutableType, setMutableType] = useState(type);
-
-    const { register, errors } = useContext(FormContext);
+    const [rest, field] = useFieldProps(props);
 
     return (
-      <FieldWrapper
-        name={name}
-        label={label}
-        errors={errors}
-        validating={validating}
-        action={action}
-        icon={icon}
-        disableSpacing={disableSpacing}
-        className={className}
-        {...props}
-      >
+      <Field.Wrapper>
+        <Field.Label size={size} className="PrismaneTextField-label" {...rest}>
+          {label}
+        </Field.Label>
         <Field
-          name={name}
-          placeholder={placeholder}
-          type={mutableType}
-          validators={validators}
-          register={register}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          min={min}
-          max={max}
-          value={value}
-          defaultValue={defaultValue}
-          readOnly={readOnly}
-          handleChange={handleChange}
+          type="text"
+          size={size}
+          error={error}
+          pr={suffix && "0"}
+          pl={prefix && "0"}
+          py={(prefix || suffix) && "0"}
+          className={strip(
+            `${className ? className : ""} PrismaneTextField-root`
+          )}
+          addons={
+            <>
+              {prefix && (
+                <Field.Addon
+                  position="left"
+                  bg={(theme) =>
+                    theme.mode === "dark" ? ["base", 700] : ["base", 200]
+                  }
+                  bdrw={1}
+                  bdc={(theme) =>
+                    theme.mode === "dark" ? ["base", 600] : ["base", 300]
+                  }
+                  fs={variants(size, {
+                    xs: "xs",
+                    sm: "sm",
+                    base: "sm",
+                    md: "base",
+                    lg: "md",
+                  })}
+                  px={variants(size, {
+                    xs: fr(2),
+                    sm: fr(3),
+                    base: fr(4),
+                    md: fr(5),
+                    lg: fr(6),
+                  })}
+                  sx={{
+                    order: 1,
+                  }}
+                >
+                  {prefix}
+                </Field.Addon>
+              )}
+              {suffix && (
+                <Field.Addon
+                  h="100%"
+                  bg={(theme) =>
+                    theme.mode === "dark" ? ["base", 700] : ["base", 200]
+                  }
+                  bdlw={1}
+                  bdc={(theme) =>
+                    theme.mode === "dark" ? ["base", 600] : ["base", 300]
+                  }
+                  fs={variants(size, {
+                    xs: "xs",
+                    sm: "sm",
+                    base: "sm",
+                    md: "base",
+                    lg: "md",
+                  })}
+                  px={variants(size, {
+                    xs: fr(2),
+                    sm: fr(3),
+                    base: fr(4),
+                    md: fr(5),
+                    lg: fr(6),
+                  })}
+                  sx={{
+                    order: 3,
+                  }}
+                >
+                  {suffix}
+                </Field.Addon>
+              )}
+            </>
+          }
           ref={ref}
-          textarea={textarea}
+          {...field}
         />
-        {type === "password" && !errors[name] && (
-          <span
-            className="text-xl text-base-500 hover:text-primary-500 transition-all cursor-pointer"
-            onClick={() => {
-              mutableType === "password"
-                ? setMutableType("text")
-                : setMutableType("password");
-            }}
-          >
-            {mutableType === "password" ? <Eye /> : <EyeClosed />}
-          </span>
-        )}
-      </FieldWrapper>
+        <Field.Error size={size} className="PrismaneTextField-error">
+          {error}
+        </Field.Error>
+      </Field.Wrapper>
     );
   }
 );

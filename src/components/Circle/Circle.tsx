@@ -1,27 +1,33 @@
-import { FC } from "react";
+import { ForwardedRef, forwardRef } from "react";
 // Components
-import Center from "../Center";
+import Center, { CenterProps } from "../Center/Center";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneStyles, Versatile } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-interface CircleProps extends PrismaneComponent {
-  size: string;
-}
+export type CircleProps<E extends Versatile> = {
+  size: PrismaneStyles;
+} & CenterProps<E>;
 
-const Circle: FC<CircleProps> = ({ size, children, className, ...props }) => {
-  return (
-    <Center
-      style={{ width: size, height: size }}
-      className={strip(
-        `${className ? className : ""} rounded-full PrsmCircle-root`
-      )}
-      {...props}
-    >
-      {children}
-    </Center>
-  );
-};
+const Circle = forwardRef(
+  <E extends Versatile>(
+    { size, children, className, ...props }: CircleProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Center
+        w={size}
+        h={size}
+        br="100%"
+        className={strip(`${className ? className : ""} PrismaneCircle-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Center>
+    );
+  }
+);
 
 export default Circle;

@@ -1,43 +1,39 @@
-import { FC } from "react";
-// Types
-import { PrismaneComponent } from "../../types";
+import { forwardRef } from "react";
+// Components
+import Flex, { FlexProps } from "../Flex/Flex";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, fr, variants } from "../../utils";
 
-interface SkeletonProps extends PrismaneComponent {
+export type SkeletonProps = {
   variant: "circular" | "rounded" | "rectangular";
-  width?: string;
-  height?: string;
-}
+} & FlexProps<"div">;
 
-const Skeleton: FC<SkeletonProps> = ({
-  variant,
-  width,
-  height,
-  className,
-  ...props
-}) => {
-  return (
-    <div
-      className={strip(
-        `bg-base-200 dark:bg-base-700 animate-pulse p-2 grow ${
-          variant === "circular"
-            ? "rounded-full aspect-square PrsmSkeleton-circular"
-            : ""
-        } ${variant === "rounded" ? "rounded-md PrsmSkeleton-rounded" : ""} ${
-          variant === "rectangular"
-            ? "rounded-none PrsmSkeleton-rectangular"
-            : ""
-        } ${className ? className : ""} PrsmSkeleton-root`
-      )}
-      style={{
-        width: width ? width : "fit-content",
-        height: height ? height : "fit-content",
-        ...props.style,
-      }}
-      {...props}
-    ></div>
-  );
-};
+const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
+  ({ variant, className, sx, ...props }, ref) => {
+    return (
+      <Flex
+        p={fr(2)}
+        bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
+        br={variants(variant, {
+          circular: "100%",
+          rounded: "base",
+          rectangular: "none",
+        })}
+        sx={{
+          aspectRatio: variant === "circular" && 1,
+          animation: "prismane-pulse linear 2s infinite",
+          ...sx,
+        }}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneSkeleton-${variant} PrismaneSkeleton-root`
+        )}
+        ref={ref}
+        {...props}
+      ></Flex>
+    );
+  }
+);
 
 export default Skeleton;

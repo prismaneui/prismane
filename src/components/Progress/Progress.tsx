@@ -1,77 +1,53 @@
-import { FC, ReactNode } from "react";
-import { Circle } from "phosphor-react";
+import { forwardRef, ReactNode } from "react";
+// Components
+import Flex, { FlexProps } from "../Flex/Flex";
+import Transition, { TransitionProps } from "../Transition/Transition";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneBreakpoints } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, fr, dual } from "../../utils";
 
-interface ProgressProps extends PrismaneComponent {
-  variant: "circle" | "line";
+export type ProgressProps = {
   value: number;
   label?: ReactNode;
-  size?: number;
-  disableAnimation?: boolean;
-}
+  size?: number | PrismaneBreakpoints;
+} & FlexProps<"div"> &
+  TransitionProps<"div">;
 
-const Progress: FC<ProgressProps> = ({
-  variant,
-  value,
-  label,
-  size,
-  disableAnimation,
-  className,
-  ...props
-}) => {
-  return (
-    <>
-      {variant === "circle" && (
-        <div
-          className={strip(
-            `flex aspect-square justify-center items-center transition-all relative text-primary-500 ${
-              className ? className : ""
-            } PrsmLoader-rootCircle`
-          )}
-          style={{
-            width: size ? size + "px" : "64px",
-            ...props.style,
-          }}
-          {...props}
+const Progress = forwardRef<HTMLDivElement, ProgressProps>(
+  ({ value, label, size = "base", className, ...props }, ref) => {
+    return (
+      <Transition
+        h={dual(size, {
+          xs: fr(3),
+          sm: fr(3.5),
+          base: fr(4),
+          md: fr(5),
+          lg: fr(6),
+        })}
+        br="full"
+        bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 200])}
+        className={strip(`${className ? className : ""} PrismaneLoader-root`)}
+        ref={ref}
+        {...props}
+      >
+        <Transition
+          as={Flex}
+          justify="center"
+          align="center"
+          h="100%"
+          w={value.toString() + "%"}
+          br="full"
+          bg="primary"
+          fs={size}
+          cl="white"
+          className="PrismaneLoader-line"
         >
-          <Circle
-            strokeDasharray="600"
-            strokeDashoffset={6 * (100 - value)}
-            className="-rotate-90 w-full h-full transition-all absolute top-0 left-0 PrsmLoader-circle"
-          />
-          <div className="flex justify-center items-center w-fit text-base-600 dark:text-base-200">
-            {label}
-          </div>
-        </div>
-      )}
-      {variant === "line" && (
-        <div className="flex flex-col w-full">
-          <div className="flex w-full items-center justify-between mb-1 text-base-600 dark:text-base-200 PrsmLoader-lineLabelBox">
-            {label}
-          </div>
-          <div
-            className={strip(
-              `w-full bg-base-200 dark:bg-base-700 rounded-full transition-all ${
-                className ? className : ""
-              } PrsmLoader-rootLine`
-            )}
-            style={{
-              height: size ? size + "px" : "4px",
-              ...props.style,
-            }}
-          >
-            <div
-              className="h-full bg-primary-500 rounded-full transition-all PrsmLoader-line"
-              style={{ width: value.toString() + "%" }}
-            ></div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+          {label}
+        </Transition>
+      </Transition>
+    );
+  }
+);
 
 export default Progress;

@@ -1,16 +1,13 @@
-import { FC } from "react";
-import { useForm } from "react-hook-form";
-// Context
-import { FormContext } from "../../context";
-// Types
-import { PrismaneComponent } from "../../types";
+import { forwardRef } from "react";
+// Components
+import Box, { BoxProps } from "../Box/Box";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-export interface FormProps extends PrismaneComponent {
-  submit: any;
-  initial?: any;
-}
+export type FormProps = {
+  onSubmit: any;
+  onReset?: any;
+} & BoxProps<"form">;
 
 /**
  * Form Params
@@ -20,36 +17,21 @@ export interface FormProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Form: FC<FormProps> = ({
-  children,
-  submit,
-  initial,
-  className,
-  ...props
-}) => {
-  const options = useForm({
-    mode: "all",
-    defaultValues: initial ? initial : {},
-  });
-
-  return (
-    <form
-      className={strip(
-        `select-none ${className ? className : ""} PrsmForm-root`
-      )}
-      onSubmit={options.handleSubmit((values) => submit(values, options))}
-      {...props}
-    >
-      <FormContext.Provider
-        value={{
-          errors: options.formState.errors,
-          ...options,
-        }}
+const Form = forwardRef<HTMLFormElement, FormProps>(
+  ({ children, onSubmit, onReset, className, ...props }, ref) => {
+    return (
+      <Box
+        as="form"
+        className={strip(`${className ? className : ""} PrismaneForm-root`)}
+        onSubmit={onSubmit}
+        onReset={onReset}
+        ref={ref}
+        {...props}
       >
-        {typeof children === "function" ? children(options) : children}
-      </FormContext.Provider>
-    </form>
-  );
-};
+        {children}
+      </Box>
+    );
+  }
+);
 
 export default Form;

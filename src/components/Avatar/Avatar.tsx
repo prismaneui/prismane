@@ -1,75 +1,76 @@
-import { FC } from "react";
+import { forwardRef, ForwardedRef } from "react";
+// Components
+import Center from "../Center/Center";
+import Circle, { CircleProps } from "../Circle/Circle";
+import Icon from "../Icon/Icon";
+import Image from "../Image/Image";
 // Types
-import { PrismaneComponent, Sizes } from "../../types";
+import { Versatile, PrismaneColors } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface AvatarProps extends PrismaneComponent {
+export type AvatarProps<E extends Versatile> = {
   src?: string;
   srcSet?: string;
   alt?: string;
   sizes?: string;
-  color?: string;
-  size?: Sizes;
-}
+  color?: PrismaneColors;
+} & CircleProps<E>;
 
-const Avatar: FC<AvatarProps> = ({
-  src,
-  srcSet,
-  alt,
-  sizes,
-  color,
-  size = "base",
-  children,
-  className,
-  ...props
-}) => {
-  const isImage = src
-    ? /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(src)
-    : false;
+const Avatar = forwardRef(
+  <E extends Versatile>(
+    {
+      src,
+      srcSet,
+      alt,
+      sizes,
+      color,
+      size = "base",
+      children,
+      className,
+      sx,
+      ...props
+    }: AvatarProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    const isImage = src
+      ? /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(src)
+      : false;
 
-  return (
-    <div
-      className={strip(
-        `h-full aspect-square overflow-hidden rounded-full ${
-          size === "xs" ? "w-8 h-8" : ""
-        } ${size === "sm" ? "w-12 h-12" : ""} ${
-          size === "base" ? "w-16 h-16" : ""
-        } ${size === "md" ? "w-20 h-20" : ""} ${
-          size === "lg" ? "w-24 h-24" : ""
-        } ${className ? className : ""} PrsmAvatar-root`
-      )}
-      {...props}
-    >
-      {isImage ? (
-        <img
-          src={src}
-          srcSet={srcSet}
-          sizes={sizes}
-          alt={alt}
-          className="w-full h-full"
-        />
-      ) : (
-        <div
-          className={`flex items-center justify-center w-full h-full text-white text-xl ${
-            color
-              ? `${color === "slate" ? "bg-slate-500" : ""} ${
-                  color === "red" ? "bg-red-500" : ""
-                } ${color === "orange" ? "bg-orange-500" : ""} ${
-                  color === "green" ? "bg-green-500" : ""
-                } ${color === "sky" ? "bg-sky-500" : ""} ${
-                  color === "indigo" ? "bg-indigo-500" : ""
-                } ${color === "pink" ? "bg-pink-500" : ""} ${
-                  color === "base" ? "bg-base-500" : ""
-                }`
-              : "bg-base-500"
-          }`}
-        >
-          {children}
-        </div>
-      )}
-    </div>
-  );
-};
+    return (
+      <Circle
+        size={variants(size, {
+          xs: fr(8),
+          sm: fr(12),
+          base: fr(16),
+          md: fr(20),
+          lg: fr(24),
+        })}
+        sx={{
+          overflow: "hidden",
+          ...sx,
+        }}
+        className={strip(`${className ? className : ""} PrismaneAvatar-root`)}
+        ref={ref}
+        {...props}
+      >
+        {isImage ? (
+          <Image
+            src={src}
+            srcSet={srcSet}
+            sizes={sizes}
+            alt={alt}
+            w="100%"
+            h="100%"
+          />
+        ) : (
+          <Center w="100%" h="100%" bg={color || "base"}>
+            <Icon size={24}>{children}</Icon>
+          </Center>
+        )}
+      </Circle>
+    );
+  }
+);
 
 export default Avatar;

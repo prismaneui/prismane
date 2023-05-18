@@ -1,25 +1,32 @@
-import { FC } from "react";
+import { forwardRef, ForwardedRef } from "react";
 // Components
-import Center from "../Center";
+import Center, { CenterProps } from "../Center/Center";
 // Types
-import { PrismaneComponent } from "../../types";
+import { Versatile, PrismaneStyles } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip } from "../../utils";
 
-interface SquareProps extends PrismaneComponent {
-  size: string;
-}
+export type SquareProps<E extends Versatile> = {
+  size: PrismaneStyles;
+} & CenterProps<E>;
 
-const Square: FC<SquareProps> = ({ size, children, className, ...props }) => {
-  return (
-    <Center
-      style={{ width: size, height: size }}
-      className={strip(`${className ? className : ""} PrsmSquare-root`)}
-      {...props}
-    >
-      {children}
-    </Center>
-  );
-};
+const Square = forwardRef(
+  <E extends Versatile>(
+    { size, children, className, ...props }: SquareProps<E>,
+    ref: ForwardedRef<any>
+  ) => {
+    return (
+      <Center
+        w={size}
+        h={size}
+        className={strip(`${className ? className : ""} PrismaneSquare-root`)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Center>
+    );
+  }
+);
 
 export default Square;

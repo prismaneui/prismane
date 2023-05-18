@@ -1,10 +1,8 @@
 import { FC } from "react";
-// Types
-import { PrismaneComponent } from "../../types";
 
-interface InitialsProps extends PrismaneComponent {
+export type InitialsProps = {
   name: string;
-}
+};
 
 export const Initials: FC<InitialsProps> = ({ name }) => {
   const arr = name.split(" ");

@@ -1,17 +1,19 @@
-import { FC, useContext } from "react";
-import { Controller } from "react-hook-form";
-// Animated
-import Animated from "../Animated";
-// Context
-import { FormContext } from "../../context";
+import { forwardRef } from "react";
+// Components
+import Animation from "../Animation/Animation";
+import Flex, { FlexProps } from "../Flex/Flex";
+import Transition, { TransitionProps } from "../Transition/Transition";
+import Field from "../Field/Field";
+// Hooks
+import { useFieldProps } from "../Field";
 // Types
-import { PrismaneComponent } from "../../types";
+import { PrismaneFieldComponent } from "../../types";
 // Utils
-import { strip } from "../../utils/internal";
+import { strip, variants, fr } from "../../utils";
 
-export interface SwitchProps extends PrismaneComponent {
-  name: string;
-}
+export type SwitchProps = PrismaneFieldComponent &
+  FlexProps<"label"> &
+  TransitionProps<"label">;
 
 /**
  * Switch Params
@@ -22,52 +24,71 @@ export interface SwitchProps extends PrismaneComponent {
  * @returns Element
  */
 
-const Switch: FC<SwitchProps> = ({ name, className, ...props }) => {
-  const { control } = useContext(FormContext);
+const Switch = forwardRef<HTMLInputElement, SwitchProps>(
+  ({ label, error, size = "base", className, sx, ...props }, ref) => {
+    const [rest, field] = useFieldProps(props);
 
-  return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field: { onChange, onBlur, value, name: fieldName } }) => (
-        <label
-          className={strip(
-            `${
-              value
-                ? "bg-primary-500 dark:bg-primary-700 hover:bg-primary-600 dark:hover:bg-primary-700 PrsmSwitch-active"
-                : "bg-base-300 dark:bg-base-700 hover:bg-base-400 dark:hover:bg-base-600 PrsmSwitch-inactive"
-            } flex justify-center items-center transition-colors rounded-2xl h-5 w-10 cursor-pointer relative ${
-              className ? className : ""
-            } PrsmSwitch-root`
-          )}
-          htmlFor={fieldName}
-          {...props}
+    return (
+      <Flex align="center" gap={fr(2)} {...rest}>
+        <Transition
+          as="label"
+          pos="relative"
+          op={field.disabled ? 0.4 : 1}
+          pe={field.disabled && "none"}
+          w={variants(size, {
+            xs: fr(7.5),
+            sm: fr(8.5),
+            base: fr(9.5),
+            md: fr(10.5),
+            lg: fr(11.5),
+          })}
+          h={variants(size, {
+            xs: fr(4.5),
+            sm: fr(5),
+            base: fr(5.5),
+            md: fr(6),
+            lg: fr(6.5),
+          })}
+          p={fr(0.75)}
+          br="full"
+          dp="flex"
+          bs="border-box"
+          bg={(theme) =>
+            theme.mode === "dark"
+              ? props.value
+                ? [["primary", 700], { hover: ["primary", 600] }]
+                : [["base", 700], { hover: ["base", 600] }]
+              : props.value
+              ? [["primary", 500], { hover: ["primary", 600] }]
+              : [["base", 300], { hover: ["base", 400] }]
+          }
+          htmlFor={props.name}
+          sx={{
+            cursor: "pointer",
+          }}
+          className={strip(`${className ? className : ""} PrismaneSwitch-root`)}
         >
-          <input
-            id={fieldName}
-            type="checkbox"
-            className="hidden"
-            onChange={onChange}
-            onBlur={onBlur}
-          />
-          <Animated
-            entry="none"
-            className={strip(
-              `absolute h-[0.875rem] aspect-square rounded-full bg-white left-[0.1875rem] ${
-                value ? "!left-[1.4375rem]" : ""
-              } PrsmSwitch-box`
-            )}
-            transition={{
-              type: "spring",
-              stiffness: 700,
-              damping: 27.5,
+          <Field dp="none" type="checkbox" ref={ref} {...field} />
+          <Animation
+            as={Flex}
+            bs="border-box"
+            h="100%"
+            br="full"
+            bg="white"
+            className="PrismaneSwitch-thumb"
+            sx={{
+              aspectRatio: "1/1",
+              transform: props.value ? "translateX(100%)" : "translateX(0)",
             }}
-            layout
-          ></Animated>
-        </label>
-      )}
-    />
-  );
-};
+          ></Animation>
+        </Transition>
+        <Flex direction="column" align="center" gap={fr(2)}>
+          <Field.Label size={size}>{label}</Field.Label>
+          <Field.Error size={size}>{error}</Field.Error>
+        </Flex>
+      </Flex>
+    );
+  }
+);
 
 export default Switch;

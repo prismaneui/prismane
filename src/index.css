@@ -1,28 +1,214 @@
 :root {
-  --prismane-animation-duration-long: 700ms;
-  --prismane-animation-duration-middle: 500ms;
-  --prismane-animation-duration-short: 300ms;
-  --prismane-colors-base-50: 248 250 252;
-  --prismane-colors-base-100: 241 245 249;
-  --prismane-colors-base-200: 226 232 240;
-  --prismane-colors-base-300: 203 213 225;
-  --prismane-colors-base-400: 148 163 184;
-  --prismane-colors-base-500: 100 116 139;
-  --prismane-colors-base-600: 71 85 105;
-  --prismane-colors-base-700: 51 65 85;
-  --prismane-colors-base-800: 30 41 59;
-  --prismane-colors-base-900: 15 23 42;
-  --prismane-colors-primary-50: 238 242 255;
-  --prismane-colors-primary-100: 224 231 255;
-  --prismane-colors-primary-200: 199 210 254;
-  --prismane-colors-primary-300: 165 180 252;
-  --prismane-colors-primary-400: 129 140 248;
-  --prismane-colors-primary-500: 99 102 241;
-  --prismane-colors-primary-600: 79 70 229;
-  --prismane-colors-primary-700: 67 56 202;
-  --prismane-colors-primary-800: 55 48 163;
-  --prismane-colors-primary-900: 49 46 129;
-  --prismane-spacing: "4px";
+  --prismane-colors-slate-50: 248 250 252;
+  --prismane-colors-slate-100: 241 245 249;
+  --prismane-colors-slate-200: 226 232 240;
+  --prismane-colors-slate-300: 203 213 225;
+  --prismane-colors-slate-400: 148 163 184;
+  --prismane-colors-slate-500: 100 116 139;
+  --prismane-colors-slate-600: 71 85 105;
+  --prismane-colors-slate-700: 51 65 85;
+  --prismane-colors-slate-800: 30 41 59;
+  --prismane-colors-slate-900: 15 23 42;
+  --prismane-colors-gray-50: 249 250 251;
+  --prismane-colors-gray-100: 243 244 246;
+  --prismane-colors-gray-200: 229 231 235;
+  --prismane-colors-gray-300: 209 213 219;
+  --prismane-colors-gray-400: 156 163 175;
+  --prismane-colors-gray-500: 107 114 128;
+  --prismane-colors-gray-600: 75 85 99;
+  --prismane-colors-gray-700: 55 65 81;
+  --prismane-colors-gray-800: 31 41 55;
+  --prismane-colors-gray-900: 17 24 39;
+  --prismane-colors-coal-50: 250 250 250;
+  --prismane-colors-coal-100: 244 244 245;
+  --prismane-colors-coal-200: 228 228 231;
+  --prismane-colors-coal-300: 212 212 216;
+  --prismane-colors-coal-400: 161 161 170;
+  --prismane-colors-coal-500: 113 113 122;
+  --prismane-colors-coal-600: 82 82 91;
+  --prismane-colors-coal-700: 63 63 70;
+  --prismane-colors-coal-800: 39 39 42;
+  --prismane-colors-coal-900: 24 24 27;
+  --prismane-colors-sepia-50: 250 250 249;
+  --prismane-colors-sepia-100: 245 245 244;
+  --prismane-colors-sepia-200: 231 229 228;
+  --prismane-colors-sepia-300: 214 211 209;
+  --prismane-colors-sepia-400: 168 162 158;
+  --prismane-colors-sepia-500: 120 113 108;
+  --prismane-colors-sepia-600: 87 83 78;
+  --prismane-colors-sepia-700: 68 64 60;
+  --prismane-colors-sepia-800: 41 37 36;
+  --prismane-colors-sepia-900: 28 25 23;
+  --prismane-colors-red-50: 254 242 242;
+  --prismane-colors-red-100: 254 226 226;
+  --prismane-colors-red-200: 254 202 202;
+  --prismane-colors-red-300: 252 165 165;
+  --prismane-colors-red-400: 248 113 113;
+  --prismane-colors-red-500: 239 68 68;
+  --prismane-colors-red-600: 220 38 38;
+  --prismane-colors-red-700: 185 28 28;
+  --prismane-colors-red-800: 153 27 27;
+  --prismane-colors-red-900: 127 29 29;
+  --prismane-colors-orange-50: 255 247 237;
+  --prismane-colors-orange-100: 255 237 213;
+  --prismane-colors-orange-200: 254 215 170;
+  --prismane-colors-orange-300: 253 186 116;
+  --prismane-colors-orange-400: 251 146 60;
+  --prismane-colors-orange-500: 249 115 22;
+  --prismane-colors-orange-600: 234 88 12;
+  --prismane-colors-orange-700: 194 65 12;
+  --prismane-colors-orange-800: 154 52 18;
+  --prismane-colors-orange-900: 124 45 18;
+  --prismane-colors-copper-50: 255 251 235;
+  --prismane-colors-copper-100: 254 243 199;
+  --prismane-colors-copper-200: 253 230 138;
+  --prismane-colors-copper-300: 252 211 77;
+  --prismane-colors-copper-400: 251 191 36;
+  --prismane-colors-copper-500: 245 158 11;
+  --prismane-colors-copper-600: 217 119 6;
+  --prismane-colors-copper-700: 180 83 9;
+  --prismane-colors-copper-800: 146 64 14;
+  --prismane-colors-copper-900: 120 53 15;
+  --prismane-colors-yellow-50: 254 252 232;
+  --prismane-colors-yellow-100: 254 249 195;
+  --prismane-colors-yellow-200: 254 240 138;
+  --prismane-colors-yellow-300: 253 224 71;
+  --prismane-colors-yellow-400: 250 204 21;
+  --prismane-colors-yellow-500: 234 179 8;
+  --prismane-colors-yellow-600: 202 138 4;
+  --prismane-colors-yellow-700: 161 98 7;
+  --prismane-colors-yellow-800: 133 77 14;
+  --prismane-colors-yellow-900: 113 63 18;
+  --prismane-colors-lime-50: 247 254 231;
+  --prismane-colors-lime-100: 236 252 203;
+  --prismane-colors-lime-200: 217 249 157;
+  --prismane-colors-lime-300: 190 242 100;
+  --prismane-colors-lime-400: 163 230 53;
+  --prismane-colors-lime-500: 132 204 22;
+  --prismane-colors-lime-600: 101 163 13;
+  --prismane-colors-lime-700: 77 124 15;
+  --prismane-colors-lime-800: 63 98 18;
+  --prismane-colors-lime-900: 54 83 20;
+  --prismane-colors-green-50: 240 253 244;
+  --prismane-colors-green-100: 220 252 231;
+  --prismane-colors-green-200: 187 247 208;
+  --prismane-colors-green-300: 134 239 172;
+  --prismane-colors-green-400: 74 222 128;
+  --prismane-colors-green-500: 34 197 94;
+  --prismane-colors-green-600: 22 163 74;
+  --prismane-colors-green-700: 21 128 61;
+  --prismane-colors-green-800: 22 101 52;
+  --prismane-colors-green-900: 20 83 45;
+  --prismane-colors-emerald-50: 236 253 245;
+  --prismane-colors-emerald-100: 209 250 229;
+  --prismane-colors-emerald-200: 167 243 208;
+  --prismane-colors-emerald-300: 110 231 183;
+  --prismane-colors-emerald-400: 52 211 153;
+  --prismane-colors-emerald-500: 16 185 129;
+  --prismane-colors-emerald-600: 5 150 105;
+  --prismane-colors-emerald-700: 4 120 87;
+  --prismane-colors-emerald-800: 6 95 70;
+  --prismane-colors-emerald-900: 6 78 59;
+  --prismane-colors-teal-50: 240 253 250;
+  --prismane-colors-teal-100: 204 251 241;
+  --prismane-colors-teal-200: 153 246 228;
+  --prismane-colors-teal-300: 94 234 212;
+  --prismane-colors-teal-400: 45 212 191;
+  --prismane-colors-teal-500: 20 184 166;
+  --prismane-colors-teal-600: 13 148 136;
+  --prismane-colors-teal-700: 15 118 110;
+  --prismane-colors-teal-800: 17 94 89;
+  --prismane-colors-teal-900: 19 78 74;
+  --prismane-colors-cyan-50: 236 254 255;
+  --prismane-colors-cyan-100: 207 250 254;
+  --prismane-colors-cyan-200: 165 243 252;
+  --prismane-colors-cyan-300: 103 232 249;
+  --prismane-colors-cyan-400: 34 211 238;
+  --prismane-colors-cyan-500: 6 182 212;
+  --prismane-colors-cyan-600: 8 145 178;
+  --prismane-colors-cyan-700: 14 116 144;
+  --prismane-colors-cyan-800: 21 94 117;
+  --prismane-colors-cyan-900: 22 78 99;
+  --prismane-colors-diamond-50: 240 249 255;
+  --prismane-colors-diamond-100: 224 242 254;
+  --prismane-colors-diamond-200: 186 230 253;
+  --prismane-colors-diamond-300: 125 211 252;
+  --prismane-colors-diamond-400: 56 189 248;
+  --prismane-colors-diamond-500: 14 165 233;
+  --prismane-colors-diamond-600: 2 132 199;
+  --prismane-colors-diamond-700: 3 105 161;
+  --prismane-colors-diamond-800: 7 89 133;
+  --prismane-colors-diamond-900: 12 74 110;
+  --prismane-colors-blue-50: 239 246 255;
+  --prismane-colors-blue-100: 219 234 254;
+  --prismane-colors-blue-200: 191 219 254;
+  --prismane-colors-blue-300: 147 197 253;
+  --prismane-colors-blue-400: 96 165 250;
+  --prismane-colors-blue-500: 59 130 246;
+  --prismane-colors-blue-600: 37 99 235;
+  --prismane-colors-blue-700: 29 78 216;
+  --prismane-colors-blue-800: 30 64 175;
+  --prismane-colors-blue-900: 30 58 138;
+  --prismane-colors-amethyst-50: 238 242 255;
+  --prismane-colors-amethyst-100: 224 231 255;
+  --prismane-colors-amethyst-200: 199 210 254;
+  --prismane-colors-amethyst-300: 165 180 252;
+  --prismane-colors-amethyst-400: 129 140 248;
+  --prismane-colors-amethyst-500: 99 102 241;
+  --prismane-colors-amethyst-600: 79 70 229;
+  --prismane-colors-amethyst-700: 67 56 202;
+  --prismane-colors-amethyst-800: 55 48 163;
+  --prismane-colors-amethyst-900: 49 46 129;
+  --prismane-colors-violet-50: 245 243 255;
+  --prismane-colors-violet-100: 237 233 254;
+  --prismane-colors-violet-200: 221 214 254;
+  --prismane-colors-violet-300: 196 181 253;
+  --prismane-colors-violet-400: 167 139 250;
+  --prismane-colors-violet-500: 139 92 246;
+  --prismane-colors-violet-600: 124 58 237;
+  --prismane-colors-violet-700: 109 40 217;
+  --prismane-colors-violet-800: 91 33 182;
+  --prismane-colors-violet-900: 76 29 149;
+  --prismane-colors-purple-50: 250 245 255;
+  --prismane-colors-purple-100: 243 232 255;
+  --prismane-colors-purple-200: 233 213 255;
+  --prismane-colors-purple-300: 216 180 254;
+  --prismane-colors-purple-400: 192 132 252;
+  --prismane-colors-purple-500: 168 85 247;
+  --prismane-colors-purple-600: 147 51 234;
+  --prismane-colors-purple-700: 126 34 206;
+  --prismane-colors-purple-800: 107 33 168;
+  --prismane-colors-purple-900: 88 28 135;
+  --prismane-colors-magenta-50: 253 244 255;
+  --prismane-colors-magenta-100: 250 232 255;
+  --prismane-colors-magenta-200: 245 208 254;
+  --prismane-colors-magenta-300: 240 171 252;
+  --prismane-colors-magenta-400: 232 121 249;
+  --prismane-colors-magenta-500: 217 70 239;
+  --prismane-colors-magenta-600: 192 38 211;
+  --prismane-colors-magenta-700: 162 28 175;
+  --prismane-colors-magenta-800: 134 25 143;
+  --prismane-colors-magenta-900: 112 26 117;
+  --prismane-colors-pink-50: 253 242 248;
+  --prismane-colors-pink-100: 252 231 243;
+  --prismane-colors-pink-200: 251 207 232;
+  --prismane-colors-pink-300: 249 168 212;
+  --prismane-colors-pink-400: 244 114 182;
+  --prismane-colors-pink-500: 236 72 153;
+  --prismane-colors-pink-600: 219 39 119;
+  --prismane-colors-pink-700: 190 24 93;
+  --prismane-colors-pink-800: 157 23 77;
+  --prismane-colors-pink-900: 131 24 67;
+  --prismane-colors-ruby-50: 255 241 242;
+  --prismane-colors-ruby-100: 255 228 230;
+  --prismane-colors-ruby-200: 254 205 211;
+  --prismane-colors-ruby-300: 253 164 175;
+  --prismane-colors-ruby-400: 251 113 133;
+  --prismane-colors-ruby-500: 244 63 94;
+  --prismane-colors-ruby-600: 225 29 72;
+  --prismane-colors-ruby-700: 190 18 60;
+  --prismane-colors-ruby-800: 159 18 57;
+  --prismane-colors-ruby-900: 136 19 55;
 }
 
 html {
@@ -36,21 +222,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: inset 0 0 0px 9999px white;
   box-shadow: inset 0 0 0px 9999px white;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    @apply m-0 p-0 border-0;
+@keyframes prismane-spin {
+  from {
+    transform: rotate(0deg);
   }
 
-  input {
-    @apply bg-transparent focus:outline-none;
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prismane-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
   }
 }

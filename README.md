@@ -17,10 +17,12 @@
 
 ## Key Features
 
-- Built on top of Tailwind CSS design system
+- Custom styling system
 - Dynamic theming out of the box
-- Custom animation components
-- Custom hooks
+- Built in support for dark and light theme variants
+- 107+ React components
+- 20+ custom hooks
+- 10+ custom form validators
 
 ## How To Use
 
@@ -39,9 +41,8 @@ npm install @prismane/core
 This package uses the following packages:
 
 - [React](https://reactjs.org)
-- [Tailwind CSS](https://tailwindcss.com/)
 - [Phosphor Icons](https://phosphoricons.com/)
-- [Framer Motion](https://www.framer.com/motion/)
+- [Stitches](https://stitches.dev/)
 
 ## License
 
