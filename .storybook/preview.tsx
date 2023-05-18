@@ -25,15 +25,17 @@ const preview: Preview = {
           ? createTheme({
               mode: "dark",
               colors: {
-                primary: PRISMANE_COLORS["red"],
+                primary: PRISMANE_COLORS.red,
               },
             })
           : createTheme({
               mode: "light",
               colors: {
-                primary: PRISMANE_COLORS["pink"],
+                primary: PRISMANE_COLORS.pink,
               },
             });
+
+      console.log(PRISMANE_COLORS.diamond[500]);
 
       return (
         <Toaster>

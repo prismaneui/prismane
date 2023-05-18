@@ -1,13 +1,17 @@
 import { createContext, useContext } from "react";
+// Themes
+import { base } from "./base";
+// Types
+import { PrismaneTheme } from "../types";
 
 export interface ThemeContextValue {
-  theme: any;
+  theme: PrismaneTheme;
   changeTheme: Function;
   toggleThemeMode: Function;
 }
 
 const defaultValues = {
-  theme: {},
+  theme: base,
   changeTheme: () => {},
   toggleThemeMode: () => {},
 };

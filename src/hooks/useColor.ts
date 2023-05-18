@@ -17,9 +17,9 @@ const useColor = () => {
   const { theme } = useTheme();
 
   const colors: any = {
-    primary: theme.colors ? theme.colors.primary : "",
-    base: theme.colors ? theme.colors.base : "",
     ...PRISMANE_COLORS,
+    primary: theme.colors.primary,
+    base: theme.colors.base,
   };
 
   const getColor = (cl: PrismaneColors | string, shade?: PrismaneShades) => {
