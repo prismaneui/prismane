@@ -1,7 +1,7 @@
 {
   "name": "@prismane/core",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Martin Petrov",
   "license": "MIT",
   "description": "Prismane - Simple React UI library",
