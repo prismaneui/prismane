@@ -19,8 +19,7 @@ import { strip, fr } from "../../utils";
 import ModalHeader, { ModalHeaderProps } from "./ModalHeader/ModalHeader";
 import ModalFooter, { ModalFooterProps } from "./ModalFooter/ModalFooter";
 
-export { type ModalHeaderProps };
-export { type ModalFooterProps };
+export { type ModalHeaderProps, type ModalFooterProps };
 
 export type ModalProps = {
   open?: boolean;

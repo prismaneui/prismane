@@ -20,10 +20,12 @@ import FieldLabel, { FieldLabelProps } from "./FieldLabel/FieldLabel";
 import FieldWrapper, { FieldWrapperProps } from "./FieldWrapper/FieldWrapper";
 import FieldAddon, { FieldAddonProps } from "./FieldAddon/FieldAddon";
 
-export { type FieldErrorProps };
-export { type FieldLabelProps };
-export { type FieldWrapperProps };
-export { type FieldAddonProps };
+export {
+  type FieldErrorProps,
+  type FieldLabelProps,
+  type FieldWrapperProps,
+  type FieldAddonProps,
+};
 
 export type FieldProps<E extends Versatile> = {
   type?: string | undefined;

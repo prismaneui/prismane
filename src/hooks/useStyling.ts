@@ -1,4 +1,5 @@
-import { css } from "@stitches/react";
+import { useLayoutEffect, useState } from "react";
+import { createStitches } from "@stitches/react";
 // Hooks
 import useMemoization from "./useMemoization";
 import useTheme from "./useTheme";
@@ -23,12 +24,16 @@ type StylingGeneratorFunction = (pk: string, pv: any) => StylingResult;
 
 type StylingHook = (props: StylingProps) => any[];
 
+const { css } = createStitches({
+  prefix: "prismane",
+});
+
 const useStyling: StylingHook = (props: StylingProps) => {
   const { memoize } = useMemoization();
 
   const { theme } = useTheme();
 
-  const computed: any[] = [];
+  const [computed, setComputed] = useState<string[]>([]);
 
   const computeStyles = (obj: any) => {
     return css(obj);
@@ -65,18 +70,22 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
   );
 
-  for (const key in props) {
-    const prop: StylingProp = props[key];
+  useLayoutEffect(() => {
+    for (const key in props) {
+      const prop: StylingProp = props[key];
 
-    if (prop !== undefined) {
-      const result = generateStyles(
-        key,
-        typeof prop === "function" ? prop(theme) : prop
-      );
+      if (prop !== undefined) {
+        const result = generateStyles(
+          key,
+          typeof prop === "function" ? prop(theme) : prop
+        );
 
-      computed.push(result.computed);
+        setComputed((pc) => [...pc, result.computed]);
+      }
     }
-  }
+
+    return () => setComputed([]);
+  }, [JSON.stringify(props), JSON.stringify(theme)]);
 
   return computed;
 };

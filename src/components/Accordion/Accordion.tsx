@@ -3,14 +3,45 @@ import { forwardRef, useState } from "react";
 import Flex, { FlexProps } from "../Flex/Flex";
 // Context
 import { AccordionContextProvider } from "./AccordionContext";
+// Types
+import { PrismaneWithInternal } from "../../types";
 // Utils
 import { strip } from "../../utils";
+
+// Internal Components
+import AccordionControl, {
+  AccordionControlProps,
+} from "./AccordionControl/AccordionControl";
+import AccordionIcon, {
+  AccordionIconProps,
+} from "./AccordionIcon/AccordionIcon";
+import AccordionItem, {
+  AccordionItemProps,
+} from "./AccordionItem/AccordionItem";
+import AccordionPanel, {
+  AccordionPanelProps,
+} from "./AccordionPanel/AccordionPanel";
+
+export {
+  type AccordionControlProps,
+  type AccordionIconProps,
+  type AccordionItemProps,
+  type AccordionPanelProps,
+};
 
 export type AccordionProps = {
   defaultValue?: string;
 } & FlexProps<"div">;
 
-const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion: PrismaneWithInternal<
+  AccordionProps,
+  {
+    Control: AccordionControlProps;
+    Icon: AccordionIconProps;
+    Item: AccordionItemProps;
+    Panel: AccordionPanelProps;
+  }
+> = forwardRef<HTMLDivElement, AccordionProps>(
   ({ defaultValue = null, children, className, ...props }, ref) => {
     const [value, setValue] = useState(defaultValue);
 
@@ -31,5 +62,10 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     );
   }
 );
+
+Accordion.Control = AccordionControl;
+Accordion.Icon = AccordionIcon;
+Accordion.Item = AccordionItem;
+Accordion.Panel = AccordionPanel;
 
 export default Accordion;

@@ -10,13 +10,11 @@ export interface ThemeContextValue {
   toggleThemeMode: Function;
 }
 
-const defaultValues = {
-  theme: base,
+const ThemeContext = createContext<ThemeContextValue>({
+  theme: { ...base },
   changeTheme: () => {},
   toggleThemeMode: () => {},
-};
-
-const ThemeContext = createContext<ThemeContextValue>(defaultValues);
+});
 
 export const ThemeContextProvider = ThemeContext.Provider;
 

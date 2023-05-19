@@ -18,8 +18,7 @@ import { strip, variants, fr } from "../../utils";
 import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader/DrawerHeader";
 import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter/DrawerFooter";
 
-export { type DrawerHeaderProps };
-export { type DrawerFooterProps };
+export { type DrawerHeaderProps, type DrawerFooterProps };
 
 export type DrawerProps = {
   position?: "right" | "left" | "top" | "bottom";

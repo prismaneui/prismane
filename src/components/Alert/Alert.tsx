@@ -24,8 +24,7 @@ import AlertDescription, {
   AlertDescriptionProps,
 } from "./AlertDescription/AlertDescription";
 
-export { type AlertTitleProps };
-export { type AlertDescriptionProps };
+export { type AlertTitleProps, type AlertDescriptionProps };
 
 export type AlertProps = {
   variant?: PrismaneActions;

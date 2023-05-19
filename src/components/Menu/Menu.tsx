@@ -15,9 +15,7 @@ import MenuItem, { MenuItemProps } from "./MenuItem/MenuItem";
 import MenuLabel, { MenuLabelProps } from "./MenuLabel/MenuLabel";
 import MenuIcon, { MenuIconProps } from "./MenuIcon/MenuIcon";
 
-export { type MenuItemProps };
-export { type MenuLabelProps };
-export { type MenuIconProps };
+export { type MenuItemProps, type MenuLabelProps, type MenuIconProps };
 
 export type MenuProps = { open?: boolean } & AnimationProps<"div"> &
   CardProps<"div">;

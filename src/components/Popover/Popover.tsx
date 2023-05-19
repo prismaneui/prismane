@@ -18,8 +18,7 @@ import PopoverControl, {
 } from "./PopoverControl/PopoverControl";
 import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel/PopoverPanel";
 
-export { type PopoverControlProps };
-export { type PopoverPanelProps };
+export { type PopoverControlProps, type PopoverPanelProps };
 
 export type PopoverProps = {
   position?: PrismanePositions;

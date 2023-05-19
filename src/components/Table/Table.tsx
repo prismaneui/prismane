@@ -14,12 +14,14 @@ import TableCell, { TableCellProps } from "./TableCell/TableCell";
 import TableBody, { TableBodyProps } from "./TableBody/TableBody";
 import TableCaption, { TableCaptionProps } from "./TableCaption/TableCaption";
 
-export { type TableRowProps };
-export { type TableHeadProps };
-export { type TableFootProps };
-export { type TableCellProps };
-export { type TableBodyProps };
-export { type TableCaptionProps };
+export {
+  type TableRowProps,
+  type TableHeadProps,
+  type TableFootProps,
+  type TableCellProps,
+  type TableBodyProps,
+  type TableCaptionProps,
+};
 
 export type TableProps = BoxProps<"table">;
 

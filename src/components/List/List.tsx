@@ -14,10 +14,12 @@ import ListOrdered, { ListOrderedProps } from "./ListOrdered/ListOrdered";
 import ListItem, { ListItemProps } from "./ListItem/ListItem";
 import ListIcon, { ListIconProps } from "./ListIcon/ListIcon";
 
-export { type ListUnorderedProps };
-export { type ListOrderedProps };
-export { type ListItemProps };
-export { type ListIconProps };
+export {
+  type ListUnorderedProps,
+  type ListOrderedProps,
+  type ListItemProps,
+  type ListIconProps,
+};
 
 export type ListProps<E extends Versatile> = FlexProps<E>;
 

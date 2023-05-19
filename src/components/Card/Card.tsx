@@ -11,8 +11,7 @@ import { strip, fr } from "../../utils";
 import CardHeader, { CardHeaderProps } from "./CardHeader/CardHeader";
 import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
 
-export { type CardHeaderProps };
-export { type CardFooterProps };
+export { type CardHeaderProps, type CardFooterProps };
 
 export type CardProps<E extends Versatile> = {
   shadow?: boolean;

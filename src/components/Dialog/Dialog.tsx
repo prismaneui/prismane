@@ -18,8 +18,7 @@ import { strip, fr } from "../../utils";
 import DialogHeader, { DialogHeaderProps } from "./DialogHeader/DialogHeader";
 import DialogFooter, { DialogFooterProps } from "./DialogFooter/DialogFooter";
 
-export { type DialogHeaderProps };
-export { type DialogFooterProps };
+export { type DialogHeaderProps, type DialogFooterProps };
 
 export type DialogProps = {
   open?: boolean;

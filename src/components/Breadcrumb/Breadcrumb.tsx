@@ -14,8 +14,7 @@ import BreadcrumbSeparator, {
   BreadcrumbSeparatorProps,
 } from "./BreadcrumbSeparator/BreadcrumbSeparator";
 
-export { type BreadcrumbItemProps };
-export { type BreadcrumbSeparatorProps };
+export { type BreadcrumbItemProps, type BreadcrumbSeparatorProps };
 
 export type BreadcrumbProps = FlexProps<"div">;
 

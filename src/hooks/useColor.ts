@@ -1,3 +1,4 @@
+import { useLayoutEffect, useState } from "react";
 // Theme
 import { transformColor } from "../themes/theme";
 // Hooks
@@ -16,11 +17,19 @@ import { parse } from "../utils";
 const useColor = () => {
   const { theme } = useTheme();
 
-  const colors: any = {
+  const [colors, setColors] = useState<any>({
     ...PRISMANE_COLORS,
     primary: theme.colors.primary,
     base: theme.colors.base,
-  };
+  });
+
+  useLayoutEffect(() => {
+    setColors((pc: any) => ({
+      ...pc,
+      primary: theme.colors.primary,
+      base: theme.colors.base,
+    }));
+  }, [JSON.stringify(theme)]);
 
   const getColor = (cl: PrismaneColors | string, shade?: PrismaneShades) => {
     if (PRISMANE_COLORS_MAP.includes(cl)) {
