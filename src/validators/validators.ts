@@ -50,7 +50,7 @@ export const max = (
   if (value && value.length > length) {
     return `${
       fieldName ? fieldName : "This field"
-    } has to be shorther than ${length} characters!`;
+    } has to be shorter than ${length} characters!`;
   }
 
   return null;
