@@ -68,9 +68,7 @@
     "./style": "./dist/style.css"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@stitches/react": "^1.2.8"
   },
   "peerDependencies": {
     "react": "^18.2.0",
