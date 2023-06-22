@@ -11,7 +11,7 @@ import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
 import "../src/index.css";
 // Prismane
-import ThemeProvider from "../src/themes/ThemeProvider";
+import PrismaneProvider from "../src/components/PrismaneProvider/PrismaneProvider";
 import Flex from "../src/components/Flex/Flex";
 import Toaster from "../src/components/Toaster/Toaster";
 
@@ -29,7 +29,7 @@ const preview: Preview = {
 
       return (
         <Toaster>
-          <ThemeProvider theme={theme}>
+          <PrismaneProvider theme={theme}>
             <Flex
               w="100vw"
               h="100vh"
@@ -39,7 +39,7 @@ const preview: Preview = {
             >
               <Story />
             </Flex>
-          </ThemeProvider>
+          </PrismaneProvider>
         </Toaster>
       );
     },

@@ -68,11 +68,11 @@ const Button = forwardRef(
               theme.mode === "dark"
                 ? [
                     [color, 700],
-                    { hover: [color, 600, 0.9], active: [color, 500, 0.9] },
+                    { hover: [color, 600, 0.9], active: [color, 600] },
                   ]
                 : [
                     [color, 500],
-                    { hover: [color, 600, 0.9], active: [color, 700, 0.9] },
+                    { hover: [color, 600, 0.9], active: [color, 600] },
                   ],
             secondary:
               theme.mode === "dark"

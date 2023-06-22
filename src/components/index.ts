@@ -46,6 +46,10 @@ export { default as PasswordField } from "./PasswordField";
 export { default as PinField } from "./PinField";
 export { default as Popover } from "./Popover";
 export { default as Portal } from "./Portal";
+export {
+  default as PrismaneProvider,
+  usePrismaneTheme,
+} from "./PrismaneProvider";
 export { default as Progress } from "./Progress";
 export { default as Radio } from "./Radio";
 export { default as SegmentedField } from "./SegmentedField";
@@ -64,4 +68,4 @@ export { default as TextField } from "./TextField";
 export { default as Toaster } from "./Toaster";
 export { default as Tooltip } from "./Tooltip";
 export { default as Transition } from "./Transition";
-// 107
+// 108

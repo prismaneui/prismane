@@ -1,8 +1,9 @@
 import { useLayoutEffect, useState } from "react";
 import { createStitches } from "@stitches/react";
+// Theme
+import { usePrismaneTheme } from "../components/PrismaneProvider/PrismaneContext";
 // Hooks
 import useMemoization from "./useMemoization";
-import useTheme from "./useTheme";
 // Types
 import { PrismaneTheme } from "../types";
 
@@ -24,16 +25,18 @@ type StylingGeneratorFunction = (pk: string, pv: any) => StylingResult;
 
 type StylingHook = (props: StylingProps) => any[];
 
-const { css } = createStitches({
-  prefix: "prismane",
-});
-
 const useStyling: StylingHook = (props: StylingProps) => {
+  const { css } = createStitches({
+    prefix: "prismane",
+  });
+
   const { memoize } = useMemoization();
 
-  const { theme } = useTheme();
+  const { theme } = usePrismaneTheme();
 
   const [computed, setComputed] = useState<string[]>([]);
+
+  // const computed: string[] = [];
 
   const computeStyles = (obj: any) => {
     return css(obj);
@@ -85,7 +88,20 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
 
     return () => setComputed([]);
-  }, [JSON.stringify(props), JSON.stringify(theme)]);
+  }, [theme]);
+
+  // for (const key in props) {
+  //   const prop: StylingProp = props[key];
+
+  //   if (prop !== undefined) {
+  //     const result = generateStyles(
+  //       key,
+  //       typeof prop === "function" ? prop(theme) : prop
+  //     );
+
+  //     computed.push(result.computed);
+  //   }
+  // }
 
   return computed;
 };

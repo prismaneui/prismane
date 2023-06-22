@@ -34,6 +34,7 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
         px={fr(6)}
         py={open && fr(2)}
         of="hidden"
+        bs="content-box"
         animation={{
           in: {
             opacity: 1,

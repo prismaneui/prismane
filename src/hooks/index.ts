@@ -16,5 +16,4 @@ export { default as useMemoization } from "./useMemoization";
 export { default as useOutsideClick } from "./useOutsideClick";
 export { default as usePrevious } from "./usePrevious";
 export { default as useStyling } from "./useStyling";
-export { default as useTheme } from "./useTheme";
 export { default as useToggle } from "./useToggle";

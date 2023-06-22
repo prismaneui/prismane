@@ -21,6 +21,7 @@ const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
         as={Flex}
         justify="between"
         align="center"
+        grow
         px={fr(6)}
         py={fr(2)}
         cs="pointer"

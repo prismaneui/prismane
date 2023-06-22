@@ -10,22 +10,18 @@ export const mergeDeep: any = (target: any, ...sources: any) => {
   if (isObject(target) && isObject(source)) {
     for (const key in source) {
       if (isObject(source[key])) {
-        if (!target[key])
-          Object.assign(target, {
-            [key]: {},
-          });
+        if (!target[key]) {
+          target[key] = {};
+        }
         mergeDeep(target[key], source[key]);
       } else {
-        Object.assign(target, {
-          [key]: source[key],
-        });
+        target[key] = source[key];
       }
     }
   }
 
   return mergeDeep(target, ...sources);
 };
-
 export const strip = (s: string) => {
   return s.replace(/\s+/g, " ").trim();
 };

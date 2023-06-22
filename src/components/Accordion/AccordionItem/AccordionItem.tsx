@@ -15,6 +15,7 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
     return (
       <Flex
         direction="column"
+        grow
         bdbw={1}
         bdbc={(theme) =>
           theme.mode === "dark" ? ["base", 700] : ["base", 200]

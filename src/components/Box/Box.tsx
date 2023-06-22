@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
 import useColor from "../../hooks/useColor";
