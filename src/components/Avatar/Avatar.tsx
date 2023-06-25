@@ -2,7 +2,7 @@ import { forwardRef, ForwardedRef } from "react";
 // Components
 import Center from "../Center/Center";
 import Circle, { CircleProps } from "../Circle/Circle";
-import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
 import Image from "../Image/Image";
 // Types
 import { Versatile, PrismaneColors } from "../../types";
@@ -65,7 +65,7 @@ const Avatar = forwardRef(
           />
         ) : (
           <Center w="100%" h="100%" bg={color || "base"}>
-            <Icon size={24}>{children}</Icon>
+            <Text fs={size}>{children}</Text>
           </Center>
         )}
       </Circle>

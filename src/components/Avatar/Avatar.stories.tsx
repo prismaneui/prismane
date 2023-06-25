@@ -12,27 +12,26 @@ export default {
 };
 
 export const Default = () => (
+  <Avatar src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png" />
+);
+
+export const Sizes = () => (
   <Flex align="center" gap={fr(5)}>
-    <Avatar
-      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
-      size="xs"
-    />
-    <Avatar
-      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
-      size="sm"
-    />
-    <Avatar
-      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
-      size="base"
-    />
-    <Avatar
-      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
-      size="md"
-    />
-    <Avatar
-      src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png"
-      size="lg"
-    />
+    <Avatar size="xs">
+      <Initials name="John Doe" />
+    </Avatar>
+    <Avatar size="sm">
+      <Initials name="John Doe" />
+    </Avatar>
+    <Avatar size="base">
+      <Initials name="John Doe" />
+    </Avatar>
+    <Avatar size="md">
+      <Initials name="John Doe" />
+    </Avatar>
+    <Avatar size="lg">
+      <Initials name="John Doe" />
+    </Avatar>
   </Flex>
 );
 

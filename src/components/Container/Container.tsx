@@ -1,14 +1,14 @@
 import { forwardRef } from "react";
 // Components
-import Flex from "../Flex";
+import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { PrismaneComponent, PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export interface ContainerProps extends PrismaneComponent {
+export type ContainerProps = {
   maxSize?: PrismaneBreakpoints;
-}
+} & FlexProps<"div">;
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ maxSize, children, className, ...props }, ref) => {

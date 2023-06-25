@@ -205,6 +205,7 @@ const Field: PrismaneWithInternal<
         )}
         <Box
           as={as}
+          bg="transparent"
           fs={variants(size, {
             xs: "xs",
             sm: "sm",

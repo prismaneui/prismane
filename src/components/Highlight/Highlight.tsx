@@ -19,6 +19,7 @@ const Highlight = forwardRef(
         bg={(theme) =>
           theme.mode === "dark" ? ["primary", 700, 0.3] : ["primary", 200]
         }
+        cl={(theme) => (theme.mode === "dark" ? "white" : ["base", 900])}
         p={fr(1)}
         className={strip(
           `${className ? className : ""} PrismaneHighlight-root`

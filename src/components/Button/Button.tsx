@@ -60,6 +60,7 @@ const Button = forwardRef(
           md: fr(2.25),
           lg: fr(2.75),
         })}
+        h="fit-content"
         br={size}
         op={[1, { disabled: 0.5 }]}
         bg={(theme) =>

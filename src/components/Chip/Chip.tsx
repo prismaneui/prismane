@@ -15,7 +15,7 @@ import { strip, variants, fr } from "../../utils";
 export type ChipProps = {
   icon?: ReactNode;
   color?: PrismaneColors;
-  size: PrismaneBreakpoints;
+  size?: PrismaneBreakpoints;
 } & FlexProps<"div"> &
   TransitionProps<"div">;
 
@@ -36,6 +36,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
       <Transition
         as={Flex}
         w="fit-content"
+        h="fit-content"
         align="center"
         px={variants(size, {
           xs: fr(1.5),

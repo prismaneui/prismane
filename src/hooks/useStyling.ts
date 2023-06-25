@@ -34,9 +34,9 @@ const useStyling: StylingHook = (props: StylingProps) => {
 
   const { theme } = usePrismaneTheme();
 
-  const [computed, setComputed] = useState<string[]>([]);
+  // const [computed, setComputed] = useState<string[]>([]);
 
-  // const computed: string[] = [];
+  const computed: string[] = [];
 
   const computeStyles = (obj: any) => {
     return css(obj);
@@ -73,35 +73,35 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
   );
 
-  useLayoutEffect(() => {
-    for (const key in props) {
-      const prop: StylingProp = props[key];
+  // useLayoutEffect(() => {
+  //   for (const key in props) {
+  //     const prop: StylingProp = props[key];
 
-      if (prop !== undefined) {
-        const result = generateStyles(
-          key,
-          typeof prop === "function" ? prop(theme) : prop
-        );
+  //     if (prop !== undefined) {
+  //       const result = generateStyles(
+  //         key,
+  //         typeof prop === "function" ? prop(theme) : prop
+  //       );
 
-        setComputed((pc) => [...pc, result.computed]);
-      }
-    }
-
-    return () => setComputed([]);
-  }, [theme]);
-
-  // for (const key in props) {
-  //   const prop: StylingProp = props[key];
-
-  //   if (prop !== undefined) {
-  //     const result = generateStyles(
-  //       key,
-  //       typeof prop === "function" ? prop(theme) : prop
-  //     );
-
-  //     computed.push(result.computed);
+  //       setComputed((pc) => [...pc, result.computed]);
+  //     }
   //   }
-  // }
+
+  //   return () => setComputed([]);
+  // }, [theme]);
+
+  for (const key in props) {
+    const prop: StylingProp = props[key];
+
+    if (prop !== undefined) {
+      const result = generateStyles(
+        key,
+        typeof prop === "function" ? prop(theme) : prop
+      );
+
+      computed.push(result.computed);
+    }
+  }
 
   return computed;
 };

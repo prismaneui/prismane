@@ -11,8 +11,10 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>(
     return (
       <Flex
         h={1}
+        w="100%"
         bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
         className={strip(`${className ? className : ""} PrismaneDivider-root`)}
+        grow
         ref={ref}
         {...props}
       ></Flex>

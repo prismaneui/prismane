@@ -1,8 +1,6 @@
 import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
-// Types
-import { PrismaneStyles, PrismaneComponent } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -11,14 +9,11 @@ export type ImageProps = {
   srcSet?: string;
   alt?: string;
   sizes?: string;
-  object?: "contain" | "cover" | "fill" | "none" | "scale-down";
+  fit?: "contain" | "cover" | "fill" | "none" | "scale-down";
 } & BoxProps<"img">;
 
 const Image = forwardRef<HTMLImageElement, ImageProps>(
-  (
-    { src, srcSet, alt, sizes, object = "fill", className, sx, ...props },
-    ref
-  ) => {
+  ({ src, srcSet, alt, sizes, fit = "fill", className, sx, ...props }, ref) => {
     return (
       <Box
         as="img"
@@ -27,7 +22,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(
         alt={alt}
         sizes={sizes}
         sx={{
-          objectFit: object,
+          objectFit: fit,
           ...sx,
         }}
         className={strip(`${className ? className : ""} PrismaneImage-root`)}

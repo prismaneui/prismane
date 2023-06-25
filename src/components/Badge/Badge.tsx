@@ -54,35 +54,35 @@ const Badge = forwardRef(
           z={50}
           pos="absolute"
           t={variants(position, {
-            "right-start": "-50%",
+            "right-start": "-30%",
             right: "50%",
-            "bottom-end": "80%",
+            "bottom-end": "70%",
             bottom: "80%",
-            "bottom-start": "80%",
-            "left-start": "-50%",
+            "bottom-start": "70%",
+            "left-start": "-30%",
             left: "50%",
           })}
           b={variants(position, {
-            "top-start": "80%",
+            "top-start": "70%",
             top: "80%",
-            "top-end": "80%",
-            "right-end": "-50%",
-            "left-end": "-50%",
+            "top-end": "70%",
+            "right-end": "-30%",
+            "left-end": "-30%",
           })}
           r={variants(position, {
-            "top-end": "-50%",
-            "bottom-end": "-50%",
-            "left-start": "80%",
+            "top-end": "-30%",
+            "bottom-end": "-30%",
+            "left-start": "70%",
             left: "80%",
-            "left-end": "80%",
+            "left-end": "70%",
           })}
           l={variants(position, {
-            "top-start": "-50%",
+            "top-start": "-30%",
             top: "50%",
-            "right-start": "80%",
+            "right-start": "70%",
             right: "80%",
-            "right-end": "80%",
-            "bottom-start": "-50%",
+            "right-end": "70%",
+            "bottom-start": "-30%",
             bottom: "50%",
           })}
           bg={(theme) => (theme.mode === "dark" ? [color, 700] : [color, 500])}
