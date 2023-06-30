@@ -11,7 +11,7 @@ const TableFoot = forwardRef<HTMLTableSectionElement, TableFootProps>(
     return (
       <Box
         as="tfoot"
-        fw="medium"
+        fw="semibold"
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
         className={strip(
           `${className ? className : ""} PrismaneTableFoot-root`

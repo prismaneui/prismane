@@ -3,7 +3,7 @@ import { forwardRef, useState } from "react";
 import Portal from "../Portal/Portal";
 import Flex, { FlexProps } from "../Flex/Flex";
 // Context
-import { ToastContextProvider } from "./ToasterContext";
+import { ToasterContextProvider } from "./ToasterContext";
 // Utils
 import { strip, fr, variants } from "../../utils";
 
@@ -19,7 +19,7 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
     const [toasts, setToasts] = useState<any>([]);
 
     return (
-      <ToastContextProvider value={{ toasts, setToasts }}>
+      <ToasterContextProvider value={{ toasts, setToasts }}>
         <Portal>
           <Flex
             direction="column"
@@ -63,7 +63,7 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
           </Flex>
         </Portal>
         {children}
-      </ToastContextProvider>
+      </ToasterContextProvider>
     );
   }
 );

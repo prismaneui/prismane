@@ -34,9 +34,7 @@ const useStyling: StylingHook = (props: StylingProps) => {
 
   const { theme } = usePrismaneTheme();
 
-  // const [computed, setComputed] = useState<string[]>([]);
-
-  const computed: string[] = [];
+  const [computed, setComputed] = useState<string[]>([]);
 
   const computeStyles = (obj: any) => {
     return css(obj);
@@ -73,35 +71,26 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
   );
 
-  // useLayoutEffect(() => {
-  //   for (const key in props) {
-  //     const prop: StylingProp = props[key];
+  useLayoutEffect(() => {
+    const stripped = Object.fromEntries(
+      Object.entries(props).filter(([_, value]) => value !== undefined)
+    );
 
-  //     if (prop !== undefined) {
-  //       const result = generateStyles(
-  //         key,
-  //         typeof prop === "function" ? prop(theme) : prop
-  //       );
+    for (const key in stripped) {
+      const prop: StylingProp = stripped[key];
 
-  //       setComputed((pc) => [...pc, result.computed]);
-  //     }
-  //   }
+      if (prop !== undefined) {
+        const result = generateStyles(
+          key,
+          typeof prop === "function" ? prop(theme) : prop
+        );
 
-  //   return () => setComputed([]);
-  // }, [theme]);
-
-  for (const key in props) {
-    const prop: StylingProp = props[key];
-
-    if (prop !== undefined) {
-      const result = generateStyles(
-        key,
-        typeof prop === "function" ? prop(theme) : prop
-      );
-
-      computed.push(result.computed);
+        setComputed((pc) => [...pc, result.computed]);
+      }
     }
-  }
+
+    return () => setComputed([]);
+  }, [JSON.stringify(props), JSON.stringify(theme)]);
 
   return computed;
 };

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Toaster from "./Toaster";
 import Alert from "../Alert/Alert";
 // Hooks
-import useToast from "../../hooks/useToast";
+import useToast from "./useToast";
 
 export default {
   title: "Toaster",
@@ -11,16 +11,12 @@ export default {
 };
 
 export const Default = () => {
-  const toast = useToast(10000);
+  const toast = useToast();
 
   useEffect(() => {
-    toast(<Alert closable>First One</Alert>);
-
-    const interval = setInterval(() => {
-      toast(<Alert closable>More</Alert>);
-    }, 1000);
-
-    return () => clearInterval(interval);
+    toast({
+      element: <Alert closable>First One</Alert>,
+    });
   }, []);
 
   return <Toaster />;

@@ -40,5 +40,6 @@ export const Default = () => (
         <Table.Cell>multiply by</Table.Cell>
       </Table.Row>
     </Table.Foot>
+    <Table.Caption ta="center">This is a caption</Table.Caption>
   </Table>
 );

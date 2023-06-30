@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../../Box/Box";
 // Utils
-import { strip } from "../../../utils";
+import { strip, fr } from "../../../utils";
 
 export type TableCaptionProps = {
   placement?: "bottom" | "top";
@@ -13,6 +13,8 @@ const TableCaption = forwardRef<HTMLTableSectionElement, TableCaptionProps>(
     return (
       <Box
         as="caption"
+        mt={fr(4)}
+        py={fr(2)}
         className={strip(
           `${className ? className : ""} PrismaneTableCaption-root`
         )}

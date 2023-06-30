@@ -11,6 +11,7 @@ const TableRow = forwardRef<HTMLTableSectionElement, TableRowProps>(
     return (
       <Box
         as="tr"
+        w="100%"
         className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
         ref={ref}
         {...props}

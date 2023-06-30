@@ -33,9 +33,9 @@ export const Default = () => {
         placeholder="Default Field"
         label="Default Field:"
         options={[
-          { value: "ivan", element: "Ivan" },
-          { value: "gosho", element: "Gosho" },
-          { value: "petkan", element: "Petkan" },
+          { value: "ivan", label: "Ivan" },
+          { value: "gosho", label: "Gosho" },
+          { value: "petkan", label: "Petkan" },
         ]}
       />
     </Form>

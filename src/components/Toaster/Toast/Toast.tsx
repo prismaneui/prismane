@@ -4,12 +4,15 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 import Animation, { AnimationProps } from "../../Animation/Animation";
 // Hooks
 import usePresence from "../../../hooks/usePresence";
+// Context
+import { useToasterContext } from "../ToasterContext";
 // Types
 import { PrismaneAnimations } from "../../../types";
 // Utils
 import { strip } from "../../../utils";
 
 export type ToastProps = {
+  id?: number;
   timeout?: number;
   duration?: number;
   timing?: string;
@@ -19,10 +22,21 @@ export type ToastProps = {
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(
   (
-    { timeout, duration, timing, animation, className, children, ...props },
+    {
+      id,
+      timeout = 3000,
+      duration = 250,
+      timing,
+      animation,
+      className,
+      children,
+      ...props
+    },
     ref
   ) => {
     const [shown, setShown] = useState(false);
+
+    const { setToasts } = useToasterContext();
 
     useEffect(() => {
       setShown(true);
@@ -34,7 +48,9 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
       return () => clearTimeout(toastTimeout);
     }, []);
 
-    const presence = usePresence(true, timeout + duration, () => {});
+    const presence = usePresence(true, timeout + duration, () => {
+      setToasts((pt: any) => pt.filter((toast: any) => toast.id !== id));
+    });
 
     return presence ? (
       <Animation

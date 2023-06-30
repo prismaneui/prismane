@@ -18,6 +18,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   ({ value, label, size = "base", className, ...props }, ref) => {
     return (
       <Transition
+        as={Flex}
         h={dual(size, {
           xs: fr(3),
           sm: fr(3.5),
@@ -25,8 +26,10 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
           md: fr(5),
           lg: fr(6),
         })}
+        w="100%"
         br="full"
         bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 200])}
+        grow
         className={strip(`${className ? className : ""} PrismaneLoader-root`)}
         ref={ref}
         {...props}

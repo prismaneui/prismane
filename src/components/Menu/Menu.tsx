@@ -36,6 +36,7 @@ const Menu: PrismaneWithInternal<
         {presence && (
           <Animation
             as={Card}
+            z={200}
             direction="column"
             gap={fr(2)}
             bdw={1}

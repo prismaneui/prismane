@@ -39,9 +39,7 @@ const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
               md: "base",
               lg: "md",
             })}
-            cl={(theme) =>
-              theme.mode === "dark" ? ["red", 700] : ["red", 500]
-            }
+            cl="red"
             className={strip(
               `${className ? className : ""} PrismaneFieldError-root`
             )}

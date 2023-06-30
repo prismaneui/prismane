@@ -28,7 +28,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (
     {
       label,
-      position,
+      position = "right",
       size = "base",
       color = "base",
       children,

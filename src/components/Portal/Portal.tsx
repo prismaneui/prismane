@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // Components
 import Box, { BoxProps } from "../Box/Box";
@@ -12,7 +12,21 @@ export type PortalProps = {
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
   ({ target, disabled = false, className, children, ...props }, ref) => {
-    const node = target && target.current ? target.current : document.body;
+    const [node, setNode] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+      if (target && target.current) {
+        setNode(target.current);
+      }
+
+      if (target === undefined) {
+        setNode(document.documentElement);
+      }
+    }, [target]);
+
+    if (!node) {
+      return null;
+    }
 
     const portal = (
       <Box

@@ -5,6 +5,7 @@ import Animation from "../Animation/Animation";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Field from "../Field/Field";
+import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 // Types
@@ -99,19 +100,20 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           )}
           {...rest}
         >
-          <Field
-            id={name}
-            name={name}
-            type="checkbox"
-            dp="none"
-            onBlur={onBlur}
-            onChange={onChange}
-            onFocus={onFocus}
-            value={value}
-            defaultValue={defaultValue}
-            ref={ref}
-            {...field}
-          />
+          <Hidden>
+            <Field
+              id={name}
+              name={name}
+              type="checkbox"
+              onBlur={onBlur}
+              onChange={onChange}
+              onFocus={onFocus}
+              value={value}
+              defaultValue={defaultValue}
+              ref={ref}
+              {...field}
+            />
+          </Hidden>
           <Animation
             as={Flex}
             justify="center"

@@ -30,7 +30,6 @@ export type AlertProps = {
   variant?: PrismaneActions;
   icon?: ReactNode;
   action?: ReactNode;
-  duration?: number | "infinite";
   closable?: boolean;
 } & AnimationProps<"div"> &
   FlexProps<"div">;

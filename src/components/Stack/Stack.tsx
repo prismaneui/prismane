@@ -1,15 +1,16 @@
 import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
-// Types
-import { PrismaneStyles, PrismaneComponent } from "../../types";
 // Utils
-import { strip } from "../../utils";
+import { strip, fr } from "../../utils";
 
 export type StackProps = FlexProps<"div">;
 
 const Stack = forwardRef<HTMLDivElement, StackProps>(
-  ({ gap = 1, direction = "row", children, className, ...props }, ref) => {
+  (
+    { gap = fr(2), direction = "column", children, className, ...props },
+    ref
+  ) => {
     return (
       <Flex
         direction={direction}

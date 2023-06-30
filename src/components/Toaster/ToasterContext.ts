@@ -1,20 +1,17 @@
-import { ReactNode, Dispatch, createContext, useContext } from "react";
+import { Dispatch, createContext, useContext } from "react";
+// Types
+import { ToastProps } from "./Toast/Toast";
 
-export interface ToastProps {
-  element: ReactNode;
-  visible: boolean;
-}
-
-export interface ToastContextValue {
+export interface ToasterContextValue {
   toasts: ToastProps[];
   setToasts: Dispatch<ToastProps[]>;
 }
 
-const ToastContext = createContext<ToastContextValue>({
+const ToasterContext = createContext<ToasterContextValue>({
   toasts: [],
   setToasts: () => {},
 });
 
-export const ToastContextProvider = ToastContext.Provider;
+export const ToasterContextProvider = ToasterContext.Provider;
 
-export const useToastContext = () => useContext(ToastContext);
+export const useToasterContext = () => useContext(ToasterContext);

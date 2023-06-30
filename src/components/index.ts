@@ -65,7 +65,7 @@ export { default as Tabs } from "./Tabs";
 export { default as Text } from "./Text";
 export { default as TextareaField } from "./TextareaField";
 export { default as TextField } from "./TextField";
-export { default as Toaster } from "./Toaster";
+export { default as Toaster, useToast } from "./Toaster";
 export { default as Tooltip } from "./Tooltip";
 export { default as Transition } from "./Transition";
 // 108

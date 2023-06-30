@@ -51,17 +51,17 @@ const ColorField = forwardRef<
       <SelectField
         options={options.map((option) => ({
           value: getColor(option),
-          element: <Circle bg={option} size={fr(6)}></Circle>,
+          label: getColor(option),
         }))}
         addons={
           props.value && (
             <Field.Addon position="left">
-              <Circle bg={props.value} size={fr(5)}></Circle>
+              <Circle bg={props.value} size={fr(5)} />
             </Field.Addon>
           )
         }
         size={size}
-        item={(chosen, value, element, active) => (
+        item={(chosen, value, label, active) => (
           <Transition
             duration={100}
             p={fr(1)}
@@ -87,7 +87,7 @@ const ColorField = forwardRef<
                   ]
             }
           >
-            {element}
+            <Circle bg={value} size={fr(6)} />
           </Transition>
         )}
         sx={{

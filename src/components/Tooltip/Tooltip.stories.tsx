@@ -11,7 +11,7 @@ export default {
   component: Tooltip,
 };
 
-export const Template: any = (props: any) => (
+const Template: any = (props: any) => (
   <Flex w="100%" h={fr(52)} justify="center" gap={fr(5)}>
     <Flex
       direction="column"
@@ -78,6 +78,12 @@ export const Template: any = (props: any) => (
       </Tooltip>
     </Flex>
   </Flex>
+);
+
+export const Single = () => (
+  <Tooltip label="test">
+    <Button>Right End</Button>
+  </Tooltip>
 );
 
 export const Default = Template.bind({});

@@ -3,15 +3,27 @@ import { forwardRef, useState } from "react";
 import Flex, { FlexProps } from "../Flex/Flex";
 // Context
 import { TabsContextProvider } from "./TabsContext";
+// Types
+import { PrismaneWithInternal } from "../../types";
 // Utils
 import { strip } from "../../utils";
+
+// Internal Components
+import TabsList, { TabsListProps } from "./TabsList/TabsList";
+import TabsPanel, { TabsPanelProps } from "./TabsPanel/TabsPanel";
+import TabsTab, { TabsTabProps } from "./TabsTab/TabsTab";
+
+export { type TabsListProps, type TabsPanelProps, type TabsTabProps };
 
 export type TabsProps = {
   variant?: "underlined" | "filled";
   defaultValue?: string;
 } & FlexProps<"div">;
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>(
+const Tabs: PrismaneWithInternal<
+  TabsProps,
+  { List: TabsListProps; Panel: TabsPanelProps; Tab: TabsTabProps }
+> = forwardRef<HTMLDivElement, TabsProps>(
   (
     {
       variant = "underlined",
@@ -40,5 +52,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(
     );
   }
 );
+
+Tabs.List = TabsList;
+Tabs.Panel = TabsPanel;
+Tabs.Tab = TabsTab;
 
 export default Tabs;

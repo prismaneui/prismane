@@ -122,9 +122,9 @@ const Drawer: PrismaneWithInternal<
               })}
               animation={variants(position, {
                 left: "slide-left",
-                top: "slide-top",
+                top: "slide-down",
                 right: "slide-right",
-                bottom: "slide-bottom",
+                bottom: "slide-up",
               })}
               shadow={shadow}
               animated={animating}

@@ -1,6 +1,8 @@
 import { forwardRef, useState, useEffect } from "react";
 // Components
 import SelectField, { SelectFieldProps } from "../SelectField/SelectField";
+// Hooks
+import useDebounce from "../../hooks/useDebounce";
 // Utils
 import { strip } from "../../utils";
 
@@ -28,17 +30,19 @@ const AutocompleteField = forwardRef<
 >(({ options, filter, size = "base", className, ...props }, ref) => {
   const [filtered, setFiltered] = useState(options);
 
+  const debouncedValue = useDebounce(props.value, 250);
+
   useEffect(() => {
     if (filter) {
-      setFiltered(options.filter((item) => filter(props.value, item)));
+      setFiltered(options.filter((item) => filter(debouncedValue, item)));
     } else {
       setFiltered(
         options.filter((item) =>
-          item.value.toLowerCase().includes(props.value?.toLowerCase())
+          item.value.toLowerCase().includes(debouncedValue?.toLowerCase())
         )
       );
     }
-  }, [props.value]);
+  }, [debouncedValue]);
 
   return (
     <SelectField

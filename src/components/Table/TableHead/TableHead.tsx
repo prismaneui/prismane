@@ -11,7 +11,7 @@ const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
     return (
       <Box
         as="thead"
-        fw="medium"
+        fw="semibold"
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
         className={strip(
           `${className ? className : ""} PrismaneTableHead-root`

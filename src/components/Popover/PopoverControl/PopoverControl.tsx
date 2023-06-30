@@ -10,12 +10,12 @@ export type PopoverControlProps = FlexProps<"div">;
 
 const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
   ({ children, className, sx, ...props }, ref) => {
-    const { setOpen } = usePopoverContext();
+    const { open, setOpen } = usePopoverContext();
 
     return (
       <Flex
         onClick={() => {
-          setOpen(true);
+          setOpen(!open);
         }}
         className={strip(
           `${className ? className : ""} PrismanePopoverControl-root`

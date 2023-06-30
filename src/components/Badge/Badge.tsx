@@ -51,7 +51,7 @@ const Badge = forwardRef(
             md: fr(7),
             lg: fr(8),
           })}
-          z={50}
+          z={200}
           pos="absolute"
           t={variants(position, {
             "right-start": "-30%",

@@ -10,7 +10,7 @@ import { PrismaneFieldComponent } from "../../types";
 import { strip, variants, fr } from "../../utils";
 
 export type NativeSelectFieldProps = {
-  options: { value: string; element: ReactNode }[];
+  options: { value: string; label: ReactNode }[];
 } & FieldProps<"input">;
 
 /**
@@ -59,7 +59,7 @@ const NativeSelectField = forwardRef<
             value={option.value}
             key={index}
           >
-            {option.element}
+            {option.label}
           </Text>
         ))}
       </Field>

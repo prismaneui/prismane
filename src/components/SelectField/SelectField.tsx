@@ -14,11 +14,11 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 import { strip, variants, fr } from "../../utils";
 
 export type SelectFieldProps = {
-  options: { value: string; element: ReactNode }[];
+  options: { value: string; label: string }[];
   item?: (
     chosen: boolean,
     value: string,
-    element: ReactNode,
+    label: string,
     active: boolean
   ) => ReactNode;
 } & FieldProps<"input">;
@@ -179,13 +179,13 @@ const SelectField = forwardRef<
                           : ["base", 700]
                       }
                     >
-                      {option.element}
+                      {option.label}
                     </Menu.Item>
                   ) : (
                     item(
                       option.value === props.value,
                       option.value,
-                      option.element,
+                      option.label,
                       active.current === index
                     )
                   )}
