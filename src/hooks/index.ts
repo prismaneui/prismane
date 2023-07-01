@@ -1,4 +1,5 @@
 export { default as useAnimation } from "./useAnimation";
+export { default as useColor } from "./useColor";
 export { default as useCounter } from "./useCounter";
 export { default as useDebounce } from "./useDebounce";
 export { default as useDimensions } from "./useDimensions";

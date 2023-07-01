@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 const useLocalization = (dl: string, translations: any) => {
   const [locale, setLocale] = useState(dl);
-  const [localizedText, setLocalizedText] = useState(translations[dl]);
+  const [text, setText] = useState(translations[dl]);
 
   useEffect(() => {
-    setLocalizedText(translations[locale]);
+    setText(translations[locale]);
   }, [locale, translations]);
 
   const changeLocale = (nl: string) => {
@@ -16,7 +16,7 @@ const useLocalization = (dl: string, translations: any) => {
     }
   };
 
-  return { locale, localizedText, changeLocale };
+  return { locale, text, changeLocale };
 };
 
 export default useLocalization;

@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const useKeyboardShortcut = (
   keys: string[],
   cb: Function,
   shouldRegister: boolean = true
 ) => {
-  const [pressedKeys, setPressedKeys] = useState<string[]>([]);
+  const pressedKeysRef = useRef<string[]>([]);
 
   const handleKeyDown = (event: any) => {
-    const np = pressedKeys.slice();
+    if (pressedKeysRef.current.includes(event.key.toLowerCase())) {
+      return;
+    }
 
-    np.push(event.key.toLowerCase());
+    const np = [...pressedKeysRef.current, event.key.toLowerCase()];
 
-    setPressedKeys(np);
+    pressedKeysRef.current = np;
 
     if (
-      np.length === keys.length &&
-      keys.every((key) => np.includes(key.toLowerCase())) &&
+      pressedKeysRef.current.length === keys.length &&
+      keys.every((key) => pressedKeysRef.current.includes(key.toLowerCase())) &&
       shouldRegister
     ) {
       event.preventDefault();
@@ -26,13 +28,14 @@ const useKeyboardShortcut = (
   };
 
   const handleKeyUp = (event: any) => {
-    const np = pressedKeys.slice();
-
-    setPressedKeys(np.filter((key) => key !== event.key.toLowerCase()));
+    const np = pressedKeysRef.current.filter(
+      (key: any) => key !== event.key.toLowerCase()
+    );
+    pressedKeysRef.current = np;
   };
 
   const handleResetPressedKeys = () => {
-    setPressedKeys([]);
+    pressedKeysRef.current = [];
   };
 
   useEffect(() => {

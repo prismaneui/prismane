@@ -110,8 +110,10 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               md: fr(1.5),
               lg: fr(2),
             })}
-            bg={(theme) => (theme.mode === "dark" ? "white" : [color, 500])}
-            cl={(theme) => (theme.mode === "dark" ? [color, 900] : "white")}
+            bg={(theme) =>
+              theme.mode === "dark" ? [color, 700] : [color, 500]
+            }
+            cl="white"
             fs="sm"
             br="base"
             animation="fade"

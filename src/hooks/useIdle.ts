@@ -1,32 +1,32 @@
 import { useState, useEffect } from "react";
 
-const useIdle = (timeout: number = 3000, options: any = {}) => {
-  const {
-    events = ["mousemove", "keydown", "touchmove", "click", "scroll"],
-    initial = false,
-  } = options;
+const useIdle = (
+  timeout: number = 3000,
+  options: any = {
+    events: ["mousemove", "keyup", "click", "scroll"],
+    initial: false,
+  }
+) => {
+  const { events, initial } = options;
   const [isIdle, setIsIdle] = useState(initial);
+  let idleTimeout: any;
 
   useEffect(() => {
-    let timeout: any;
-
     const handleUserActivity = () => {
       setIsIdle(false);
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
+      clearTimeout(idleTimeout);
+      idleTimeout = setTimeout(() => {
         setIsIdle(true);
       }, timeout);
     };
 
-    handleUserActivity();
-
-    events.forEach((event: any) => {
+    events.forEach((event: string) => {
       window.addEventListener(event, handleUserActivity);
     });
 
     return () => {
-      clearTimeout(timeout);
-      events.forEach((event: any) => {
+      clearTimeout(idleTimeout);
+      events.forEach((event: string) => {
         window.removeEventListener(event, handleUserActivity);
       });
     };

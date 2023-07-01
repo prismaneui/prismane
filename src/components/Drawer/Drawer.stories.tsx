@@ -9,7 +9,7 @@ export default {
 };
 
 export const Default = () => (
-  <Drawer position="left" open>
+  <Drawer position="top" open>
     <Drawer.Header>
       <h1>Payment</h1>
     </Drawer.Header>

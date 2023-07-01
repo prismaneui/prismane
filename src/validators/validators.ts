@@ -25,7 +25,7 @@ export const min = (
   length: number,
   fieldName?: string
 ): string | null => {
-  if (value && value.length <= length) {
+  if (value.length <= length) {
     return `${
       fieldName ? fieldName : "This field"
     } has to be longer than ${length} characters!`;
@@ -47,7 +47,7 @@ export const max = (
   length: number,
   fieldName?: string
 ): string | null => {
-  if (value && value.length > length) {
+  if (value.length > length) {
     return `${
       fieldName ? fieldName : "This field"
     } has to be shorter than ${length} characters!`;
@@ -83,7 +83,7 @@ export const match = (
  * @description Method that check if a value is a valid url
  */
 export const url = (value: string): string | null => {
-  if (value.length > 0 && !/^(ftp|http|https):\/\/[^ "]+$/.test(value)) {
+  if (!/^(ftp|http|https):\/\/[^ "]+$/.test(value)) {
     return "This is not a valid URL!";
   }
 

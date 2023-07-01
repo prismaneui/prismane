@@ -81,7 +81,7 @@ const Template: any = (props: any) => (
 );
 
 export const Single = () => (
-  <Tooltip label="test">
+  <Tooltip label="test" color="ruby">
     <Button>Right End</Button>
   </Tooltip>
 );

@@ -5,63 +5,84 @@ const useDimensions = (ref: any) => {
 
   useEffect(() => {
     const updateDimensions = () => {
-      const rect = ref.current.getBoundingClientRect();
-      const { top, right, bottom, left, width, height } = rect;
+      setTimeout(() => {
+        const rect = ref.current.getBoundingClientRect();
+        const { top, right, bottom, left, width, height } = rect;
 
-      const x = rect.left;
-      const y = rect.top;
+        const x = rect.left;
+        const y = rect.top;
 
-      const center = {
-        x: left + width / 2,
-        y: top + height / 2,
-      };
+        const center = {
+          x: left + width / 2,
+          y: top + height / 2,
+        };
 
-      const marginBox: any = {
-        top,
-        right,
-        bottom,
-        left,
-        width,
-        height,
-        x,
-        y,
-        center,
-      };
-      const borderBox = { ...marginBox };
-      const paddingBox = { ...marginBox };
-      const contentBox = { ...marginBox };
+        const margin = {
+          top: parseInt(window.getComputedStyle(ref.current).marginTop, 10),
+          right: parseInt(window.getComputedStyle(ref.current).marginRight, 10),
+          bottom: parseInt(
+            window.getComputedStyle(ref.current).marginBottom,
+            10
+          ),
+          left: parseInt(window.getComputedStyle(ref.current).marginLeft, 10),
+        };
 
-      const style = window.getComputedStyle(ref.current);
-      const margin = {
-        top: parseInt(style.marginTop, 10),
-        right: parseInt(style.marginRight, 10),
-        bottom: parseInt(style.marginBottom, 10),
-        left: parseInt(style.marginLeft, 10),
-      };
-      const padding = {
-        top: parseInt(style.paddingTop, 10),
-        right: parseInt(style.paddingRight, 10),
-        bottom: parseInt(style.paddingBottom, 10),
-        left: parseInt(style.paddingLeft, 10),
-      };
-      const border = {
-        top: parseInt(style.borderTopWidth, 10),
-        right: parseInt(style.borderRightWidth, 10),
-        bottom: parseInt(style.borderBottomWidth, 10),
-        left: parseInt(style.borderLeftWidth, 10),
-      };
+        const padding = {
+          top: parseInt(window.getComputedStyle(ref.current).paddingTop, 10),
+          right: parseInt(
+            window.getComputedStyle(ref.current).paddingRight,
+            10
+          ),
+          bottom: parseInt(
+            window.getComputedStyle(ref.current).paddingBottom,
+            10
+          ),
+          left: parseInt(window.getComputedStyle(ref.current).paddingLeft, 10),
+        };
 
-      marginBox.margin = margin;
-      borderBox.border = border;
-      paddingBox.padding = padding;
-      contentBox.width -=
-        padding.left + padding.right + border.left + border.right;
-      contentBox.height -=
-        padding.top + padding.bottom + border.top + border.bottom;
-      contentBox.x += padding.left + border.left;
-      contentBox.y += padding.top + border.top;
+        const border = {
+          top: parseInt(
+            window.getComputedStyle(ref.current).borderTopWidth,
+            10
+          ),
+          right: parseInt(
+            window.getComputedStyle(ref.current).borderRightWidth,
+            10
+          ),
+          bottom: parseInt(
+            window.getComputedStyle(ref.current).borderBottomWidth,
+            10
+          ),
+          left: parseInt(
+            window.getComputedStyle(ref.current).borderLeftWidth,
+            10
+          ),
+        };
 
-      setDimensions({ marginBox, borderBox, paddingBox, contentBox });
+        const contentBox = {
+          top,
+          right,
+          bottom,
+          left,
+          width,
+          height,
+          x,
+          y,
+          center,
+          margin,
+          padding,
+          border,
+        };
+
+        contentBox.width -=
+          padding.left + padding.right + border.left + border.right;
+        contentBox.height -=
+          padding.top + padding.bottom + border.top + border.bottom;
+        contentBox.x += padding.left + border.left;
+        contentBox.y += padding.top + border.top;
+
+        setDimensions(contentBox);
+      }, 0);
     };
 
     if (ref.current) {

@@ -1,46 +1,49 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useInterval = (callback: any, delay: number) => {
-  const savedCallback: any = useRef();
-  const intervalIdRef: any = useRef();
-  const latestCallback: any = useRef();
-  const latestDelay: any = useRef();
+  const savedCallback = useRef<any>(null);
+  const intervalIdRef = useRef<NodeJS.Timeout | null | any>(null);
+  const [active, setActive] = useState<boolean>(false);
 
   useEffect(() => {
     savedCallback.current = callback;
-    latestCallback.current = callback;
-    latestDelay.current = delay;
-  }, [callback, delay]);
+  }, [callback]);
 
   const start = () => {
-    intervalIdRef.current = setInterval(() => {
-      latestCallback.current();
-    }, latestDelay.current);
+    if (!active) {
+      stop();
+      intervalIdRef.current = setInterval(() => {
+        savedCallback.current();
+      }, delay);
+      setActive(true);
+    }
   };
 
   const stop = () => {
-    clearInterval(intervalIdRef.current);
+    if (active) {
+      clearInterval(intervalIdRef.current);
+      intervalIdRef.current = null;
+      setActive(false);
+    }
   };
 
-  const reset = () => {
-    clearInterval(intervalIdRef.current);
-    latestCallback.current = savedCallback.current;
-    latestDelay.current = delay;
-    start();
+  const toggle = () => {
+    if (active) {
+      stop();
+    } else {
+      start();
+    }
   };
 
   useEffect(() => {
-    start();
-
-    return () => {
-      stop();
-    };
-  }, [delay]);
+    return stop;
+  }, []);
 
   return {
     start,
     stop,
-    reset,
+    toggle,
+    active,
   };
 };
 
