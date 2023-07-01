@@ -1,0 +1,34 @@
+import { useState } from "react";
+// Components
+import { Stack, Button, Text } from "../components";
+// Hooks
+import useMemoization from "./useMemoization";
+
+export default {
+  title: "useMemoization",
+  component: useMemoization,
+};
+
+export const Default = () => {
+  const { memoize, clear } = useMemoization();
+
+  const [value, setValue] = useState("");
+
+  const expensiveFunction = memoize((pk, pv) => {
+    console.log("Computing...");
+    return pv + 1;
+  });
+
+  const handleClick = () => {
+    const result = expensiveFunction("number", 5);
+    setValue(result);
+  };
+
+  return (
+    <Stack>
+      <Button onClick={handleClick}>Calculate</Button>
+      <Button onClick={() => clear()}>Clear Cache</Button>
+      <Text>Value from cache: {value}</Text>
+    </Stack>
+  );
+};

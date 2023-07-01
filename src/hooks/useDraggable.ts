@@ -11,22 +11,24 @@ const useDraggable = () => {
     const handleMouseDown = (event: any) => {
       setIsDragging(true);
       const { clientX, clientY } = event;
+      const { offsetLeft, offsetTop } = element.offsetParent;
       const { offsetWidth, offsetHeight } = element;
 
       setPosition((prevPosition) => ({
-        x: clientX - offsetWidth / 2,
-        y: clientY - offsetHeight / 2,
+        x: clientX - offsetLeft - offsetWidth / 2,
+        y: clientY - offsetTop - offsetHeight / 2,
       }));
     };
 
     const handleMouseMove = (event: any) => {
       if (isDragging) {
         const { clientX, clientY } = event;
+        const { offsetLeft, offsetTop } = element.offsetParent;
         const { offsetWidth, offsetHeight } = element;
 
         setPosition((prevPosition) => ({
-          x: clientX - offsetWidth / 2,
-          y: clientY - offsetHeight / 2,
+          x: clientX - offsetLeft - offsetWidth / 2,
+          y: clientY - offsetTop - offsetHeight / 2,
         }));
       }
     };

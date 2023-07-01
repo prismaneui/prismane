@@ -9,12 +9,9 @@ type MemoizeFunction = (
 
 type ClearFunction = () => void;
 
-type ValueFunction = (k: string) => any;
-
 type MemoizationHook = {
   memoize: MemoizeFunction;
   clear: ClearFunction;
-  value: ValueFunction;
 };
 
 const useMemoization = (): MemoizationHook => {
@@ -28,15 +25,15 @@ const useMemoization = (): MemoizationHook => {
         if (
           cache.has(key) &&
           (typeof vl === "function"
-            ? vl(cache.get(key), pv)
-            : JSON.stringify(pv) === JSON.stringify(cache.get(key)))
+            ? vl(cache.get(key).iv, pv)
+            : JSON.stringify(pv) === JSON.stringify(cache.get(key).iv))
         ) {
-          return cache.get(key);
+          return cache.get(key).cv;
         }
 
         const result = fn(pk, pv);
 
-        cache.set(key, result);
+        cache.set(key, { iv: pv, cv: result });
 
         return result;
       };
@@ -48,14 +45,7 @@ const useMemoization = (): MemoizationHook => {
     setCache(new Map());
   }, []);
 
-  const value: ValueFunction = useCallback(
-    (k: string) => {
-      return cache.get(JSON.stringify(k));
-    },
-    [cache]
-  );
-
-  return { memoize, clear, value };
+  return { memoize, clear };
 };
 
 export default useMemoization;

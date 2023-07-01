@@ -16,12 +16,7 @@ type StylingProps = {
   [key: string]: StylingProp;
 };
 
-type StylingResult = {
-  value: any;
-  computed: any;
-};
-
-type StylingGeneratorFunction = (pk: string, pv: any) => StylingResult;
+type StylingGeneratorFunction = (pk: string, pv: any) => string;
 
 type StylingHook = (props: StylingProps) => any[];
 
@@ -55,19 +50,10 @@ const useStyling: StylingHook = (props: StylingProps) => {
           };
         });
 
-        return {
-          value: pv,
-          computed: computeStyles(temporary),
-        };
+        return computeStyles(temporary);
       } else {
-        return {
-          value: pv,
-          computed: computeStyles({ [pk]: pv }),
-        };
+        return computeStyles({ [pk]: pv });
       }
-    },
-    (cv: StylingResult, pv: any) => {
-      return JSON.stringify(cv.value) === JSON.stringify(pv);
     }
   );
 
@@ -85,7 +71,7 @@ const useStyling: StylingHook = (props: StylingProps) => {
           typeof prop === "function" ? prop(theme) : prop
         );
 
-        setComputed((pc) => [...pc, result.computed]);
+        setComputed((pc) => [...pc, result]);
       }
     }
 

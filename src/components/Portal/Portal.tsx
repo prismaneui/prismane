@@ -20,7 +20,7 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
       }
 
       if (target === undefined) {
-        setNode(document.documentElement);
+        setNode(document.body);
       }
     }, [target]);
 

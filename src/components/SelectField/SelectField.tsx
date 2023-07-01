@@ -103,8 +103,6 @@ const SelectField = forwardRef<
       open
     );
 
-    console.log(active.current);
-
     return (
       <Field.Wrapper size={size} ref={wrapperRef} {...rest}>
         <Field.Label size={size}>{label}</Field.Label>
