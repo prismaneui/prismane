@@ -14,6 +14,7 @@ const AlertDescription = forwardRef<HTMLSpanElement, AlertDescriptionProps>(
   ({ variant, children, className, ...props }, ref) => {
     return (
       <Text
+        w="100%"
         fs="sm"
         maw="xl"
         cl={(theme) =>

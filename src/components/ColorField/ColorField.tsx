@@ -51,7 +51,7 @@ const ColorField = forwardRef<
       <SelectField
         options={options.map((option) => ({
           value: getColor(option),
-          label: getColor(option),
+          element: getColor(option),
         }))}
         addons={
           props.value && (

@@ -184,7 +184,7 @@ export interface PrismaneDefault {
   pe?: PrismaneStyles<string>;
   cs?: PrismaneStyles<string>;
   bs?: PrismaneStyles<string>;
-  sx?: React.CSSProperties | ((theme: any) => React.CSSProperties);
+  sx?: PrismaneStyles<any>;
 }
 
 export interface PrismaneComponent extends PrismaneDefault {

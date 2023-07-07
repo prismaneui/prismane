@@ -10,7 +10,7 @@ import { PrismaneFieldComponent } from "../../types";
 import { strip, variants, fr } from "../../utils";
 
 export type NativeSelectFieldProps = {
-  options: { value: string; label: ReactNode }[];
+  options: { value: string; element: ReactNode }[];
 } & FieldProps<"input">;
 
 /**

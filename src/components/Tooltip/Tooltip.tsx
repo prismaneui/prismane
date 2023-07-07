@@ -17,7 +17,7 @@ import {
 import { strip, variants, fr } from "../../utils";
 
 export type TooltipProps = {
-  label: ReactNode;
+  element: ReactNode;
   position?: PrismanePositions;
   size?: PrismaneBreakpoints;
   color?: PrismaneColors;

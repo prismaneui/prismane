@@ -14,6 +14,7 @@ const AlertTitle = forwardRef<HTMLSpanElement, AlertTitleProps>(
   ({ variant, children, className, ...props }, ref) => {
     return (
       <Text
+        w="100%"
         fw="bold"
         cl={(theme) =>
           variants(variant, {

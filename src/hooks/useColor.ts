@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 // Theme
 import { transformColor } from "../themes/theme";
 import { usePrismaneTheme } from "../components/PrismaneProvider/PrismaneContext";
@@ -15,10 +16,16 @@ import { parse } from "../utils";
 const useColor = () => {
   const { theme } = usePrismaneTheme();
 
+  const [currentTheme, setCurrentTheme] = useState(theme);
+
+  useEffect(() => {
+    setCurrentTheme(theme);
+  }, [theme]);
+
   const colors: any = {
     ...PRISMANE_COLORS,
-    primary: theme.colors.primary,
-    base: theme.colors.base,
+    primary: currentTheme.colors.primary,
+    base: currentTheme.colors.base,
   };
 
   const getColor = (cl: PrismaneColors | string, shade?: PrismaneShades) => {

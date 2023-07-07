@@ -2,6 +2,7 @@ import { forwardRef, useState, useRef } from "react";
 // Components
 import Field, { FieldProps } from "../Field/Field";
 import Flex from "../Flex/Flex";
+import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
@@ -102,7 +103,9 @@ const PinField = forwardRef<
           {label}
         </Field.Label>
         <Flex align="center" gap={fr(2)}>
-          <Field dp="none" ref={fieldRef} {...field} type="text" />
+          <Hidden>
+            <Field ref={fieldRef} {...field} type="text" />
+          </Hidden>
           {Array.from({ length }, (_, index) => (
             <Field
               variant={field.variant}

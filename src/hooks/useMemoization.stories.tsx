@@ -14,8 +14,10 @@ export const Default = () => {
 
   const [value, setValue] = useState("");
 
+  const [computed, setComputed] = useState(0);
+
   const expensiveFunction = memoize((pk, pv) => {
-    console.log("Computing...");
+    setComputed((pc: number) => pc + 1);
     return pv + 1;
   });
 
@@ -26,9 +28,10 @@ export const Default = () => {
 
   return (
     <Stack>
+      <Text>Value from cache: {value}</Text>
+      <Text>Times computed: {computed}</Text>
       <Button onClick={handleClick}>Calculate</Button>
       <Button onClick={() => clear()}>Clear Cache</Button>
-      <Text>Value from cache: {value}</Text>
     </Stack>
   );
 };

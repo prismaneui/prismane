@@ -14,6 +14,7 @@ import "../src/index.css";
 import PrismaneProvider from "../src/components/PrismaneProvider/PrismaneProvider";
 import Flex from "../src/components/Flex/Flex";
 import Toaster from "../src/components/Toaster/Toaster";
+import { PRISMANE_COLORS } from "../src/constants";
 
 const preview: Preview = {
   decorators: [
@@ -22,9 +23,17 @@ const preview: Preview = {
         context.globals.theme === "dark"
           ? {
               mode: "dark",
+              colors: {
+                primary: { ...PRISMANE_COLORS.copper },
+                base: { ...PRISMANE_COLORS.gray },
+              },
             }
           : {
               mode: "light",
+              colors: {
+                primary: { ...PRISMANE_COLORS.copper },
+                base: { ...PRISMANE_COLORS.gray },
+              },
             };
 
       return (

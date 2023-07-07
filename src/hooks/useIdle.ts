@@ -2,12 +2,9 @@ import { useState, useEffect } from "react";
 
 const useIdle = (
   timeout: number = 3000,
-  options: any = {
-    events: ["mousemove", "keyup", "click", "scroll"],
-    initial: false,
-  }
+  events: string[] = ["mousemove", "keyup", "click", "scroll"],
+  initial: boolean = false
 ) => {
-  const { events, initial } = options;
   const [isIdle, setIsIdle] = useState(initial);
   let idleTimeout: any;
 
