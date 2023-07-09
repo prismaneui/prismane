@@ -9,7 +9,7 @@ export type SkeletonProps = {
 } & FlexProps<"div">;
 
 const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-  ({ variant, className, sx, ...props }, ref) => {
+  ({ variant = "rounded", className, sx, ...props }, ref) => {
     return (
       <Flex
         p={fr(2)}
@@ -27,7 +27,7 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
         className={strip(
           `${
             className ? className : ""
-          } PrismaneSkeleton-${variant} PrismaneSkeleton-root`
+          } PrismaneSkeleton-root-${variant} PrismaneSkeleton-root`
         )}
         ref={ref}
         {...props}

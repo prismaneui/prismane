@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 // Theme
-import { transformColor } from "../themes/theme";
-import { usePrismaneTheme } from "../components/PrismaneProvider/PrismaneContext";
+import { transformColor } from "../../themes/theme";
+import { usePrismaneTheme } from "./PrismaneContext";
 // Globals
 import {
   PRISMANE_COLORS,
   PRISMANE_COLORS_MAP,
   PRISMANE_SHADES_MAP,
-} from "../constants";
+} from "../../constants";
 // Types
-import { PrismaneColors, PrismaneShades, PrismaneTheme } from "../types";
+import { PrismaneColors, PrismaneShades, PrismaneTheme } from "../../types";
 // Utils
-import { parse } from "../utils";
+import { parse } from "../../utils";
 
-const useColor = () => {
+const usePrismaneColor = () => {
   const { theme } = usePrismaneTheme();
 
   const [currentTheme, setCurrentTheme] = useState(theme);
@@ -60,4 +60,4 @@ const useColor = () => {
   return { getColor, getColorStyle };
 };
 
-export default useColor;
+export default usePrismaneColor;

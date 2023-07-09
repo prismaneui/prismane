@@ -15,8 +15,7 @@ import { strip, fr } from "../../utils";
 export type NumberFieldProps = {
   min?: number;
   max?: number;
-} & FieldProps<"input"> &
-  PrismaneFieldComponent;
+} & FieldProps<"input">;
 
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.
@@ -52,7 +51,9 @@ const NumberField = forwardRef<
 
     return (
       <Field.Wrapper {...rest}>
-        <Field.Label size={size}>{label}</Field.Label>
+        <Field.Label size={size} className="PrismaneNumberField-label">
+          {label}
+        </Field.Label>
         <Field
           type="text"
           size={size}
@@ -128,7 +129,9 @@ const NumberField = forwardRef<
           {...field}
           readOnly
         />
-        <Field.Error size={size}>{error}</Field.Error>
+        <Field.Error size={size} className="PrismaneNumberField-error">
+          {error}
+        </Field.Error>
       </Field.Wrapper>
     );
   }

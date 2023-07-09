@@ -1,14 +1,14 @@
-import { Flex, Text } from "../components";
-import useColor from "./useColor";
-import { fr } from "../utils";
+import { Flex, Text } from "..";
+import usePrismaneColor from "./usePrismaneColor";
+import { fr } from "../../utils";
 
 export default {
-  title: "useColor",
-  component: useColor,
+  title: "usePrismaneColor",
+  component: usePrismaneColor,
 };
 
 export const Default = () => {
-  const { getColor, getColorStyle } = useColor();
+  const { getColor, getColorStyle } = usePrismaneColor();
 
   return (
     <Flex direction="column" gap={fr(5)}>
@@ -30,7 +30,7 @@ export const Default = () => {
       <Text
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
       >
-        {getColorStyle("primary", 200)}
+        {getColorStyle(["primary", 200])}
       </Text>
     </Flex>
   );

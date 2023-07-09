@@ -3,7 +3,7 @@ import { useToasterContext } from "./ToasterContext";
 // Types
 import { ToastProps } from "./Toast/Toast";
 
-const useToast = (length: number = 10) => {
+const useToast = () => {
   const { setToasts }: any = useToasterContext();
 
   const toast = (nt: ToastProps & { element: any }) => {

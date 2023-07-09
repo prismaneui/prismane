@@ -11,7 +11,7 @@ export type ContainerProps = {
 } & FlexProps<"div">;
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
-  ({ maxSize, children, className, ...props }, ref) => {
+  ({ maxSize = "base", children, className, ...props }, ref) => {
     return (
       <Flex
         w="100%"
@@ -20,7 +20,9 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         maw={maxSize}
         grow
         className={strip(
-          `${className ? className : ""} PrismaneContainer-root`
+          `${
+            className ? className : ""
+          } PrismaneContainer-root-${maxSize} PrismaneContainer-root`
         )}
         ref={ref}
         {...props}

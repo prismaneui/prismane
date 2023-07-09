@@ -1,1 +1,1 @@
-export { default } from "./NativeDateField";
+export { default, type NativeDateFieldProps } from "./NativeDateField";

@@ -1,7 +1,7 @@
 import { forwardRef, useEffect } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
-import useColor from "../../hooks/useColor";
+import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
 import { PrismaneVersatile, Versatile } from "../../types";
 // Utils
@@ -97,7 +97,7 @@ const Box = forwardRef(
   ) => {
     const El = as || "div";
 
-    const { getColorStyle } = useColor();
+    const { getColorStyle } = usePrismaneColor();
 
     const styles = useStyling({
       width: w,

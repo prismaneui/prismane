@@ -25,7 +25,6 @@ export type ModalProps = {
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
-  shadow?: boolean;
 } & AnimationProps<"div"> &
   PaperProps<"div">;
 
@@ -76,7 +75,9 @@ const Modal: PrismaneWithInternal<
                 e.stopPropagation();
               }}
               className={strip(
-                `${className ? className : ""} PrismaneModal-root`
+                `${className ? className : ""} ${
+                  open ? "PrismaneModal-root-open" : ""
+                } PrismaneModal-root`
               )}
               ref={ref}
               {...props}

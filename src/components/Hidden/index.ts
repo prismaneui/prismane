@@ -1,1 +1,1 @@
-export { default } from "./Hidden";
+export { default, type HiddenProps } from "./Hidden";

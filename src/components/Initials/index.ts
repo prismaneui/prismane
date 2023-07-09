@@ -1,1 +1,1 @@
-export { default } from "./Initials";
+export { default, type InitialProps } from "./Initials";

@@ -70,7 +70,11 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
           }),
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneChip-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneChip-root-${size} PrismaneChip-root-${color} PrismaneChip-root`
+        )}
         ref={ref}
         {...props}
       >

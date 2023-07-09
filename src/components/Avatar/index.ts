@@ -1,1 +1,1 @@
-export { default } from "./Avatar";
+export { default, type AvatarProps } from "./Avatar";

@@ -13,9 +13,9 @@ export type AccordionPanelProps = FlexProps<"div"> & AnimationProps<"div">;
 
 const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
   ({ children, className, ...props }, ref) => {
-    const { value } = useAccordionContext();
+    const { value }: any = useAccordionContext();
 
-    const item = useAccordionItemContext();
+    const item: any = useAccordionItemContext();
 
     const contentRef = useRef(null);
 
@@ -47,7 +47,9 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
         }}
         animated={open}
         className={strip(
-          `${className ? className : ""} PrismaneAccordionPanel-root`
+          `${className ? className : ""} ${
+            value === item ? "PrismaneAccordionPanel-root-active" : ""
+          } PrismaneAccordionPanel-root`
         )}
         ref={ref}
         {...props}

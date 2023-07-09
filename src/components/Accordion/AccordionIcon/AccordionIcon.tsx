@@ -13,14 +13,16 @@ export type AccordionIconProps = FlexProps<"div">;
 
 const AccordionIcon = forwardRef<HTMLDivElement, AccordionIconProps>(
   ({ children, className, ...props }, ref) => {
-    const { value } = useAccordionContext();
+    const { value }: any = useAccordionContext();
 
-    const item = useAccordionItemContext();
+    const item: any = useAccordionItemContext();
 
     return (
       <Flex
         className={strip(
-          `${className ? className : ""} PrismaneAccordionIcon-root`
+          `${className ? className : ""} ${
+            value === item ? "PrismaneAccordionIcon-root-active" : ""
+          } PrismaneAccordionIcon-root`
         )}
         ref={ref}
         {...props}

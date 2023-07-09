@@ -3,14 +3,14 @@ import { forwardRef, ReactNode } from "react";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 // Types
-import { PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints, PrismaneStyles } from "../../types";
 // Utils
 import { strip, fr, dual } from "../../utils";
 
 export type ProgressProps = {
   value: number;
   label?: ReactNode;
-  size?: number | PrismaneBreakpoints;
+  size?: PrismaneStyles | PrismaneBreakpoints;
 } & FlexProps<"div"> &
   TransitionProps<"div">;
 
@@ -30,7 +30,11 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
         br="full"
         bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 200])}
         grow
-        className={strip(`${className ? className : ""} PrismaneLoader-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneProgress-root-${size} PrismaneProgress-root`
+        )}
         ref={ref}
         {...props}
       >

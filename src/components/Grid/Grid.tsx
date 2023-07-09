@@ -24,12 +24,12 @@ const Grid: PrismaneWithInternal<GridProps, { Item: GridItemProps }> =
   forwardRef<HTMLDivElement, GridProps>(
     (
       {
-        templateColumns = "none",
-        templateRows = "none",
-        flow = "row",
-        autoColumns = "auto",
-        autoRows = "auto",
-        gap = 0,
+        templateColumns,
+        templateRows,
+        flow,
+        autoColumns,
+        autoRows,
+        gap,
         children,
         className,
         sx,

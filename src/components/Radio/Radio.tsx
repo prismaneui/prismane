@@ -5,6 +5,7 @@ import Field from "../Field/Field";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Text from "../Text/Text";
+import Hidden from "../Hidden/Hidden";
 // Context
 import { useRadioContext } from "./RadioContext";
 // Types
@@ -104,23 +105,26 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
               ...sx,
             }}
             className={strip(
-              `${className ? className : ""} PrismaneRadio-root`
+              `${className ? className : ""} ${
+                value === group.value ? "PrismaneRadio-root-active" : ""
+              } PrismaneRadio-root`
             )}
             {...rest}
           >
-            <Field
-              id={`${group.name || name}-${uuid}`}
-              name={group.name || name}
-              type="radio"
-              dp="none"
-              onBlur={group.onBlur || onBlur}
-              onChange={group.onChange || onChange}
-              onFocus={onFocus}
-              value={value}
-              defaultValue={defaultValue}
-              ref={ref}
-              {...field}
-            />
+            <Hidden>
+              <Field
+                id={`${group.name || name}-${uuid}`}
+                name={group.name || name}
+                type="radio"
+                onBlur={group.onBlur || onBlur}
+                onChange={group.onChange || onChange}
+                onFocus={onFocus}
+                value={value}
+                defaultValue={defaultValue}
+                ref={ref}
+                {...field}
+              />
+            </Hidden>
             <Animation
               h={variants(group.size || size, {
                 xs: fr(1.5),
@@ -147,8 +151,18 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
             />
           </Transition>
           <Flex direction="column" align="center" gap={fr(2)}>
-            <Field.Label size={group.size || size}>{label}</Field.Label>
-            <Field.Error size={group.size || size}>{error}</Field.Error>
+            <Field.Label
+              size={group.size || size}
+              className="PrismaneRadio-label"
+            >
+              {label}
+            </Field.Label>
+            <Field.Error
+              size={group.size || size}
+              className="PrismaneRadio-error"
+            >
+              {error}
+            </Field.Error>
           </Flex>
         </Flex>
       );

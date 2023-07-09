@@ -14,9 +14,6 @@ import { strip } from "../../../utils";
 export type ToastProps = {
   id?: number;
   timeout?: number;
-  duration?: number;
-  timing?: string;
-  animation?: PrismaneAnimations;
 } & FlexProps<"div"> &
   AnimationProps<"div">;
 

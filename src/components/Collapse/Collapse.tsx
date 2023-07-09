@@ -10,12 +10,16 @@ export type CollapseProps = {
 } & AnimationProps<"div">;
 
 const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
-  ({ open, children, className, ...props }, ref) => {
+  ({ open = false, children, className, ...props }, ref) => {
     const contentRef: any = useRef(null);
 
     return (
       <Animation
-        className={strip(`${className ? className : ""} PrismaneCollapse-root`)}
+        className={strip(
+          `${className ? className : ""} ${
+            open ? "PrismaneCollapse-root-open" : ""
+          } PrismaneCollapse-root`
+        )}
         of="hidden"
         animation={{
           in: {

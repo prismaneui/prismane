@@ -1,1 +1,1 @@
-export { default } from "./Collapse";
+export { default, type CollapseProps } from "./Collapse";

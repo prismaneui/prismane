@@ -12,9 +12,9 @@ export type AccordionControlProps = FlexProps<"div"> & TransitionProps<"div">;
 
 const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
   ({ children, className, ...props }, ref) => {
-    const { value, setValue } = useAccordionContext();
+    const { value, setValue }: any = useAccordionContext();
 
-    const item = useAccordionItemContext();
+    const item: any = useAccordionItemContext();
 
     return (
       <Transition
@@ -34,7 +34,9 @@ const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
           value === item ? setValue(null) : setValue(item);
         }}
         className={strip(
-          `${className ? className : ""} PrismaneAccordionControl-root`
+          `${className ? className : ""} ${
+            value === item ? "PrismaneAccordionControl-root-active" : ""
+          } PrismaneAccordionControl-root`
         )}
         ref={ref}
         {...props}

@@ -41,7 +41,11 @@ const Tabs: PrismaneWithInternal<
         direction="column"
         w="100%"
         h="100%"
-        className={strip(`${className ? className : ""} PrismaneTabs-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneTabs-root-${variant} PrismaneTabs-root`
+        )}
         ref={ref}
         {...props}
       >

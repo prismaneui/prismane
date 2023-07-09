@@ -100,7 +100,7 @@ const Badge = forwardRef(
           className={strip(
             `${
               className ? className : ""
-            } PrismaneBadge-${position} PrismaneBadge-root`
+            } PrismaneBadge-root-${position} PrismaneBadge-root-${color} PrismaneBadge-root-${size} PrismaneBadge-root`
           )}
           ref={ref}
           {...props}

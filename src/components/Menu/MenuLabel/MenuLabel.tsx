@@ -18,7 +18,9 @@ const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
         fs="sm"
         cl={(theme) => (theme.mode === "dark" ? [color, 400] : [color, 600])}
         className={strip(
-          `${className ? className : ""} PrismaneMenuLabel-root`
+          `${
+            className ? className : ""
+          } PrismaneMenuLabel-root-${color} PrismaneMenuLabel-root`
         )}
         ref={ref}
         {...props}

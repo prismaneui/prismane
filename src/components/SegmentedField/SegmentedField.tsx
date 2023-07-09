@@ -13,14 +13,11 @@ import { PrismaneFieldComponent } from "../../types";
 import { variants, fr } from "../../utils";
 
 export type SegmentedFieldProps = {
-  options?: Option[];
-} & FieldProps<"input"> &
-  PrismaneFieldComponent;
-
-export interface Option {
-  element: ReactNode;
-  value: string | number;
-}
+  options?: {
+    element: ReactNode;
+    value: string;
+  }[];
+} & FieldProps<"input">;
 
 const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
   ({ options = [], label, error, size = "base", sx, ...props }, ref) => {
@@ -32,11 +29,14 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
 
     return (
       <Field.Wrapper {...rest}>
-        <Field.Label size={size}>{label}</Field.Label>
+        <Field.Label size={size} className="PrismaneSegmentedField-label">
+          {label}
+        </Field.Label>
         <Field
           size={size}
           px={fr(0)}
           py={fr(0)}
+          className="PrismaneSegmentedField-root"
           sx={{
             ".PrismaneField-field": {
               display: "none",
@@ -129,7 +129,9 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
             theme.mode === "dark" ? ["base", 800] : ["base", 200]
           }
         />
-        <Field.Error size={size}>{error}</Field.Error>
+        <Field.Error size={size} className="PrismaneSegmentedField-error">
+          {error}
+        </Field.Error>
       </Field.Wrapper>
     );
   }

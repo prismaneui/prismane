@@ -1,1 +1,1 @@
-export { default } from "./Circle";
+export { default, type CircleProps } from "./Circle";

@@ -2,7 +2,7 @@ import { ForwardedRef, forwardRef } from "react";
 // Component
 import Box, { BoxProps } from "../Box/Box";
 // Hooks
-import useColor from "../../hooks/useColor";
+import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
 import { Versatile } from "../../types";
 // Utils
@@ -27,7 +27,7 @@ const Gradient = forwardRef(
     }: GradientProps<E>,
     ref: ForwardedRef<any>
   ) => {
-    const { getColorStyle } = useColor();
+    const { getColorStyle } = usePrismaneColor();
 
     return (
       <Box

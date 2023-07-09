@@ -28,7 +28,7 @@ export {
 };
 
 export type FieldProps<E extends Versatile> = {
-  type?: string | undefined;
+  type?: string;
   placeholder?: string;
   readOnly?: boolean;
   maxLength?: number;
@@ -182,7 +182,11 @@ const Field: PrismaneWithInternal<
         pe={disabled && "none"}
         op={disabled ? 0.4 : 1}
         of="hidden"
-        className={strip(`${className ? className : ""} PrismaneField-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneField-root-${size} PrismaneField-root-${variant} PrismaneField-root`
+        )}
         {...props}
       >
         {icon && (

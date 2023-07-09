@@ -7,18 +7,18 @@ import { PrismaneBreakpoints } from "../../../types";
 import { strip, variants } from "../../../utils";
 
 export type FieldLabelProps = {
-  name?: string;
+  id?: string;
   size?: PrismaneBreakpoints;
 } & TextProps<"label">;
 
 const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
-  ({ name, size = "base", children, className, sx, ...props }, ref) => {
+  ({ id, size = "base", children, className, sx, ...props }, ref) => {
     return (
       <>
         {children && (
           <Text
             as="label"
-            htmlFor={name}
+            htmlFor={id}
             fs={variants(size, {
               xs: "xs",
               sm: "sm",

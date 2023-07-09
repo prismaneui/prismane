@@ -26,7 +26,6 @@ export type DrawerProps = {
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
-  shadow?: boolean;
 } & AnimationProps<"div"> &
   PaperProps<"div">;
 
@@ -134,7 +133,9 @@ const Drawer: PrismaneWithInternal<
                 e.stopPropagation();
               }}
               className={strip(
-                `${className ? className : ""} PrismaneDrawer-root`
+                `${className ? className : ""} ${
+                  open ? "PrismaneDrawer-root-open" : ""
+                } PrismaneDrawer-root`
               )}
               ref={ref}
               {...props}

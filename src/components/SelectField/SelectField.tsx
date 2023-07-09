@@ -105,7 +105,9 @@ const SelectField = forwardRef<
 
     return (
       <Field.Wrapper size={size} ref={wrapperRef} {...rest}>
-        <Field.Label size={size}>{label}</Field.Label>
+        <Field.Label size={size} className="PrismaneSelectField-label">
+          {label}
+        </Field.Label>
         <Field
           type="text"
           size={size}
@@ -194,7 +196,9 @@ const SelectField = forwardRef<
             </Menu>
           </Flex>
         </Flex>
-        <Field.Error size={size}>{error}</Field.Error>
+        <Field.Error size={size} className="PrismaneSelectField-error">
+          {error}
+        </Field.Error>
       </Field.Wrapper>
     );
   }

@@ -18,7 +18,9 @@ const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
           setOpen(!open);
         }}
         className={strip(
-          `${className ? className : ""} PrismanePopoverControl-root`
+          `${className ? className : ""} ${
+            open ? "PrismanePopoverControl-root-open" : ""
+          } PrismanePopoverControl-root`
         )}
         ref={ref}
         {...props}

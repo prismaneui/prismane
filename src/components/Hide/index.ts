@@ -1,1 +1,1 @@
-export { default } from "./Hide";
+export { default, type HideProps } from "./Hide";

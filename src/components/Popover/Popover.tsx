@@ -42,7 +42,11 @@ const Popover: PrismaneWithInternal<
         w="fit-content"
         h="fit-content"
         pos="relative"
-        className={strip(`${className ? className : ""} PrismanePopover-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismanePopover-root-${position} PrismanePopover-root`
+        )}
         ref={boxRef}
         {...props}
       >

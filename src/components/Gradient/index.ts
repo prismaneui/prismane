@@ -1,1 +1,1 @@
-export { default } from "./Gradient";
+export { default, type GradientProps } from "./Gradient";

@@ -1,1 +1,6 @@
-export { default } from "./Modal";
+export {
+  default,
+  type ModalProps,
+  type ModalHeaderProps,
+  type ModalFooterProps,
+} from "./Modal";

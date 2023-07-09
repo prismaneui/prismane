@@ -48,7 +48,11 @@ const Menu: PrismaneWithInternal<
             animated={animating}
             duration={duration}
             timing={timing}
-            className={strip(`${className ? className : ""} PrismaneMenu-root`)}
+            className={strip(
+              `${className ? className : ""} ${
+                open ? "PrismaneMenu-root-open" : ""
+              } PrismaneMenu-root`
+            )}
             ref={ref}
             {...props}
           >

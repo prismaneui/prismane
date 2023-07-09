@@ -31,7 +31,14 @@ const Dialog: PrismaneWithInternal<
   { Header: DialogHeaderProps; Footer: DialogFooterProps }
 > = forwardRef<HTMLDivElement, DialogProps>(
   (
-    { open, closable, onClose = () => {}, children, className, ...props },
+    {
+      open = false,
+      closable,
+      onClose = () => {},
+      children,
+      className,
+      ...props
+    },
     ref
   ) => {
     const { animate, animating, duration, timing } = useAnimation(
@@ -54,7 +61,9 @@ const Dialog: PrismaneWithInternal<
               timing={timing}
               animation="slide-up"
               className={strip(
-                `${className ? className : ""} PrismaneDialog-root`
+                `${className ? className : ""} ${
+                  open ? "PrismaneDialog-root-open" : ""
+                } PrismaneDialog-root`
               )}
               ref={ref}
               shadow

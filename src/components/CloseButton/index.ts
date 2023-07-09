@@ -1,1 +1,1 @@
-export { default } from "./CloseButton";
+export { default, type CloseButtonProps } from "./CloseButton";

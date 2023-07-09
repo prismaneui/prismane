@@ -1,1 +1,1 @@
-export { default } from "./Show";
+export { default, type ShowProps } from "./Show";

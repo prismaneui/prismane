@@ -28,7 +28,11 @@ const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         br="base"
         cs="pointer"
         bs="border-box"
-        className={strip(`${className ? className : ""} PrismaneMenuItem-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneMenuItem-root-${color} PrismaneMenuItem-root`
+        )}
         ref={ref}
         {...props}
       >

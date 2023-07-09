@@ -7,10 +7,10 @@ import { createTheme } from "../../themes/theme";
 // Types
 import { PrismaneInputTheme } from "../../types";
 
-export interface PrismaneProviderProps {
+export type PrismaneProviderProps = {
   children: ReactNode;
   theme?: PrismaneInputTheme;
-}
+};
 
 const PrismaneProvider: FC<PrismaneProviderProps> = ({
   children,

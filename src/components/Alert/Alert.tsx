@@ -8,7 +8,6 @@ import {
 // Components
 import Animation, { AnimationProps } from "../Animation/Animation";
 import Flex, { FlexProps } from "../Flex/Flex";
-import Text from "../Text/Text";
 import CloseButton from "../CloseButton/CloseButton";
 // Hooks
 import useAnimation from "../../hooks/useAnimation";
@@ -60,7 +59,7 @@ const Alert: PrismaneWithInternal<
             as={Flex}
             justify="between"
             align="center"
-            gap={fr(20)}
+            gap={fr(4)}
             animation="fade"
             animated={animating}
             duration={duration}
@@ -100,21 +99,22 @@ const Alert: PrismaneWithInternal<
                   })
             }
             className={strip(
-              `${className ? className : ""} PrismaneAlert-root`
+              `${
+                className ? className : ""
+              } PrismaneAlert-root PrismaneAlert-root-${variant}`
             )}
             ref={ref}
             {...props}
           >
-            <Flex align="center" gap={fr(4)} className="PrismaneAlert-icon">
+            <Flex
+              align="center"
+              className={`PrismaneAlert-icon PrismaneAlert-icon-${variant}`}
+            >
               {variant === "warning" ? (
                 icon ? (
                   icon
                 ) : (
-                  <Warning
-                    size={24}
-                    className="PrismaneAlert-iconWarning"
-                    style={{ alignSelf: "flex-start" }}
-                  />
+                  <Warning size={24} style={{ alignSelf: "flex-start" }} />
                 )
               ) : (
                 <></>
@@ -125,7 +125,6 @@ const Alert: PrismaneWithInternal<
                 ) : (
                   <WarningOctagon
                     size={24}
-                    className="PrismaneAlert-iconError"
                     style={{ alignSelf: "flex-start" }}
                   />
                 )
@@ -136,11 +135,7 @@ const Alert: PrismaneWithInternal<
                 icon ? (
                   icon
                 ) : (
-                  <CheckCircle
-                    size={24}
-                    className="PrismaneAlert-iconSuccess"
-                    style={{ alignSelf: "flex-start" }}
-                  />
+                  <CheckCircle size={24} style={{ alignSelf: "flex-start" }} />
                 )
               ) : (
                 <></>
@@ -149,39 +144,47 @@ const Alert: PrismaneWithInternal<
                 icon ? (
                   icon
                 ) : (
-                  <Info
-                    size={24}
-                    className="PrismaneAlert-iconInfo"
-                    style={{ alignSelf: "flex-start" }}
-                  />
+                  <Info size={24} style={{ alignSelf: "flex-start" }} />
                 )
               ) : (
                 <></>
               )}
-
-              <Text fs="sm">
-                <Flex direction="column" gap={fr(2)}>
-                  {children}
-                </Flex>
-              </Text>
             </Flex>
-            {closable &&
-              (action ? (
-                action
-              ) : (
-                <CloseButton
-                  size="sm"
-                  color={variants(variant, {
-                    warning: "copper",
-                    error: "red",
-                    success: "green",
-                    info: "diamond",
-                  })}
-                  onClick={() => {
-                    setShown(false);
-                  }}
-                />
-              ))}
+            <Flex
+              direction="column"
+              fs="sm"
+              gap={fr(2)}
+              className={`PrismaneAlert-text PrismaneAlert-text-${variant}`}
+            >
+              {children}
+            </Flex>
+            {closable && (
+              <Flex
+                w="fit-content"
+                h="fit-content"
+                justify="center"
+                items="center"
+                ml={fr(16)}
+                className={`PrismaneAlert-action PrismaneAlert-action-${variant}`}
+              >
+                {action ? (
+                  action
+                ) : (
+                  <CloseButton
+                    size="sm"
+                    color={variants(variant, {
+                      warning: "copper",
+                      error: "red",
+                      success: "green",
+                      info: "diamond",
+                    })}
+                    onClick={() => {
+                      setShown(false);
+                    }}
+                  />
+                )}
+              </Flex>
+            )}
           </Animation>
         )}
       </>

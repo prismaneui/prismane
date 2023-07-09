@@ -1,1 +1,6 @@
-export { default } from "./Drawer";
+export {
+  default,
+  type DrawerProps,
+  type DrawerHeaderProps,
+  type DrawerFooterProps,
+} from "./Drawer";

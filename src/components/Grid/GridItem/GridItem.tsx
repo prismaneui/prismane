@@ -3,6 +3,8 @@ import { forwardRef } from "react";
 import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip, variants } from "../../../utils";
+// Types
+import { PrismaneStyles } from "../../../types";
 
 export type GridItemProps = {
   columnStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | "auto";
@@ -11,7 +13,7 @@ export type GridItemProps = {
   rowStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | "auto";
   rowEnd?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | "auto";
   rowSpan?: 1 | 2 | 3 | 4 | 5 | 6 | "full";
-  gap?: string;
+  gap?: PrismaneStyles;
 } & FlexProps<"div">;
 
 const GridItem = forwardRef<HTMLDivElement, GridItemProps>(

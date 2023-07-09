@@ -1,1 +1,1 @@
-export { default } from "./Checkbox";
+export { default, type CheckboxProps } from "./Checkbox";

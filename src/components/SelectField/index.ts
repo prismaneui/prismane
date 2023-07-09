@@ -1,1 +1,1 @@
-export { default } from "./SelectField";
+export { default, type SelectFieldProps } from "./SelectField";

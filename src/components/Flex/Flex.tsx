@@ -12,7 +12,7 @@ export type FlexProps<E extends Versatile> = {
   gap?: PrismaneStyles;
   direction?: "row" | "row-reverse" | "column" | "column-reverse";
   self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
-  basis?: PrismaneStyles | string;
+  basis?: PrismaneStyles;
   grow?: boolean;
   shrink?: boolean;
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
@@ -75,8 +75,8 @@ const Flex = forwardRef(
             wrap: "wrap",
             "wrap-reverse": "wrap-reverse",
           }),
-          flexGrow: grow ? 1 : 0,
-          flexShrink: shrink ? 1 : 0,
+          flexGrow: grow && 1,
+          flexShrink: shrink && 1,
           flexBasis: basis,
           gap: gap,
           ...sx,

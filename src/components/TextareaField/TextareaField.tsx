@@ -32,7 +32,9 @@ const TextareaField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size}>{label}</Field.Label>
+      <Field.Label size={size} className="PrismaneTextarea-label">
+        {label}
+      </Field.Label>
       <Field
         as="textarea"
         mih={fr(16)}
@@ -47,7 +49,9 @@ const TextareaField = forwardRef<
         ref={ref}
         {...field}
       />
-      <Field.Error size={size}>{error}</Field.Error>
+      <Field.Error size={size} className="PrismaneTextarea-error">
+        {error}
+      </Field.Error>
     </Field.Wrapper>
   );
 });

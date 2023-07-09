@@ -1,1 +1,7 @@
-export { default } from "./Tabs";
+export {
+  default,
+  type TabsProps,
+  type TabsListProps,
+  type TabsPanelProps,
+  type TabsTabProps,
+} from "./Tabs";

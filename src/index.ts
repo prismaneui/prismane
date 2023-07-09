@@ -10,4 +10,5 @@ export type {
   PrismaneBreakpoints,
   PrismaneShades,
   PrismaneColors,
+  PrismaneFieldComponent,
 } from "./types";

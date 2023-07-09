@@ -1,1 +1,1 @@
-export { default } from "./Center";
+export { default, type CenterProps } from "./Center";

@@ -42,7 +42,11 @@ const Spinner = forwardRef<SVGElement, any>(
           animation: "prismane-spin linear 0.5s infinite",
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneSpinner-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneSpinner-root-${size} PrismaneSpinner-root`
+        )}
         ref={ref}
         {...props}
       />

@@ -26,7 +26,7 @@ const Button = forwardRef(
   <E extends Versatile>(
     {
       icon,
-      type = "button",
+      type,
       loading,
       disabled,
       variant = "primary",
@@ -134,7 +134,7 @@ const Button = forwardRef(
         }
         pe={[loading && "none", { disabled: "none" }]}
         cs="pointer"
-        bsh={shadow && "base"}
+        bsh={shadow && "md"}
         dp="flex"
         sx={{
           alignItems: "center",
@@ -146,13 +146,13 @@ const Button = forwardRef(
             md: fr(4),
             lg: fr(5),
           }),
-          flexGrow: full,
+          flexGrow: full && 1,
           ...sx,
         }}
         className={strip(
           `${
             className ? className : ""
-          } PrismaneButton-${size} PrismaneButton-root`
+          } PrismaneButton-${size} PrismaneButton-${color} PrismaneButton-${variant} PrismaneButton-root`
         )}
         type={type}
         disabled={loading || disabled}

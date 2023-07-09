@@ -5,7 +5,7 @@ import Circle, { CircleProps } from "../Circle/Circle";
 import Text from "../Text/Text";
 import Image from "../Image/Image";
 // Types
-import { Versatile, PrismaneColors } from "../../types";
+import { Versatile, PrismaneColors, PrismaneBreakpoints } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
@@ -15,6 +15,7 @@ export type AvatarProps<E extends Versatile> = {
   alt?: string;
   sizes?: string;
   color?: PrismaneColors;
+  size?: PrismaneBreakpoints;
 } & CircleProps<E>;
 
 const Avatar = forwardRef(
@@ -50,7 +51,11 @@ const Avatar = forwardRef(
           overflow: "hidden",
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneAvatar-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneAvatar-root-${size} PrismaneAvatar-root`
+        )}
         ref={ref}
         {...props}
       >

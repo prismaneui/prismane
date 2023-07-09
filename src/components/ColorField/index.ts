@@ -1,1 +1,1 @@
-export { default } from "./ColorField";
+export { default, type ColorFieldProps } from "./ColorField";

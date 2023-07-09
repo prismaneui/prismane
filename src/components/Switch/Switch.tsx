@@ -4,6 +4,7 @@ import Animation from "../Animation/Animation";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Field from "../Field/Field";
+import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 // Types
@@ -66,9 +67,15 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           sx={{
             cursor: "pointer",
           }}
-          className={strip(`${className ? className : ""} PrismaneSwitch-root`)}
+          className={strip(
+            `${className ? className : ""} ${
+              props.value ? "PrismaneSwitch-root-active" : ""
+            } PrismaneSwitch-root`
+          )}
         >
-          <Field dp="none" type="checkbox" ref={ref} {...field} />
+          <Hidden>
+            <Field type="checkbox" ref={ref} {...field} />
+          </Hidden>
           <Animation
             as={Flex}
             bs="border-box"
@@ -83,8 +90,12 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           ></Animation>
         </Transition>
         <Flex direction="column" align="center" gap={fr(2)}>
-          <Field.Label size={size}>{label}</Field.Label>
-          <Field.Error size={size}>{error}</Field.Error>
+          <Field.Label size={size} className="PrismaneSwitch-label">
+            {label}
+          </Field.Label>
+          <Field.Error size={size} className="PrismaneSwitch-error">
+            {error}
+          </Field.Error>
         </Flex>
       </Flex>
     );

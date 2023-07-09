@@ -1,1 +1,6 @@
-export { default } from "./Dialog";
+export {
+  default,
+  type DialogProps,
+  type DialogHeaderProps,
+  type DialogFooterProps,
+} from "./Dialog";

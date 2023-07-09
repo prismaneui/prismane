@@ -84,7 +84,9 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
               ...sx,
             }}
             className={strip(
-              `${className ? className : ""} PrismanePopoverPanel-root`
+              `${className ? className : ""} ${
+                open ? "PrismanePopoverPanel-root-open" : ""
+              } PrismanePopoverPanel-root`
             )}
             ref={ref}
             {...props}

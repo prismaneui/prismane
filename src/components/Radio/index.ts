@@ -1,1 +1,1 @@
-export { default } from "./Radio";
+export { default, type RadioProps, type RadioGroupProps } from "./Radio";

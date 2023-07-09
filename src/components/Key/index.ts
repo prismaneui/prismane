@@ -1,1 +1,1 @@
-export { default } from "./Key";
+export { default, type KeyProps } from "./Key";

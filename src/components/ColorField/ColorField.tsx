@@ -5,7 +5,7 @@ import Field from "../Field/Field";
 import Circle from "../Circle/Circle";
 import Transition from "../Transition/Transition";
 // Hooks
-import useColor from "../../hooks/useColor";
+import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Globals
 import { PRISMANE_DEFAULT_COLORS_MAP } from "../../constants";
 // Types
@@ -45,7 +45,7 @@ const ColorField = forwardRef<
     },
     ref
   ) => {
-    const { getColor } = useColor();
+    const { getColor } = usePrismaneColor();
 
     return (
       <SelectField

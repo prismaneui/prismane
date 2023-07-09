@@ -1,1 +1,1 @@
-export { default } from "./PasswordField";
+export { default, type PasswordFieldProps } from "./PasswordField";

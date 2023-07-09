@@ -30,7 +30,11 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
 
     const portal = (
       <Box
-        className={strip(`${className ? className : ""} PrismanePortal-root`)}
+        className={strip(
+          `${className ? className : ""} ${
+            disabled ? "PrismanePortal-root-disabled" : ""
+          } PrismanePortal-root`
+        )}
         ref={ref}
         {...props}
       >

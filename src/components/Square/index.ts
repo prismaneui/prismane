@@ -1,1 +1,1 @@
-export { default } from "./Square";
+export { default, type SquareProps } from "./Square";

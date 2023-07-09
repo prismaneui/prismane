@@ -27,7 +27,7 @@ const Hide = forwardRef<HTMLDivElement, HideProps>(
     return (
       <Box
         dp={hidden ? "none" : "flex"}
-        className={strip(`${className ? className : ""} PrismaneShow-root`)}
+        className={strip(`${className ? className : ""} PrismaneHide-root`)}
         ref={ref}
         {...props}
       >

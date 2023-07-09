@@ -146,8 +146,8 @@ export const Closable = () => {
 export const Advanced = () => (
   <Flex direction="column" gap={fr(5)}>
     <Alert closable variant="error">
-      <Alert.Title variant="error">This is an error alert!</Alert.Title>
-      <Alert.Description variant="error">
+      <Alert.Title>This is an error alert!</Alert.Title>
+      <Alert.Description>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
         cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
         quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
@@ -155,8 +155,8 @@ export const Advanced = () => (
       </Alert.Description>
     </Alert>
     <Alert closable variant="warning">
-      <Alert.Title variant="warning">This is an warning alert!</Alert.Title>
-      <Alert.Description variant="warning">
+      <Alert.Title>This is an warning alert!</Alert.Title>
+      <Alert.Description>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
         cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
         quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
@@ -164,8 +164,8 @@ export const Advanced = () => (
       </Alert.Description>
     </Alert>
     <Alert closable variant="success">
-      <Alert.Title variant="success">This is an success alert!</Alert.Title>
-      <Alert.Description variant="success">
+      <Alert.Title>This is an success alert!</Alert.Title>
+      <Alert.Description>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
         cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
         quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
@@ -173,8 +173,8 @@ export const Advanced = () => (
       </Alert.Description>
     </Alert>
     <Alert closable variant="info">
-      <Alert.Title variant="info">This is an info alert!</Alert.Title>
-      <Alert.Description variant="info">
+      <Alert.Title>This is an info alert!</Alert.Title>
+      <Alert.Description>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
         cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
         quas deserunt nostrum repellendus saepe harum provident, necessitatibus,

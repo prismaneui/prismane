@@ -9,10 +9,7 @@ import { useFieldProps } from "../Field";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type PasswordFieldProps = {
-  placeholder?: string;
-  readOnly?: boolean;
-} & FieldProps<"input">;
+export type PasswordFieldProps = FieldProps<"input">;
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.
     @param {string} name - The name of the input field.
@@ -42,7 +39,9 @@ const PasswordField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size}>{label}</Field.Label>
+      <Field.Label size={size} className="PrismanePasswordField-label">
+        {label}
+      </Field.Label>
       <Field
         size={size}
         error={error}
@@ -77,7 +76,9 @@ const PasswordField = forwardRef<
         ref={ref}
         {...field}
       ></Field>
-      <Field.Error size={size}>{error}</Field.Error>
+      <Field.Error size={size} className="PrismanePasswordField-error">
+        {error}
+      </Field.Error>
     </Field.Wrapper>
   );
 });

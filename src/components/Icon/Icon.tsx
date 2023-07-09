@@ -25,7 +25,11 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
           md: fr(7),
           lg: fr(8),
         })}
-        className={strip(`${className ? className : ""} PrismaneIcon-root`)}
+        className={strip(
+          `${
+            className ? className : ""
+          } PrismaneIcon-root-${size} PrismaneIcon-root`
+        )}
         sx={{
           fontSize: dual(size, {
             xs: fr(4),

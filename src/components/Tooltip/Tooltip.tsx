@@ -17,7 +17,7 @@ import {
 import { strip, variants, fr } from "../../utils";
 
 export type TooltipProps = {
-  element: ReactNode;
+  label?: ReactNode;
   position?: PrismanePositions;
   size?: PrismaneBreakpoints;
   color?: PrismaneColors;
@@ -130,7 +130,9 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               ...sx,
             }}
             className={strip(
-              `${className ? className : ""} PrismaneTooltip-root`
+              `${
+                className ? className : ""
+              } PrismaneTooltip-root-${color} PrismaneTooltip-root-${position} PrismaneTooltip-root-${size} PrismaneTooltip-root`
             )}
             ref={ref}
             {...props}

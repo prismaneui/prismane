@@ -38,7 +38,15 @@ const PinField = forwardRef<
   PinFieldProps
 >(
   (
-    { length = 4, masked, label, error, size = "base", className, ...props },
+    {
+      length = 4,
+      masked = false,
+      label,
+      error,
+      size = "base",
+      className,
+      ...props
+    },
     ref
   ) => {
     const [rest, field] = useFieldProps(props);

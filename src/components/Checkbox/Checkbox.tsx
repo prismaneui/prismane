@@ -95,7 +95,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           }}
           className={strip(
             `${className ? className : ""} ${
-              value ? "PrismaneCheckbox-active" : "PrismaneCheckbox-inactive"
+              value ? "PrismaneCheckbox-active" : ""
             } PrismaneCheckbox-root`
           )}
           {...rest}
@@ -143,8 +143,12 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           </Animation>
         </Transition>
         <Flex direction="column" align="center" gap={fr(2)}>
-          <Field.Label size={size}>{label}</Field.Label>
-          <Field.Error size={size}>{error}</Field.Error>
+          <Field.Label size={size} className="PrismaneCheckbox-label">
+            {label}
+          </Field.Label>
+          <Field.Error size={size} className="PrismaneCheckbox-label">
+            {error}
+          </Field.Error>
         </Flex>
       </Flex>
     );

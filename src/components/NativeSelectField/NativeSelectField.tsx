@@ -35,7 +35,9 @@ const NativeSelectField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size}>{label}</Field.Label>
+      <Field.Label size={size} className="PrismaneNativeSelectField-label">
+        {label}
+      </Field.Label>
       <Field
         as="select"
         py={0}
@@ -63,7 +65,9 @@ const NativeSelectField = forwardRef<
           </Text>
         ))}
       </Field>
-      <Field.Error size={size}>{error}</Field.Error>
+      <Field.Error size={size} className="PrismaneNativeSelectField-error">
+        {error}
+      </Field.Error>
     </Field.Wrapper>
   );
 });

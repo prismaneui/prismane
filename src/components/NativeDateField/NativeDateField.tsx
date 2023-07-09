@@ -30,7 +30,9 @@ const NativeDateField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size}>{label}</Field.Label>
+      <Field.Label size={size} className="PrismaneNativeDateField-label">
+        {label}
+      </Field.Label>
       <Field
         type="date"
         py={0}
@@ -42,7 +44,9 @@ const NativeDateField = forwardRef<
         ref={ref}
         {...field}
       />
-      <Field.Error size={size}>{error}</Field.Error>
+      <Field.Error size={size} className="PrismaneNativeDateField-error">
+        {error}
+      </Field.Error>
     </Field.Wrapper>
   );
 });

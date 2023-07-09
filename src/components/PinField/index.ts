@@ -1,1 +1,1 @@
-export { default } from "./PinField";
+export { default, type PinFieldProps } from "./PinField";
