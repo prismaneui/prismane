@@ -1,3 +1,4 @@
+import { useState } from "react";
 // Components
 import Form from "../Form/Form";
 import Radio from "./Radio";
@@ -12,6 +13,21 @@ export default {
 };
 
 export const Default = () => {
+  const [value, setValue] = useState("yes");
+
+  return (
+    <Radio.Group
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      name="answer"
+    >
+      <Radio value="yes" label="Yes" />
+      <Radio value="no" label="No" />
+    </Radio.Group>
+  );
+};
+
+export const useFormHook = () => {
   const { handleSubmit, handleReset, register, getValue } = useForm({
     fields: {
       answer: {

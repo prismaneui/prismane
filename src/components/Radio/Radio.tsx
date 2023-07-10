@@ -153,6 +153,7 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
           <Flex direction="column" align="center" gap={fr(2)}>
             <Field.Label
               size={group.size || size}
+              htmlFor={`${group.name || name}-${uuid}`}
               className="PrismaneRadio-label"
             >
               {label}

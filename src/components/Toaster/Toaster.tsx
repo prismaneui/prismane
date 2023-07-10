@@ -50,7 +50,9 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
             })}
             gap={fr(2)}
             className={strip(
-              `${className ? className : ""} PrismaneToaster-root`
+              `${
+                className ? className : ""
+              } PrismaneToaster-root-${position} PrismaneToaster-root`
             )}
             ref={ref}
             {...props}

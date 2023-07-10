@@ -90,7 +90,11 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           ></Animation>
         </Transition>
         <Flex direction="column" align="center" gap={fr(2)}>
-          <Field.Label size={size} className="PrismaneSwitch-label">
+          <Field.Label
+            size={size}
+            htmlFor={props.name}
+            className="PrismaneSwitch-label"
+          >
             {label}
           </Field.Label>
           <Field.Error size={size} className="PrismaneSwitch-error">

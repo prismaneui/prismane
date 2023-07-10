@@ -10,8 +10,8 @@ const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
   ({ children, className, ...props }, ref) => {
     return (
       <Center
-        w="100vw"
-        h="100vh"
+        w="100%"
+        h="100%"
         pos="fixed"
         t={0}
         l={0}

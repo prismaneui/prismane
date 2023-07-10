@@ -57,7 +57,6 @@ const Alert: PrismaneWithInternal<
         {presence && (
           <Animation
             as={Flex}
-            justify="between"
             align="center"
             gap={fr(4)}
             animation="fade"

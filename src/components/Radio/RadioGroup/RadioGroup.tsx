@@ -23,6 +23,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         )}
         align="center"
         gap={fr(4)}
+        ref={ref}
         {...rest}
       >
         <RadioContextProvider value={field}>{children}</RadioContextProvider>

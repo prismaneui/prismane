@@ -131,7 +131,9 @@ const Animation = forwardRef(
 
     return (
       <Transition
-        className={strip(`${className ? className : ""} PrismaneAnimate-root`)}
+        className={strip(
+          `${className ? className : ""} PrismaneAnimation-root`
+        )}
         transition={transition}
         duration={duration}
         delay={delay}
