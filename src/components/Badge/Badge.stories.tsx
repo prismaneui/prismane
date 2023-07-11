@@ -11,9 +11,23 @@ export default {
 
 const Template: any = (args: any) => {
   return (
-    <Badge label={4} {...args} position="right-end">
-      <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
-    </Badge>
+    <Flex gap={fr(10)}>
+      <Badge label={1} {...args} position="right-end" size="xs">
+        <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
+      </Badge>
+      <Badge label={1} {...args} position="right-end" size="sm">
+        <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
+      </Badge>
+      <Badge label={1} {...args} position="right-end" size="base">
+        <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
+      </Badge>
+      <Badge label={1} {...args} position="right-end" size="md">
+        <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
+      </Badge>
+      <Badge label={1} {...args} position="right-end" size="lg">
+        <Flex w={fr(8)} h={fr(8)} bg={["primary", 500]}></Flex>
+      </Badge>
+    </Flex>
   );
 };
 

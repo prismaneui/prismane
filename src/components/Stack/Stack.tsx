@@ -13,6 +13,7 @@ const Stack = forwardRef<HTMLDivElement, StackProps>(
   ) => {
     return (
       <Flex
+        grow
         direction={direction}
         gap={gap}
         className={strip(`${className ? className : ""} PrismaneStack-root`)}

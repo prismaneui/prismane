@@ -19,7 +19,7 @@
     "build:validators": "cross-env ENTRY=validators vite build",
     "build": "yarn run build:index && yarn run build:hooks && yarn run build:themes && yarn run build:validators",
     "patch": "yarn build && npm version patch && npm publish",
-    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "type": "module",

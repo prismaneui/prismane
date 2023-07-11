@@ -1,8 +1,8 @@
 import { ForwardedRef, forwardRef, ReactNode } from "react";
 // Components
 import Box from "../Box/Box";
-import Circle, { CircleProps } from "../Circle/Circle";
-import Text from "../Text/Text";
+import Center, { CenterProps } from "../Center/Center";
+import AspectRatio from "../AspectRatio/AspectRatio";
 // Types
 import {
   PrismaneColors,
@@ -18,13 +18,13 @@ export type BadgeProps<E extends Versatile> = {
   position?: PrismanePositions;
   color?: PrismaneColors;
   size?: PrismaneBreakpoints;
-} & CircleProps<E>;
+} & CenterProps<E>;
 
 const Badge = forwardRef(
   <E extends Versatile>(
     {
       label = 0,
-      position = "top-start",
+      position = "top-end",
       color = "primary",
       size = "base",
       children,
@@ -36,7 +36,7 @@ const Badge = forwardRef(
   ) => {
     return (
       <Box w="fit-content" h="fit-content" pos="relative">
-        <Circle
+        <Center
           h={variants(size, {
             xs: fr(4),
             sm: fr(5),
@@ -50,6 +50,22 @@ const Badge = forwardRef(
             base: fr(6),
             md: fr(7),
             lg: fr(8),
+          })}
+          bs="border-box"
+          br="full"
+          px={variants(size, {
+            xs: fr(1),
+            sm: fr(1.5),
+            base: fr(2),
+            md: fr(2.5),
+            lg: fr(2.5),
+          })}
+          fs={variants(size, {
+            xs: "xs",
+            sm: "sm",
+            base: "sm",
+            md: "base",
+            lg: "md",
           })}
           z={200}
           pos="absolute"
@@ -105,18 +121,8 @@ const Badge = forwardRef(
           ref={ref}
           {...props}
         >
-          <Text
-            fs={variants(size, {
-              xs: "xs",
-              sm: "sm",
-              base: "sm",
-              md: "base",
-              lg: "md",
-            })}
-          >
-            {label}
-          </Text>
-        </Circle>
+          {label}
+        </Center>
         {children}
       </Box>
     );

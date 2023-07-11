@@ -46,3 +46,5 @@ export const Icon = () => (
     <Skull size={24} />
   </Avatar>
 );
+
+export const Placeholder = () => <Avatar />;

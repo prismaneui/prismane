@@ -63,6 +63,7 @@ const Alert: PrismaneWithInternal<
             animated={animating}
             duration={duration}
             timing={timing}
+            w="fit-content"
             py={fr(3)}
             px={fr(4)}
             br="base"
@@ -159,6 +160,7 @@ const Alert: PrismaneWithInternal<
             </Flex>
             {closable && (
               <Flex
+                self="flex-end"
                 w="fit-content"
                 h="fit-content"
                 justify="center"

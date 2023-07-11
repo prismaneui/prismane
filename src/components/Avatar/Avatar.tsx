@@ -1,8 +1,10 @@
 import { forwardRef, ForwardedRef } from "react";
+import { UserCircle } from "@phosphor-icons/react";
 // Components
 import Center from "../Center/Center";
 import Circle, { CircleProps } from "../Circle/Circle";
-import Text from "../Text/Text";
+import Flex from "../Flex/Flex";
+import Icon from "../Icon/Icon";
 import Image from "../Image/Image";
 // Types
 import { Versatile, PrismaneColors, PrismaneBreakpoints } from "../../types";
@@ -69,8 +71,53 @@ const Avatar = forwardRef(
             h="100%"
           />
         ) : (
-          <Center w="100%" h="100%" bg={color || "base"}>
-            <Text fs={size}>{children}</Text>
+          <Center
+            w="100%"
+            h="100%"
+            bg={(theme) =>
+              theme.mode === "dark"
+                ? [color || "base", 700, 0.3]
+                : [color || "base", 500, 0.3]
+            }
+          >
+            {children ? (
+              <Flex
+                h="fit-content"
+                justify="center"
+                items="center"
+                cl={(theme) =>
+                  theme.mode === "dark"
+                    ? [color || "base", 300]
+                    : [color || "base", 700]
+                }
+                fs={variants(size, {
+                  xs: "sm",
+                  sm: "md",
+                  base: "xl",
+                  md: "2xl",
+                  lg: "3xl",
+                })}
+              >
+                {children}
+              </Flex>
+            ) : (
+              <Icon
+                cl={(theme) =>
+                  theme.mode === "dark"
+                    ? [color || "base", 300]
+                    : [color || "base", 700]
+                }
+                size={variants(size, {
+                  xs: fr(6),
+                  sm: fr(10),
+                  base: fr(12),
+                  md: fr(16),
+                  lg: fr(18),
+                })}
+              >
+                <UserCircle />
+              </Icon>
+            )}
           </Center>
         )}
       </Circle>

@@ -14,20 +14,21 @@ const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         color={color}
         size={size}
         variant={variant}
+        icon={
+          <X
+            size={variants(size, {
+              xs: 8,
+              sm: 12,
+              base: 16,
+              md: 20,
+              lg: 24,
+            })}
+            weight="bold"
+          />
+        }
         ref={ref}
         {...props}
-      >
-        <X
-          size={variants(size, {
-            xs: 8,
-            sm: 12,
-            base: 16,
-            md: 20,
-            lg: 24,
-          })}
-          weight="bold"
-        />
-      </ActionButton>
+      />
     );
   }
 );

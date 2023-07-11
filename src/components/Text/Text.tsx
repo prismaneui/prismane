@@ -9,18 +9,13 @@ export type TextProps<E extends Versatile> = BoxProps<E>;
 
 const Text = forwardRef(
   <E extends Versatile>(
-    { as = "span", children, className, sx, ...props }: TextProps<E>,
+    { as = "span", children, className, ...props }: TextProps<E>,
     ref: ForwardedRef<any>
   ) => {
     return (
       <Box
         as={as}
         className={strip(`${className ? className : ""} PrismaneText-root`)}
-        dp="flex"
-        sx={{
-          alignItems: "center",
-          ...sx,
-        }}
         ref={ref}
         {...props}
       >

@@ -3,6 +3,7 @@ import { Meta } from "@storybook/react";
 import { GearSix } from "@phosphor-icons/react";
 // Components
 import ActionButton from "./ActionButton";
+import Flex from "../Flex/Flex";
 
 export default {
   title: "ActionButton",
@@ -11,8 +12,12 @@ export default {
 
 export const Default: FC = () => {
   return (
-    <ActionButton>
-      <GearSix size={20} />
-    </ActionButton>
+    <Flex>
+      <ActionButton size="xs" icon={<GearSix />} />
+      <ActionButton size="sm" icon={<GearSix />} />
+      <ActionButton size="base" icon={<GearSix />} />
+      <ActionButton size="md" icon={<GearSix />} />
+      <ActionButton size="lg" icon={<GearSix />} />
+    </Flex>
   );
 };
