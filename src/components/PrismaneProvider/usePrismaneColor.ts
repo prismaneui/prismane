@@ -13,7 +13,7 @@ import { PrismaneColors, PrismaneShades, PrismaneTheme } from "../../types";
 // Utils
 import { parse } from "../../utils";
 
-const usePrismaneColor = () => {
+const usePrismaneColor: any = () => {
   const { theme } = usePrismaneTheme();
 
   const [currentTheme, setCurrentTheme] = useState(theme);
@@ -28,7 +28,10 @@ const usePrismaneColor = () => {
     base: currentTheme.colors.base,
   };
 
-  const getColor = (cl: PrismaneColors | string, shade?: PrismaneShades) => {
+  const getColor: any = (
+    cl: PrismaneColors | string,
+    shade?: PrismaneShades
+  ) => {
     if (PRISMANE_COLORS_MAP.includes(cl)) {
       if (shade) {
         return colors[cl][shade];
@@ -40,7 +43,7 @@ const usePrismaneColor = () => {
     }
   };
 
-  const getColorStyle = (cl: any | ((theme: PrismaneTheme) => any)) =>
+  const getColorStyle: any = (cl: any | ((theme: PrismaneTheme) => any)) =>
     parse(typeof cl === "function" ? cl(theme) : cl, (v: any) => {
       if (
         Array.isArray(v) &&

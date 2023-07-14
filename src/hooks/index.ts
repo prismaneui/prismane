@@ -15,5 +15,4 @@ export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useMemoization } from "./useMemoization";
 export { default as useOutsideClick } from "./useOutsideClick";
 export { default as usePrevious } from "./usePrevious";
-export { default as useStyling } from "./useStyling";
 export { default as useToggle } from "./useToggle";

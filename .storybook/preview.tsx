@@ -9,7 +9,6 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
-import "../src/index.css";
 // Prismane
 import PrismaneProvider from "../src/components/PrismaneProvider/PrismaneProvider";
 import Flex from "../src/components/Flex/Flex";

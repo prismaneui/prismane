@@ -1,9 +1,11 @@
-import { ReactNode, FC, useState } from "react";
+import { ReactNode, FC, useState, useEffect } from "react";
+import { getCssText } from "../../../stitches.config";
+import "../../index.css";
 // Context
 import { PrismaneContextProvider } from "./PrismaneContext";
 // Themes
 import { base } from "../../themes/base";
-import { createTheme } from "../../themes/theme";
+import { createTheme, applyTheme } from "../../themes/theme";
 // Types
 import { PrismaneInputTheme } from "../../types";
 
@@ -17,6 +19,10 @@ const PrismaneProvider: FC<PrismaneProviderProps> = ({
   theme = base,
 }) => {
   const [current, setCurrent] = useState(createTheme(theme));
+
+  useEffect(() => {
+    applyTheme(current);
+  }, [current]);
 
   const toggleThemeMode = () => {
     setCurrent((pt) => {
@@ -40,6 +46,7 @@ const PrismaneProvider: FC<PrismaneProviderProps> = ({
         toggleThemeMode: toggleThemeMode,
       }}
     >
+      <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
       {children}
     </PrismaneContextProvider>
   );

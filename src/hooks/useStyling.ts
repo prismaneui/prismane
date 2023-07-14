@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import { createStitches } from "@stitches/react";
+import { css } from "../../stitches.config";
 // Theme
 import { usePrismaneTheme } from "../components/PrismaneProvider/PrismaneContext";
 // Hooks
@@ -21,10 +21,6 @@ type StylingGeneratorFunction = (pk: string, pv: any) => string;
 type StylingHook = (props: StylingProps) => any[];
 
 const useStyling: StylingHook = (props: StylingProps) => {
-  const { css } = createStitches({
-    prefix: "prismane",
-  });
-
   const { memoize } = useMemoization();
 
   const { theme } = usePrismaneTheme();

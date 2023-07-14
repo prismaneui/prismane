@@ -1,7 +1,7 @@
 import { forwardRef, useEffect } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
-import useColor from "../PrismaneProvider/usePrismaneColor";
+import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
 import { PrismaneVersatile, Versatile } from "../../types";
 // Utils
@@ -97,19 +97,21 @@ const Box = forwardRef(
   ) => {
     const El = as || "div";
 
-    const { getColorStyle } = useColor();
+    const { getColorStyle } = usePrismaneColor();
 
     const styles = useStyling({
       width: w,
       height: h,
-      marginLeft: ml || mx || m,
-      marginRight: mr || mx || m,
-      marginTop: mt || my || m,
-      marginBottom: mb || my || m,
-      paddingLeft: pl || px || p,
-      paddingRight: pr || px || p,
-      paddingTop: pt || py || p,
-      paddingBottom: pb || py || p,
+      margin: m,
+      marginLeft: ml || mx,
+      marginRight: mr || mx,
+      marginTop: mt || my,
+      marginBottom: mb || my,
+      padding: p,
+      paddingLeft: pl || px,
+      paddingRight: pr || px,
+      paddingTop: pt || py,
+      paddingBottom: pb || py,
       color: getColorStyle(cl),
       backgroundColor: getColorStyle(bg),
       borderRadius:
@@ -183,22 +185,26 @@ const Box = forwardRef(
       lineHeight: lh,
       textTransform: tt,
       textDecoration: td,
-      borderTop: bdt || bdy || bd,
-      borderTopWidth: bdtw || bdyw || bdw,
-      borderTopStyle: bdts || bdys || bds,
-      borderTopColor: getColorStyle(bdtc || bdyc || bdc),
-      borderRight: bdr || bdx || bd,
-      borderRightWidth: bdrw || bdxw || bdw,
-      borderRightStyle: bdrs || bdxs || bds,
-      borderRightColor: getColorStyle(bdrc || bdxc || bdc),
-      borderBottom: bdb || bdy || bd,
-      borderBottomWidth: bdbw || bdyw || bdw,
-      borderBottomStyle: bdbs || bdys || bds,
-      borderBottomColor: getColorStyle(bdbc || bdyc || bdc),
-      borderLeft: bdl || bdx || bd,
-      borderLeftWidth: bdlw || bdxw || bdw,
-      borderLeftStyle: bdls || bdxs || bds,
-      borderLeftColor: getColorStyle(bdlc || bdxc || bdc),
+      border: bd,
+      borderWidth: bdw,
+      borderStyle: bds,
+      borderColor: getColorStyle(bdc),
+      borderTop: bdt || bdy,
+      borderTopWidth: bdtw || bdyw,
+      borderTopStyle: bdts || bdys,
+      borderTopColor: getColorStyle(bdtc || bdyc),
+      borderRight: bdr || bdx,
+      borderRightWidth: bdrw || bdxw,
+      borderRightStyle: bdrs || bdxs,
+      borderRightColor: getColorStyle(bdrc || bdxc),
+      borderBottom: bdb || bdy,
+      borderBottomWidth: bdbw || bdyw,
+      borderBottomStyle: bdbs || bdys,
+      borderBottomColor: getColorStyle(bdbc || bdyc),
+      borderLeft: bdl || bdx,
+      borderLeftWidth: bdlw || bdxw,
+      borderLeftStyle: bdls || bdxs,
+      borderLeftColor: getColorStyle(bdlc || bdxc),
       filter: ft,
       backdropFilter: bft,
       textShadow: tsh,
