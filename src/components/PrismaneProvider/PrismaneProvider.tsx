@@ -1,6 +1,6 @@
 import { ReactNode, FC, useState, useEffect } from "react";
-import { getCssText, globalCss } from "../../../stitches.config";
-import * as styles from "../../index.css";
+import { getCssText } from "../../../stitches.config";
+import styles from "../../index.css";
 // Context
 import { PrismaneContextProvider } from "./PrismaneContext";
 // Themes
@@ -14,14 +14,10 @@ export type PrismaneProviderProps = {
   theme?: PrismaneInputTheme;
 };
 
-const globalStyles = globalCss(styles);
-
 const PrismaneProvider: FC<PrismaneProviderProps> = ({
   children,
   theme = base,
 }) => {
-  globalStyles();
-
   const [current, setCurrent] = useState(createTheme(theme));
 
   useEffect(() => {
@@ -51,6 +47,7 @@ const PrismaneProvider: FC<PrismaneProviderProps> = ({
       }}
     >
       <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
       {children}
     </PrismaneContextProvider>
   );
