@@ -4,8 +4,12 @@
  * @returns {string | null}
  * @description Method that validates if a value is empty or not
  */
-export const required = (value: string): string | null => {
-  if (!value) {
+export const required = (value: string | boolean): string | null => {
+  if (
+    value === undefined ||
+    value === null ||
+    (typeof value === "string" && value.length === 0)
+  ) {
     return "This field is required!";
   }
 
@@ -65,7 +69,7 @@ export const max = (
  * @description Method that checks if two values are the same
  */
 export const match = (
-  value: string | number,
+  value: string | number | boolean | number,
   revalue: string | number,
   fieldName?: string
 ): string | null => {
