@@ -64,8 +64,7 @@
       "import": "./dist/validators/index.js",
       "require": "./dist/validators/index.umd.cjs",
       "types": "./dist/validators/index.d.ts"
-    },
-    "./style": "./dist/style.css"
+    }
   },
   "dependencies": {
     "@stitches/react": "^1.2.8"

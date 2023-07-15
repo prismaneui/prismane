@@ -38,7 +38,10 @@ const AutocompleteField = forwardRef<
     } else {
       setFiltered(
         options.filter((item) =>
-          item.value.toLowerCase().includes(debouncedValue?.toLowerCase())
+          item.value
+            .toString()
+            .toLowerCase()
+            .includes(debouncedValue?.toLowerCase())
         )
       );
     }
