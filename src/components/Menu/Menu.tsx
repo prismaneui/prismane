@@ -43,6 +43,7 @@ const Menu: PrismaneWithInternal<
             bdc={(theme) =>
               theme.mode === "dark" ? ["base", 700] : ["base", 200]
             }
+            br="base"
             bs="border-box"
             animation="fade"
             animated={animating}

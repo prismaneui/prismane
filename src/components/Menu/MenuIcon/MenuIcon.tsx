@@ -4,7 +4,7 @@ import Icon, { IconProps } from "../../Icon/Icon";
 // Utils
 import { strip } from "../../../utils";
 
-export type MenuIconProps = IconProps;
+export type MenuIconProps = Omit<IconProps, "size">;
 
 const MenuIcon = forwardRef<HTMLDivElement, MenuIconProps>(
   ({ children, className, ...props }, ref) => {

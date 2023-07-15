@@ -160,9 +160,9 @@ const SelectField = forwardRef<
                             ? ["primary", 600]
                             : [
                                 active.current === index
-                                  ? ["base", 700, 0.4]
+                                  ? ["base", 700, 0.3]
                                   : "transparent",
-                                { hover: ["base", 700, 0.4] },
+                                { hover: ["base", 700, 0.3] },
                               ]
                           : option.value === props.value
                           ? ["primary", 500]
