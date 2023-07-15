@@ -29,7 +29,7 @@ export const Default = () => {
       onReset={() => handleReset()}
       className="max-w-[300px]"
     >
-      <Switch {...register("username")} />
+      <Switch {...register("username")} error="da" label="yes" />
       <Flex align="center" gap={2}>
         <Button variant="primary" type="submit">
           Submit

@@ -217,7 +217,7 @@ export const useForm = (initialForm: InitialFormState = {}) => {
     }));
 
     if (formState.validateOn === "change" || formState.validateOn === "all") {
-      validate(name, formState.fields[name].value);
+      validate(name, value);
     }
   };
 

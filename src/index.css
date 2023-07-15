@@ -223,9 +223,11 @@ body {
 }
 
 * {
+  border-width: 0;
+  border-style: solid;
   margin: 0;
   padding: 0;
-  border-width: 0;
+  background: none;
 }
 
 input:focus,

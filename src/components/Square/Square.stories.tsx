@@ -11,7 +11,7 @@ export default {
 
 export const Default: FC = () => {
   return (
-    <Square size={25} className="bg-primary-500">
+    <Square size={25} bg="primary">
       <Bell size={24} />
     </Square>
   );

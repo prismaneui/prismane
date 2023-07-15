@@ -30,66 +30,66 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     const [rest, field] = useFieldProps(props);
 
     return (
-      <Flex align="center" gap={fr(2)} {...rest}>
-        <Transition
-          as="label"
-          pos="relative"
-          op={field.disabled ? 0.4 : 1}
-          pe={field.disabled && "none"}
-          w={variants(size, {
-            xs: fr(7.5),
-            sm: fr(8.5),
-            base: fr(9.5),
-            md: fr(10.5),
-            lg: fr(11.5),
-          })}
-          h={variants(size, {
-            xs: fr(4.5),
-            sm: fr(5),
-            base: fr(5.5),
-            md: fr(6),
-            lg: fr(6.5),
-          })}
-          p={fr(0.75)}
-          br="full"
-          dp="flex"
-          bs="border-box"
-          bg={(theme) =>
-            theme.mode === "dark"
-              ? props.value
-                ? [["primary", 700], { hover: ["primary", 600] }]
-                : [["base", 700], { hover: ["base", 600] }]
-              : props.value
-              ? [["primary", 500], { hover: ["primary", 600] }]
-              : [["base", 300], { hover: ["base", 400] }]
-          }
-          htmlFor={props.name}
-          sx={{
-            cursor: "pointer",
-          }}
-          className={strip(
-            `${className ? className : ""} ${
-              props.value ? "PrismaneSwitch-root-active" : ""
-            } PrismaneSwitch-root`
-          )}
-        >
-          <Hidden>
-            <Field type="checkbox" ref={ref} {...field} />
-          </Hidden>
-          <Animation
-            as={Flex}
-            bs="border-box"
-            h="100%"
+      <Flex direction="column" gap={fr(2)}>
+        <Flex align="center" gap={fr(2)} {...rest}>
+          <Transition
+            as="label"
+            pos="relative"
+            op={field.disabled ? 0.4 : 1}
+            pe={field.disabled && "none"}
+            w={variants(size, {
+              xs: fr(7.5),
+              sm: fr(8.5),
+              base: fr(9.5),
+              md: fr(10.5),
+              lg: fr(11.5),
+            })}
+            h={variants(size, {
+              xs: fr(4.5),
+              sm: fr(5),
+              base: fr(5.5),
+              md: fr(6),
+              lg: fr(6.5),
+            })}
+            p={fr(0.75)}
             br="full"
-            bg="white"
-            className="PrismaneSwitch-thumb"
+            dp="flex"
+            bs="border-box"
+            bg={(theme) =>
+              theme.mode === "dark"
+                ? props.value
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["base", 700], { hover: ["base", 600] }]
+                : props.value
+                ? [["primary", 500], { hover: ["primary", 600] }]
+                : [["base", 300], { hover: ["base", 400] }]
+            }
+            htmlFor={props.name}
             sx={{
-              aspectRatio: "1/1",
-              transform: props.value ? "translateX(100%)" : "translateX(0)",
+              cursor: "pointer",
             }}
-          ></Animation>
-        </Transition>
-        <Flex direction="column" align="center" gap={fr(2)}>
+            className={strip(
+              `${className ? className : ""} ${
+                props.value ? "PrismaneSwitch-root-active" : ""
+              } PrismaneSwitch-root`
+            )}
+          >
+            <Hidden>
+              <Field type="checkbox" ref={ref} {...field} />
+            </Hidden>
+            <Animation
+              as={Flex}
+              bs="border-box"
+              h="100%"
+              br="full"
+              bg="white"
+              className="PrismaneSwitch-thumb"
+              sx={{
+                aspectRatio: "1/1",
+                transform: props.value ? "translateX(100%)" : "translateX(0)",
+              }}
+            ></Animation>
+          </Transition>
           <Field.Label
             size={size}
             htmlFor={props.name}
@@ -97,10 +97,10 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           >
             {label}
           </Field.Label>
-          <Field.Error size={size} className="PrismaneSwitch-error">
-            {error}
-          </Field.Error>
         </Flex>
+        <Field.Error size={size} className="PrismaneSwitch-error">
+          {error}
+        </Field.Error>
       </Flex>
     );
   }

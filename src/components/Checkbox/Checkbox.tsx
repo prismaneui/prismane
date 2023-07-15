@@ -46,103 +46,107 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const [rest, field] = useFieldProps(props);
 
     return (
-      <Flex
-        as="label"
-        w="fit-content"
-        align="center"
-        gap={fr(2)}
-        op={field.disabled ? 0.4 : 1}
-        pe={field.disabled && "none"}
-        htmlFor={name}
-      >
-        <Transition
-          as={Flex}
-          transition="colors"
-          justify="center"
+      <Flex direction="column" gap={fr(2)}>
+        <Flex
+          as="label"
+          w="fit-content"
           align="center"
-          h={variants(size, {
-            xs: fr(3.5),
-            sm: fr(4),
-            base: fr(5),
-            md: fr(6),
-            lg: fr(7),
-          })}
-          w={variants(size, {
-            xs: fr(3.5),
-            sm: fr(4),
-            base: fr(5),
-            md: fr(6),
-            lg: fr(7),
-          })}
-          bg={(theme) =>
-            theme.mode === "dark" ? ["base", 800] : ["base", 200]
-          }
-          br="sm"
-          bdw={1}
-          bdc={(theme) =>
-            theme.mode === "dark"
-              ? value
-                ? [["primary", 700], { hover: ["primary", 600] }]
-                : [["base", 600], { hover: ["base", 500] }]
-              : value
-              ? [["primary", 500], { hover: ["primary", 600] }]
-              : [["base", 400], { hover: ["base", 500] }]
-          }
-          cs="pointer"
-          sx={{
-            aspectRatio: 1,
-            ...sx,
-          }}
-          className={strip(
-            `${className ? className : ""} ${
-              value ? "PrismaneCheckbox-active" : ""
-            } PrismaneCheckbox-root`
-          )}
-          {...rest}
+          gap={fr(2)}
+          op={field.disabled ? 0.4 : 1}
+          pe={field.disabled && "none"}
+          htmlFor={name}
         >
-          <Hidden>
-            <Field
-              id={name}
-              name={name}
-              type="checkbox"
-              onBlur={onBlur}
-              onChange={onChange}
-              onFocus={onFocus}
-              value={value}
-              defaultValue={defaultValue}
-              ref={ref}
-              {...field}
-            />
-          </Hidden>
-          <Animation
+          <Transition
             as={Flex}
+            transition="colors"
             justify="center"
             align="center"
-            w="100%"
-            h="100%"
-            fs={variants(size, {
-              xs: "xs",
-              sm: "sm",
-              base: "sm",
-              md: "base",
-              lg: "md",
+            h={variants(size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
             })}
-            cl="white"
+            w={variants(size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
+            })}
             bg={(theme) =>
-              theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
+              theme.mode === "dark" ? ["base", 800] : ["base", 200]
             }
-            br="xs"
-            className="PrismaneCheckbox-thumb"
-            animated={value}
-            animation={{
-              out: { opacity: 0, transform: "scale(0.8)" },
-              in: { opacity: 1, transform: "scale(1)" },
+            br="sm"
+            bdw={1}
+            bdc={(theme) =>
+              theme.mode === "dark"
+                ? value
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["base", 600], { hover: ["base", 500] }]
+                : value
+                ? [["primary", 500], { hover: ["primary", 600] }]
+                : [["base", 400], { hover: ["base", 500] }]
+            }
+            cs="pointer"
+            sx={{
+              aspectRatio: 1,
+              ...sx,
             }}
+            className={strip(
+              `${className ? className : ""} ${
+                value ? "PrismaneCheckbox-active" : ""
+              } PrismaneCheckbox-root`
+            )}
+            {...rest}
           >
-            {indeterminate ? <Minus weight="bold" /> : <Check weight="bold" />}
-          </Animation>
-        </Transition>
-        <Flex direction="column" align="center" gap={fr(2)}>
+            <Hidden>
+              <Field
+                id={name}
+                name={name}
+                type="checkbox"
+                onBlur={onBlur}
+                onChange={onChange}
+                onFocus={onFocus}
+                value={value}
+                defaultValue={defaultValue}
+                ref={ref}
+                {...field}
+              />
+            </Hidden>
+            <Animation
+              as={Flex}
+              justify="center"
+              align="center"
+              w="100%"
+              h="100%"
+              fs={variants(size, {
+                xs: "xs",
+                sm: "sm",
+                base: "sm",
+                md: "base",
+                lg: "md",
+              })}
+              cl="white"
+              bg={(theme) =>
+                theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
+              }
+              br="xs"
+              className="PrismaneCheckbox-thumb"
+              animated={value}
+              animation={{
+                out: { opacity: 0, transform: "scale(0.8)" },
+                in: { opacity: 1, transform: "scale(1)" },
+              }}
+            >
+              {indeterminate ? (
+                <Minus weight="bold" />
+              ) : (
+                <Check weight="bold" />
+              )}
+            </Animation>
+          </Transition>
           <Field.Label
             size={size}
             htmlFor={name}
@@ -150,10 +154,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           >
             {label}
           </Field.Label>
-          <Field.Error size={size} className="PrismaneCheckbox-error">
-            {error}
-          </Field.Error>
         </Flex>
+        <Field.Error size={size} className="PrismaneCheckbox-error">
+          {error}
+        </Field.Error>
       </Flex>
     );
   }

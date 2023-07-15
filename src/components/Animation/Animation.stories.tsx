@@ -34,7 +34,6 @@ export const Alternate: FC = () => {
         variant="primary"
         onClick={() => setAnimating(!animating)}
         mt={20}
-        full
       >
         Animation
       </Button>
