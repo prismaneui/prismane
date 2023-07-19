@@ -29,7 +29,11 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
 
     return (
       <Field.Wrapper {...rest}>
-        <Field.Label size={size} className="PrismaneSegmentedField-label">
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismaneSegmentedField-label"
+        >
           {label}
         </Field.Label>
         <Field

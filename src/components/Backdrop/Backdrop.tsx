@@ -16,9 +16,7 @@ const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
         t={0}
         l={0}
         z={200}
-        sx={{
-          backdropFilter: "blur(4px)",
-        }}
+        bft="blur(4px)"
         bg={(theme) =>
           theme.mode === "dark" ? ["base", 900, 0.2] : ["base", 500, 0.2]
         }

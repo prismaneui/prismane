@@ -31,6 +31,7 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
       {
         label,
         error,
+        id,
         name,
         value,
         defaultValue,
@@ -115,7 +116,6 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
               <Hidden>
                 <Field
                   id={`${group.name || name}-${uuid}`}
-                  name={group.name || name}
                   type="radio"
                   onBlur={group.onBlur || onBlur}
                   onChange={group.onChange || onChange}
@@ -124,6 +124,7 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
                   defaultValue={defaultValue}
                   ref={ref}
                   {...field}
+                  name={group.name || name}
                 />
               </Hidden>
               <Animation

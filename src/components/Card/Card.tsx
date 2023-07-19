@@ -13,9 +13,7 @@ import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
 
 export { type CardHeaderProps, type CardFooterProps };
 
-export type CardProps<E extends Versatile> = {
-  shadow?: boolean;
-} & PaperProps<E>;
+export type CardProps<E extends Versatile> = PaperProps<E>;
 
 /**
  * Card Props
@@ -33,14 +31,14 @@ const Card: PrismaneWithInternal<
   { Header: CardHeaderProps; Footer: CardFooterProps }
 > = forwardRef(
   <E extends Versatile>(
-    { children, className, shadow, ...props }: CardProps<E>,
+    { children, className, ...props }: CardProps<E>,
     ref: ForwardedRef<any>
   ) => {
     return (
       <Paper
-        p={fr(2)}
+        p={fr(5)}
         className={strip(`${className ? className : ""} PrismaneCard-root`)}
-        shadow={shadow}
+        shadow
         ref={ref}
         {...props}
       >

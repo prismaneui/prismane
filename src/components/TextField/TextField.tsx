@@ -42,7 +42,12 @@ const TextField = forwardRef<
 
     return (
       <Field.Wrapper>
-        <Field.Label size={size} className="PrismaneTextField-label" {...rest}>
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismaneTextField-label"
+          {...rest}
+        >
           {label}
         </Field.Label>
         <Field

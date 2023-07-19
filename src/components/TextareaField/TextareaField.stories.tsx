@@ -3,6 +3,7 @@ import { EnvelopeSimple } from "@phosphor-icons/react";
 // Components
 import Form from "../Form/Form";
 import TextareaField from "./TextareaField";
+import Flex from "../Flex/Flex";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
@@ -146,5 +147,37 @@ export const Validating = () => {
         validating
       />
     </Form>
+  );
+};
+
+export const Sizes = () => {
+  return (
+    <Flex direction="column" gap={fr(2)}>
+      <TextareaField
+        placeholder="Default Field"
+        label="Default Field:"
+        size="xs"
+      />
+      <TextareaField
+        placeholder="Default Field"
+        label="Default Field:"
+        size="sm"
+      />
+      <TextareaField
+        placeholder="Default Field"
+        label="Default Field:"
+        size="base"
+      />
+      <TextareaField
+        placeholder="Default Field"
+        label="Default Field:"
+        size="md"
+      />
+      <TextareaField
+        placeholder="Default Field"
+        label="Default Field:"
+        size="lg"
+      />
+    </Flex>
   );
 };

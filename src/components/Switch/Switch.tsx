@@ -57,20 +57,20 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             bs="border-box"
             bg={(theme) =>
               theme.mode === "dark"
-                ? props.value
+                ? field.value
                   ? [["primary", 700], { hover: ["primary", 600] }]
                   : [["base", 700], { hover: ["base", 600] }]
-                : props.value
+                : field.value
                 ? [["primary", 500], { hover: ["primary", 600] }]
                 : [["base", 300], { hover: ["base", 400] }]
             }
-            htmlFor={props.name}
+            htmlFor={field.name}
             sx={{
               cursor: "pointer",
             }}
             className={strip(
               `${className ? className : ""} ${
-                props.value ? "PrismaneSwitch-root-active" : ""
+                field.value ? "PrismaneSwitch-root-active" : ""
               } PrismaneSwitch-root`
             )}
           >
@@ -86,13 +86,13 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
               className="PrismaneSwitch-thumb"
               sx={{
                 aspectRatio: "1/1",
-                transform: props.value ? "translateX(100%)" : "translateX(0)",
+                transform: field.value ? "translateX(100%)" : "translateX(0)",
               }}
             ></Animation>
           </Transition>
           <Field.Label
             size={size}
-            htmlFor={props.name}
+            htmlFor={field.name}
             className="PrismaneSwitch-label"
           >
             {label}

@@ -60,12 +60,21 @@ export interface PrismaneDefault {
   bg?: PrismaneStyles<
     PrismaneColors | [PrismaneColors, PrismaneShades] | string
   >;
-  br?: PrismaneStyles<PrismaneBreakpoints | "xl" | "2xl">;
+  br?: PrismaneStyles<PrismaneBreakpoints | "xl" | "2xl" | string | number>;
   mih?: PrismaneStyles;
   mah?: PrismaneStyles;
   miw?: PrismaneStyles;
   maw?: PrismaneStyles<
-    PrismaneBreakpoints | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl"
+    | PrismaneBreakpoints
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | string
+    | number
   >;
   op?: PrismaneStyles;
   pos?: PrismaneStyles<"static" | "relative" | "fixed" | "absolute" | "sticky">;
@@ -109,6 +118,8 @@ export interface PrismaneDefault {
     | "6xl"
     | "7xl"
     | "8xl"
+    | string
+    | number
   >;
   fw?: PrismaneStyles<
     | "thin"
@@ -120,6 +131,8 @@ export interface PrismaneDefault {
     | "bold"
     | "extrabold"
     | "black"
+    | string
+    | number
   >;
   ls?: PrismaneStyles;
   ta?: PrismaneStyles<"left" | "right" | "center" | "justify">;

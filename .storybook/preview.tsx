@@ -23,14 +23,14 @@ const preview: Preview = {
           ? {
               mode: "dark",
               colors: {
-                primary: { ...PRISMANE_COLORS.copper },
+                primary: { ...PRISMANE_COLORS.ruby },
                 base: { ...PRISMANE_COLORS.gray },
               },
             }
           : {
               mode: "light",
               colors: {
-                primary: { ...PRISMANE_COLORS.copper },
+                primary: { ...PRISMANE_COLORS.ruby },
                 base: { ...PRISMANE_COLORS.gray },
               },
             };

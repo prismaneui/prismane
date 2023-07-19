@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 const useKeyboardShortcut = (
   keys: string[],
@@ -7,36 +7,41 @@ const useKeyboardShortcut = (
 ) => {
   const pressedKeysRef = useRef<string[]>([]);
 
-  const handleKeyDown = (event: any) => {
-    if (pressedKeysRef.current.includes(event.key.toLowerCase())) {
-      return;
-    }
+  const handleKeyDown = useCallback(
+    (event: any) => {
+      if (pressedKeysRef.current.includes(event.key.toLowerCase())) {
+        return;
+      }
 
-    const np = [...pressedKeysRef.current, event.key.toLowerCase()];
+      const np = [...pressedKeysRef.current, event.key.toLowerCase()];
 
-    pressedKeysRef.current = np;
+      pressedKeysRef.current = np;
 
-    if (
-      pressedKeysRef.current.length === keys.length &&
-      keys.every((key) => pressedKeysRef.current.includes(key.toLowerCase())) &&
-      shouldRegister
-    ) {
-      event.preventDefault();
+      if (
+        pressedKeysRef.current.length === keys.length &&
+        keys.every((key) =>
+          pressedKeysRef.current.includes(key.toLowerCase())
+        ) &&
+        shouldRegister
+      ) {
+        event.preventDefault();
 
-      cb();
-    }
-  };
+        cb();
+      }
+    },
+    [cb, keys, shouldRegister]
+  );
 
-  const handleKeyUp = (event: any) => {
+  const handleKeyUp = useCallback((event: any) => {
     const np = pressedKeysRef.current.filter(
       (key: any) => key !== event.key.toLowerCase()
     );
     pressedKeysRef.current = np;
-  };
+  }, []);
 
-  const handleResetPressedKeys = () => {
+  const handleResetPressedKeys = useCallback(() => {
     pressedKeysRef.current = [];
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -54,7 +59,7 @@ const useKeyboardShortcut = (
       document.removeEventListener("beforeunload", handleResetPressedKeys);
       document.removeEventListener("unload", handleResetPressedKeys);
     };
-  }, [shouldRegister]);
+  }, [shouldRegister, handleKeyDown, handleKeyUp, handleResetPressedKeys]);
 };
 
 export default useKeyboardShortcut;

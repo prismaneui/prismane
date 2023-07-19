@@ -23,30 +23,30 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
         <Portal>
           <Flex
             direction="column"
-            pos="absolute"
+            pos="fixed"
             r={variants(position, {
-              "bottom-right": 0,
-              "top-right": 0,
+              "bottom-right": fr(4),
+              "top-right": fr(4),
               "bottom-left": undefined,
               "top-left": undefined,
             })}
             b={variants(position, {
-              "bottom-right": 0,
+              "bottom-right": fr(4),
               "top-right": undefined,
-              "bottom-left": 0,
+              "bottom-left": fr(4),
               "top-left": undefined,
             })}
             l={variants(position, {
               "bottom-right": undefined,
               "top-right": undefined,
-              "bottom-left": 0,
-              "top-left": 0,
+              "bottom-left": fr(4),
+              "top-left": fr(4),
             })}
             t={variants(position, {
               "bottom-right": undefined,
-              "top-right": 0,
+              "top-right": fr(4),
               "bottom-left": undefined,
-              "top-left": 0,
+              "top-left": fr(4),
             })}
             gap={fr(2)}
             className={strip(

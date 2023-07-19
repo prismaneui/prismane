@@ -30,13 +30,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       indeterminate = false,
       label,
       error,
-      name,
-      value,
-      defaultValue,
       size = "base",
-      onChange,
-      onBlur,
-      onFocus,
       className,
       sx,
       ...props
@@ -54,7 +48,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
           pe={field.disabled && "none"}
-          htmlFor={name}
+          htmlFor={field.name}
         >
           <Transition
             as={Flex}
@@ -82,10 +76,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             bdw={1}
             bdc={(theme) =>
               theme.mode === "dark"
-                ? value
+                ? field.value
                   ? [["primary", 700], { hover: ["primary", 600] }]
                   : [["base", 600], { hover: ["base", 500] }]
-                : value
+                : field.value
                 ? [["primary", 500], { hover: ["primary", 600] }]
                 : [["base", 400], { hover: ["base", 500] }]
             }
@@ -96,24 +90,13 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             }}
             className={strip(
               `${className ? className : ""} ${
-                value ? "PrismaneCheckbox-active" : ""
+                field.value ? "PrismaneCheckbox-active" : ""
               } PrismaneCheckbox-root`
             )}
             {...rest}
           >
             <Hidden>
-              <Field
-                id={name}
-                name={name}
-                type="checkbox"
-                onBlur={onBlur}
-                onChange={onChange}
-                onFocus={onFocus}
-                value={value}
-                defaultValue={defaultValue}
-                ref={ref}
-                {...field}
-              />
+              <Field type="checkbox" ref={ref} {...field} />
             </Hidden>
             <Animation
               as={Flex}
@@ -134,7 +117,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               }
               br="xs"
               className="PrismaneCheckbox-thumb"
-              animated={value}
+              animated={field.value}
               animation={{
                 out: { opacity: 0, transform: "scale(0.8)" },
                 in: { opacity: 1, transform: "scale(1)" },
@@ -149,7 +132,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           </Transition>
           <Field.Label
             size={size}
-            htmlFor={name}
+            htmlFor={field.name}
             className="PrismaneCheckbox-label"
           >
             {label}

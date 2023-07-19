@@ -2,6 +2,7 @@ import { forwardRef, ReactNode } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
+import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
 // Types
 import {
@@ -14,6 +15,7 @@ import { strip, variants, fr } from "../../utils";
 
 export type ChipProps = {
   icon?: ReactNode;
+  iconPosition?: "left" | "right";
   color?: PrismaneColors;
   size?: PrismaneBreakpoints;
 } & FlexProps<"div"> &
@@ -23,6 +25,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (
     {
       icon,
+      iconPosition = "left",
       color = "primary",
       size = "base",
       children,
@@ -61,13 +64,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
         cl={(theme) => (theme.mode === "dark" ? [color, 500] : [color, 700])}
         sx={{
           cursor: "pointer",
-          gap: variants(size, {
-            xs: fr(0.5),
-            sm: fr(1),
-            base: fr(1.5),
-            md: fr(2.5),
-            lg: fr(3.5),
-          }),
+          gap: fr(1.5),
           ...sx,
         }}
         className={strip(
@@ -78,7 +75,23 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
         ref={ref}
         {...props}
       >
-        {icon}
+        {icon && (
+          <Icon
+            size={variants(size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7.5),
+            })}
+            sx={{
+              order: iconPosition === "right" ? 1 : -1,
+            }}
+            className="PrismaneChip-icon"
+          >
+            {icon}
+          </Icon>
+        )}
         <Text
           fs={variants(size, {
             xs: "xs",

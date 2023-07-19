@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-const useDraggable = () => {
+const useDraggable = (
+  defaultPosition: { x: number; y: number } = { x: 0, y: 0 }
+) => {
   const ref = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState(defaultPosition);
 
   useEffect(() => {
     const element: any = ref.current;

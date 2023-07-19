@@ -9,22 +9,21 @@ import { strip, fr, dual } from "../../utils";
 
 export type ProgressProps = {
   value: number;
-  label?: ReactNode;
   size?: PrismaneStyles | PrismaneBreakpoints;
 } & FlexProps<"div"> &
   TransitionProps<"div">;
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
-  ({ value, label, size = "base", className, ...props }, ref) => {
+  ({ value, size = "base", className, ...props }, ref) => {
     return (
       <Transition
         as={Flex}
         h={dual(size, {
-          xs: fr(3),
-          sm: fr(3.5),
-          base: fr(4),
-          md: fr(5),
-          lg: fr(6),
+          xs: fr(0.5),
+          sm: fr(1),
+          base: fr(1.5),
+          md: fr(2),
+          lg: fr(2.5),
         })}
         w="100%"
         br="full"
@@ -46,12 +45,9 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
           w={value.toString() + "%"}
           br="full"
           bg="primary"
-          fs={size}
           cl="white"
           className="PrismaneLoader-line"
-        >
-          {label}
-        </Transition>
+        />
       </Transition>
     );
   }

@@ -32,7 +32,6 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
             animated={animating}
             duration={duration}
             timing={timing}
-            mt={fr(2)}
             pos="absolute"
             px={fr(5)}
             py={fr(3)}
@@ -42,24 +41,24 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
             z={200}
             shadow
             t={variants(position, {
-              "right-start": "-50%",
+              "right-start": "0%",
               right: "50%",
               "bottom-end": "110%",
               bottom: "110%",
               "bottom-start": "110%",
-              "left-start": "-50%",
+              "left-start": "0%",
               left: "50%",
             })}
             b={variants(position, {
               "top-start": "110%",
               top: "110%",
               "top-end": "110%",
-              "right-end": "-50%",
-              "left-end": "-50%",
+              "right-end": "0%",
+              "left-end": "0%",
             })}
             r={variants(position, {
-              "top-end": "-50%",
-              "bottom-end": "-50%",
+              "top-end": "0%",
+              "bottom-end": "0%",
               "left-start": "110%",
               left: "110%",
               "left-end": "110%",
@@ -70,7 +69,7 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
               "right-start": "110%",
               right: "110%",
               "right-end": "110%",
-              "bottom-start": "-50%",
+              "bottom-start": "0%",
               bottom: "50%",
             })}
             sx={{

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 // Components
-import Card, { CardProps } from "../Card/Card";
+import Paper, { PaperProps } from "../Paper/Paper";
 import Animation, { AnimationProps } from "../Animation/Animation";
 // Hooks
 import usePresence from "../../hooks/usePresence";
@@ -18,7 +18,7 @@ import MenuIcon, { MenuIconProps } from "./MenuIcon/MenuIcon";
 export { type MenuItemProps, type MenuLabelProps, type MenuIconProps };
 
 export type MenuProps = { open?: boolean } & AnimationProps<"div"> &
-  CardProps<"div">;
+  PaperProps<"div">;
 
 const Menu: PrismaneWithInternal<
   MenuProps,
@@ -35,7 +35,8 @@ const Menu: PrismaneWithInternal<
       <>
         {presence && (
           <Animation
-            as={Card}
+            as={Paper}
+            p={fr(2)}
             z={200}
             direction="column"
             gap={fr(2)}

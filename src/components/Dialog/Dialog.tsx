@@ -2,7 +2,8 @@ import { forwardRef } from "react";
 // Components
 import Animation, { AnimationProps } from "../Animation/Animation";
 import Paper from "../Paper/Paper";
-import Box from "../Box/Box";
+import Portal from "../Portal/Portal";
+import Backdrop from "../Backdrop/Backdrop";
 // Hooks
 import usePresence from "../../hooks/usePresence";
 import useAnimation from "../../hooks/useAnimation";
@@ -10,9 +11,9 @@ import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 // Context
 import { DialogContextProvider } from "./DialogContext";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneWithInternal, PrismanePositions } from "../../types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr, variants } from "../../utils";
 
 // Internal Components
 import DialogHeader, { DialogHeaderProps } from "./DialogHeader/DialogHeader";
@@ -21,6 +22,7 @@ import DialogFooter, { DialogFooterProps } from "./DialogFooter/DialogFooter";
 export { type DialogHeaderProps, type DialogFooterProps };
 
 export type DialogProps = {
+  position?: PrismanePositions;
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
@@ -32,6 +34,7 @@ const Dialog: PrismaneWithInternal<
 > = forwardRef<HTMLDivElement, DialogProps>(
   (
     {
+      position = "top",
       open = false,
       closable,
       onClose = () => {},
@@ -50,12 +53,77 @@ const Dialog: PrismaneWithInternal<
     useKeyboardShortcut(["escape"], onClose, open);
 
     return (
-      <>
+      <Portal>
         {presence && (
-          <Box pos="fixed" t={fr(6)} r={fr(6)} z={200}>
+          <Animation
+            as={Backdrop}
+            animation="fade"
+            animated={animating}
+            duration={duration}
+            timing={timing}
+            onClick={onClose}
+          >
             <Animation
               as={Paper}
-              p={fr(3)}
+              p={fr(4)}
+              pos="fixed"
+              t={variants(position, {
+                "top-start": fr(6),
+                top: fr(6),
+                "top-end": fr(6),
+                "right-start": fr(6),
+                right: undefined,
+                "right-end": undefined,
+                "bottom-start": undefined,
+                bottom: undefined,
+                "bottom-end": undefined,
+                "left-start": fr(6),
+                left: undefined,
+                "left-end": undefined,
+              })}
+              r={variants(position, {
+                "top-start": undefined,
+                top: undefined,
+                "top-end": fr(6),
+                "right-start": fr(6),
+                right: fr(6),
+                "right-end": fr(6),
+                "bottom-start": undefined,
+                bottom: undefined,
+                "bottom-end": fr(6),
+                "left-start": undefined,
+                left: undefined,
+                "left-end": undefined,
+              })}
+              l={variants(position, {
+                "top-start": fr(6),
+                top: undefined,
+                "top-end": undefined,
+                "right-start": undefined,
+                right: undefined,
+                "right-end": undefined,
+                "bottom-start": fr(6),
+                bottom: undefined,
+                "bottom-end": undefined,
+                "left-start": fr(6),
+                left: fr(6),
+                "left-end": fr(6),
+              })}
+              b={variants(position, {
+                "top-start": undefined,
+                top: undefined,
+                "top-end": undefined,
+                "right-start": undefined,
+                right: undefined,
+                "right-end": fr(6),
+                "bottom-start": fr(6),
+                bottom: fr(6),
+                "bottom-end": fr(6),
+                "left-start": undefined,
+                left: undefined,
+                "left-end": fr(6),
+              })}
+              z={200}
               animated={animating}
               duration={duration}
               timing={timing}
@@ -73,9 +141,9 @@ const Dialog: PrismaneWithInternal<
                 {children}
               </DialogContextProvider>
             </Animation>
-          </Box>
+          </Animation>
         )}
-      </>
+      </Portal>
     );
   }
 );

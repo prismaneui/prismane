@@ -25,3 +25,13 @@ export const Default = () => (
     </p> */}
   </Flex>
 );
+
+export const Sizes = () => (
+  <Flex direction="column" w={fr(120)} h={fr(120)} gap={fr(5)}>
+    <Divider size="xs" />
+    <Divider size="sm" />
+    <Divider size="base" />
+    <Divider size="md" />
+    <Divider size="lg" />
+  </Flex>
+);

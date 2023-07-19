@@ -11,6 +11,7 @@ import { strip, variants, fr } from "../../utils";
 
 export type ButtonProps<E extends Versatile> = {
   icon?: ReactNode;
+  iconPosition?: "left" | "right";
   type?: "submit" | "reset" | "button";
   loading?: boolean;
   disabled?: boolean;
@@ -26,6 +27,7 @@ const Button = forwardRef(
   <E extends Versatile>(
     {
       icon,
+      iconPosition = "left",
       type,
       loading,
       disabled,
@@ -172,6 +174,9 @@ const Button = forwardRef(
                   md: fr(6),
                   lg: fr(7.5),
                 })}
+                sx={{
+                  order: iconPosition === "right" ? 1 : -1,
+                }}
                 className="PrismaneButton-icon"
               >
                 {icon}

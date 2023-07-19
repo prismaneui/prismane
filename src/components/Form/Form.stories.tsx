@@ -3,6 +3,7 @@ import React from "react";
 import Form from "./Form";
 import TextField from "../TextField/TextField";
 import NumberField from "../NumberField/NumberField";
+import SelectField from "../SelectField/SelectField";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import Card from "../Card/Card";
@@ -80,6 +81,9 @@ export const Complex = () => {
           username: (v: string) => username(v),
         },
       },
+      field: {
+        value: "",
+      },
     },
   });
 
@@ -96,6 +100,16 @@ export const Complex = () => {
           placeholder="Enter username: "
           label="Username:"
           {...register("username")}
+        />
+        <SelectField
+          {...register("field")}
+          placeholder="Default Field"
+          label="Default Field:"
+          options={[
+            { value: "ivan", element: "Ivan" },
+            { value: "gosho", element: "Gosho" },
+            { value: "petkan", element: "Petkan" },
+          ]}
         />
         <Flex align="center" gap={2}>
           <Button variant="primary" type="submit">

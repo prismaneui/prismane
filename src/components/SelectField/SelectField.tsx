@@ -47,7 +47,7 @@ const SelectField = forwardRef<
   ) => {
     const [open, setOpen] = useState(false);
 
-    let active = useRef(-1);
+    const [active, setActive] = useState(-1);
 
     const fieldRef = useRef(ref || null);
 
@@ -57,7 +57,7 @@ const SelectField = forwardRef<
 
     useOutsideClick(wrapperRef, () => {
       setOpen(false);
-      active.current = -1;
+      setActive(-1);
     });
 
     const [rest, field] = useFieldProps(props);
@@ -65,8 +65,7 @@ const SelectField = forwardRef<
     useKeyboardShortcut(
       ["arrowdown"],
       () => {
-        active.current =
-          active.current === options.length - 1 ? 0 : active.current + 1;
+        setActive((pa) => (pa === options.length - 1 ? 0 : pa + 1));
       },
       open
     );
@@ -74,8 +73,7 @@ const SelectField = forwardRef<
     useKeyboardShortcut(
       ["arrowup"],
       () => {
-        active.current =
-          active.current <= 0 ? options.length - 1 : active.current - 1;
+        setActive((pa) => (pa <= 0 ? options.length - 1 : pa - 1));
       },
       open
     );
@@ -83,12 +81,12 @@ const SelectField = forwardRef<
     useKeyboardShortcut(
       ["enter"],
       () => {
-        const value = options[active.current]?.value;
+        const value = options[active]?.value;
 
         if (value !== undefined) {
           emulateChange(value);
           setOpen(false);
-          active.current = -1;
+          setActive(-1);
         }
       },
       open
@@ -98,14 +96,18 @@ const SelectField = forwardRef<
       ["escape"],
       () => {
         setOpen(false);
-        active.current = -1;
+        setActive(-1);
       },
       open
     );
 
     return (
-      <Field.Wrapper size={size} ref={wrapperRef} {...rest}>
-        <Field.Label size={size} className="PrismaneSelectField-label">
+      <Field.Wrapper ref={wrapperRef} {...rest}>
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismaneSelectField-label"
+        >
           {label}
         </Field.Label>
         <Field
@@ -141,7 +143,7 @@ const SelectField = forwardRef<
         />
         <Flex pos="relative">
           <Flex pos="absolute" t={0} w="100%">
-            <Menu open={open} maw="100%" wrap="wrap" grow>
+            <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
               {options.map((option, index) => (
                 <Flex
                   onClick={() => {
@@ -159,7 +161,7 @@ const SelectField = forwardRef<
                           ? option.value === props.value
                             ? ["primary", 600]
                             : [
-                                active.current === index
+                                active === index
                                   ? ["base", 700, 0.3]
                                   : "transparent",
                                 { hover: ["base", 700, 0.3] },
@@ -167,7 +169,7 @@ const SelectField = forwardRef<
                           : option.value === props.value
                           ? ["primary", 500]
                           : [
-                              active.current === index
+                              active === index
                                 ? ["base", 500, 0.15]
                                 : "transparent",
                               { hover: ["base", 500, 0.15] },
@@ -188,7 +190,7 @@ const SelectField = forwardRef<
                       option.value === props.value,
                       option.value,
                       option.element,
-                      active.current === index
+                      active === index
                     )
                   )}
                 </Flex>

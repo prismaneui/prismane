@@ -30,7 +30,11 @@ const NativeDateField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size} className="PrismaneNativeDateField-label">
+      <Field.Label
+        size={size}
+        htmlFor={field.name}
+        className="PrismaneNativeDateField-label"
+      >
         {label}
       </Field.Label>
       <Field

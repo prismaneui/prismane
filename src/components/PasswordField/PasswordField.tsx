@@ -39,7 +39,11 @@ const PasswordField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size} className="PrismanePasswordField-label">
+      <Field.Label
+        size={size}
+        htmlFor={field.name}
+        className="PrismanePasswordField-label"
+      >
         {label}
       </Field.Label>
       <Field

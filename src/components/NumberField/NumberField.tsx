@@ -51,7 +51,11 @@ const NumberField = forwardRef<
 
     return (
       <Field.Wrapper {...rest}>
-        <Field.Label size={size} className="PrismaneNumberField-label">
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismaneNumberField-label"
+        >
           {label}
         </Field.Label>
         <Field

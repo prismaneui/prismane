@@ -107,7 +107,11 @@ const PinField = forwardRef<
 
     return (
       <Field.Wrapper {...rest}>
-        <Field.Label size={size} className="PrismanePinField-label">
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismanePinField-label"
+        >
           {label}
         </Field.Label>
         <Flex align="center" gap={fr(2)}>

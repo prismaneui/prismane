@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Toaster from "./Toaster";
 import Button from "../Button/Button";
 import Alert from "../Alert/Alert";
+import Flex from "../Flex/Flex";
 // Hooks
 import useToast from "./useToast";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Components
 import Form from "../Form/Form";
 import Checkbox from "./Checkbox";
@@ -31,8 +31,8 @@ export const Default = () => {
       onReset={() => handleReset()}
       maw={fr(75)}
     >
-      <Checkbox {...register("answer")} />
-      <Checkbox {...register("answer")} indeterminate />
+      <Checkbox {...register("answer")} label="Checkbox label" />
+      <Checkbox {...register("answer")} label="Checkbox label" indeterminate />
       <Flex align="center" gap={fr(2)} mt={fr(4)}>
         <Button variant="primary" type="submit">
           Submit
@@ -42,6 +42,18 @@ export const Default = () => {
         </Button>
       </Flex>
     </Form>
+  );
+};
+
+export const No_Name = () => {
+  const [value, setValue] = useState(false);
+
+  return (
+    <Checkbox
+      value={value}
+      onChange={(e) => setValue(e.target.checked)}
+      label="No name checkbox"
+    />
   );
 };
 

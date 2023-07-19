@@ -26,7 +26,7 @@ const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
         {...props}
       >
         {children}
-        {closable && <CloseButton onClick={onClose} size="sm" />}
+        {closable && <CloseButton onClick={onClose} />}
       </Flex>
     );
   }

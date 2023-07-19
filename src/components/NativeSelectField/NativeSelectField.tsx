@@ -35,7 +35,11 @@ const NativeSelectField = forwardRef<
 
   return (
     <Field.Wrapper {...rest}>
-      <Field.Label size={size} className="PrismaneNativeSelectField-label">
+      <Field.Label
+        size={size}
+        htmlFor={field.name}
+        className="PrismaneNativeSelectField-label"
+      >
         {label}
       </Field.Label>
       <Field

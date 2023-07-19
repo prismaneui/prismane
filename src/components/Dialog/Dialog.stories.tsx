@@ -19,7 +19,7 @@ export const Default = () => {
 
   return (
     <Flex direction="column" gap={10} w="90vw" h="90vh">
-      <Dialog open={open} w={fr(64)}>
+      <Dialog open={open} w={fr(64)} onClose={() => setOpen(false)} closable>
         <Dialog.Header onClose={() => setOpen(false)} closable>
           <Text fw="bold">Account warning</Text>
         </Dialog.Header>

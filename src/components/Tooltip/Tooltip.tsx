@@ -65,24 +65,24 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             z={200}
             w="fit-content"
             t={variants(position, {
-              "right-start": "-50%",
+              "right-start": "0%",
               right: "50%",
               "bottom-end": "110%",
               bottom: "110%",
               "bottom-start": "110%",
-              "left-start": "-50%",
+              "left-start": "0%",
               left: "50%",
             })}
             b={variants(position, {
               "top-start": "110%",
               top: "110%",
               "top-end": "110%",
-              "right-end": "-50%",
-              "left-end": "-50%",
+              "right-end": "0%",
+              "left-end": "0%",
             })}
             r={variants(position, {
-              "top-end": "-50%",
-              "bottom-end": "-50%",
+              "top-end": "0%",
+              "bottom-end": "0%",
               "left-start": "110%",
               left: "110%",
               "left-end": "110%",
@@ -93,7 +93,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               "right-start": "110%",
               right: "110%",
               "right-end": "110%",
-              "bottom-start": "-50%",
+              "bottom-start": "0%",
               bottom: "50%",
             })}
             px={variants(size, {

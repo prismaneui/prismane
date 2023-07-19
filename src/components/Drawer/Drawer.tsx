@@ -13,7 +13,7 @@ import { DrawerContextProvider } from "./DrawerContext";
 // Types
 import { PrismaneWithInternal, PrismaneBreakpoints } from "../../types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, dual, fr } from "../../utils";
 // Internal Components
 import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader/DrawerHeader";
 import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter/DrawerFooter";
@@ -85,7 +85,7 @@ const Drawer: PrismaneWithInternal<
               br="0!important"
               h={variants(position, {
                 left: "100%",
-                top: variants(size, {
+                top: dual(size, {
                   xs: fr(60),
                   sm: fr(72),
                   base: fr(84),
@@ -93,7 +93,7 @@ const Drawer: PrismaneWithInternal<
                   lg: fr(108),
                 }),
                 right: "100%",
-                bottom: variants(size, {
+                bottom: dual(size, {
                   xs: fr(60),
                   sm: fr(72),
                   base: fr(84),
@@ -102,7 +102,7 @@ const Drawer: PrismaneWithInternal<
                 }),
               })}
               w={variants(position, {
-                left: variants(size, {
+                left: dual(size, {
                   xs: fr(60),
                   sm: fr(72),
                   base: fr(84),
@@ -110,7 +110,7 @@ const Drawer: PrismaneWithInternal<
                   lg: fr(108),
                 }),
                 top: "100%",
-                right: variants(size, {
+                right: dual(size, {
                   xs: fr(60),
                   sm: fr(72),
                   base: fr(84),

@@ -1,3 +1,5 @@
+// Hooks
+import { useId } from "../../hooks";
 // Utils
 import { splitProps } from "../../utils";
 
@@ -23,6 +25,10 @@ const useFieldProps = (props: any) => {
     "onFocus",
     "onBlur",
   ]);
+
+  if (!field.name) {
+    field.name = useId();
+  }
 
   return [rest, field];
 };
