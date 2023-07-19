@@ -93,6 +93,7 @@ const ColorField = forwardRef<
         sx={{
           ".PrismaneMenu-root": {
             flexDirection: "row",
+            flexWrap: "wrap",
           },
           ...sx,
         }}
