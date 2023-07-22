@@ -1,1 +1,2 @@
-export * from "./validators";
+// export * from "./validators";
+export { default as min } from "./min";
