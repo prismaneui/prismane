@@ -1,3 +1,8 @@
 import { expect, test } from "vitest";
+import { render, screen } from "@testing-library/react";
 
-test("test", () => {});
+test("test", () => {
+  render(<div>Hello World!</div>);
+
+  expect(screen.getByText("Hello World!")).toBeInTheDocument();
+});

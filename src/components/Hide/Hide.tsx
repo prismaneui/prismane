@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Hooks
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery/useMediaQuery";
 // Types
 import { PrismaneBreakpoints } from "../../types";
 // Utils
