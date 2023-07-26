@@ -29,6 +29,7 @@ const Hide = forwardRef<HTMLDivElement, HideProps>(
         dp={hidden ? "none" : "flex"}
         className={strip(`${className ? className : ""} PrismaneHide-root`)}
         ref={ref}
+        data-testid="prismane-hide"
         {...props}
       >
         {children}

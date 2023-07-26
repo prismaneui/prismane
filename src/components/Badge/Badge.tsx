@@ -119,6 +119,7 @@ const Badge = forwardRef(
             } PrismaneBadge-root-${position} PrismaneBadge-root-${color} PrismaneBadge-root-${size} PrismaneBadge-root`
           )}
           ref={ref}
+          data-testid="prismane-badge"
           {...props}
         >
           {label}

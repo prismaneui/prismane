@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneComponent, PrismaneStyles } from "../../types";
+import { PrismaneStyles } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -24,6 +24,7 @@ const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
           ...style,
         }}
         ref={ref}
+        data-testid="prismane-aspect-ratio"
         {...props}
       >
         {children}

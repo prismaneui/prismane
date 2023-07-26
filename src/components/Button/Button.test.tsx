@@ -13,6 +13,7 @@ test("Correct click event", () => {
   const mock = vi.fn();
   const { getByTestId } = render(<Button onClick={mock}>Hello, world!</Button>);
   const button = getByTestId("prismane-button");
+
   fireEvent.click(button);
   expect(mock).toHaveBeenCalledTimes(1);
 });

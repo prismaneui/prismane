@@ -59,6 +59,7 @@ const Avatar = forwardRef(
           } PrismaneAvatar-root-${size} PrismaneAvatar-root`
         )}
         ref={ref}
+        data-testid="prismane-avatar"
         {...props}
       >
         {isImage ? (
