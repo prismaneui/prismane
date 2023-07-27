@@ -1,7 +1,7 @@
 name: Publish package's Storybook to Chromatic
 
 on:
-  release:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,6 +12,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          registry-url: https://registry.npmjs.org/
+          
       - run: yarn
       - run: yarn chromatic
