@@ -104,5 +104,6 @@
   "bugs": {
     "url": "https://github.com/spleafy/prismane/issues"
   },
-  "homepage": "https://www.prismane.io"
+  "homepage": "https://www.prismane.io",
+  "packageManager": "yarn@3.6.1"
 }
