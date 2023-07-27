@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-.yarn
 dist
 dist-ssr
 *.local
