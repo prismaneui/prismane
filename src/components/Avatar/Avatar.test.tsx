@@ -1,4 +1,3 @@
-import { test } from "vitest";
 import { render } from "@testing-library/react";
 // Component
 import Avatar from "./Avatar";

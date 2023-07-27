@@ -1,4 +1,3 @@
-import { test } from "vitest";
 import { renderHook, act } from "@testing-library/react-hooks";
 // Hook
 import useLocalStorage from "./useLocalStorage";

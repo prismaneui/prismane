@@ -1,4 +1,3 @@
-import { test } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
 import useId from "./useId";
 

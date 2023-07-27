@@ -1,4 +1,3 @@
-import { expect, test } from "vitest";
 // Validator
 import min from "./min";
 

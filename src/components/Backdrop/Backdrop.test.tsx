@@ -1,4 +1,3 @@
-import { test } from "vitest";
 import { render } from "@testing-library/react";
 // Component
 import Backdrop from "./Backdrop";

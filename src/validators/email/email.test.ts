@@ -1,4 +1,3 @@
-import { expect, test } from "vitest";
 // Validator
 import username from "./email";
 
