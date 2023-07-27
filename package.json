@@ -1,8 +1,9 @@
 {
   "name": "@prismane/core",
-  "private": false,
   "version": "0.2.1",
-  "author": "Martin Petrov",
+  "author": {
+    "name": "Martin Petrov"
+  },
   "license": "MIT",
   "description": "Prismane - Simple React UI library",
   "keywords": [
@@ -20,9 +21,10 @@
     "build": "yarn run build:index && yarn run build:hooks && yarn run build:themes && yarn run build:validators",
     "patch": "yarn build && npm version patch && npm publish",
     "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "cross-env NODE_OPTIONS=--max-old-space-size=8192 storybook build",
     "lint": "echo \"Linting\" && exit 0",
-    "test": "echo \"Testing\" && exit 0"
+    "test": "echo \"Testing\" && exit 0",
+    "chromatic": "npx chromatic --project-token=chpt_5422e7d17903a70"
   },
   "type": "module",
   "files": [
@@ -89,6 +91,7 @@
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^4.0.0",
+    "chromatic": "^6.20.0",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -104,5 +107,8 @@
   "bugs": {
     "url": "https://github.com/spleafy/prismane/issues"
   },
-  "homepage": "https://www.prismane.io"
+  "homepage": "https://www.prismane.io",
+  "packageManager": "yarn@3.6.1",
+  "readme": "ERROR: No README data found!",
+  "_id": "@prismane/core@0.2.1"
 }
