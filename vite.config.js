@@ -65,25 +65,3 @@ export default defineConfig({
     },
   },
 });
-
-// For running storybook, because of entry error
-
-// export default defineConfig({
-//   plugins: [dts({ insertTypesEntry: true }), react()],
-//   build: {
-//     lib: {
-//       entry: resolve(__dirname, "src/index.ts"),
-//       name: "prismane",
-//       fileName: "index",
-//     },
-//     rollupOptions: {
-//       external: ["react", "react-dom", "react/jsx-runtime"],
-//       output: {
-//         globals: {
-//           react: "React",
-//           "react-dom": "ReactDOM",
-//         },
-//       },
-//     },
-//   },
-// });
