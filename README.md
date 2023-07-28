@@ -11,6 +11,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#storybook">Storybook</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
 </p>
@@ -35,6 +36,12 @@ yarn add @prismane/core
 # With npm
 npm install @prismane/core
 ```
+
+## Storybook
+
+Our Storybook is uploaded to Chromatic and is automatically updated with every change.
+
+[Storybook on Chromatic](https://master--64c0fd7432b79714c11e2b24.chromatic.com/)
 
 ## Credits
 
