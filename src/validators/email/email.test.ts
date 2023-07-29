@@ -1,10 +1,21 @@
 // Validator
-import username from "./email";
+import email from "./email";
 
 test("Normal error", () => {
-  expect(username("johndoe@gmail")).toBe(`This is not a valid email!`);
+  const emails = ["johndoe@gmail", "johndoe@gmail...com"];
+
+  emails.forEach((address) => {
+    expect(email(address)).toBe("This is not a valid email!");
+  });
 });
 
 test("No error", () => {
-  expect(username("martinpetrov@prismane.io")).toBe(null);
+  const emails = [
+    "martinpetrov@my-shady-domain.io",
+    "martinpetrov@my-shady-domain.college",
+  ];
+
+  emails.forEach((address) => {
+    expect(email(address)).toBe(null);
+  });
 });
