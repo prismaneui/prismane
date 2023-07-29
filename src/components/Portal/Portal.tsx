@@ -35,6 +35,7 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
             disabled ? "PrismanePortal-root-disabled" : ""
           } PrismanePortal-root`
         )}
+        data-testid="prismane-portal"
         ref={ref}
         {...props}
       >

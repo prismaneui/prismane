@@ -140,6 +140,7 @@ const Animation = forwardRef(
         timing={timing}
         sx={{ ...animate, ...sx }}
         ref={ref}
+        data-testid="prismane-animation"
         {...props}
       >
         {children}

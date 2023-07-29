@@ -26,6 +26,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(
           ...sx,
         }}
         className={strip(`${className ? className : ""} PrismaneImage-root`)}
+        data-testid="prismane-image"
         ref={ref}
         {...props}
       />

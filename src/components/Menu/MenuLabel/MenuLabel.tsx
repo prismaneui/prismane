@@ -22,6 +22,7 @@ const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
             className ? className : ""
           } PrismaneMenuLabel-root-${color} PrismaneMenuLabel-root`
         )}
+        data-testid="prismane-menu-label"
         ref={ref}
         {...props}
       >

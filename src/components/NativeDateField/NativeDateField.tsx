@@ -45,6 +45,7 @@ const NativeDateField = forwardRef<
         className={strip(
           `${className ? className : ""} PrismaneNativeDateField-root`
         )}
+        data-testid="prismane-native-date-field"
         ref={ref}
         {...field}
       />

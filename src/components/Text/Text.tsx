@@ -16,6 +16,7 @@ const Text = forwardRef(
       <Box
         as={as}
         className={strip(`${className ? className : ""} PrismaneText-root`)}
+        data-testid="prismane-text"
         ref={ref}
         {...props}
       >

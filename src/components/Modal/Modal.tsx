@@ -79,6 +79,7 @@ const Modal: PrismaneWithInternal<
                   open ? "PrismaneModal-root-open" : ""
                 } PrismaneModal-root`
               )}
+              data-testid="prismane-modal"
               ref={ref}
               {...props}
             >

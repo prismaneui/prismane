@@ -23,6 +23,7 @@ const Paper = forwardRef(
         of="hidden"
         bsh={shadow && "base"}
         className={strip(`${className ? className : ""} PrismanePaper-root`)}
+        data-testid="prismane-paper"
         ref={ref}
         {...props}
       >

@@ -72,6 +72,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
             className ? className : ""
           } PrismaneChip-root-${size} PrismaneChip-root-${color} PrismaneChip-root`
         )}
+        data-testid="prismane-chip"
         ref={ref}
         {...props}
       >

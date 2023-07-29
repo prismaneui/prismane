@@ -24,6 +24,7 @@ const Highlight = forwardRef(
         className={strip(
           `${className ? className : ""} PrismaneHighlight-root`
         )}
+        data-testid="prismane-highlight"
         ref={ref}
         {...props}
       >

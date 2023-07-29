@@ -24,6 +24,7 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         className={strip(
           `${className ? className : ""} PrismaneAccordionItem-root`
         )}
+        data-testid="prismane-accordion-item"
         ref={ref}
         {...props}
       >

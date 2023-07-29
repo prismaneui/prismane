@@ -159,6 +159,7 @@ const Button = forwardRef(
         type={type}
         disabled={loading || disabled}
         ref={ref}
+        data-testid="prismane-button"
         {...props}
       >
         {loading ? (

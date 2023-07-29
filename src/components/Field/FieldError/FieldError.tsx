@@ -43,6 +43,7 @@ const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
             className={strip(
               `${className ? className : ""} PrismaneFieldError-root`
             )}
+            data-testid="prismane-field-error"
             ref={ref}
             {...props}
           >

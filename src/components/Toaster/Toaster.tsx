@@ -54,6 +54,7 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
                 className ? className : ""
               } PrismaneToaster-root-${position} PrismaneToaster-root`
             )}
+            data-testid="prismane-toaster"
             ref={ref}
             {...props}
           >

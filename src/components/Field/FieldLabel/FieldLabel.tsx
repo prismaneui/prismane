@@ -38,6 +38,7 @@ const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
             className={strip(
               `${className ? className : ""} PrismaneFieldLabel-root`
             )}
+            data-testid="prismane-field-label"
             ref={ref}
             {...props}
           >

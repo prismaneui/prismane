@@ -133,6 +133,7 @@ const Dialog: PrismaneWithInternal<
                   open ? "PrismaneDialog-root-open" : ""
                 } PrismaneDialog-root`
               )}
+              data-testid="prismane-dialog"
               ref={ref}
               shadow
               {...props}

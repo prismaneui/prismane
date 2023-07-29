@@ -22,6 +22,7 @@ const DrawerHeader = forwardRef<HTMLDivElement, DrawerHeaderProps>(
         className={strip(
           `${className ? className : ""} PrismaneDrawerHeader-root`
         )}
+        data-testid="prismane-drawer-header"
         ref={ref}
         {...props}
       >

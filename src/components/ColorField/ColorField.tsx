@@ -100,6 +100,7 @@ const ColorField = forwardRef<
         className={strip(
           `${className ? className : ""} PrismaneColorField-root`
         )}
+        data-testid="prismane-color-field"
         ref={ref}
         {...props}
       />

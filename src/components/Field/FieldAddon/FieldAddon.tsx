@@ -39,6 +39,7 @@ const FieldAddon = forwardRef<HTMLDivElement, FieldAddonProps>(
         sx={{
           order: position === "right" ? 1 : -1,
         }}
+        data-testid="prismane-field-addon"
         ref={ref}
         {...props}
       >

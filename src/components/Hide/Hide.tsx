@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Hooks
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery/useMediaQuery";
 // Types
 import { PrismaneBreakpoints } from "../../types";
 // Utils
@@ -29,6 +29,7 @@ const Hide = forwardRef<HTMLDivElement, HideProps>(
         dp={hidden ? "none" : "flex"}
         className={strip(`${className ? className : ""} PrismaneHide-root`)}
         ref={ref}
+        data-testid="prismane-hide"
         {...props}
       >
         {children}

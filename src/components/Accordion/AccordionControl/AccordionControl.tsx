@@ -38,6 +38,7 @@ const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
             value === item ? "PrismaneAccordionControl-root-active" : ""
           } PrismaneAccordionControl-root`
         )}
+        data-testid="prismane-accordion-control"
         ref={ref}
         {...props}
       >

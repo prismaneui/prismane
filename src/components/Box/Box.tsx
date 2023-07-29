@@ -225,10 +225,11 @@ const Box = forwardRef(
 
     return (
       <El
-        ref={ref}
         className={strip(
           `${styles.join(" ")} ${className ? className : ""} PrismaneBox-root`
         )}
+        data-testid="prismane-box"
+        ref={ref}
         {...props}
       >
         {children}

@@ -20,6 +20,7 @@ const Square = forwardRef(
         w={size}
         h={size}
         className={strip(`${className ? className : ""} PrismaneSquare-root`)}
+        data-testid="prismane-square"
         ref={ref}
         {...props}
       >

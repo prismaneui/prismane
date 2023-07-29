@@ -14,6 +14,7 @@ const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
         className={strip(
           `${className ? className : ""} PrismaneTableBody-root`
         )}
+        data-testid="prismane-table-body"
         ref={ref}
         {...props}
       >

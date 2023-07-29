@@ -126,6 +126,7 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
               ))}
             </Field.Addon>
           }
+          data-testid="prismane-segmented-field"
           ref={fieldRef}
           {...field}
           variant="filled"

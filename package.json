@@ -23,7 +23,7 @@
     "dev": "storybook dev -p 6006",
     "build-storybook": "cross-env NODE_OPTIONS=--max-old-space-size=8192 storybook build",
     "lint": "echo \"Linting\" && exit 0",
-    "test": "echo \"Testing\" && exit 0",
+    "test": "vitest",
     "chromatic": "npx chromatic --project-token=chpt_5422e7d17903a70"
   },
   "type": "module",
@@ -88,17 +88,22 @@
     "@storybook/react": "7.1.0",
     "@storybook/react-vite": "7.1.0",
     "@storybook/testing-library": "0.2.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^4.0.0",
     "chromatic": "^6.20.0",
     "cross-env": "^7.0.3",
+    "jsdom": "^22.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.1.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
-    "vite-plugin-dts": "^1.7.1"
+    "vite-plugin-dts": "^1.7.1",
+    "vitest": "^0.33.0"
   },
   "repository": {
     "type": "git",
@@ -108,7 +113,5 @@
     "url": "https://github.com/spleafy/prismane/issues"
   },
   "homepage": "https://www.prismane.io",
-  "packageManager": "yarn@3.6.1",
-  "readme": "ERROR: No README data found!",
-  "_id": "@prismane/core@0.2.1"
+  "packageManager": "yarn@3.6.1"
 }

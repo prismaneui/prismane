@@ -37,6 +37,7 @@ const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
         size={size}
         color={color}
         variant={variant}
+        data-testid="prismane-action-button"
         {...props}
       >
         {children}

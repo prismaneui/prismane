@@ -16,6 +16,7 @@ const Hidden = forwardRef<HTMLSpanElement, HiddenProps>(
         of="hidden"
         dp="block"
         className={strip(`${className ? className : ""} PrismaneHidden-root`)}
+        data-testid="prismane-hidden"
         ref={ref}
         {...props}
       >

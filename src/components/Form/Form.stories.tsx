@@ -11,9 +11,9 @@ import Switch from "../Switch/Switch";
 import Checkbox from "../Checkbox/Checkbox";
 import Flex from "../Flex/Flex";
 // Utils
-import { required, username, min } from "../../validators/validators";
+import { required, username, min } from "../../validators";
 // Hooks
-import { useForm } from "../../hooks/useForm";
+import useForm from "../../hooks/useForm";
 
 export default {
   title: "Form",

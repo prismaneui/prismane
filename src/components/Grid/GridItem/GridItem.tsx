@@ -59,6 +59,7 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
                 }),
           ...sx,
         }}
+        data-testid="prismane-grid-item"
         ref={ref}
         {...props}
       >

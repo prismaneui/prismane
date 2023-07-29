@@ -23,6 +23,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         )}
         align="center"
         gap={fr(4)}
+        data-testid="prismane-radio-group"
         ref={ref}
         {...rest}
       >

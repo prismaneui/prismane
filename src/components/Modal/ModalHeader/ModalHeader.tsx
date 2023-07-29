@@ -22,6 +22,7 @@ const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
         className={strip(
           `${className ? className : ""} PrismaneModalHeader-root`
         )}
+        data-testid="prismane-modal-header"
         ref={ref}
         {...props}
       >

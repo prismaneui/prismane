@@ -40,6 +40,7 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
           }),
           ...sx,
         }}
+        data-testid="prismane-icon"
         ref={ref}
         {...props}
       >

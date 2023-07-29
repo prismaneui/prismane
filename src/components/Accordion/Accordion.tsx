@@ -52,6 +52,7 @@ const Accordion: PrismaneWithInternal<
         className={strip(
           `${className ? className : ""} PrismaneAccordion-root`
         )}
+        data-testid="prismane-accordion"
         ref={ref}
         {...props}
       >

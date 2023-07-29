@@ -20,6 +20,7 @@ const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
           className={strip(
             `${className ? className : ""} PrismaneListItem-root`
           )}
+          data-testid="prismane-list-item"
           ref={ref}
           {...props}
         >

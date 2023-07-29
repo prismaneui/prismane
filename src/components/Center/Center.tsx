@@ -18,6 +18,7 @@ const Center = forwardRef(
         justify="center"
         align="center"
         className={strip(`${className ? className : ""} PrismaneCenter-root`)}
+        data-testid="prismane-center"
         ref={ref}
         {...props}
       >

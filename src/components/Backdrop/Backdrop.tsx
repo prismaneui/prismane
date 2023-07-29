@@ -22,6 +22,7 @@ const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
         }
         className={strip(`${className ? className : ""} PrismaneBackdrop-root`)}
         ref={ref}
+        data-testid="prismane-backdrop"
         {...props}
       >
         {children}

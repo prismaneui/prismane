@@ -16,6 +16,7 @@ const TableFoot = forwardRef<HTMLTableSectionElement, TableFootProps>(
         className={strip(
           `${className ? className : ""} PrismaneTableFoot-root`
         )}
+        data-testid="prismane-table-foot"
         ref={ref}
         {...props}
       >

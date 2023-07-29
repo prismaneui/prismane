@@ -44,6 +44,8 @@ const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
             className ? className : ""
           } PrismaneMenuItem-root-${color} PrismaneMenuItem-root`
         )}
+        data-testid="prismane-menu-item"
+        role="menuitem"
         ref={ref}
         {...props}
       >

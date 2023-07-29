@@ -103,6 +103,7 @@ const Alert: PrismaneWithInternal<
                 className ? className : ""
               } PrismaneAlert-root PrismaneAlert-root-${variant}`
             )}
+            data-testid="prismane-alert"
             ref={ref}
             {...props}
           >

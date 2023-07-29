@@ -116,7 +116,12 @@ const PinField = forwardRef<
         </Field.Label>
         <Flex align="center" gap={fr(2)}>
           <Hidden>
-            <Field ref={fieldRef} {...field} type="text" />
+            <Field
+              data-testid="prismane-pin-field"
+              ref={fieldRef}
+              {...field}
+              type="text"
+            />
           </Hidden>
           {Array.from({ length }, (_, index) => (
             <Field

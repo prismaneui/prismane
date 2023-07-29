@@ -59,6 +59,7 @@ const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
           tabs.setValue(value);
         }}
         className={strip(`${className ? className : ""} PrismaneTabsTab-root`)}
+        data-testid="prismane-tabs-tab"
         ref={ref}
         {...props}
       >

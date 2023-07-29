@@ -29,6 +29,7 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
             className ? className : ""
           } PrismaneSkeleton-root-${variant} PrismaneSkeleton-root`
         )}
+        data-testid="prismane-skeleton"
         ref={ref}
         {...props}
       ></Flex>

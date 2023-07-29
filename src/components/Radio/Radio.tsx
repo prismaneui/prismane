@@ -122,6 +122,7 @@ const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
                   onFocus={onFocus}
                   value={value}
                   defaultValue={defaultValue}
+                  data-testid="prismane-radio"
                   ref={ref}
                   {...field}
                   name={group.name || name}

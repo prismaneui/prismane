@@ -15,6 +15,7 @@ const AlertDescription = forwardRef<HTMLSpanElement, AlertDescriptionProps>(
         className={strip(
           `${className ? className : ""} PrismaneAlertDescription-root`
         )}
+        data-testid="prismane-alert-description"
         ref={ref}
         {...props}
       >

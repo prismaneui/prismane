@@ -82,6 +82,7 @@ const Flex = forwardRef(
           ...sx,
         }}
         className={strip(`${className ? className : ""} PrismaneFlex-root`)}
+        data-testid="prismane-flex"
         ref={ref}
         {...props}
       >

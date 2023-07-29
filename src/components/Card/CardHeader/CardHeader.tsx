@@ -16,6 +16,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
         className={strip(
           `${className ? className : ""} PrismaneCardHeader-root`
         )}
+        data-testid="prismane-card-header"
         ref={ref}
         {...props}
       >

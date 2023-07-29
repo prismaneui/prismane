@@ -46,6 +46,7 @@ const Tabs: PrismaneWithInternal<
             className ? className : ""
           } PrismaneTabs-root-${variant} PrismaneTabs-root`
         )}
+        data-testid="prismane-tabs"
         ref={ref}
         {...props}
       >

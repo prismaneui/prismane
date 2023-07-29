@@ -30,6 +30,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>(
           gap: fr(4),
           flexDirection: "column",
         }}
+        data-testid="prismane-form"
         ref={ref}
         {...props}
       >

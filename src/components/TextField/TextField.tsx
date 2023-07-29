@@ -126,6 +126,7 @@ const TextField = forwardRef<
               )}
             </>
           }
+          data-testid="prismane-text-field"
           ref={ref}
           {...field}
         />
