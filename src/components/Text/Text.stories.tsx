@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Meta } from "@storybook/react";
 // Components
 import Text from "./Text";
+import Stack from "../Stack/Stack";
 
 export default {
   title: "Text",
@@ -10,7 +11,7 @@ export default {
 
 export const Default: FC = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <Stack>
       <Text fs="xs">Hello world</Text>
       <Text fs="sm">Hello world</Text>
       <Text fs="base">Hello world</Text>
@@ -24,6 +25,6 @@ export const Default: FC = () => {
       <Text fs="6xl">Hello world</Text>
       <Text fs="7xl">Hello world</Text>
       <Text fs="8xl">Hello world</Text>
-    </div>
+    </Stack>
   );
 };
