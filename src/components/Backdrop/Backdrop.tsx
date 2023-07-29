@@ -13,6 +13,7 @@ const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
         w="100%"
         h="100%"
         pos="fixed"
+        of="hidden"
         t={0}
         l={0}
         z={200}

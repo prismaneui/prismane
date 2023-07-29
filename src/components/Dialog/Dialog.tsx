@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 // Components
 import Animation, { AnimationProps } from "../Animation/Animation";
 import Paper from "../Paper/Paper";
@@ -51,6 +51,14 @@ const Dialog: PrismaneWithInternal<
     const presence = usePresence(open as boolean, duration, animate);
 
     useKeyboardShortcut(["escape"], onClose, open);
+
+    useEffect(() => {
+      if (open) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }, [open]);
 
     return (
       <Portal>
