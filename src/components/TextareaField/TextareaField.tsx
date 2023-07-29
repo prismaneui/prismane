@@ -72,6 +72,7 @@ const TextareaField = forwardRef<
           ...sx,
         }}
         className={strip(`${className ? className : ""} PrismaneTextarea-root`)}
+        data-testid="prismane-textarea-field"
         ref={ref}
         {...field}
       />

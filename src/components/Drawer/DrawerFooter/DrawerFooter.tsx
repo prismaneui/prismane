@@ -18,6 +18,7 @@ const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
         className={strip(
           `${className ? className : ""} PrismaneDrawerFooter-root`
         )}
+        data-testid="prismane-drawer-footer"
         ref={ref}
         {...props}
       >

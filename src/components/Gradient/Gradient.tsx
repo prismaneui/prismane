@@ -38,6 +38,7 @@ const Gradient = forwardRef(
             from
           )}, ${getColorStyle(to)})`,
         }}
+        data-testid="prismane-gradient"
         ref={ref}
         {...props}
       >

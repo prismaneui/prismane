@@ -45,6 +45,7 @@ const Table: PrismaneWithInternal<
           ...sx,
         }}
         className={strip(`${className ? className : ""} PrismaneTable-root`)}
+        data-testid="prismane-table"
         ref={ref}
         {...props}
       >

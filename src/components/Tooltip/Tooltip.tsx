@@ -134,6 +134,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                 className ? className : ""
               } PrismaneTooltip-root-${color} PrismaneTooltip-root-${position} PrismaneTooltip-root-${size} PrismaneTooltip-root`
             )}
+            data-testid="prismane-tooltip"
             ref={ref}
             {...props}
           >

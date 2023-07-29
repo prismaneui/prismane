@@ -55,6 +55,8 @@ const Menu: PrismaneWithInternal<
                 open ? "PrismaneMenu-root-open" : ""
               } PrismaneMenu-root`
             )}
+            data-testid="prismane-menu"
+            role="menu"
             ref={ref}
             {...props}
           >

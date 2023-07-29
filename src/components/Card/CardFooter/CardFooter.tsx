@@ -16,6 +16,7 @@ const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
         className={strip(
           `${className ? className : ""} PrismaneCardFooter-root`
         )}
+        data-testid="prismane-card-footer"
         ref={ref}
         {...props}
       >

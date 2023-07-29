@@ -55,6 +55,7 @@ const AutocompleteField = forwardRef<
       className={strip(
         `${className ? className : ""} PrismaneAutocompleteField-root`
       )}
+      data-testid="prismane-autocomplete-field"
       ref={ref}
       {...props}
     />

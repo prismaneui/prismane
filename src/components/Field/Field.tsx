@@ -236,6 +236,7 @@ const Field: PrismaneWithInternal<
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
+          data-testid="prismane-field"
           ref={ref}
         >
           {as === "select" ? children : null}

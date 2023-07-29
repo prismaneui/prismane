@@ -17,6 +17,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         w="100%"
         pos="relative"
         className={strip(`${className ? className : ""} PrismaneTabsList-root`)}
+        data-testid="prismane-tabs-list"
         ref={ref}
         {...props}
       >

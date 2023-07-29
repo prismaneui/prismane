@@ -22,6 +22,7 @@ const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(
             className={strip(
               `${className ? className : ""} PrismaneTabsPanel-root`
             )}
+            data-testid="prismane-tabs-panel"
             ref={ref}
             {...props}
           >

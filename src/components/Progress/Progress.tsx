@@ -34,6 +34,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
             className ? className : ""
           } PrismaneProgress-root-${size} PrismaneProgress-root`
         )}
+        data-testid="prismane-progress"
         ref={ref}
         {...props}
       >
@@ -42,7 +43,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
           justify="center"
           align="center"
           h="100%"
-          w={value.toString() + "%"}
+          w={value ? value.toString() + "%" : 0}
           br="full"
           bg="primary"
           cl="white"

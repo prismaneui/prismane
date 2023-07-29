@@ -19,6 +19,7 @@ const ListOrdered = forwardRef<HTMLOListElement, ListOrderedProps>(
         className={strip(
           `${className ? className : ""} PrismaneListOrdered-root`
         )}
+        data-testid="prismane-list-ordered"
         ref={ref}
         {...props}
       >

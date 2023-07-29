@@ -16,6 +16,7 @@ const ModalFooter = forwardRef<HTMLDivElement, ModalFooterProps>(
         className={strip(
           `${className ? className : ""} PrismaneModalFooter-root`
         )}
+        data-testid="prismane-modal-footer"
         ref={ref}
         {...props}
       >

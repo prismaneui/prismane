@@ -53,6 +53,7 @@ const Transition = forwardRef(
           `${className ? className : ""} PrismaneTransition-root`
         )}
         sx={{ transition: ts, ...sx }}
+        data-testid="prismane-transition"
         ref={ref}
         {...props}
       >

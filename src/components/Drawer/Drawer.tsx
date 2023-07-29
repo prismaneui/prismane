@@ -137,6 +137,7 @@ const Drawer: PrismaneWithInternal<
                   open ? "PrismaneDrawer-root-open" : ""
                 } PrismaneDrawer-root`
               )}
+              data-testid="prismane-drawer"
               ref={ref}
               {...props}
             >

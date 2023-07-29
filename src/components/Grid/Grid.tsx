@@ -72,6 +72,7 @@ const Grid: PrismaneWithInternal<GridProps, { Item: GridItemProps }> =
             }),
             ...sx,
           }}
+          data-testid="prismane-grid"
           ref={ref}
           {...props}
         >

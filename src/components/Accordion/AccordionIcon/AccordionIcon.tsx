@@ -24,6 +24,7 @@ const AccordionIcon = forwardRef<HTMLDivElement, AccordionIconProps>(
             value === item ? "PrismaneAccordionIcon-root-active" : ""
           } PrismaneAccordionIcon-root`
         )}
+        data-testid="prismane-accordion-icon"
         ref={ref}
         {...props}
       >

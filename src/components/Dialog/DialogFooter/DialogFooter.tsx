@@ -16,6 +16,7 @@ const DialogFooter = forwardRef<HTMLDivElement, DialogFooterProps>(
         className={strip(
           `${className ? className : ""} PrismaneDialogFooter-root`
         )}
+        data-testid="prismane-dialog-footer"
         ref={ref}
         {...props}
       >

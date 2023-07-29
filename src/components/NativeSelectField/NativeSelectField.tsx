@@ -50,6 +50,7 @@ const NativeSelectField = forwardRef<
         className={strip(
           `${className ? className : ""} PrismaneNativeSelectField-root`
         )}
+        data-testid="prismane-native-select-field"
         ref={ref}
         {...field}
       >

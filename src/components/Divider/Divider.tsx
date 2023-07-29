@@ -66,6 +66,7 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>(
         bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
         className={strip(`${className ? className : ""} PrismaneDivider-root`)}
         grow
+        data-testid="prismane-divider"
         ref={ref}
         {...props}
       ></Flex>

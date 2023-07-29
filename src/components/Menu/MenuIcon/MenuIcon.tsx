@@ -11,6 +11,7 @@ const MenuIcon = forwardRef<HTMLDivElement, MenuIconProps>(
     return (
       <Icon
         className={strip(`${className ? className : ""} PrismaneMenuIcon-root`)}
+        data-testid="prismane-menu-icon"
         ref={ref}
         {...props}
         size="sm"

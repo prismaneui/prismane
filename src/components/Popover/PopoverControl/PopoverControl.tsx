@@ -22,6 +22,7 @@ const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
             open ? "PrismanePopoverControl-root-open" : ""
           } PrismanePopoverControl-root`
         )}
+        data-testid="prismane-popover-control"
         ref={ref}
         {...props}
       >

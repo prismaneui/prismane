@@ -28,6 +28,7 @@ const Show = forwardRef<HTMLDivElement, ShowProps>(
       <Box
         dp={shown ? "flex" : "none"}
         className={strip(`${className ? className : ""} PrismaneShow-root`)}
+        data-testid="prismane-show"
         ref={ref}
         {...props}
       >

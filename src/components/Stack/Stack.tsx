@@ -17,6 +17,7 @@ const Stack = forwardRef<HTMLDivElement, StackProps>(
         direction={direction}
         gap={gap}
         className={strip(`${className ? className : ""} PrismaneStack-root`)}
+        data-testid="prismane-stack"
         ref={ref}
         {...props}
       >

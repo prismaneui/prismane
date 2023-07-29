@@ -129,6 +129,7 @@ const NumberField = forwardRef<
           className={strip(
             `${className ? className : ""} PrismaneNumberField-root`
           )}
+          data-testid="prismane-number-field"
           ref={fieldRef}
           {...field}
           readOnly

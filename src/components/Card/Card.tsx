@@ -39,6 +39,7 @@ const Card: PrismaneWithInternal<
         p={fr(5)}
         className={strip(`${className ? className : ""} PrismaneCard-root`)}
         shadow
+        data-testid="prismane-card"
         ref={ref}
         {...props}
       >

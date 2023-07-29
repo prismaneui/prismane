@@ -138,6 +138,7 @@ const SelectField = forwardRef<
             `${className ? className : ""} PrismaneSelectField-root`
           )}
           readOnly
+          data-testid="prismane-select-field"
           ref={fieldRef}
           {...field}
         />

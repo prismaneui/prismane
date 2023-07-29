@@ -22,6 +22,7 @@ const TableCaption = forwardRef<HTMLTableSectionElement, TableCaptionProps>(
           captionSide: placement,
           ...sx,
         }}
+        data-testid="prismane-table-caption"
         ref={ref}
         {...props}
       >

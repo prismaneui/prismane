@@ -47,6 +47,7 @@ const Spinner = forwardRef<SVGElement, any>(
             className ? className : ""
           } PrismaneSpinner-root-${size} PrismaneSpinner-root`
         )}
+        data-testid="prismane-spinner"
         ref={ref}
         {...props}
       />

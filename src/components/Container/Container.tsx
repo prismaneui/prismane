@@ -24,6 +24,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
             className ? className : ""
           } PrismaneContainer-root-${maxSize} PrismaneContainer-root`
         )}
+        data-testid="prismane-container"
         ref={ref}
         {...props}
       >

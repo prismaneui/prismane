@@ -27,6 +27,7 @@ const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
         className={strip(
           `${className ? className : ""} PrismaneFieldWrapper-root`
         )}
+        data-testid="prismane-field-wrapper"
         ref={ref}
         {...props}
       >

@@ -22,6 +22,7 @@ const BreadcrumbItem = forwardRef(
         className={strip(
           `${className ? className : ""} PrismaneBreadcrumbItem-root`
         )}
+        data-testid="prismane-breadcrumb-item"
         ref={ref}
         {...props}
       >

@@ -18,6 +18,7 @@ const BreadcrumbSeparator = forwardRef<
       className={strip(
         `${className ? className : ""} PrismaneBreadcrumbSeparator-root`
       )}
+      data-testid="prismane-breadcrumb-separator"
       ref={ref}
       {...props}
     >

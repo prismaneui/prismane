@@ -51,6 +51,7 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
             value === item ? "PrismaneAccordionPanel-root-active" : ""
           } PrismaneAccordionPanel-root`
         )}
+        data-testid="prismane-accordion-panel"
         ref={ref}
         {...props}
       >

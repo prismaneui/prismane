@@ -96,7 +96,12 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             {...rest}
           >
             <Hidden>
-              <Field type="checkbox" ref={ref} {...field} />
+              <Field
+                type="checkbox"
+                data-testid="prismane-checkbox"
+                ref={ref}
+                {...field}
+              />
             </Hidden>
             <Animation
               as={Flex}

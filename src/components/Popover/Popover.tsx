@@ -47,6 +47,7 @@ const Popover: PrismaneWithInternal<
             className ? className : ""
           } PrismanePopover-root-${position} PrismanePopover-root`
         )}
+        data-testid="prismane-popover"
         ref={boxRef}
         {...props}
       >

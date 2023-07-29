@@ -22,6 +22,7 @@ const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
         className={strip(
           `${className ? className : ""} PrismaneDialogHeader-root`
         )}
+        data-testid="prismane-dialog-header"
         ref={ref}
         {...props}
       >

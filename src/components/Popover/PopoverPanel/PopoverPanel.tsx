@@ -87,6 +87,7 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
                 open ? "PrismanePopoverPanel-root-open" : ""
               } PrismanePopoverPanel-root`
             )}
+            data-testid="prismane-popover-panel"
             ref={ref}
             {...props}
           >

@@ -13,6 +13,7 @@ const TableRow = forwardRef<HTMLTableSectionElement, TableRowProps>(
         as="tr"
         w="100%"
         className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
+        data-testid="prismane-table-row"
         ref={ref}
         {...props}
       >

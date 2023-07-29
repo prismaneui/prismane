@@ -62,6 +62,7 @@ const Link = forwardRef(
             props.onClick(e);
           }
         }}
+        data-testid="prismane-link"
         ref={ref}
         {...props}
       >

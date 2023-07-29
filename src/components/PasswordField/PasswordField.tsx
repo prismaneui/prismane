@@ -77,6 +77,7 @@ const PasswordField = forwardRef<
           </Field.Addon>
         }
         className="PrismanePasswordField-root"
+        data-testid="prismane-password-field"
         ref={ref}
         {...field}
       ></Field>

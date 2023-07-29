@@ -21,6 +21,7 @@ const Key = forwardRef<HTMLDivElement, KeyProps>(
         bdc={(theme) => (theme.mode === "dark" ? ["base", 600] : ["base", 400])}
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
         className={strip(`${className ? className : ""} PrismaneKey-root`)}
+        data-testid="prismane-key"
         ref={ref}
         {...props}
       >

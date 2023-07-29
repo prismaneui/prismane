@@ -31,6 +31,7 @@ const Breadcrumb: PrismaneWithInternal<
         )}
         gap={fr(2)}
         cl="primary"
+        data-testid="prismane-breadcrumb"
         ref={ref}
         {...props}
       >

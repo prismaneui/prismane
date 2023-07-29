@@ -21,6 +21,7 @@ const Circle = forwardRef(
         h={size}
         br="100%"
         className={strip(`${className ? className : ""} PrismaneCircle-root`)}
+        data-testid="prismane-circle"
         ref={ref}
         {...props}
       >

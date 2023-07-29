@@ -57,6 +57,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
         timing={timing}
         animated={shown}
         className={strip(`${className ? className : ""} PrismaneToast-root`)}
+        data-testid="prismane-toast"
         ref={ref}
         {...props}
       >

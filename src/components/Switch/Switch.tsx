@@ -75,7 +75,12 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             )}
           >
             <Hidden>
-              <Field type="checkbox" ref={ref} {...field} />
+              <Field
+                type="checkbox"
+                data-testid="prismane-switch"
+                ref={ref}
+                {...field}
+              />
             </Hidden>
             <Animation
               as={Flex}

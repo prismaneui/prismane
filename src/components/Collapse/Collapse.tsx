@@ -32,6 +32,7 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
           },
         }}
         animated={open}
+        data-testid="prismane-collapse"
         ref={ref}
         {...props}
       >
