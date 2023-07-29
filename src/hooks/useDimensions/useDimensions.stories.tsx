@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Flex, Text, Box } from "../../components";
-import useDimensions from ".";
+import useDimensions from "./useDimensions";
 import { fr } from "../../utils";
 
 export default {

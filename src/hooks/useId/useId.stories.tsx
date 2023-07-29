@@ -1,5 +1,5 @@
 import { Box } from "../../components";
-import useId from ".";
+import useId from "./useId";
 import { fr } from "../../utils";
 
 export default {

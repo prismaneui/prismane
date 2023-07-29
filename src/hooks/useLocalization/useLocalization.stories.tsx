@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Flex, Text, Button } from "../../components";
-import useLocalization from ".";
+import useLocalization from "./useLocalization";
 import { fr } from "../../utils";
 
 export default {

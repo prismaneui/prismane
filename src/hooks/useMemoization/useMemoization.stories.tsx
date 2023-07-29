@@ -2,7 +2,7 @@ import { useState } from "react";
 // Components
 import { Stack, Button, Text } from "../../components";
 // Hooks
-import useMemoization from ".";
+import useMemoization from "./useMemoization";
 
 export default {
   title: "useMemoization",

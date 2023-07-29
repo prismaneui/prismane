@@ -1,5 +1,5 @@
 import { Flex, Text, Button } from "../../components";
-import useLocalStorage from ".";
+import useLocalStorage from "./useLocalStorage";
 import { fr } from "../../utils";
 
 export default {

@@ -1,5 +1,5 @@
 import { Box } from "../../components";
-import useDraggable from ".";
+import useDraggable from "./useDraggable";
 import { fr } from "../../utils";
 
 export default {

@@ -1,5 +1,5 @@
 import { Flex, Button, Text } from "../../components";
-import useCounter from ".";
+import useCounter from "./useCounter";
 import { fr } from "../../utils";
 
 export default {

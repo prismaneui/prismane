@@ -1,5 +1,5 @@
 import { Box, Text } from "../../components";
-import useIdle from ".";
+import useIdle from "./useIdle";
 import { fr } from "../../utils";
 
 export default {

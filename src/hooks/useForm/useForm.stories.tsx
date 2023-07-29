@@ -5,9 +5,9 @@ import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import Flex from "../../components/Flex/Flex";
 // Utils
-import { required, username, min } from "../validators/validators";
+import { required, username, min } from "../../validators";
 // Hooks
-import { useForm } from "./useForm";
+import useForm from "./useForm";
 
 export default {
   title: "useForm",

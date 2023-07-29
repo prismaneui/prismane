@@ -4,7 +4,6 @@ export default create({
   base: "light",
   fontBase: "Inter, sans-serif",
   fontCode: "monospace",
-  base: "light",
   brandTitle: "Prismane",
   brandUrl: "https://www.prismane.io",
   brandImage: "https://i.ibb.co/W05W195/logo-text.png",

@@ -1,5 +1,5 @@
 import { Flex, Button, Animation } from "../../components";
-import useAnimation from ".";
+import useAnimation from "./useAnimation";
 import { fr } from "../../utils";
 
 export default {
