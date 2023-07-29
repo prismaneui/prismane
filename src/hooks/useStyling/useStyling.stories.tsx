@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useStyling from "./useStyling";
 
 export default {
