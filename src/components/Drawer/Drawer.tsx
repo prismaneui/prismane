@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode, useEffect } from "react";
 // Components
 import Paper, { PaperProps } from "../Paper/Paper";
 import Animation, { AnimationProps } from "../Animation/Animation";
@@ -54,6 +54,14 @@ const Drawer: PrismaneWithInternal<
     const presence = usePresence(open as boolean, duration, animate);
 
     useKeyboardShortcut(["escape"], onClose, open);
+
+    useEffect(() => {
+      if (open) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }, [open]);
 
     return (
       <Portal>
