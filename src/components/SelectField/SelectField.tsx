@@ -37,10 +37,7 @@ export type SelectFieldProps = {
     @returns {JSX.Element} Returns the SelectField component.
     */
 
-const SelectField = forwardRef<
-  HTMLInputElement | HTMLTextAreaElement,
-  SelectFieldProps
->(
+const SelectField = forwardRef<any, SelectFieldProps>(
   (
     { options, item, label, error, size = "base", className, ...props },
     ref

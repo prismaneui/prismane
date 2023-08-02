@@ -6,7 +6,7 @@ import { fr, variants } from "../../utils";
 
 export type ActionButtonProps = ButtonProps<"button">;
 
-const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
+const ActionButton = forwardRef<any, ActionButtonProps>(
   (
     {
       size = "base",

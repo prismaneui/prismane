@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 export interface AccordionItemContextValue {
-  value: string;
+  value: string | null;
 }
 
 const AccordionItemContext = createContext<AccordionItemContextValue>({
