@@ -7,7 +7,7 @@ import { variants } from "../../utils";
 
 export type CloseButtonProps = ActionButtonProps;
 
-const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
+const CloseButton = forwardRef<any, CloseButtonProps>(
   ({ size = "base", variant = "secondary", color = "base", ...props }, ref) => {
     return (
       <ActionButton

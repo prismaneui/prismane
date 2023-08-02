@@ -20,7 +20,7 @@ export type BreadcrumbProps = FlexProps<"div">;
 
 const Breadcrumb: PrismaneWithInternal<
   BreadcrumbProps,
-  { Item: typeof BreadcrumbItem; Separator: typeof BreadcrumbSeparator }
+  { Item: BreadcrumbItemProps<any>; Separator: BreadcrumbSeparatorProps }
 > = forwardRef<HTMLDivElement, BreadcrumbProps>(
   ({ children, className, ...props }, ref) => {
     return (
