@@ -24,10 +24,7 @@ export type PopoverProps = {
   position?: PrismanePositions;
 } & PaperProps<"div">;
 
-const Popover: PrismaneWithInternal<
-  PopoverProps,
-  { Control: PopoverControlProps; Panel: PopoverPanelProps }
-> = forwardRef<HTMLDivElement, PopoverProps>(
+const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   ({ children, position = "bottom", className, sx, ...props }, ref) => {
     const [open, setOpen] = useState(false);
 
@@ -57,7 +54,10 @@ const Popover: PrismaneWithInternal<
       </Box>
     );
   }
-);
+) as PrismaneWithInternal<
+  PopoverProps,
+  { Control: PopoverControlProps; Panel: PopoverPanelProps }
+>;
 
 Popover.Control = PopoverControl;
 Popover.Panel = PopoverPanel;

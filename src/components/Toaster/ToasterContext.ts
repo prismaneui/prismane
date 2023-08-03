@@ -4,7 +4,7 @@ import { ToastProps } from "./Toast/Toast";
 
 export interface ToasterContextValue {
   toasts: ToastProps[];
-  setToasts: Dispatch<ToastProps[]>;
+  setToasts: Dispatch<any>;
 }
 
 const ToasterContext = createContext<ToasterContextValue>({

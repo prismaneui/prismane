@@ -20,6 +20,6 @@
     // "baseUrl": "./src",
   },
 
-  "include": ["src"],
+  "include": ["src", "./custom.d.ts"],
   "exclude": ["src/stories/**", "node_modules"]
 }

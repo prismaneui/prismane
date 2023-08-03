@@ -66,15 +66,7 @@ export type FieldProps<E extends Versatile> = {
  * @returns {JSX.Element} The rendered Field component.
  */
 
-const Field: PrismaneWithInternal<
-  FieldProps<Versatile>,
-  {
-    Label: FieldLabelProps;
-    Wrapper: FieldWrapperProps;
-    Error: FieldErrorProps;
-    Addon: FieldAddonProps;
-  }
-> = forwardRef(
+const Field = forwardRef(
   <E extends Versatile>(
     {
       variant = "outlined",
@@ -259,7 +251,15 @@ const Field: PrismaneWithInternal<
       </Transition>
     );
   }
-);
+) as PrismaneWithInternal<
+  FieldProps<Versatile>,
+  {
+    Label: FieldLabelProps;
+    Wrapper: FieldWrapperProps;
+    Error: FieldErrorProps;
+    Addon: FieldAddonProps;
+  }
+>;
 
 Field.Label = FieldLabel;
 Field.Wrapper = FieldWrapper;

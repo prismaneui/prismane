@@ -20,10 +20,7 @@ export type TabsProps = {
   defaultValue?: string;
 } & FlexProps<"div">;
 
-const Tabs: PrismaneWithInternal<
-  TabsProps,
-  { List: TabsListProps; Panel: TabsPanelProps; Tab: TabsTabProps }
-> = forwardRef<HTMLDivElement, TabsProps>(
+const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   (
     {
       variant = "underlined",
@@ -56,7 +53,10 @@ const Tabs: PrismaneWithInternal<
       </Flex>
     );
   }
-);
+) as PrismaneWithInternal<
+  TabsProps,
+  { List: TabsListProps; Panel: TabsPanelProps; Tab: TabsTabProps }
+>;
 
 Tabs.List = TabsList;
 Tabs.Panel = TabsPanel;

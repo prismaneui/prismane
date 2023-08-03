@@ -16,14 +16,15 @@ export type PrismaneVersatile<E extends Versatile> = {
 } & ElementProps<E> &
   PrismaneComponent;
 
-export type PrismaneWithInternal<Props, Internal> =
-  React.ForwardRefExoticComponent<Omit<Props, "ref">> &
-    React.RefAttributes<any> & {
-      [K in keyof Internal]: React.ForwardRefExoticComponent<
-        Omit<Internal[K], "ref">
-      > &
-        React.RefAttributes<any>;
-    };
+export type PrismaneWithInternal<
+  Props,
+  Internal extends Record<string, any>
+> = React.ForwardRefExoticComponent<Omit<Props, "ref">> &
+  React.RefAttributes<any> & {
+    [K in keyof Internal]:
+      | React.ForwardRefExoticComponent<Omit<Internal[K], "ref">> &
+          React.RefAttributes<any>;
+  };
 
 export interface PrismaneFieldComponent extends PrismaneComponent {
   name?: string;

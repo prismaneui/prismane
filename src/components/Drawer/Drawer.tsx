@@ -29,10 +29,7 @@ export type DrawerProps = {
 } & AnimationProps<"div"> &
   PaperProps<"div">;
 
-const Drawer: PrismaneWithInternal<
-  DrawerProps,
-  { Header: DrawerHeaderProps; Footer: DrawerFooterProps }
-> = forwardRef<HTMLDivElement, DrawerProps>(
+const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   (
     {
       position = "left",
@@ -158,7 +155,10 @@ const Drawer: PrismaneWithInternal<
       </Portal>
     );
   }
-);
+) as PrismaneWithInternal<
+  DrawerProps,
+  { Header: DrawerHeaderProps; Footer: DrawerFooterProps }
+>;
 
 Drawer.Header = DrawerHeader;
 Drawer.Footer = DrawerFooter;

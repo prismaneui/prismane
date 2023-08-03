@@ -63,7 +63,6 @@ export const Masked = () => {
         {...register("field")}
         placeholder="Default Field"
         label="Default Field:"
-        size="lg"
         variant="underlined"
         length={6}
         masked

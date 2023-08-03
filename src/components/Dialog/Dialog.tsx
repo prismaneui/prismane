@@ -28,10 +28,7 @@ export type DialogProps = {
   onClose?: Function;
 } & AnimationProps<"div">;
 
-const Dialog: PrismaneWithInternal<
-  DialogProps,
-  { Header: DialogHeaderProps; Footer: DialogFooterProps }
-> = forwardRef<HTMLDivElement, DialogProps>(
+const Dialog = forwardRef<HTMLDivElement, DialogProps>(
   (
     {
       position = "top",
@@ -155,7 +152,10 @@ const Dialog: PrismaneWithInternal<
       </Portal>
     );
   }
-);
+) as PrismaneWithInternal<
+  DialogProps,
+  { Header: DialogHeaderProps; Footer: DialogFooterProps }
+>;
 
 Dialog.Header = DialogHeader;
 Dialog.Footer = DialogFooter;

@@ -23,15 +23,7 @@ export {
 
 export type ListProps<E extends Versatile> = FlexProps<E>;
 
-const List: PrismaneWithInternal<
-  ListProps<any>,
-  {
-    Unordered: ListUnorderedProps;
-    Ordered: ListOrderedProps;
-    Item: ListItemProps;
-    Icon: ListIconProps;
-  }
-> = forwardRef(
+const List = forwardRef(
   <E extends Versatile>(
     { gap = 0, as = "ul", children, className, sx, ...props }: ListProps<E>,
     ref: ForwardedRef<any>
@@ -51,7 +43,15 @@ const List: PrismaneWithInternal<
       </Flex>
     );
   }
-);
+) as PrismaneWithInternal<
+  ListProps<Versatile>,
+  {
+    Unordered: ListUnorderedProps;
+    Ordered: ListOrderedProps;
+    Item: ListItemProps;
+    Icon: ListIconProps;
+  }
+>;
 
 List.Unordered = ListUnordered;
 List.Ordered = ListOrdered;

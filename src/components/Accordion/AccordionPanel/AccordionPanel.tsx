@@ -17,7 +17,7 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
 
     const item: any = useAccordionItemContext();
 
-    const contentRef = useRef(null);
+    const contentRef = useRef<any>(null);
 
     const [open, setOpen] = useState(false);
 

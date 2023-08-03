@@ -28,10 +28,7 @@ export type ModalProps = {
 } & AnimationProps<"div"> &
   PaperProps<"div">;
 
-const Modal: PrismaneWithInternal<
-  ModalProps,
-  { Header: ModalHeaderProps; Footer: ModalFooterProps }
-> = forwardRef<HTMLDivElement, ModalProps>(
+const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (
     {
       open,
@@ -100,7 +97,10 @@ const Modal: PrismaneWithInternal<
       </Portal>
     );
   }
-);
+) as PrismaneWithInternal<
+  ModalProps,
+  { Header: ModalHeaderProps; Footer: ModalFooterProps }
+>;
 
 Modal.Header = ModalHeader;
 Modal.Footer = ModalFooter;

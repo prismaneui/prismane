@@ -33,13 +33,7 @@ export type AlertProps = {
 } & AnimationProps<"div"> &
   FlexProps<"div">;
 
-const Alert: PrismaneWithInternal<
-  AlertProps,
-  {
-    Title: AlertTitleProps;
-    Description: AlertDescriptionProps;
-  }
-> = forwardRef<HTMLDivElement, AlertProps>(
+const Alert = forwardRef<HTMLDivElement, AlertProps>(
   (
     { variant = "info", icon, action, closable, children, className, ...props },
     ref
@@ -192,7 +186,13 @@ const Alert: PrismaneWithInternal<
       </>
     );
   }
-);
+) as PrismaneWithInternal<
+  AlertProps,
+  {
+    Title: AlertTitleProps;
+    Description: AlertDescriptionProps;
+  }
+>;
 
 Alert.Title = AlertTitle;
 Alert.Description = AlertDescription;

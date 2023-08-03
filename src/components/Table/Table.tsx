@@ -25,17 +25,7 @@ export {
 
 export type TableProps = BoxProps<"table">;
 
-const Table: PrismaneWithInternal<
-  TableProps,
-  {
-    Row: TableRowProps;
-    Head: TableHeadProps;
-    Foot: TableFootProps;
-    Cell: TableCellProps;
-    Body: TableBodyProps;
-    Caption: TableCaptionProps;
-  }
-> = forwardRef<HTMLTableElement, TableProps>(
+const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ children, className, sx, ...props }, ref) => {
     return (
       <Box
@@ -53,7 +43,17 @@ const Table: PrismaneWithInternal<
       </Box>
     );
   }
-);
+) as PrismaneWithInternal<
+  TableProps,
+  {
+    Row: TableRowProps;
+    Head: TableHeadProps;
+    Foot: TableFootProps;
+    Cell: TableCellProps;
+    Body: TableBodyProps;
+    Caption: TableCaptionProps;
+  }
+>;
 
 Table.Row = TableRow;
 Table.Head = TableHead;

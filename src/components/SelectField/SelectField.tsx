@@ -124,7 +124,7 @@ const SelectField = forwardRef<any, SelectFieldProps>(
                     md: fr(6),
                     lg: fr(7.5),
                   })}
-                  cl={[["base", 500], { hover: ["primary", 500] }]}
+                  cl={[["base", 500], { hover: ["primary", 500] }] as any}
                 >
                   <CaretUpDown />
                 </Icon>
@@ -166,12 +166,12 @@ const SelectField = forwardRef<any, SelectFieldProps>(
                               ]
                           : option.value === props.value
                           ? ["primary", 500]
-                          : [
+                          : ([
                               active === index
                                 ? ["base", 500, 0.15]
                                 : "transparent",
                               { hover: ["base", 500, 0.15] },
-                            ]
+                            ] as any)
                       }
                       cl={(theme) =>
                         theme.mode === "dark"

@@ -57,7 +57,7 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
               bs="border-box"
               gap={fr(1)}
             >
-              {options.map((option: Option, index: number) => (
+              {options.map((option: any, index: number) => (
                 <Transition
                   as={Flex}
                   align="center"
