@@ -1,12 +1,8 @@
 import { createContext, useContext } from "react";
 
-export interface AccordionItemContextValue {
-  value: string | null;
-}
+export type AccordionItemContextProps = string | null;
 
-const AccordionItemContext = createContext<AccordionItemContextValue>({
-  value: "",
-});
+const AccordionItemContext = createContext<AccordionItemContextProps>("");
 
 export const AccordionItemContextProvider = AccordionItemContext.Provider;
 

@@ -20,67 +20,66 @@ export type GridProps = {
   gap?: PrismaneStyles;
 } & BoxProps<"div">;
 
-const Grid: PrismaneWithInternal<GridProps, { Item: GridItemProps }> =
-  forwardRef<HTMLDivElement, GridProps>(
-    (
-      {
-        templateColumns,
-        templateRows,
-        flow,
-        autoColumns,
-        autoRows,
-        gap,
-        children,
-        className,
-        sx,
-        ...props
-      },
-      ref
-    ) => {
-      return (
-        <Box
-          className={strip(`${className ? className : ""} PrismaneGrid-root`)}
-          dp="grid"
-          sx={{
-            gap: gap,
-            gridTemplateColumns:
-              typeof templateColumns === "number"
-                ? `repeat(${templateColumns}, minmax(0, 1fr))`
-                : templateColumns,
-            gridTemplateRows:
-              typeof templateRows === "number"
-                ? `repeat(${templateRows}, minmax(0, 1fr))`
-                : templateRows,
-            gridAutoFlow: variants(flow, {
-              row: "row",
-              column: "column",
-              dense: "dense",
-              "row-dense": "row dense",
-              "column-dense": "column dense",
-            }),
-            gridAutoColumns: variants(autoColumns, {
-              auto: "auto",
-              min: "min-content",
-              max: "max-content",
-              fr: "minmax(0, 1fr)",
-            }),
-            gridAutoRows: variants(autoRows, {
-              auto: "auto",
-              min: "min-content",
-              max: "max-content",
-              fr: "minmax(0, 1fr)",
-            }),
-            ...sx,
-          }}
-          data-testid="prismane-grid"
-          ref={ref}
-          {...props}
-        >
-          {children}
-        </Box>
-      );
-    }
-  );
+const Grid = forwardRef<HTMLDivElement, GridProps>(
+  (
+    {
+      templateColumns,
+      templateRows,
+      flow,
+      autoColumns,
+      autoRows,
+      gap,
+      children,
+      className,
+      sx,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <Box
+        className={strip(`${className ? className : ""} PrismaneGrid-root`)}
+        dp="grid"
+        sx={{
+          gap: gap,
+          gridTemplateColumns:
+            typeof templateColumns === "number"
+              ? `repeat(${templateColumns}, minmax(0, 1fr))`
+              : templateColumns,
+          gridTemplateRows:
+            typeof templateRows === "number"
+              ? `repeat(${templateRows}, minmax(0, 1fr))`
+              : templateRows,
+          gridAutoFlow: variants(flow, {
+            row: "row",
+            column: "column",
+            dense: "dense",
+            "row-dense": "row dense",
+            "column-dense": "column dense",
+          }),
+          gridAutoColumns: variants(autoColumns, {
+            auto: "auto",
+            min: "min-content",
+            max: "max-content",
+            fr: "minmax(0, 1fr)",
+          }),
+          gridAutoRows: variants(autoRows, {
+            auto: "auto",
+            min: "min-content",
+            max: "max-content",
+            fr: "minmax(0, 1fr)",
+          }),
+          ...sx,
+        }}
+        data-testid="prismane-grid"
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  }
+) as PrismaneWithInternal<GridProps, { Item: GridItemProps }>;
 
 Grid.Item = GridItem;
 

@@ -12,7 +12,7 @@ const ListIcon = forwardRef<HTMLDivElement, ListIconProps>(
       <Icon
         className={strip(`${className ? className : ""} PrismaneListIcon-root`)}
         data-testid="prismane-list-icon"
-        ref={ref}
+        ref={ref as any}
         {...props}
       >
         {children}

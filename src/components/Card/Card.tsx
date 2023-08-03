@@ -26,10 +26,7 @@ export type CardProps<E extends Versatile> = PaperProps<E>;
  * @returns Element
  */
 
-const Card: PrismaneWithInternal<
-  CardProps<Versatile>,
-  { Header: CardHeaderProps; Footer: CardFooterProps }
-> = forwardRef(
+const Card = forwardRef(
   <E extends Versatile>(
     { children, className, ...props }: CardProps<E>,
     ref: ForwardedRef<any>
@@ -47,7 +44,10 @@ const Card: PrismaneWithInternal<
       </Paper>
     );
   }
-);
+) as PrismaneWithInternal<
+  CardProps<Versatile>,
+  { Header: CardHeaderProps; Footer: CardFooterProps }
+>;
 
 Card.Header = CardHeader;
 Card.Footer = CardFooter;

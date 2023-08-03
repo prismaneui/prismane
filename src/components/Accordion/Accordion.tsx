@@ -33,15 +33,7 @@ export type AccordionProps = {
   defaultValue?: string;
 } & FlexProps<"div">;
 
-const Accordion: PrismaneWithInternal<
-  AccordionProps,
-  {
-    Control: AccordionControlProps;
-    Icon: AccordionIconProps;
-    Item: AccordionItemProps;
-    Panel: AccordionPanelProps;
-  }
-> = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   ({ defaultValue = null, children, className, ...props }, ref) => {
     const [value, setValue] = useState(defaultValue);
 
@@ -62,7 +54,15 @@ const Accordion: PrismaneWithInternal<
       </Flex>
     );
   }
-);
+) as PrismaneWithInternal<
+  AccordionProps,
+  {
+    Control: AccordionControlProps;
+    Icon: AccordionIconProps;
+    Item: AccordionItemProps;
+    Panel: AccordionPanelProps;
+  }
+>;
 
 Accordion.Control = AccordionControl;
 Accordion.Icon = AccordionIcon;

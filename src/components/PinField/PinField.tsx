@@ -7,7 +7,7 @@ import Hidden from "../Hidden/Hidden";
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { fr } from "../../utils";
 
 export type PinFieldProps = {
   length?: number;
@@ -51,7 +51,7 @@ const PinField = forwardRef<
   ) => {
     const [rest, field] = useFieldProps(props);
 
-    const [values, setValues] = useState(
+    const [values, setValues] = useState<any>(
       props.value || props.defaultValue || Array.from({ length }, () => "")
     );
 
@@ -144,7 +144,7 @@ const PinField = forwardRef<
                 aspectRatio: "1/1",
               }}
               key={index}
-              ref={(el: any) => (fieldRefs.current[index] = el)}
+              ref={(el: any) => (fieldRefs.current[index] = el) as any}
             />
           ))}
         </Flex>

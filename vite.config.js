@@ -46,7 +46,7 @@ if (currentOutput === undefined) {
 }
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true, skipDiagnostics: true }), react()],
+  plugins: [dts({ insertTypesEntry: true }), react()],
   build: {
     outDir: currentOutput,
     lib: {

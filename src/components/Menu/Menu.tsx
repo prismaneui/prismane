@@ -20,10 +20,7 @@ export { type MenuItemProps, type MenuLabelProps, type MenuIconProps };
 export type MenuProps = { open?: boolean } & AnimationProps<"div"> &
   PaperProps<"div">;
 
-const Menu: PrismaneWithInternal<
-  MenuProps,
-  { Item: MenuItemProps; Label: MenuLabelProps; Icon: MenuIconProps }
-> = forwardRef<HTMLDivElement, MenuProps>(
+const Menu = forwardRef<HTMLDivElement, MenuProps>(
   ({ open = false, children, className, ...props }, ref) => {
     const { animating, animate, duration, timing } = useAnimation(
       open as boolean
@@ -66,7 +63,10 @@ const Menu: PrismaneWithInternal<
       </>
     );
   }
-);
+) as PrismaneWithInternal<
+  MenuProps,
+  { Item: MenuItemProps; Label: MenuLabelProps; Icon: MenuIconProps }
+>;
 
 Menu.Item = MenuItem;
 Menu.Label = MenuLabel;

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, ForwardedRef } from "react";
 // Components
 import Icon, { IconProps } from "../../Icon/Icon";
 // Utils
@@ -12,7 +12,7 @@ const MenuIcon = forwardRef<HTMLDivElement, MenuIconProps>(
       <Icon
         className={strip(`${className ? className : ""} PrismaneMenuIcon-root`)}
         data-testid="prismane-menu-icon"
-        ref={ref}
+        ref={ref as any}
         {...props}
         size="sm"
       >

@@ -25,152 +25,148 @@ export type RadioProps = FlexProps<"div"> &
   TransitionProps<"div"> &
   PrismaneFieldComponent;
 
-const Radio: PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }> =
-  forwardRef<HTMLInputElement, RadioProps>(
-    (
-      {
-        label,
-        error,
-        id,
-        name,
-        value,
-        defaultValue,
-        size = "base",
-        onChange,
-        onBlur,
-        onFocus,
-        className,
-        sx,
-        ...props
-      },
-      ref
-    ) => {
-      const [rest, field] = useFieldProps(props);
+const Radio = forwardRef<HTMLInputElement, RadioProps>(
+  (
+    {
+      label,
+      error,
+      id,
+      name,
+      value,
+      defaultValue,
+      size = "base",
+      onChange,
+      onBlur,
+      onFocus,
+      className,
+      sx,
+      ...props
+    },
+    ref
+  ) => {
+    const [rest, field] = useFieldProps(props);
 
-      const uuid = useId();
+    const uuid = useId();
 
-      const group = useRadioContext();
+    const group = useRadioContext();
 
-      return (
-        <Flex direction="column" gap={fr(2)}>
-          <Flex
-            as="label"
-            w="fit-content"
+    return (
+      <Flex direction="column" gap={fr(2)}>
+        <Flex
+          as="label"
+          w="fit-content"
+          align="center"
+          gap={fr(2)}
+          op={field.disabled ? 0.4 : 1}
+          pe={field.disabled && "none"}
+          htmlFor={`${group.name || name}-${uuid}`}
+        >
+          <Transition
+            as={Flex}
+            transition="colors"
+            justify="center"
             align="center"
-            gap={fr(2)}
-            op={field.disabled ? 0.4 : 1}
-            pe={field.disabled && "none"}
-            htmlFor={`${group.name || name}-${uuid}`}
+            w={variants(group.size || size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
+            })}
+            h={variants(group.size || size, {
+              xs: fr(3.5),
+              sm: fr(4),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7),
+            })}
+            bg={(theme) =>
+              value === group.value || !group.value
+                ? theme.mode === "dark"
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["primary", 500], { hover: ["primary", 600] }]
+                : theme.mode === "dark"
+                ? ["base", 800]
+                : ["base", 200]
+            }
+            br="full"
+            cs="pointer"
+            bdw={1}
+            bdc={(theme) =>
+              theme.mode === "dark"
+                ? value === group.value || !group.value
+                  ? [["primary", 700], { hover: ["primary", 600] }]
+                  : [["base", 700], { hover: ["base", 600] }]
+                : value === group.value || !group.value
+                ? [["primary", 500], { hover: ["primary", 600] }]
+                : [["base", 300], { hover: ["base", 400] }]
+            }
+            sx={{
+              aspectRatio: "1/1",
+              ...sx,
+            }}
+            className={strip(
+              `${className ? className : ""} ${
+                value === group.value ? "PrismaneRadio-root-active" : ""
+              } PrismaneRadio-root`
+            )}
+            {...rest}
           >
-            <Transition
-              as={Flex}
-              transition="colors"
-              justify="center"
-              align="center"
-              w={variants(group.size || size, {
-                xs: fr(3.5),
-                sm: fr(4),
-                base: fr(5),
-                md: fr(6),
-                lg: fr(7),
-              })}
+            <Hidden>
+              <Field
+                id={`${group.name || name}-${uuid}`}
+                type="radio"
+                onBlur={group.onBlur || onBlur}
+                onChange={group.onChange || onChange}
+                onFocus={onFocus}
+                value={value}
+                defaultValue={defaultValue}
+                data-testid="prismane-radio"
+                ref={ref}
+                {...field}
+                name={group.name || name}
+              />
+            </Hidden>
+            <Animation
               h={variants(group.size || size, {
-                xs: fr(3.5),
-                sm: fr(4),
-                base: fr(5),
-                md: fr(6),
-                lg: fr(7),
+                xs: fr(1.5),
+                sm: fr(2),
+                base: fr(2.5),
+                md: fr(3),
+                lg: fr(3.5),
               })}
-              bg={(theme) =>
-                value === group.value || !group.value
-                  ? theme.mode === "dark"
-                    ? [["primary", 700], { hover: ["primary", 600] }]
-                    : [["primary", 500], { hover: ["primary", 600] }]
-                  : theme.mode === "dark"
-                  ? ["base", 800]
-                  : ["base", 200]
-              }
+              w={variants(group.size || size, {
+                xs: fr(1.5),
+                sm: fr(2),
+                base: fr(2.5),
+                md: fr(3),
+                lg: fr(3.5),
+              })}
               br="full"
-              cs="pointer"
-              bdw={1}
-              bdc={(theme) =>
-                theme.mode === "dark"
-                  ? value === group.value || !group.value
-                    ? [["primary", 700], { hover: ["primary", 600] }]
-                    : [["base", 700], { hover: ["base", 600] }]
-                  : value === group.value || !group.value
-                  ? [["primary", 500], { hover: ["primary", 600] }]
-                  : [["base", 300], { hover: ["base", 400] }]
-              }
+              bg={(value === group.value || !group.value) && "white"}
               sx={{
                 aspectRatio: "1/1",
-                ...sx,
               }}
-              className={strip(
-                `${className ? className : ""} ${
-                  value === group.value ? "PrismaneRadio-root-active" : ""
-                } PrismaneRadio-root`
-              )}
-              {...rest}
-            >
-              <Hidden>
-                <Field
-                  id={`${group.name || name}-${uuid}`}
-                  type="radio"
-                  onBlur={group.onBlur || onBlur}
-                  onChange={group.onChange || onChange}
-                  onFocus={onFocus}
-                  value={value}
-                  defaultValue={defaultValue}
-                  data-testid="prismane-radio"
-                  ref={ref}
-                  {...field}
-                  name={group.name || name}
-                />
-              </Hidden>
-              <Animation
-                h={variants(group.size || size, {
-                  xs: fr(1.5),
-                  sm: fr(2),
-                  base: fr(2.5),
-                  md: fr(3),
-                  lg: fr(3.5),
-                })}
-                w={variants(group.size || size, {
-                  xs: fr(1.5),
-                  sm: fr(2),
-                  base: fr(2.5),
-                  md: fr(3),
-                  lg: fr(3.5),
-                })}
-                br="full"
-                bg={(value === group.value || !group.value) && "white"}
-                sx={{
-                  aspectRatio: "1/1",
-                }}
-                className="PrismaneRadio-thumb"
-                animation="scale"
-                animated={value === group.value}
-              />
-            </Transition>
-            <Field.Label
-              size={group.size || size}
-              htmlFor={`${group.name || name}-${uuid}`}
-              className="PrismaneRadio-label"
-            >
-              {label}
-            </Field.Label>
-          </Flex>
-          <Field.Error
+              className="PrismaneRadio-thumb"
+              animation="scale"
+              animated={value === group.value}
+            />
+          </Transition>
+          <Field.Label
             size={group.size || size}
-            className="PrismaneRadio-error"
+            htmlFor={`${group.name || name}-${uuid}`}
+            className="PrismaneRadio-label"
           >
-            {error}
-          </Field.Error>
+            {label}
+          </Field.Label>
         </Flex>
-      );
-    }
-  );
+        <Field.Error size={group.size || size} className="PrismaneRadio-error">
+          {error}
+        </Field.Error>
+      </Flex>
+    );
+  }
+) as PrismaneWithInternal<RadioProps, { Group: RadioGroupProps }>;
 
 Radio.Group = RadioGroup;
 

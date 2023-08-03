@@ -77,7 +77,7 @@ export { default as Hide, type HideProps } from "./Hide";
 export { default as Highlight, type HighlightProps } from "./Highlight";
 export { default as Icon, type IconProps } from "./Icon";
 export { default as Image, type ImageProps } from "./Image";
-export { default as Initials, type InitialProps } from "./Initials";
+export { default as Initials, type InitialsProps } from "./Initials";
 export { default as Key, type KeyProps } from "./Key";
 export { default as Link, type LinkProps } from "./Link";
 export {
