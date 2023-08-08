@@ -15,6 +15,10 @@ export default {
 };
 
 export const Default = () => {
+  const backend = async (v: string) => {
+    return null;
+  };
+
   const { handleSubmit, handleReset, register } = useForm({
     fields: {
       username: {
@@ -23,6 +27,7 @@ export const Default = () => {
           required: (v: string) => required(v),
           min: (v: string) => min(v, 4),
           username: (v: string) => username(v),
+          backend: async (v: string) => await backend(v),
         },
       },
     },

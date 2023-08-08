@@ -42,7 +42,7 @@ export type Fields = {
   [x: string]: Field;
 };
 
-export type Validator = (v: string) => null | string;
+export type Validator = (v: string) => null | string | Promise<null | string>;
 
 export type Validators = { [x: string]: Validator };
 
