@@ -219,7 +219,13 @@ type GlobalStyles = "inherit" | "initial" | "revert" | "revert-layer" | "unset";
 export type PrismaneStyles<T = string | number> =
   | T
   | GlobalStyles
-  | ((theme: PrismaneTheme) => T | GlobalStyles);
+  | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]
+  | ((
+      theme: PrismaneTheme
+    ) =>
+      | T
+      | GlobalStyles
+      | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
 
 export interface PrismaneInputTheme {
   mode?: "light" | "dark";
