@@ -138,6 +138,7 @@ const Button = forwardRef(
         cs="pointer"
         bsh={shadow && "md"}
         dp="flex"
+        w={full ? "100%" : "fit-content"}
         sx={{
           alignItems: "center",
           justifyContent: "center",
@@ -148,7 +149,6 @@ const Button = forwardRef(
             md: fr(4),
             lg: fr(5),
           }),
-          flexGrow: full && 1,
           ...sx,
         }}
         className={strip(

@@ -1,6 +1,7 @@
-import { Box } from "../../components";
-import useId from "./useId";
+import { useState } from "react";
+import { Flex, Button } from "../../components";
 import { fr } from "../../utils";
+import useId from "./useId";
 
 export default {
   title: "useId",
@@ -8,7 +9,14 @@ export default {
 };
 
 export const Default = () => {
+  const [shown, setShown] = useState(false);
+
   const id = useId();
 
-  return <Box bg="primary">{id}</Box>;
+  return (
+    <Flex direction="column" gap={fr(4)}>
+      {shown && <Flex bg="primary">{id}</Flex>}
+      <Button onClick={() => setShown(true)}>Reveal ID</Button>
+    </Flex>
+  );
 };

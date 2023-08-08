@@ -29,7 +29,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   variant: "primary",
   children: "Primary",
-  shadow: true,
 };
 
 export const Secondary = Template.bind({});
@@ -58,6 +57,13 @@ export const Icon_Position = Template.bind({});
 Icon_Position.args = {
   variant: "primary",
   children: "Primary",
-  shadow: true,
   iconPosition: "right",
+};
+
+export const Full_Button = () => {
+  return (
+    <Flex w={fr(96)} h={fr(20)} direction="column">
+      <Button full>Full Width Button</Button>
+    </Flex>
+  );
 };
