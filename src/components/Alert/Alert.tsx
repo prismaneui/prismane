@@ -61,7 +61,6 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
             py={fr(3)}
             px={fr(4)}
             br="base"
-            dp="flex"
             bg={(theme) =>
               theme.mode === "dark"
                 ? variants(variant, {

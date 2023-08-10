@@ -4,12 +4,13 @@ export type Versatile =
   | keyof JSX.IntrinsicElements
   | React.JSXElementConstructor<any>;
 
-type ElementProps<E extends Versatile> = E extends keyof JSX.IntrinsicElements
-  ? JSX.IntrinsicElements[E] &
-      Omit<React.ComponentPropsWithRef<E>, keyof JSX.IntrinsicElements[E]> &
-      React.RefAttributes<E>
-  : Omit<React.ComponentPropsWithRef<E>, keyof JSX.IntrinsicElements> &
-      React.RefAttributes<E>;
+type ElementProps<E extends Versatile> =
+  (E extends React.JSXElementConstructor<any>
+    ? React.ComponentPropsWithoutRef<E>
+    : E extends keyof JSX.IntrinsicElements
+    ? JSX.IntrinsicElements[E]
+    : never) &
+    React.RefAttributes<any>;
 
 export type PrismaneVersatile<E extends Versatile> = {
   as?: Versatile;
@@ -56,10 +57,16 @@ export interface PrismaneDefault {
   pb?: PrismaneStyles;
   pl?: PrismaneStyles;
   cl?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bg?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   br?: PrismaneStyles<PrismaneBreakpoints | "xl" | "2xl" | string | number>;
   mih?: PrismaneStyles;
@@ -228,7 +235,7 @@ export type PrismaneStyles<T = string | number> =
       | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
 
 export interface PrismaneInputTheme {
-  mode?: "light" | "dark";
+  mode?: string;
   colors?: {
     primary?: { [x in PrismaneShades]: string };
     base?: { [x in PrismaneShades]: string };
@@ -241,7 +248,7 @@ export interface PrismaneMappedTheme {
 }
 
 export interface PrismaneTheme {
-  mode: "light" | "dark";
+  mode: string;
   colors: {
     primary: { [x in PrismaneShades]: string };
     base: { [x in PrismaneShades]: string };

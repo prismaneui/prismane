@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
@@ -7,7 +7,7 @@ import { PrismaneVersatile, Versatile } from "../../types";
 // Utils
 import { strip, dual, variants, fr } from "../../utils";
 
-export type BoxProps<E extends Versatile> = {} & PrismaneVersatile<E>;
+export type BoxProps<E extends Versatile> = PrismaneVersatile<E>;
 
 const Box = forwardRef(
   <E extends Versatile>(
