@@ -7,7 +7,7 @@ import { useModalContext } from "../ModalContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type ModalHeaderProps = FlexProps<"div">;
+export type ModalHeaderProps = FlexProps;
 
 const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ children, className, ...props }, ref) => {

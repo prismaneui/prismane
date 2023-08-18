@@ -3,15 +3,20 @@ import { forwardRef, ForwardedRef } from "react";
 import Flex, { FlexProps } from "../../Flex/Flex";
 import Link from "../../Link/Link";
 // Types
-import { Versatile } from "../../../types";
+import { Versatile, PrismaneVersatile } from "../../../types";
 // Utils
 import { strip } from "../../../utils";
 
-export type BreadcrumbItemProps<E extends Versatile> = FlexProps<E>;
+export type BreadcrumbItemProps = FlexProps;
 
 const BreadcrumbItem = forwardRef(
   <E extends Versatile>(
-    { as = Link, children, className, ...props }: BreadcrumbItemProps<E>,
+    {
+      as = Link,
+      children,
+      className,
+      ...props
+    }: PrismaneVersatile<E, BreadcrumbItemProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

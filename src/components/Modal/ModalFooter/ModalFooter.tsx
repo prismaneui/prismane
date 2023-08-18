@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type ModalFooterProps = FlexProps<"div">;
+export type ModalFooterProps = FlexProps;
 
 const ModalFooter = forwardRef<HTMLDivElement, ModalFooterProps>(
   ({ children, className, ...props }, ref) => {

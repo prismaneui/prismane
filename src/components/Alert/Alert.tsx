@@ -30,8 +30,8 @@ export type AlertProps = {
   icon?: ReactNode;
   action?: ReactNode;
   closable?: boolean;
-} & AnimationProps<"div"> &
-  FlexProps<"div">;
+} & AnimationProps &
+  FlexProps;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(
   (

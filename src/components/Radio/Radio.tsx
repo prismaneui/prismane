@@ -21,9 +21,7 @@ import RadioGroup, { RadioGroupProps } from "./RadioGroup/RadioGroup";
 
 export { type RadioGroupProps };
 
-export type RadioProps = FlexProps<"div"> &
-  TransitionProps<"div"> &
-  PrismaneFieldComponent;
+export type RadioProps = FlexProps & TransitionProps & PrismaneFieldComponent;
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (
@@ -58,7 +56,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           align="center"
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
-          pe={field.disabled && "none"}
+          pe={field.disabled ? "none" : undefined}
           htmlFor={`${group.name || name}-${uuid}`}
         >
           <Transition

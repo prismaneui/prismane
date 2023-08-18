@@ -2,15 +2,15 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { Versatile } from "../../types";
+import { Versatile, PrismaneVersatile } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type CenterProps<E extends Versatile> = FlexProps<E>;
+export type CenterProps = FlexProps;
 
 const Center = forwardRef(
   <E extends Versatile>(
-    { children, className, ...props }: CenterProps<E>,
+    { children, className, ...props }: PrismaneVersatile<E, CenterProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

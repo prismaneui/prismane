@@ -10,8 +10,8 @@ import { strip, variants, fr } from "../../../utils";
 export type FieldAddonProps = {
   size?: PrismaneBreakpoints;
   position?: "right" | "left";
-} & TransitionProps<"div"> &
-  FlexProps<"div">;
+} & TransitionProps &
+  FlexProps;
 
 const FieldAddon = forwardRef<HTMLDivElement, FieldAddonProps>(
   (

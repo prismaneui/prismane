@@ -5,8 +5,10 @@ import Field, { FieldProps } from "../Field/Field";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
-export type NativeDateFieldProps = FieldProps<"input">;
+export type NativeDateFieldProps = FieldProps;
 
 /**
     NativeDateField component displays a dropdown menu to select an option from a list.
@@ -24,7 +26,7 @@ export type NativeDateFieldProps = FieldProps<"input">;
 
 const NativeDateField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  NativeDateFieldProps
+  PrismaneVersatileWithoutAs<"input", NativeDateFieldProps>
 >(({ label, error, size = "base", className, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 

@@ -18,7 +18,7 @@ export { type TabsListProps, type TabsPanelProps, type TabsTabProps };
 export type TabsProps = {
   variant?: "underlined" | "filled";
   defaultValue?: string;
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   (

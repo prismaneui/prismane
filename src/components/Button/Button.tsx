@@ -5,11 +5,16 @@ import Text from "../Text/Text";
 import Icon from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 // Types
-import { Versatile, PrismaneBreakpoints, PrismaneColors } from "../../types";
+import {
+  Versatile,
+  PrismaneBreakpoints,
+  PrismaneColors,
+  PrismaneVersatile,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type ButtonProps<E extends Versatile> = {
+export type ButtonProps = {
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   type?: "submit" | "reset" | "button";
@@ -21,7 +26,7 @@ export type ButtonProps<E extends Versatile> = {
   full?: boolean;
   shadow?: boolean;
   fillOnHover?: boolean;
-} & TransitionProps<E>;
+} & TransitionProps;
 
 const Button = forwardRef(
   <E extends Versatile>(
@@ -42,7 +47,7 @@ const Button = forwardRef(
       className,
       sx,
       ...props
-    }: ButtonProps<E>,
+    }: PrismaneVersatile<E, ButtonProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

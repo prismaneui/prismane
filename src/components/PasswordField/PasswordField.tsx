@@ -8,8 +8,10 @@ import Transition from "../Transition/Transition";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip, variants, fr } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
-export type PasswordFieldProps = FieldProps<"input">;
+export type PasswordFieldProps = FieldProps;
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.
     @param {string} name - The name of the input field.
@@ -31,7 +33,7 @@ export type PasswordFieldProps = FieldProps<"input">;
 
 const PasswordField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PasswordFieldProps
+  PrismaneVersatileWithoutAs<"input", PasswordFieldProps>
 >(({ label, error, size = "base", ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 

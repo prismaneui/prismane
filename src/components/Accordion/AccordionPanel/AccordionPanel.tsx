@@ -9,7 +9,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type AccordionPanelProps = FlexProps<"div"> & AnimationProps<"div">;
+export type AccordionPanelProps = FlexProps & AnimationProps;
 
 const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
   ({ children, className, ...props }, ref) => {

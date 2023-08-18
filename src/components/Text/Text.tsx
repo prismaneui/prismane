@@ -2,14 +2,19 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { Versatile } from "../../types";
+import { Versatile, PrismaneVersatile } from "../../types";
 import { strip } from "../../utils";
 
-export type TextProps<E extends Versatile> = BoxProps<E>;
+export type TextProps = BoxProps;
 
 const Text = forwardRef(
   <E extends Versatile>(
-    { as = "span", children, className, ...props }: TextProps<E>,
+    {
+      as = "span",
+      children,
+      className,
+      ...props
+    }: PrismaneVersatile<E, TextProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

@@ -2,23 +2,23 @@ import { ForwardedRef, forwardRef, ReactNode } from "react";
 // Components
 import Box from "../Box/Box";
 import Center, { CenterProps } from "../Center/Center";
-import AspectRatio from "../AspectRatio/AspectRatio";
 // Types
 import {
   PrismaneColors,
   PrismanePositions,
   Versatile,
   PrismaneBreakpoints,
+  PrismaneVersatile,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type BadgeProps<E extends Versatile> = {
+export type BadgeProps = {
   label?: ReactNode;
   position?: PrismanePositions;
   color?: PrismaneColors;
   size?: PrismaneBreakpoints;
-} & CenterProps<E>;
+} & CenterProps;
 
 const Badge = forwardRef(
   <E extends Versatile>(
@@ -31,7 +31,7 @@ const Badge = forwardRef(
       className,
       sx,
       ...props
-    }: BadgeProps<E>,
+    }: PrismaneVersatile<E, BadgeProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

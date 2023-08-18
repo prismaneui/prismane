@@ -3,24 +3,27 @@ import { forwardRef } from "react";
 import Box, { BoxProps } from "../../Box/Box";
 // Utils
 import { strip } from "../../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../../types";
 
-export type TableRowProps = BoxProps<"tr">;
+export type TableRowProps = BoxProps;
 
-const TableRow = forwardRef<HTMLTableSectionElement, TableRowProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <Box
-        as="tr"
-        w="100%"
-        className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
-        data-testid="prismane-table-row"
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </Box>
-    );
-  }
-);
+const TableRow = forwardRef<
+  HTMLTableSectionElement,
+  PrismaneVersatileWithoutAs<"tr", TableRowProps>
+>(({ children, className, ...props }, ref) => {
+  return (
+    <Box
+      as="tr"
+      w="100%"
+      className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
+      data-testid="prismane-table-row"
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+});
 
 export default TableRow;

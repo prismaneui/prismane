@@ -6,6 +6,7 @@ import {
   PrismaneAnimations,
   PrismaneTransitions,
   Versatile,
+  PrismaneVersatile,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
@@ -19,13 +20,13 @@ export interface Animations {
   [key: string]: Animation;
 }
 
-export type AnimationProps<E extends Versatile> = {
+export type AnimationProps = {
   animation?: PrismaneAnimations | Animation;
   transition?: PrismaneTransitions | string;
   duration?: number;
   animated?: boolean;
   delay?: number;
-} & TransitionProps<E>;
+} & TransitionProps;
 
 const Animation = forwardRef(
   <E extends Versatile>(
@@ -40,7 +41,7 @@ const Animation = forwardRef(
       sx,
       children,
       ...props
-    }: AnimationProps<E>,
+    }: PrismaneVersatile<E, AnimationProps>,
     ref: ForwardedRef<any>
   ) => {
     const [isAnimated, setIsAnimated] = useState(false);

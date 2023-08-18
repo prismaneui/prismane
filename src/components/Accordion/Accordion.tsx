@@ -31,7 +31,7 @@ export {
 
 export type AccordionProps = {
   defaultValue?: string;
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   ({ defaultValue = null, children, className, ...props }, ref) => {

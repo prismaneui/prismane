@@ -2,7 +2,11 @@ import { forwardRef, ForwardedRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { Versatile, PrismaneWithInternal } from "../../types";
+import {
+  Versatile,
+  PrismaneWithInternal,
+  PrismaneVersatile,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -21,11 +25,18 @@ export {
   type ListIconProps,
 };
 
-export type ListProps<E extends Versatile> = FlexProps<E>;
+export type ListProps = FlexProps;
 
 const List = forwardRef(
   <E extends Versatile>(
-    { gap = 0, as = "ul", children, className, sx, ...props }: ListProps<E>,
+    {
+      gap = 0,
+      as = "ul",
+      children,
+      className,
+      sx,
+      ...props
+    }: PrismaneVersatile<E, ListProps>,
     ref: ForwardedRef<any>
   ) => {
     return (
@@ -44,7 +55,7 @@ const List = forwardRef(
     );
   }
 ) as PrismaneWithInternal<
-  ListProps<Versatile>,
+  PrismaneVersatile<Versatile, ListProps>,
   {
     Unordered: ListUnorderedProps;
     Ordered: ListOrderedProps;

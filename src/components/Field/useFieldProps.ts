@@ -2,8 +2,10 @@
 import { useId } from "../../hooks";
 // Utils
 import { splitProps } from "../../utils";
+// Types
+import { PrismaneFieldComponent } from "../../types";
 
-const useFieldProps = (props: any) => {
+const useFieldProps = (props: any): [any, PrismaneFieldComponent] => {
   const [rest, field] = splitProps(props, [
     "variant",
     "minLength",

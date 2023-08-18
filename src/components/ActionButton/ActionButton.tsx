@@ -4,7 +4,7 @@ import Button, { ButtonProps } from "../Button/Button";
 // Utils
 import { fr, variants } from "../../utils";
 
-export type ActionButtonProps = ButtonProps<"button">;
+export type ActionButtonProps = ButtonProps;
 
 const ActionButton = forwardRef<any, ActionButtonProps>(
   (

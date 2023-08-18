@@ -2,17 +2,17 @@ import { forwardRef, ForwardedRef } from "react";
 // Components
 import Center, { CenterProps } from "../Center/Center";
 // Types
-import { Versatile, PrismaneStyles } from "../../types";
+import { Versatile, PrismaneStyles, PrismaneVersatile } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type SquareProps<E extends Versatile> = {
+export type SquareProps = {
   size: PrismaneStyles;
-} & CenterProps<E>;
+} & CenterProps;
 
 const Square = forwardRef(
   <E extends Versatile>(
-    { size, children, className, ...props }: SquareProps<E>,
+    { size, children, className, ...props }: PrismaneVersatile<E, SquareProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

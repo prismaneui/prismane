@@ -4,28 +4,36 @@ export type Versatile =
   | keyof JSX.IntrinsicElements
   | React.JSXElementConstructor<any>;
 
-type ElementProps<E extends Versatile> =
-  (E extends React.JSXElementConstructor<any>
-    ? React.ComponentPropsWithoutRef<E>
-    : E extends keyof JSX.IntrinsicElements
-    ? JSX.IntrinsicElements[E]
-    : never) &
-    React.RefAttributes<any>;
+type VersatileInheritedProps<E extends Versatile, Props = {}> = Omit<
+  JSX.LibraryManagedAttributes<E, React.ComponentPropsWithoutRef<E>>,
+  keyof Props
+> &
+  Props;
 
-export type PrismaneVersatile<E extends Versatile> = {
-  as?: Versatile;
-} & ElementProps<E> &
-  PrismaneComponent;
+export type PrismaneVersatileRef<E> = E extends Versatile
+  ? React.Ref<any>
+  : never;
+
+export type PrismaneVersatile<
+  E extends Versatile,
+  Props = {}
+> = E extends React.ElementType
+  ? VersatileInheritedProps<E, Props & { as?: E }> & {
+      ref?: PrismaneVersatileRef<E>;
+    }
+  : Props & { as: E; ref?: PrismaneVersatileRef<E> };
+
+export type PrismaneVersatileWithoutAs<E extends Versatile, Props = {}> = Omit<
+  PrismaneVersatile<E, Props>,
+  "as"
+>;
 
 export type PrismaneWithInternal<
   Props,
   Internal extends Record<string, any>
-> = React.ForwardRefExoticComponent<Omit<Props, "ref">> &
-  React.RefAttributes<any> & {
-    [K in keyof Internal]:
-      | React.ForwardRefExoticComponent<Omit<Internal[K], "ref">> &
-          React.RefAttributes<any>;
-  };
+> = React.ForwardRefExoticComponent<Props> & {
+  [K in keyof Internal]: React.ForwardRefExoticComponent<Internal[K]>;
+};
 
 export interface PrismaneFieldComponent extends PrismaneComponent {
   name?: string;
@@ -37,6 +45,7 @@ export interface PrismaneFieldComponent extends PrismaneComponent {
   size?: PrismaneBreakpoints;
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface PrismaneDefault {
@@ -160,43 +169,64 @@ export interface PrismaneDefault {
   bdw?: PrismaneStyles;
   bds?: PrismaneStyles;
   bdc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdt?: PrismaneStyles;
   bdtw?: PrismaneStyles;
   bdts?: PrismaneStyles;
   bdtc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdr?: PrismaneStyles;
   bdrw?: PrismaneStyles;
   bdrs?: PrismaneStyles;
   bdrc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdb?: PrismaneStyles;
   bdbw?: PrismaneStyles;
   bdbs?: PrismaneStyles;
   bdbc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdl?: PrismaneStyles;
   bdlw?: PrismaneStyles;
   bdls?: PrismaneStyles;
   bdlc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdx?: PrismaneStyles;
   bdxw?: PrismaneStyles;
   bdxs?: PrismaneStyles;
   bdxc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdy?: PrismaneStyles;
   bdyw?: PrismaneStyles;
   bdyc?: PrismaneStyles;
   bdys?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   ft?: PrismaneStyles<string>;
   bft?: PrismaneStyles<string>;

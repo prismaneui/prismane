@@ -25,8 +25,8 @@ export type ModalProps = {
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
-} & AnimationProps<"div"> &
-  PaperProps<"div">;
+} & AnimationProps &
+  PaperProps;
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (

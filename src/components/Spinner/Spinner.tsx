@@ -9,7 +9,7 @@ import { strip, variants, fr } from "../../utils";
 
 export type SpinnerProps = {
   size?: PrismaneBreakpoints;
-} & FlexProps<"div">;
+} & FlexProps;
 
 /**
  * Spinner Params

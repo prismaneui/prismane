@@ -5,8 +5,10 @@ import Field, { FieldProps } from "../Field/Field";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip, fr, variants } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
-export type TextareaFieldProps = FieldProps<"input">;
+export type TextareaFieldProps = FieldProps;
 /**
  * Textarea Params
  * @param {Object} props
@@ -26,7 +28,7 @@ export type TextareaFieldProps = FieldProps<"input">;
 
 const TextareaField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  TextareaFieldProps
+  PrismaneVersatileWithoutAs<"input", TextareaFieldProps>
 >(({ label, error, size = "base", className, sx, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 

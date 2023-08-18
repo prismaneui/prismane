@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 // Components
 import Field, { FieldProps } from "../Field/Field";
@@ -8,14 +8,14 @@ import Transition from "../Transition/Transition";
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneFieldComponent } from "../../types";
+import { PrismaneVersatileWithoutAs } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
 export type NumberFieldProps = {
   min?: number;
   max?: number;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.
@@ -37,7 +37,7 @@ export type NumberFieldProps = {
 
 const NumberField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  NumberFieldProps
+  PrismaneVersatileWithoutAs<"input", NumberFieldProps>
 >(
   (
     { min = 0, max = 0, label, error, size = "base", className, ...props },

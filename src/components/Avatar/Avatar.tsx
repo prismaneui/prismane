@@ -7,18 +7,23 @@ import Flex from "../Flex/Flex";
 import Icon from "../Icon/Icon";
 import Image from "../Image/Image";
 // Types
-import { Versatile, PrismaneColors, PrismaneBreakpoints } from "../../types";
+import {
+  Versatile,
+  PrismaneColors,
+  PrismaneBreakpoints,
+  PrismaneVersatile,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type AvatarProps<E extends Versatile> = {
+export type AvatarProps = {
   src?: string;
   srcSet?: string;
   alt?: string;
   sizes?: string;
   color?: PrismaneColors;
   size?: PrismaneBreakpoints;
-} & CircleProps<E>;
+} & CircleProps;
 
 const Avatar = forwardRef(
   <E extends Versatile>(
@@ -33,7 +38,7 @@ const Avatar = forwardRef(
       className,
       sx,
       ...props
-    }: AvatarProps<E>,
+    }: PrismaneVersatile<E, AvatarProps>,
     ref: ForwardedRef<any>
   ) => {
     const isImage = src

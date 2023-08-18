@@ -2,17 +2,17 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { Versatile } from "../../types";
+import { Versatile, PrismaneVersatile } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type PaperProps<E extends Versatile> = {
+export type PaperProps = {
   shadow?: boolean;
-} & FlexProps<E>;
+} & FlexProps;
 
 const Paper = forwardRef(
   <E extends Versatile>(
-    { children, className, shadow, ...props }: PaperProps<E>,
+    { children, className, shadow, ...props }: PrismaneVersatile<E, PaperProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

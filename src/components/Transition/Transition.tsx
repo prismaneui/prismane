@@ -2,16 +2,16 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { Versatile, PrismaneTransitions } from "../../types";
+import { Versatile, PrismaneTransitions, PrismaneVersatile } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type TransitionProps<E extends Versatile> = {
+export type TransitionProps = {
   transition?: PrismaneTransitions | string;
   duration?: number;
   delay?: number;
   timing?: string;
-} & BoxProps<E>;
+} & BoxProps;
 
 const Transition = forwardRef(
   <E extends Versatile>(
@@ -24,7 +24,7 @@ const Transition = forwardRef(
       sx,
       children,
       ...props
-    }: TransitionProps<E>,
+    }: PrismaneVersatile<E, TransitionProps>,
     ref: ForwardedRef<any>
   ) => {
     const transitions: any = {

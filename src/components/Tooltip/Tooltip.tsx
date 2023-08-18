@@ -21,8 +21,8 @@ export type TooltipProps = {
   position?: PrismanePositions;
   size?: PrismaneBreakpoints;
   color?: PrismaneColors;
-} & AnimationProps<"div"> &
-  FlexProps<"div">;
+} & AnimationProps &
+  FlexProps;
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (

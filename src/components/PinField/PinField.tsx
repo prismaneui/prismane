@@ -8,11 +8,13 @@ import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Utils
 import { fr } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type PinFieldProps = {
   length?: number;
   masked?: boolean;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     A component for rendering a text input field.
@@ -35,7 +37,7 @@ export type PinFieldProps = {
 
 const PinField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PinFieldProps
+  PrismaneVersatileWithoutAs<"input", PinFieldProps>
 >(
   (
     {

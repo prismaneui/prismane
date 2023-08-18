@@ -10,6 +10,8 @@ import {
   PrismaneFieldComponent,
   PrismaneWithInternal,
   Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileWithoutAs,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
@@ -27,7 +29,7 @@ export {
   type FieldAddonProps,
 };
 
-export type FieldProps<E extends Versatile> = {
+export type FieldProps = {
   type?: string;
   placeholder?: string;
   readOnly?: boolean;
@@ -36,8 +38,8 @@ export type FieldProps<E extends Versatile> = {
   icon?: ReactNode;
   validating?: boolean;
   disabled?: boolean;
-} & FlexProps<"div"> &
-  TransitionProps<"div"> &
+} & FlexProps &
+  TransitionProps &
   PrismaneFieldComponent;
 
 /**
@@ -92,7 +94,7 @@ const Field = forwardRef(
       children,
       className,
       ...props
-    }: FieldProps<E>,
+    }: PrismaneVersatile<E, FieldProps>,
     ref: ForwardedRef<any>
   ) => {
     return (
@@ -252,9 +254,9 @@ const Field = forwardRef(
     );
   }
 ) as PrismaneWithInternal<
-  FieldProps<Versatile>,
+  PrismaneVersatile<Versatile, FieldProps>,
   {
-    Label: FieldLabelProps;
+    Label: PrismaneVersatileWithoutAs<"label", FieldLabelProps>;
     Wrapper: FieldWrapperProps;
     Error: FieldErrorProps;
     Addon: FieldAddonProps;

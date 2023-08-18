@@ -14,8 +14,8 @@ export type ChipProps = {
   iconPosition?: "left" | "right";
   color?: PrismaneColors;
   size?: PrismaneBreakpoints;
-} & FlexProps<"div"> &
-  TransitionProps<"div">;
+} & FlexProps &
+  TransitionProps;
 
 const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (

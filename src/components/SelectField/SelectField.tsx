@@ -12,6 +12,8 @@ import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 import useOutsideClick from "../../hooks/useOutsideClick";
 // Utils
 import { strip, variants, fr } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type SelectFieldProps = {
   options: { value: string; element: ReactNode }[];
@@ -21,7 +23,7 @@ export type SelectFieldProps = {
     element: ReactNode,
     active: boolean
   ) => ReactNode;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     SelectField component displays a dropdown menu to select an option from a list.
@@ -37,171 +39,168 @@ export type SelectFieldProps = {
     @returns {JSX.Element} Returns the SelectField component.
     */
 
-const SelectField = forwardRef<any, SelectFieldProps>(
-  (
-    { options, item, label, error, size = "base", className, ...props },
-    ref
-  ) => {
-    const [open, setOpen] = useState(false);
+const SelectField = forwardRef<
+  any,
+  PrismaneVersatileWithoutAs<"input", SelectFieldProps>
+>(({ options, item, label, error, className, ...props }, ref) => {
+  const [open, setOpen] = useState(false);
 
-    const [active, setActive] = useState(-1);
+  const [active, setActive] = useState(-1);
 
-    const fieldRef = useRef(ref || null);
+  const fieldRef = useRef(ref || null);
 
-    const wrapperRef = useRef(null);
+  const wrapperRef = useRef(null);
 
-    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+  const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
 
-    useOutsideClick(wrapperRef, () => {
-      setOpen(false);
-      setActive(-1);
-    });
+  useOutsideClick(wrapperRef, () => {
+    setOpen(false);
+    setActive(-1);
+  });
 
-    const [rest, field] = useFieldProps(props);
+  const [rest, field] = useFieldProps(props);
 
-    useKeyboardShortcut(
-      ["arrowdown"],
-      () => {
-        setActive((pa) => (pa === options.length - 1 ? 0 : pa + 1));
-      },
-      open
-    );
+  useKeyboardShortcut(
+    ["arrowdown"],
+    () => {
+      setActive((pa) => (pa === options.length - 1 ? 0 : pa + 1));
+    },
+    open
+  );
 
-    useKeyboardShortcut(
-      ["arrowup"],
-      () => {
-        setActive((pa) => (pa <= 0 ? options.length - 1 : pa - 1));
-      },
-      open
-    );
+  useKeyboardShortcut(
+    ["arrowup"],
+    () => {
+      setActive((pa) => (pa <= 0 ? options.length - 1 : pa - 1));
+    },
+    open
+  );
 
-    useKeyboardShortcut(
-      ["enter"],
-      () => {
-        const value = options[active]?.value;
+  useKeyboardShortcut(
+    ["enter"],
+    () => {
+      const value = options[active]?.value;
 
-        if (value !== undefined) {
-          emulateChange(value);
-          setOpen(false);
-          setActive(-1);
-        }
-      },
-      open
-    );
-
-    useKeyboardShortcut(
-      ["escape"],
-      () => {
+      if (value !== undefined) {
+        emulateChange(value);
         setOpen(false);
         setActive(-1);
-      },
-      open
-    );
+      }
+    },
+    open
+  );
 
-    return (
-      <Field.Wrapper ref={wrapperRef} {...rest}>
-        <Field.Label
-          size={size}
-          htmlFor={field.name}
-          className="PrismaneSelectField-label"
-        >
-          {label}
-        </Field.Label>
-        <Field
-          type="text"
-          size={size}
-          error={error}
-          onClick={() => setOpen(true)}
-          py={"0"}
-          addons={
-            <>
-              <Field.Addon>
-                <Icon
-                  size={variants(size, {
-                    xs: fr(4),
-                    sm: fr(4.5),
-                    base: fr(5),
-                    md: fr(6),
-                    lg: fr(7.5),
-                  })}
-                  cl={[["base", 500], { hover: ["primary", 500] }] as any}
-                >
-                  <CaretUpDown />
-                </Icon>
-              </Field.Addon>
-            </>
-          }
-          className={strip(
-            `${className ? className : ""} PrismaneSelectField-root`
-          )}
-          readOnly
-          data-testid="prismane-select-field"
-          ref={fieldRef}
-          {...field}
-        />
-        <Flex pos="relative">
-          <Flex pos="absolute" t={0} w="100%">
-            <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
-              {options.map((option, index) => (
-                <Flex
-                  onClick={() => {
-                    emulateChange(option.value);
-                    setOpen(false);
-                  }}
-                  className="PrismaneSelectField-item"
-                  key={index}
-                >
-                  {!item ? (
-                    <Menu.Item
-                      w="100%"
-                      bg={(theme) =>
-                        theme.mode === "dark"
-                          ? option.value === props.value
-                            ? ["primary", 600]
-                            : [
-                                active === index
-                                  ? ["base", 700, 0.3]
-                                  : "transparent",
-                                { hover: ["base", 700, 0.3] },
-                              ]
-                          : option.value === props.value
-                          ? ["primary", 500]
-                          : ([
+  useKeyboardShortcut(
+    ["escape"],
+    () => {
+      setOpen(false);
+      setActive(-1);
+    },
+    open
+  );
+
+  return (
+    <Field.Wrapper ref={wrapperRef} {...rest}>
+      <Field.Label
+        size={field.size}
+        htmlFor={field.name}
+        className="PrismaneSelectField-label"
+      >
+        {label}
+      </Field.Label>
+      <Field
+        type="text"
+        error={error}
+        onClick={() => setOpen(true)}
+        py={"0"}
+        addons={
+          <>
+            <Field.Addon>
+              <Icon
+                size={variants(field.size, {
+                  xs: fr(4),
+                  sm: fr(4.5),
+                  base: fr(5),
+                  md: fr(6),
+                  lg: fr(7.5),
+                })}
+                cl={[["base", 500], { hover: ["primary", 500] }] as any}
+              >
+                <CaretUpDown />
+              </Icon>
+            </Field.Addon>
+          </>
+        }
+        className={strip(
+          `${className ? className : ""} PrismaneSelectField-root`
+        )}
+        readOnly
+        data-testid="prismane-select-field"
+        ref={fieldRef}
+        {...field}
+      />
+      <Flex pos="relative">
+        <Flex pos="absolute" t={0} w="100%">
+          <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
+            {options.map((option: any, index: any) => (
+              <Flex
+                onClick={() => {
+                  emulateChange(option.value);
+                  setOpen(false);
+                }}
+                className="PrismaneSelectField-item"
+                key={index}
+              >
+                {!item ? (
+                  <Menu.Item
+                    w="100%"
+                    bg={(theme) =>
+                      theme.mode === "dark"
+                        ? option.value === props.value
+                          ? ["primary", 600]
+                          : [
                               active === index
-                                ? ["base", 500, 0.15]
+                                ? ["base", 700, 0.3]
                                 : "transparent",
-                              { hover: ["base", 500, 0.15] },
-                            ] as any)
-                      }
-                      cl={(theme) =>
-                        theme.mode === "dark"
-                          ? ["base", 200]
-                          : option.value === props.value
-                          ? "white"
-                          : ["base", 700]
-                      }
-                    >
-                      {option.element}
-                    </Menu.Item>
-                  ) : (
-                    item(
-                      option.value === props.value,
-                      option.value,
-                      option.element,
-                      active === index
-                    )
-                  )}
-                </Flex>
-              ))}
-            </Menu>
-          </Flex>
+                              { hover: ["base", 700, 0.3] },
+                            ]
+                        : option.value === props.value
+                        ? ["primary", 500]
+                        : ([
+                            active === index
+                              ? ["base", 500, 0.15]
+                              : "transparent",
+                            { hover: ["base", 500, 0.15] },
+                          ] as any)
+                    }
+                    cl={(theme) =>
+                      theme.mode === "dark"
+                        ? ["base", 200]
+                        : option.value === props.value
+                        ? "white"
+                        : ["base", 700]
+                    }
+                  >
+                    {option.element}
+                  </Menu.Item>
+                ) : (
+                  item(
+                    option.value === props.value,
+                    option.value,
+                    option.element,
+                    active === index
+                  )
+                )}
+              </Flex>
+            ))}
+          </Menu>
         </Flex>
-        <Field.Error size={size} className="PrismaneSelectField-error">
-          {error}
-        </Field.Error>
-      </Field.Wrapper>
-    );
-  }
-);
+      </Flex>
+      <Field.Error size={field.size} className="PrismaneSelectField-error">
+        {error}
+      </Field.Error>
+    </Field.Wrapper>
+  );
+});
 
 export default SelectField;

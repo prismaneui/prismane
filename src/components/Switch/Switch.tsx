@@ -8,13 +8,14 @@ import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 // Types
-import { PrismaneFieldComponent } from "../../types";
+import {
+  PrismaneFieldComponent,
+  PrismaneVersatileWithoutAs,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type SwitchProps = PrismaneFieldComponent &
-  FlexProps<"label"> &
-  TransitionProps<"label">;
+export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 
 /**
  * Switch Params
@@ -25,90 +26,91 @@ export type SwitchProps = PrismaneFieldComponent &
  * @returns Element
  */
 
-const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ label, error, size = "base", className, sx, ...props }, ref) => {
-    const [rest, field] = useFieldProps(props);
+const Switch = forwardRef<
+  HTMLInputElement,
+  PrismaneVersatileWithoutAs<"label", SwitchProps>
+>(({ label, error, size = "base", className, sx, ...props }, ref) => {
+  const [rest, field] = useFieldProps(props);
 
-    return (
-      <Flex direction="column" gap={fr(2)}>
-        <Flex align="center" gap={fr(2)} {...rest}>
-          <Transition
-            as="label"
-            pos="relative"
-            op={field.disabled ? 0.4 : 1}
-            pe={field.disabled && "none"}
-            w={variants(size, {
-              xs: fr(7.5),
-              sm: fr(8.5),
-              base: fr(9.5),
-              md: fr(10.5),
-              lg: fr(11.5),
-            })}
-            h={variants(size, {
-              xs: fr(4.5),
-              sm: fr(5),
-              base: fr(5.5),
-              md: fr(6),
-              lg: fr(6.5),
-            })}
-            p={fr(0.75)}
-            br="full"
-            dp="flex"
+  return (
+    <Flex direction="column" gap={fr(2)}>
+      <Flex align="center" gap={fr(2)} {...rest}>
+        <Transition
+          as="label"
+          pos="relative"
+          op={field.disabled ? 0.4 : 1}
+          pe={field.disabled ? "none" : undefined}
+          w={variants(size, {
+            xs: fr(7.5),
+            sm: fr(8.5),
+            base: fr(9.5),
+            md: fr(10.5),
+            lg: fr(11.5),
+          })}
+          h={variants(size, {
+            xs: fr(4.5),
+            sm: fr(5),
+            base: fr(5.5),
+            md: fr(6),
+            lg: fr(6.5),
+          })}
+          p={fr(0.75)}
+          br="full"
+          dp="flex"
+          bs="border-box"
+          bg={(theme) =>
+            theme.mode === "dark"
+              ? field.value
+                ? [["primary", 700], { hover: ["primary", 600] }]
+                : [["base", 700], { hover: ["base", 600] }]
+              : field.value
+              ? [["primary", 500], { hover: ["primary", 600] }]
+              : [["base", 300], { hover: ["base", 400] }]
+          }
+          htmlFor={field.name}
+          sx={{
+            cursor: "pointer",
+          }}
+          className={strip(
+            `${className ? className : ""} ${
+              field.value ? "PrismaneSwitch-root-active" : ""
+            } PrismaneSwitch-root`
+          )}
+        >
+          <Hidden>
+            <Field
+              type="checkbox"
+              data-testid="prismane-switch"
+              ref={ref}
+              {...field}
+            />
+          </Hidden>
+          <Animation
+            as={Flex}
             bs="border-box"
-            bg={(theme) =>
-              theme.mode === "dark"
-                ? field.value
-                  ? [["primary", 700], { hover: ["primary", 600] }]
-                  : [["base", 700], { hover: ["base", 600] }]
-                : field.value
-                ? [["primary", 500], { hover: ["primary", 600] }]
-                : [["base", 300], { hover: ["base", 400] }]
-            }
-            htmlFor={field.name}
+            h="100%"
+            br="full"
+            bg="white"
+            className="PrismaneSwitch-thumb"
             sx={{
-              cursor: "pointer",
+              aspectRatio: "1/1",
+              transform: field.value ? "translateX(100%)" : "translateX(0)",
             }}
-            className={strip(
-              `${className ? className : ""} ${
-                field.value ? "PrismaneSwitch-root-active" : ""
-              } PrismaneSwitch-root`
-            )}
-          >
-            <Hidden>
-              <Field
-                type="checkbox"
-                data-testid="prismane-switch"
-                ref={ref}
-                {...field}
-              />
-            </Hidden>
-            <Animation
-              as={Flex}
-              bs="border-box"
-              h="100%"
-              br="full"
-              bg="white"
-              className="PrismaneSwitch-thumb"
-              sx={{
-                aspectRatio: "1/1",
-                transform: field.value ? "translateX(100%)" : "translateX(0)",
-              }}
-            ></Animation>
-          </Transition>
-          <Field.Label
-            size={size}
-            htmlFor={field.name}
-            className="PrismaneSwitch-label"
-          >
-            {label}
-          </Field.Label>
-        </Flex>
-        <Field.Error size={size} className="PrismaneSwitch-error">
-          {error}
-        </Field.Error>
+          ></Animation>
+        </Transition>
+        <Field.Label
+          size={size}
+          htmlFor={field.name}
+          className="PrismaneSwitch-label"
+        >
+          {label}
+        </Field.Label>
       </Flex>
-    );
-  }
-);
+      <Field.Error size={size} className="PrismaneSwitch-error">
+        {error}
+      </Field.Error>
+    </Flex>
+  );
+});
 
 export default Switch;

@@ -4,15 +4,15 @@ import Box, { BoxProps } from "../Box/Box";
 // Hooks
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
-import { Versatile } from "../../types";
+import { Versatile, PrismaneVersatile } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type GradientProps<E extends Versatile> = {
+export type GradientProps = {
   from: any;
   to: any;
   deg: number;
-} & BoxProps<E>;
+} & BoxProps;
 
 const Gradient = forwardRef(
   <E extends Versatile>(
@@ -24,7 +24,7 @@ const Gradient = forwardRef(
       className,
       sx,
       ...props
-    }: GradientProps<E>,
+    }: PrismaneVersatile<E, GradientProps>,
     ref: ForwardedRef<any>
   ) => {
     const { getColorStyle } = usePrismaneColor();

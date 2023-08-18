@@ -2,11 +2,11 @@ import { forwardRef, ForwardedRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneStyles, Versatile } from "../../types";
+import { PrismaneStyles, Versatile, PrismaneVersatile } from "../../types";
 // Utils
 import { strip, variants } from "../../utils";
 
-export type FlexProps<E extends Versatile> = {
+export type FlexProps = {
   justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
   align?: "start" | "end" | "center" | "baseline" | "stretch";
   gap?: PrismaneStyles;
@@ -16,7 +16,7 @@ export type FlexProps<E extends Versatile> = {
   grow?: boolean;
   shrink?: boolean;
   wrap?: "wrap" | "wrap-reverse" | "nowrap";
-} & BoxProps<E>;
+} & BoxProps;
 
 const Flex = forwardRef(
   <E extends Versatile>(
@@ -34,7 +34,7 @@ const Flex = forwardRef(
       className,
       sx,
       ...props
-    }: FlexProps<E>,
+    }: PrismaneVersatile<E, FlexProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

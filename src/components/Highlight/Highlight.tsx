@@ -2,15 +2,15 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { Versatile } from "../../types";
+import { Versatile, PrismaneVersatile } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
-export type HighlightProps<E extends Versatile> = BoxProps<E>;
+export type HighlightProps = BoxProps;
 
 const Highlight = forwardRef(
   <E extends Versatile>(
-    { children, className, ...props }: HighlightProps<E>,
+    { children, className, ...props }: PrismaneVersatile<E, HighlightProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

@@ -13,8 +13,8 @@ import { PrismaneFieldComponent } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type CheckboxProps = { indeterminate?: boolean } & FlexProps<"div"> &
-  TransitionProps<"div"> &
+export type CheckboxProps = { indeterminate?: boolean } & FlexProps &
+  TransitionProps &
   PrismaneFieldComponent;
 
 /**
@@ -47,7 +47,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           align="center"
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
-          pe={field.disabled && "none"}
+          pe={field.disabled ? "none" : undefined}
           htmlFor={field.name}
         >
           <Transition

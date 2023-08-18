@@ -26,7 +26,7 @@ export type DialogProps = {
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
-} & AnimationProps<"div">;
+} & AnimationProps;
 
 const Dialog = forwardRef<HTMLDivElement, DialogProps>(
   (

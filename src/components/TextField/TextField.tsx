@@ -5,11 +5,13 @@ import Field, { FieldProps } from "../Field/Field";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip, fr, variants } from "../../utils";
+// Types
+import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type TextFieldProps = {
   prefix?: string;
   suffix?: string;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     A component for rendering a text input field.
@@ -32,7 +34,7 @@ export type TextFieldProps = {
 
 const TextField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  TextFieldProps
+  PrismaneVersatileWithoutAs<"input", TextFieldProps>
 >(
   (
     { label, error, size = "base", prefix, suffix, className, ...props },

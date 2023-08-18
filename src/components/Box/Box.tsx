@@ -3,16 +3,16 @@ import { forwardRef } from "react";
 import useStyling from "../../hooks/useStyling";
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
-import { PrismaneVersatile, Versatile } from "../../types";
+import { PrismaneComponent, PrismaneVersatile, Versatile } from "../../types";
 // Utils
 import { strip, dual, variants, fr } from "../../utils";
 
-export type BoxProps<E extends Versatile> = PrismaneVersatile<E>;
+export type BoxProps = PrismaneComponent;
 
 const Box = forwardRef(
   <E extends Versatile>(
     {
-      as,
+      as = "div",
       w,
       h,
       m,
@@ -92,10 +92,10 @@ const Box = forwardRef(
       children,
       className,
       ...props
-    }: BoxProps<E>,
+    }: PrismaneVersatile<E, BoxProps>,
     ref: React.ForwardedRef<any>
   ) => {
-    const El = as || "div";
+    const El = as;
 
     const { getColorStyle } = usePrismaneColor();
 

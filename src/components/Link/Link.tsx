@@ -2,16 +2,16 @@ import { ForwardedRef, forwardRef } from "react";
 // Components
 import Text, { TextProps } from "../Text/Text";
 // Types
-import { Versatile } from "../../types";
+import { PrismaneVersatile, Versatile } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type LinkProps<E extends Versatile> = {
+export type LinkProps = {
   before?: Function;
   underline?: "none" | "hover" | "always";
   href: string;
   foreign?: boolean;
-} & TextProps<E>;
+} & TextProps;
 
 const Link = forwardRef(
   <E extends Versatile>(
@@ -25,7 +25,7 @@ const Link = forwardRef(
       className,
       sx,
       ...props
-    }: LinkProps<E>,
+    }: PrismaneVersatile<E, LinkProps>,
     ref: ForwardedRef<any>
   ) => {
     return (

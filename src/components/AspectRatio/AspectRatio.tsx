@@ -9,7 +9,7 @@ import { strip } from "../../utils";
 export type AspectRatioProps = {
   ratio?: string;
   size?: PrismaneStyles;
-} & BoxProps<"div">;
+} & BoxProps;
 
 const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
   ({ ratio, size, children, className, style, ...props }, ref) => {
