@@ -19,8 +19,8 @@ const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
         w="fit-content"
         py={fr(1.5)}
         px={fr(4)}
-        br={tabs.variant === "filled" && "base"}
-        bdbw={tabs.variant === "underlined" && 2}
+        br={tabs.variant === "filled" ? "base" : undefined}
+        bdbw={tabs.variant === "underlined" ? 2 : undefined}
         bdc={(theme) =>
           tabs.value === value
             ? ["primary", 500]

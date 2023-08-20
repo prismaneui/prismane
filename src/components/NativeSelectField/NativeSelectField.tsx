@@ -6,8 +6,6 @@ import Text from "../Text/Text";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type NativeSelectFieldProps = {
   options: { value: string; label: string }[];
@@ -29,14 +27,14 @@ export type NativeSelectFieldProps = {
 
 const NativeSelectField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PrismaneVersatileWithoutAs<"select", NativeSelectFieldProps>
+  NativeSelectFieldProps
 >(({ options, label, error, size = "base", className, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismaneNativeSelectField-label"
       >
@@ -45,7 +43,7 @@ const NativeSelectField = forwardRef<
       <Field
         as="select"
         py={0}
-        size={size}
+        size={size as any}
         error={error}
         className={strip(
           `${className ? className : ""} PrismaneNativeSelectField-root`
@@ -70,7 +68,10 @@ const NativeSelectField = forwardRef<
           </Text>
         ))}
       </Field>
-      <Field.Error size={size} className="PrismaneNativeSelectField-error">
+      <Field.Error
+        size={size as any}
+        className="PrismaneNativeSelectField-error"
+      >
         {error}
       </Field.Error>
     </Field.Wrapper>

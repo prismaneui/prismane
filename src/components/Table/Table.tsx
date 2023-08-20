@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneWithInternal, PrismaneVersatileWithoutAs } from "../../types";
+import { PrismaneWithInternal } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -23,29 +23,28 @@ export {
   type TableCaptionProps,
 };
 
-export type TableProps = BoxProps;
+export type TableProps = BoxProps<"table">;
 
-const Table = forwardRef<
-  HTMLTableElement,
-  PrismaneVersatileWithoutAs<"table", TableProps>
->(({ children, className, sx, ...props }, ref) => {
-  return (
-    <Box
-      as="table"
-      sx={{
-        borderCollapse: "collapse",
-        ...sx,
-      }}
-      className={strip(`${className ? className : ""} PrismaneTable-root`)}
-      data-testid="prismane-table"
-      ref={ref}
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-}) as PrismaneWithInternal<
-  PrismaneVersatileWithoutAs<"table", TableProps>,
+const Table = forwardRef<HTMLTableElement, TableProps>(
+  ({ children, className, sx, ...props }, ref) => {
+    return (
+      <Box
+        as="table"
+        sx={{
+          borderCollapse: "collapse",
+          ...sx,
+        }}
+        className={strip(`${className ? className : ""} PrismaneTable-root`)}
+        data-testid="prismane-table"
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    );
+  }
+) as PrismaneWithInternal<
+  TableProps,
   {
     Row: TableRowProps;
     Head: TableHeadProps;

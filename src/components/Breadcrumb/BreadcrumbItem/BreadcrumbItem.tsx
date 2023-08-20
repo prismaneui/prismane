@@ -14,11 +14,7 @@ import { strip } from "../../../utils";
 export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
   PrismaneVersatile<E, FlexProps<E>>;
 
-type BreadcrumbItemComponent = <E extends Versatile = typeof Link>(
-  props: BreadcrumbItemProps<E>
-) => React.ReactNode | null;
-
-const BreadcrumbItem: BreadcrumbItemComponent = forwardRef(
+const BreadcrumbItem = forwardRef(
   <E extends Versatile = typeof Link>(
     { as, children, className, ...props }: BreadcrumbItemProps<E>,
     ref: PrismaneVersatileRef<E>

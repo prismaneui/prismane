@@ -154,11 +154,11 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
             </Flex>
             {closable && (
               <Flex
-                self="flex-end"
+                self="end"
                 w="fit-content"
                 h="fit-content"
                 justify="center"
-                items="center"
+                align="center"
                 ml={fr(16)}
                 className={`PrismaneAlert-action PrismaneAlert-action-${variant}`}
               >

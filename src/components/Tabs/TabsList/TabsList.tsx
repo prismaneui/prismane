@@ -21,7 +21,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         ref={ref}
         {...props}
       >
-        <Flex gap={tabs.variant === "filled" && fr(2)} z={200}>
+        <Flex gap={tabs.variant === "filled" ? fr(2) : undefined} z={200}>
           {children}
         </Flex>
         {tabs.variant === "underlined" && (

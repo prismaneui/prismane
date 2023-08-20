@@ -12,7 +12,7 @@ import {
 // Utils
 import { strip, dual, variants, fr } from "../../utils";
 
-export type BoxProps<E extends Versatile> = PrismaneVersatile<
+export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
   PrismaneComponent
 >;

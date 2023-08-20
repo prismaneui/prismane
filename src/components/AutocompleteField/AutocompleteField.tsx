@@ -27,7 +27,7 @@ export type AutocompleteFieldProps = {
 const AutocompleteField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   AutocompleteFieldProps
->(({ options, filter, size = "base", className, ...props }, ref) => {
+>(({ options, filter, className, ...props }, ref) => {
   const [filtered, setFiltered] = useState(options);
 
   const debouncedValue = useDebounce(props.value, 250);
@@ -51,7 +51,6 @@ const AutocompleteField = forwardRef<
     <SelectField
       readOnly={false}
       options={filtered}
-      size={size}
       className={strip(
         `${className ? className : ""} PrismaneAutocompleteField-root`
       )}

@@ -100,6 +100,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 type="checkbox"
                 data-testid="prismane-checkbox"
                 ref={ref}
+                size={field.size as any}
                 {...field}
               />
             </Hidden>

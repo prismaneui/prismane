@@ -8,8 +8,6 @@ import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Utils
 import { fr } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type PinFieldProps = {
   length?: number;
@@ -37,7 +35,7 @@ export type PinFieldProps = {
 
 const PinField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PrismaneVersatileWithoutAs<"input", PinFieldProps>
+  PinFieldProps
 >(
   (
     {
@@ -110,7 +108,7 @@ const PinField = forwardRef<
     return (
       <Field.Wrapper {...rest}>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismanePinField-label"
         >
@@ -121,15 +119,16 @@ const PinField = forwardRef<
             <Field
               data-testid="prismane-pin-field"
               ref={fieldRef}
-              {...field}
+              size={size as any}
               type="text"
+              {...field}
             />
           </Hidden>
           {Array.from({ length }, (_, index) => (
             <Field
               variant={field.variant}
               error={error}
-              size={size}
+              size={size as any}
               type={masked ? "password" : "text"}
               px={fr(1)}
               py={fr(1)}
@@ -150,7 +149,7 @@ const PinField = forwardRef<
             />
           ))}
         </Flex>
-        <Field.Error size={size} className="PrismanePinField-error">
+        <Field.Error size={size as any} className="PrismanePinField-error">
           {error}
         </Field.Error>
       </Field.Wrapper>

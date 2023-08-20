@@ -12,7 +12,6 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
-  PrismaneVersatileWithoutAs,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
@@ -262,7 +261,7 @@ const Field = forwardRef(
 ) as PrismaneWithInternal<
   PrismaneVersatile<Versatile, FieldProps>,
   {
-    Label: PrismaneVersatileWithoutAs<"label", FieldLabelProps>;
+    Label: FieldLabelProps;
     Wrapper: FieldWrapperProps;
     Error: FieldErrorProps;
     Addon: FieldAddonProps;

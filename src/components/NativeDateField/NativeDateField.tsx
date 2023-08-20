@@ -5,8 +5,6 @@ import Field, { FieldProps } from "../Field/Field";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type NativeDateFieldProps = FieldProps;
 
@@ -26,14 +24,14 @@ export type NativeDateFieldProps = FieldProps;
 
 const NativeDateField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PrismaneVersatileWithoutAs<"input", NativeDateFieldProps>
+  NativeDateFieldProps
 >(({ label, error, size = "base", className, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismaneNativeDateField-label"
       >
@@ -42,7 +40,7 @@ const NativeDateField = forwardRef<
       <Field
         type="date"
         py={0}
-        size={size}
+        size={size as any}
         error={error}
         className={strip(
           `${className ? className : ""} PrismaneNativeDateField-root`
@@ -51,7 +49,7 @@ const NativeDateField = forwardRef<
         ref={ref}
         {...field}
       />
-      <Field.Error size={size} className="PrismaneNativeDateField-error">
+      <Field.Error size={size as any} className="PrismaneNativeDateField-error">
         {error}
       </Field.Error>
     </Field.Wrapper>

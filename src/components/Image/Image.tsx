@@ -3,8 +3,6 @@ import { forwardRef } from "react";
 import Box, { BoxProps } from "../Box/Box";
 // Utils
 import { strip } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type ImageProps = {
   src?: string;
@@ -12,29 +10,28 @@ export type ImageProps = {
   alt?: string;
   sizes?: string;
   fit?: "contain" | "cover" | "fill" | "none" | "scale-down";
-} & BoxProps;
+} & BoxProps<"img">;
 
-const Image = forwardRef<
-  HTMLImageElement,
-  PrismaneVersatileWithoutAs<"img", ImageProps>
->(({ src, srcSet, alt, sizes, fit = "fill", className, sx, ...props }, ref) => {
-  return (
-    <Box
-      as="img"
-      src={src}
-      srcSet={srcSet}
-      alt={alt}
-      sizes={sizes}
-      sx={{
-        objectFit: fit,
-        ...sx,
-      }}
-      className={strip(`${className ? className : ""} PrismaneImage-root`)}
-      data-testid="prismane-image"
-      ref={ref}
-      {...props}
-    />
-  );
-});
+const Image = forwardRef<HTMLImageElement, ImageProps>(
+  ({ src, srcSet, alt, sizes, fit = "fill", className, sx, ...props }, ref) => {
+    return (
+      <Box
+        as="img"
+        src={src}
+        srcSet={srcSet}
+        alt={alt}
+        sizes={sizes}
+        sx={{
+          objectFit: fit,
+          ...sx,
+        }}
+        className={strip(`${className ? className : ""} PrismaneImage-root`)}
+        data-testid="prismane-image"
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
 
 export default Image;

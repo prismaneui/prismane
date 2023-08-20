@@ -120,9 +120,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 value={value}
                 defaultValue={defaultValue}
                 data-testid="prismane-radio"
+                name={group.name || name}
+                size={size as any}
                 ref={ref}
                 {...field}
-                name={group.name || name}
               />
             </Hidden>
             <Animation
@@ -141,7 +142,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 lg: fr(3.5),
               })}
               br="full"
-              bg={(value === group.value || !group.value) && "white"}
+              bg={value === group.value || !group.value ? "white" : undefined}
               sx={{
                 aspectRatio: "1/1",
               }}

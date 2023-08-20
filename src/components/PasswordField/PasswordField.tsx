@@ -8,8 +8,6 @@ import Transition from "../Transition/Transition";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip, variants, fr } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type PasswordFieldProps = FieldProps;
 /**
@@ -33,7 +31,7 @@ export type PasswordFieldProps = FieldProps;
 
 const PasswordField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PrismaneVersatileWithoutAs<"input", PasswordFieldProps>
+  PasswordFieldProps
 >(({ label, error, size = "base", ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 
@@ -42,14 +40,14 @@ const PasswordField = forwardRef<
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismanePasswordField-label"
       >
         {label}
       </Field.Label>
       <Field
-        size={size}
+        size={size as any}
         error={error}
         type={mutableType}
         py="0"
@@ -83,7 +81,7 @@ const PasswordField = forwardRef<
         ref={ref}
         {...field}
       ></Field>
-      <Field.Error size={size} className="PrismanePasswordField-error">
+      <Field.Error size={size as any} className="PrismanePasswordField-error">
         {error}
       </Field.Error>
     </Field.Wrapper>

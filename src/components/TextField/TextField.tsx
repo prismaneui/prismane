@@ -5,8 +5,6 @@ import Field, { FieldProps } from "../Field/Field";
 import { useFieldProps } from "../Field";
 // Utils
 import { strip, fr, variants } from "../../utils";
-// Types
-import { PrismaneVersatileWithoutAs } from "../../types";
 
 export type TextFieldProps = {
   prefix?: string;
@@ -34,7 +32,7 @@ export type TextFieldProps = {
 
 const TextField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
-  PrismaneVersatileWithoutAs<"input", TextFieldProps>
+  TextFieldProps
 >(
   (
     { label, error, size = "base", prefix, suffix, className, ...props },
@@ -45,7 +43,7 @@ const TextField = forwardRef<
     return (
       <Field.Wrapper>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismaneTextField-label"
           {...rest}
@@ -54,7 +52,7 @@ const TextField = forwardRef<
         </Field.Label>
         <Field
           type="text"
-          size={size}
+          size={size as any}
           error={error}
           pr={suffix && "0"}
           pl={prefix && "0"}
@@ -132,7 +130,7 @@ const TextField = forwardRef<
           ref={ref}
           {...field}
         />
-        <Field.Error size={size} className="PrismaneTextField-error">
+        <Field.Error size={size as any} className="PrismaneTextField-error">
           {error}
         </Field.Error>
       </Field.Wrapper>

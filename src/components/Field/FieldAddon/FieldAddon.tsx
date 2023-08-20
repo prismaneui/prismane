@@ -22,8 +22,8 @@ const FieldAddon = forwardRef<HTMLDivElement, FieldAddonProps>(
       <Transition
         as={Flex}
         h="100%"
-        mr={position === "left" && fr(2)}
-        ml={position === "right" && fr(2)}
+        mr={position === "left" ? fr(2) : undefined}
+        ml={position === "right" ? fr(2) : undefined}
         fs={variants(size, {
           xs: "xs",
           sm: "sm",
