@@ -154,7 +154,6 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
             </Flex>
             {closable && (
               <Flex
-                self="end"
                 w="fit-content"
                 h="fit-content"
                 justify="center"
