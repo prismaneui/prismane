@@ -6,7 +6,7 @@ import { useTabsContext } from "../TabsContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type TabsPanelProps = { value: string } & FlexProps<"div">;
+export type TabsPanelProps = { value: string } & FlexProps;
 
 const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(
   ({ value, children, className, ...props }, ref) => {

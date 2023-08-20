@@ -3,6 +3,7 @@ import { Meta } from "@storybook/react";
 // Components
 import Animation from "./Animation";
 import Button from "../Button/Button";
+import Flex from "../Flex/Flex";
 import Chip from "../Chip/Chip";
 // Hooks
 import useAnimation from "../../hooks/useAnimation";

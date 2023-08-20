@@ -7,7 +7,7 @@ import { strip } from "../../utils";
 
 export type CollapseProps = {
   open?: boolean;
-} & AnimationProps<"div">;
+} & AnimationProps;
 
 const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
   ({ open = false, children, className, ...props }, ref) => {

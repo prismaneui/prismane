@@ -1,20 +1,32 @@
-import { ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { Versatile, PrismaneTransitions } from "../../types";
+import {
+  PrismaneTransitions,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type TransitionProps<E extends Versatile> = {
-  transition?: PrismaneTransitions | string;
-  duration?: number;
-  delay?: number;
-  timing?: string;
-} & BoxProps<E>;
+export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    transition?: PrismaneTransitions | string;
+    duration?: number;
+    delay?: number;
+    timing?: string;
+  } & BoxProps<E>
+>;
 
-const Transition = forwardRef(
-  <E extends Versatile>(
+type TransitionComponent = <E extends Versatile = "div">(
+  props: TransitionProps<E>
+) => React.ReactNode | null;
+
+const Transition: TransitionComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       transition = "all",
       duration = 150,
@@ -22,10 +34,11 @@ const Transition = forwardRef(
       timing = "ease-in-out",
       className,
       sx,
+      as,
       children,
       ...props
     }: TransitionProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
     const transitions: any = {
       all: "all",
@@ -47,8 +60,11 @@ const Transition = forwardRef(
 
     const ts = `${t.property} ${t.duration}ms ${t.timing} ${t.delay}ms`;
 
+    const Component = as || "div";
+
     return (
       <Box
+        as={Component}
         className={strip(
           `${className ? className : ""} PrismaneTransition-root`
         )}

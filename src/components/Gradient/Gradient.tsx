@@ -1,36 +1,51 @@
-import { ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 // Component
 import Box, { BoxProps } from "../Box/Box";
 // Hooks
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Types
-import { Versatile } from "../../types";
+import {
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type GradientProps<E extends Versatile> = {
-  from: any;
-  to: any;
-  deg: number;
-} & BoxProps<E>;
+export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    from: any;
+    to: any;
+    deg: number;
+  } & BoxProps<E>
+>;
 
-const Gradient = forwardRef(
-  <E extends Versatile>(
+type GradientComponent = <E extends Versatile = "div">(
+  props: GradientProps<E>
+) => React.ReactNode | null;
+
+const Gradient: GradientComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       from = ["primary", 500],
       to = ["primary", 300],
       deg = 90,
+      as,
       children,
       className,
       sx,
       ...props
     }: GradientProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
     const { getColorStyle } = usePrismaneColor();
 
+    const Component = as || "div";
+
     return (
       <Box
+        as={Component}
         className={strip(`${className ? className : ""} PrismaneGradient-root`)}
         bg="transparent"
         sx={{

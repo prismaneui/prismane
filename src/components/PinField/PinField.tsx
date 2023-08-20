@@ -12,7 +12,7 @@ import { fr } from "../../utils";
 export type PinFieldProps = {
   length?: number;
   masked?: boolean;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     A component for rendering a text input field.
@@ -108,7 +108,7 @@ const PinField = forwardRef<
     return (
       <Field.Wrapper {...rest}>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismanePinField-label"
         >
@@ -119,15 +119,16 @@ const PinField = forwardRef<
             <Field
               data-testid="prismane-pin-field"
               ref={fieldRef}
-              {...field}
+              size={size as any}
               type="text"
+              {...field}
             />
           </Hidden>
           {Array.from({ length }, (_, index) => (
             <Field
               variant={field.variant}
               error={error}
-              size={size}
+              size={size as any}
               type={masked ? "password" : "text"}
               px={fr(1)}
               py={fr(1)}
@@ -148,7 +149,7 @@ const PinField = forwardRef<
             />
           ))}
         </Flex>
-        <Field.Error size={size} className="PrismanePinField-error">
+        <Field.Error size={size as any} className="PrismanePinField-error">
           {error}
         </Field.Error>
       </Field.Wrapper>

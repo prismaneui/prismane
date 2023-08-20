@@ -4,7 +4,7 @@ import { render, fireEvent } from "@testing-library/react";
 import List from "./List";
 
 test("Correct render", () => {
-  const { getByText } = render(<List open>Hello, world!</List>);
+  const { getByText } = render(<List>Hello, world!</List>);
 
   const element = getByText("Hello, world!");
 
@@ -48,11 +48,7 @@ test("Correct render with inner components", () => {
 test("Correct click event", () => {
   const mock = vi.fn();
 
-  const { getByTestId } = render(
-    <List onClick={mock} open>
-      Hello, world!
-    </List>
-  );
+  const { getByTestId } = render(<List onClick={mock}>Hello, world!</List>);
 
   const element = getByTestId("prismane-list");
 
@@ -63,9 +59,7 @@ test("Correct click event", () => {
 
 test("Correct render with custom className", () => {
   const { getByTestId } = render(
-    <List className="custom-class" open>
-      Hello, world!
-    </List>
+    <List className="custom-class">Hello, world!</List>
   );
 
   const element = getByTestId("prismane-list");
@@ -74,7 +68,7 @@ test("Correct render with custom className", () => {
 });
 
 test("Correct render with custom prop", () => {
-  const { getByTestId } = render(<List data-testprop="test-prop" open />);
+  const { getByTestId } = render(<List data-testprop="test-prop" />);
 
   const element = getByTestId("prismane-list");
 

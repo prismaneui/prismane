@@ -4,7 +4,7 @@ import Box, { BoxProps } from "../Box/Box";
 // Utils
 import { strip } from "../../utils";
 
-export type HiddenProps = BoxProps<"span">;
+export type HiddenProps = BoxProps;
 
 const Hidden = forwardRef<HTMLSpanElement, HiddenProps>(
   ({ children, className, ...props }, ref) => {

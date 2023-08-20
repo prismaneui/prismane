@@ -11,7 +11,7 @@ import usePresence from "../../../hooks/usePresence";
 // Utils
 import { strip, variants, fr } from "../../../utils";
 
-export type PopoverPanelProps = AnimationProps<"div"> & PaperProps<"div">;
+export type PopoverPanelProps = AnimationProps & PaperProps;
 
 const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
   ({ children, className, sx, ...props }, ref) => {

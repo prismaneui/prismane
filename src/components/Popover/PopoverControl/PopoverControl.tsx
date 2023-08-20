@@ -6,7 +6,7 @@ import { usePopoverContext } from "../PopoverContext";
 // Utils
 import { strip, variants, fr } from "../../../utils";
 
-export type PopoverControlProps = FlexProps<"div">;
+export type PopoverControlProps = FlexProps;
 
 const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
   ({ children, className, sx, ...props }, ref) => {

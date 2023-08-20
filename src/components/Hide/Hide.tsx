@@ -10,7 +10,7 @@ import { strip, dual, fr } from "../../utils";
 
 export type HideProps = {
   breakpoint?: PrismaneBreakpoints | string;
-} & BoxProps<"div">;
+} & BoxProps;
 
 const Hide = forwardRef<HTMLDivElement, HideProps>(
   ({ breakpoint = "base", children, className, ...props }, ref) => {

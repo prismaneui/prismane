@@ -8,7 +8,7 @@ import { strip } from "../../utils";
 
 export type ContainerProps = {
   maxSize?: PrismaneBreakpoints;
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ maxSize = "base", children, className, ...props }, ref) => {

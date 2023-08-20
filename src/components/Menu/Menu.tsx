@@ -17,8 +17,7 @@ import MenuIcon, { MenuIconProps } from "./MenuIcon/MenuIcon";
 
 export { type MenuItemProps, type MenuLabelProps, type MenuIconProps };
 
-export type MenuProps = { open?: boolean } & AnimationProps<"div"> &
-  PaperProps<"div">;
+export type MenuProps = { open?: boolean } & AnimationProps & PaperProps;
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>(
   ({ open = false, children, className, ...props }, ref) => {

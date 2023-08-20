@@ -1,22 +1,36 @@
-import { ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { Versatile } from "../../types";
+import {
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type PaperProps<E extends Versatile> = {
-  shadow?: boolean;
-} & FlexProps<E>;
+export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    shadow?: boolean;
+  } & FlexProps<E>
+>;
 
-const Paper = forwardRef(
-  <E extends Versatile>(
-    { children, className, shadow, ...props }: PaperProps<E>,
-    ref: ForwardedRef<any>
+type PaperComponent = <E extends Versatile = "div">(
+  props: PaperProps<E>
+) => React.ReactNode | null;
+
+const Paper: PaperComponent = forwardRef(
+  <E extends Versatile = "div">(
+    { as, children, className, shadow, ...props }: PaperProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Flex
+        as={Component}
         direction="column"
         br="md"
         bg={(theme) => (theme.mode === "dark" ? ["base", 800] : "white")}

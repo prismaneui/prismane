@@ -6,7 +6,7 @@ import { useFieldProps } from "../Field";
 // Utils
 import { strip } from "../../utils";
 
-export type NativeDateFieldProps = FieldProps<"input">;
+export type NativeDateFieldProps = FieldProps;
 
 /**
     NativeDateField component displays a dropdown menu to select an option from a list.
@@ -31,7 +31,7 @@ const NativeDateField = forwardRef<
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismaneNativeDateField-label"
       >
@@ -40,7 +40,7 @@ const NativeDateField = forwardRef<
       <Field
         type="date"
         py={0}
-        size={size}
+        size={size as any}
         error={error}
         className={strip(
           `${className ? className : ""} PrismaneNativeDateField-root`
@@ -49,7 +49,7 @@ const NativeDateField = forwardRef<
         ref={ref}
         {...field}
       />
-      <Field.Error size={size} className="PrismaneNativeDateField-error">
+      <Field.Error size={size as any} className="PrismaneNativeDateField-error">
         {error}
       </Field.Error>
     </Field.Wrapper>

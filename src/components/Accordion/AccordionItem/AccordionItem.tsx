@@ -8,7 +8,7 @@ import { strip } from "../../../utils";
 
 export type AccordionItemProps = {
   value?: string | null;
-} & FlexProps<"div">;
+} & FlexProps;
 
 const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ value = null, children, className, ...props }, ref) => {

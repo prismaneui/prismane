@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip } from "../../../utils";
 
-export type BreadcrumbSeparatorProps = FlexProps<"div">;
+export type BreadcrumbSeparatorProps = FlexProps;
 
 const BreadcrumbSeparator = forwardRef<
   HTMLDivElement,

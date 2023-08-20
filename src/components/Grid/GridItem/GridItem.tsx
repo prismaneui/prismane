@@ -14,7 +14,7 @@ export type GridItemProps = {
   rowEnd?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | "auto";
   rowSpan?: 1 | 2 | 3 | 4 | 5 | 6 | "full";
   gap?: PrismaneStyles;
-} & FlexProps<"div">;
+} & FlexProps;
 
 const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
   (

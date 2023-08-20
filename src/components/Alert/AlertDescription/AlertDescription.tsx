@@ -4,7 +4,7 @@ import Text, { TextProps } from "../../Text/Text";
 // Utils
 import { strip } from "../../../utils";
 
-export type AlertDescriptionProps = TextProps<"span">;
+export type AlertDescriptionProps = TextProps;
 
 const AlertDescription = forwardRef<HTMLSpanElement, AlertDescriptionProps>(
   ({ children, className, ...props }, ref) => {

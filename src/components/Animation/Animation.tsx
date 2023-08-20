@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 // Components
 import Transition, { TransitionProps } from "../Transition/Transition";
 // Types
@@ -6,6 +6,8 @@ import {
   PrismaneAnimations,
   PrismaneTransitions,
   Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
@@ -19,16 +21,23 @@ export interface Animations {
   [key: string]: Animation;
 }
 
-export type AnimationProps<E extends Versatile> = {
-  animation?: PrismaneAnimations | Animation;
-  transition?: PrismaneTransitions | string;
-  duration?: number;
-  animated?: boolean;
-  delay?: number;
-} & TransitionProps<E>;
+export type AnimationProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    animation?: PrismaneAnimations | Animation;
+    transition?: PrismaneTransitions | string;
+    duration?: number;
+    animated?: boolean;
+    delay?: number;
+  } & TransitionProps<E>
+>;
 
-const Animation = forwardRef(
-  <E extends Versatile>(
+type AnimationComponent = <E extends Versatile = "div">(
+  props: AnimationProps<E>
+) => React.ReactNode | null;
+
+const Animation: AnimationComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       animation = "fade",
       transition = "all",
@@ -38,10 +47,11 @@ const Animation = forwardRef(
       animated = true,
       className,
       sx,
+      as,
       children,
       ...props
     }: AnimationProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
     const [isAnimated, setIsAnimated] = useState(false);
 
@@ -129,8 +139,11 @@ const Animation = forwardRef(
       ...(isAnimated ? a?.in : a?.out),
     };
 
+    const Component = as || "div";
+
     return (
       <Transition
+        as={Component}
         className={strip(
           `${className ? className : ""} PrismaneAnimation-root`
         )}

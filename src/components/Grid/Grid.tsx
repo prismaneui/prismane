@@ -18,7 +18,7 @@ export type GridProps = {
   autoColumns?: "auto" | "min" | "max" | "fr";
   autoRows?: "auto" | "min" | "max" | "fr";
   gap?: PrismaneStyles;
-} & BoxProps<"div">;
+} & BoxProps;
 
 const Grid = forwardRef<HTMLDivElement, GridProps>(
   (

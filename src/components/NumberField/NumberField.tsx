@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 // Components
 import Field, { FieldProps } from "../Field/Field";
@@ -7,15 +7,14 @@ import Transition from "../Transition/Transition";
 // Hooks
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
-// Types
-import { PrismaneFieldComponent } from "../../types";
+
 // Utils
 import { strip, fr } from "../../utils";
 
 export type NumberFieldProps = {
   min?: number;
   max?: number;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.
@@ -52,7 +51,7 @@ const NumberField = forwardRef<
     return (
       <Field.Wrapper {...rest}>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismaneNumberField-label"
         >
@@ -60,7 +59,7 @@ const NumberField = forwardRef<
         </Field.Label>
         <Field
           type="text"
-          size={size}
+          size={size as any}
           error={error}
           py="0"
           pr="0"
@@ -134,7 +133,7 @@ const NumberField = forwardRef<
           {...field}
           readOnly
         />
-        <Field.Error size={size} className="PrismaneNumberField-error">
+        <Field.Error size={size as any} className="PrismaneNumberField-error">
           {error}
         </Field.Error>
       </Field.Wrapper>

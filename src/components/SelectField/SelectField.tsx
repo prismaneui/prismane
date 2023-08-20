@@ -21,7 +21,7 @@ export type SelectFieldProps = {
     element: ReactNode,
     active: boolean
   ) => ReactNode;
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     SelectField component displays a dropdown menu to select an option from a list.
@@ -101,7 +101,7 @@ const SelectField = forwardRef<any, SelectFieldProps>(
     return (
       <Field.Wrapper ref={wrapperRef} {...rest}>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismaneSelectField-label"
         >
@@ -109,8 +109,8 @@ const SelectField = forwardRef<any, SelectFieldProps>(
         </Field.Label>
         <Field
           type="text"
-          size={size}
           error={error}
+          size={size as any}
           onClick={() => setOpen(true)}
           py={"0"}
           addons={
@@ -142,7 +142,7 @@ const SelectField = forwardRef<any, SelectFieldProps>(
         <Flex pos="relative">
           <Flex pos="absolute" t={0} w="100%">
             <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
-              {options.map((option, index) => (
+              {options.map((option: any, index: any) => (
                 <Flex
                   onClick={() => {
                     emulateChange(option.value);
@@ -196,7 +196,7 @@ const SelectField = forwardRef<any, SelectFieldProps>(
             </Menu>
           </Flex>
         </Flex>
-        <Field.Error size={size} className="PrismaneSelectField-error">
+        <Field.Error size={size as any} className="PrismaneSelectField-error">
           {error}
         </Field.Error>
       </Field.Wrapper>

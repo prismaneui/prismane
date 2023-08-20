@@ -1,42 +1,54 @@
-import { ForwardedRef, forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 // Components
 import Box from "../Box/Box";
 import Center, { CenterProps } from "../Center/Center";
-import AspectRatio from "../AspectRatio/AspectRatio";
 // Types
 import {
   PrismaneColors,
   PrismanePositions,
-  Versatile,
   PrismaneBreakpoints,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type BadgeProps<E extends Versatile> = {
-  label?: ReactNode;
-  position?: PrismanePositions;
-  color?: PrismaneColors;
-  size?: PrismaneBreakpoints;
-} & CenterProps<E>;
+export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    label?: ReactNode;
+    position?: PrismanePositions;
+    color?: PrismaneColors;
+    size?: PrismaneBreakpoints;
+  } & CenterProps<E>
+>;
 
-const Badge = forwardRef(
-  <E extends Versatile>(
+type BadgeComponent = <E extends Versatile = "div">(
+  props: BadgeProps<E>
+) => React.ReactNode | null;
+
+const Badge: BadgeComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       label = 0,
       position = "top-end",
       color = "primary",
       size = "base",
+      as,
       children,
       className,
       sx,
       ...props
     }: BadgeProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Box w="fit-content" h="fit-content" pos="relative">
         <Center
+          as={Component}
           h={variants(size, {
             xs: fr(4),
             sm: fr(5),

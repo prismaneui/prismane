@@ -8,7 +8,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type AccordionControlProps = FlexProps<"div"> & TransitionProps<"div">;
+export type AccordionControlProps = FlexProps & TransitionProps;
 
 const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
   ({ children, className, ...props }, ref) => {

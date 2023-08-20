@@ -9,7 +9,7 @@ import { strip, variants, fr } from "../../utils";
 
 export type SpinnerProps = {
   size?: PrismaneBreakpoints;
-} & FlexProps<"div">;
+} & FlexProps<"svg">;
 
 /**
  * Spinner Params
@@ -18,8 +18,8 @@ export type SpinnerProps = {
  * @returns Element
  */
 
-const Spinner = forwardRef<SVGElement, any>(
-  ({ size = "base", className, sx, ...props }: SpinnerProps, ref) => {
+const Spinner = forwardRef<SVGElement, SpinnerProps>(
+  ({ size = "base", className, sx, ...props }, ref) => {
     return (
       <Flex
         as={CircleNotch}

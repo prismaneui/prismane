@@ -6,7 +6,7 @@ import { useFieldProps } from "../Field";
 // Utils
 import { strip, fr, variants } from "../../utils";
 
-export type TextareaFieldProps = FieldProps<"input">;
+export type TextareaFieldProps = FieldProps;
 /**
  * Textarea Params
  * @param {Object} props
@@ -33,7 +33,7 @@ const TextareaField = forwardRef<
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismaneTextarea-label"
       >
@@ -41,6 +41,7 @@ const TextareaField = forwardRef<
       </Field.Label>
       <Field
         as="textarea"
+        size={size as any}
         mih={variants(size, {
           xs: fr(12),
           sm: fr(14),
@@ -76,7 +77,7 @@ const TextareaField = forwardRef<
         ref={ref}
         {...field}
       />
-      <Field.Error size={size} className="PrismaneTextarea-error">
+      <Field.Error size={size as any} className="PrismaneTextarea-error">
         {error}
       </Field.Error>
     </Field.Wrapper>

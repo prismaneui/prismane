@@ -10,7 +10,7 @@ import { PrismaneFieldComponent } from "../../../types";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type RadioGroupProps = PrismaneFieldComponent & FlexProps<"div">;
+export type RadioGroupProps = PrismaneFieldComponent & FlexProps;
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ children, className, ...props }, ref) => {

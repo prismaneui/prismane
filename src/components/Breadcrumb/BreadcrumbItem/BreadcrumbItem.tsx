@@ -1,22 +1,29 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../../Flex/Flex";
 import Link from "../../Link/Link";
 // Types
-import { Versatile } from "../../../types";
+import {
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../../types";
 // Utils
 import { strip } from "../../../utils";
 
-export type BreadcrumbItemProps<E extends Versatile> = FlexProps<E>;
+export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
+  PrismaneVersatile<E, FlexProps<E>>;
 
 const BreadcrumbItem = forwardRef(
-  <E extends Versatile>(
-    { as = Link, children, className, ...props }: BreadcrumbItemProps<E>,
-    ref: ForwardedRef<any>
+  <E extends Versatile = typeof Link>(
+    { as, children, className, ...props }: BreadcrumbItemProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || Link;
+
     return (
       <Flex
-        as={as}
+        as={Component}
         align="center"
         justify="center"
         className={strip(

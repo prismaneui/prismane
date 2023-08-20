@@ -30,8 +30,8 @@ export type AlertProps = {
   icon?: ReactNode;
   action?: ReactNode;
   closable?: boolean;
-} & AnimationProps<"div"> &
-  FlexProps<"div">;
+} & AnimationProps &
+  FlexProps;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(
   (
@@ -61,7 +61,6 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
             py={fr(3)}
             px={fr(4)}
             br="base"
-            dp="flex"
             bg={(theme) =>
               theme.mode === "dark"
                 ? variants(variant, {
@@ -155,11 +154,10 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
             </Flex>
             {closable && (
               <Flex
-                self="flex-end"
                 w="fit-content"
                 h="fit-content"
                 justify="center"
-                items="center"
+                align="center"
                 ml={fr(16)}
                 className={`PrismaneAlert-action PrismaneAlert-action-${variant}`}
               >

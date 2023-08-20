@@ -4,7 +4,7 @@ import List, { ListProps } from "../../List/List";
 // Utils
 import { strip } from "../../../utils";
 
-export type ListUnorderedProps = ListProps<"ul">;
+export type ListUnorderedProps = ListProps;
 
 const ListUnordered = forwardRef<HTMLUListElement, ListUnorderedProps>(
   ({ gap = 0, children, className, sx, ...props }, ref) => {

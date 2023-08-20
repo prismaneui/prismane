@@ -1,14 +1,14 @@
 import { ReactNode, forwardRef, useRef } from "react";
 // Components
 import Field, { FieldProps } from "../Field/Field";
-import Transition, { TransitionProps } from "../Transition/Transition";
+import Transition from "../Transition/Transition";
 import Flex from "../Flex/Flex";
 import Text from "../Text/Text";
 // Hooks
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneFieldComponent } from "../../types";
+import { PrismaneBreakpoints } from "../../types";
 // Utils
 import { variants, fr } from "../../utils";
 
@@ -17,7 +17,7 @@ export type SegmentedFieldProps = {
     element: ReactNode;
     value: string;
   }[];
-} & FieldProps<"input">;
+} & FieldProps;
 
 const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
   ({ options = [], label, error, size = "base", sx, ...props }, ref) => {
@@ -30,14 +30,14 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
     return (
       <Field.Wrapper {...rest}>
         <Field.Label
-          size={size}
+          size={size as any}
           htmlFor={field.name}
           className="PrismaneSegmentedField-label"
         >
           {label}
         </Field.Label>
         <Field
-          size={size}
+          size={size as any}
           px={fr(0)}
           py={fr(0)}
           className="PrismaneSegmentedField-root"
@@ -134,7 +134,10 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
             theme.mode === "dark" ? ["base", 800] : ["base", 200]
           }
         />
-        <Field.Error size={size} className="PrismaneSegmentedField-error">
+        <Field.Error
+          size={size as any}
+          className="PrismaneSegmentedField-error"
+        >
           {error}
         </Field.Error>
       </Field.Wrapper>
