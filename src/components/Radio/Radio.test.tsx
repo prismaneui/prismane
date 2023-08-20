@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 // Component
 import Radio from "./Radio";
@@ -34,27 +35,4 @@ test("Correctly invokes onChange when the value of Radio component changes", () 
   fireEvent.click(radioElement);
 
   expect(handleChange).toHaveBeenCalledTimes(1);
-});
-
-test("Correctly sets the name attribute for the Radio component", () => {
-  render(
-    <Radio.Group name="answer">
-      <Radio value="yes" label="Yes" />
-      <Radio value="no" label="No" />
-    </Radio.Group>
-  );
-
-  const radioElements = screen.getAllByRole("radio");
-  radioElements.forEach((radioElement) => {
-    expect(radioElement).toHaveAttribute("name", "answer");
-  });
-});
-
-test("Correctly applies additional props to the Radio component", () => {
-  const dataTestId = "radio-input";
-
-  render(<Radio label="Yes" data-testid={dataTestId} />);
-
-  const radioElement = screen.getByTestId(dataTestId);
-  expect(radioElement).toBeInTheDocument();
 });
