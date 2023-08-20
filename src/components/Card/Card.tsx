@@ -3,9 +3,10 @@ import { forwardRef, ForwardedRef } from "react";
 import Paper, { PaperProps } from "../Paper/Paper";
 // Types
 import {
-  Versatile,
   PrismaneWithInternal,
+  Versatile,
   PrismaneVersatile,
+  PrismaneVersatileRef,
 } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
@@ -16,7 +17,10 @@ import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
 
 export { type CardHeaderProps, type CardFooterProps };
 
-export type CardProps = PaperProps;
+export type CardProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  PaperProps<E>
+>;
 
 /**
  * Card Props
@@ -30,12 +34,15 @@ export type CardProps = PaperProps;
  */
 
 const Card = forwardRef(
-  <E extends Versatile>(
-    { children, className, ...props }: PrismaneVersatile<E, CardProps>,
-    ref: ForwardedRef<any>
+  <E extends Versatile = "div">(
+    { as, children, className, ...props }: CardProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Paper
+        as={Component}
         p={fr(5)}
         className={strip(`${className ? className : ""} PrismaneCard-root`)}
         shadow
@@ -48,7 +55,7 @@ const Card = forwardRef(
     );
   }
 ) as PrismaneWithInternal<
-  CardProps,
+  CardProps<Versatile>,
   { Header: CardHeaderProps; Footer: CardFooterProps }
 >;
 

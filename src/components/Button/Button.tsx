@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 // Components
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Text from "../Text/Text";
@@ -6,30 +6,38 @@ import Icon from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 // Types
 import {
-  Versatile,
   PrismaneBreakpoints,
   PrismaneColors,
+  Versatile,
   PrismaneVersatile,
+  PrismaneVersatileRef,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type ButtonProps = {
-  icon?: ReactNode;
-  iconPosition?: "left" | "right";
-  type?: "submit" | "reset" | "button";
-  loading?: boolean;
-  disabled?: boolean;
-  variant?: "primary" | "secondary" | "tertiary" | "text";
-  color?: PrismaneColors;
-  size?: PrismaneBreakpoints;
-  full?: boolean;
-  shadow?: boolean;
-  fillOnHover?: boolean;
-} & TransitionProps;
+export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
+  E,
+  {
+    icon?: ReactNode;
+    iconPosition?: "left" | "right";
+    type?: "submit" | "reset" | "button";
+    loading?: boolean;
+    disabled?: boolean;
+    variant?: "primary" | "secondary" | "tertiary" | "text";
+    color?: PrismaneColors;
+    size?: PrismaneBreakpoints;
+    full?: boolean;
+    shadow?: boolean;
+    fillOnHover?: boolean;
+  } & TransitionProps<E>
+>;
 
-const Button = forwardRef(
-  <E extends Versatile>(
+type ButtonComponent = <E extends Versatile = "button">(
+  props: ButtonProps<E>
+) => React.ReactNode | null;
+
+const Button: ButtonComponent = forwardRef(
+  <E extends Versatile = "button">(
     {
       icon,
       iconPosition = "left",
@@ -42,17 +50,19 @@ const Button = forwardRef(
       full,
       shadow,
       fillOnHover,
-      as = "button",
+      as,
       children,
       className,
       sx,
       ...props
-    }: PrismaneVersatile<E, ButtonProps>,
-    ref: ForwardedRef<any>
+    }: ButtonProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "button";
+
     return (
       <Transition
-        as={as}
+        as={Component}
         px={variants(size, {
           xs: fr(2.5),
           sm: fr(3.5),

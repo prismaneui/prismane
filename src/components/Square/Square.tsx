@@ -1,22 +1,37 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Center, { CenterProps } from "../Center/Center";
 // Types
-import { Versatile, PrismaneStyles, PrismaneVersatile } from "../../types";
+import {
+  PrismaneStyles,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type SquareProps = {
-  size: PrismaneStyles;
-} & CenterProps;
+export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    size: PrismaneStyles;
+  } & CenterProps<E>
+>;
 
-const Square = forwardRef(
+type SquareComponent = <E extends Versatile = "div">(
+  props: SquareProps<E>
+) => React.ReactNode | null;
+
+const Square: SquareComponent = forwardRef(
   <E extends Versatile>(
-    { size, children, className, ...props }: PrismaneVersatile<E, SquareProps>,
-    ref: ForwardedRef<any>
+    { size, as, children, className, ...props }: SquareProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Center
+        as={Component}
         w={size}
         h={size}
         className={strip(`${className ? className : ""} PrismaneSquare-root`)}

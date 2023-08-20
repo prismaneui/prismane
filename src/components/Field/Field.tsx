@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 // Components
 import Box from "../Box/Box";
 import Flex, { FlexProps } from "../Flex/Flex";
@@ -11,6 +11,7 @@ import {
   PrismaneWithInternal,
   Versatile,
   PrismaneVersatile,
+  PrismaneVersatileRef,
   PrismaneVersatileWithoutAs,
 } from "../../types";
 // Utils
@@ -29,18 +30,21 @@ export {
   type FieldAddonProps,
 };
 
-export type FieldProps = {
-  type?: string;
-  placeholder?: string;
-  readOnly?: boolean;
-  maxLength?: number;
-  minLength?: number;
-  icon?: ReactNode;
-  validating?: boolean;
-  disabled?: boolean;
-} & FlexProps &
-  TransitionProps &
-  PrismaneFieldComponent;
+export type FieldProps<E extends Versatile = "input"> = PrismaneVersatile<
+  E,
+  {
+    type?: string;
+    placeholder?: string;
+    readOnly?: boolean;
+    maxLength?: number;
+    minLength?: number;
+    icon?: ReactNode;
+    validating?: boolean;
+    disabled?: boolean;
+  } & FlexProps<E> &
+    TransitionProps<E> &
+    PrismaneFieldComponent
+>;
 
 /**
  * A form field component that renders an input element wrapped in a customizable box, with support for icons, labels, errors, and addons.
@@ -69,7 +73,7 @@ export type FieldProps = {
  */
 
 const Field = forwardRef(
-  <E extends Versatile>(
+  <E extends Versatile = "input">(
     {
       variant = "outlined",
       name,
@@ -89,14 +93,16 @@ const Field = forwardRef(
       onChange,
       onFocus,
       onBlur,
-      as = "input",
+      as,
       size = "base",
       children,
       className,
       ...props
-    }: PrismaneVersatile<E, FieldProps>,
-    ref: ForwardedRef<any>
+    }: FieldProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "input";
+
     return (
       <Transition
         as={Flex}
@@ -202,7 +208,7 @@ const Field = forwardRef(
           </Icon>
         )}
         <Box
-          as={as}
+          as={Component}
           bg="transparent"
           fs={variants(size, {
             xs: "xs",

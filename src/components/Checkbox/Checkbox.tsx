@@ -121,7 +121,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
               }
               br="xs"
-              animated={field.value}
+              animated={field.value ? true : false}
               animation={{
                 out: { opacity: 0, transform: "scale(0.8)" },
                 in: { opacity: 1, transform: "scale(1)" },
