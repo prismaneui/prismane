@@ -262,27 +262,33 @@ export type PrismaneStyles<T = string | number> =
       | GlobalStyles
       | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
 
-export interface PrismaneInputTheme {
-  mode?: string;
-  colors?: {
-    primary?: { [x in PrismaneShades]: string };
-    base?: { [x in PrismaneShades]: string };
-  };
-  spacing?: string;
-}
-
-export interface PrismaneMappedTheme {
+export type PrismaneMappedTheme = {
   [key: string]: string;
-}
+};
 
-export interface PrismaneTheme {
+export type PrismaneTheme = {
   mode: string;
   colors: {
     primary: { [x in PrismaneShades]: string };
     base: { [x in PrismaneShades]: string };
   };
   spacing: string;
-}
+  borderRadius: {
+    xs: string;
+    sm: string;
+    base: string;
+    md: string;
+    lg: string;
+    xl: string;
+    "2xl": string;
+  };
+};
+
+type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+
+export type PrismaneInputTheme = DeepPartial<PrismaneTheme>;
 
 export type PrismaneTransitions =
   | "all"

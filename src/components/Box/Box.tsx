@@ -2,6 +2,8 @@ import { forwardRef } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+// Theme
+import { usePrismaneTheme } from "../PrismaneProvider/PrismaneContext";
 // Types
 import {
   PrismaneComponent,
@@ -111,6 +113,8 @@ const Box: BoxComponent = forwardRef(
 
     const { getColorStyle } = usePrismaneColor();
 
+    const { theme } = usePrismaneTheme();
+
     const styles = useStyling({
       width: w,
       height: h,
@@ -129,13 +133,13 @@ const Box: BoxComponent = forwardRef(
       borderRadius:
         br &&
         dual(br, {
-          xs: fr(0.75),
-          sm: fr(1),
-          base: fr(1.5),
-          md: fr(2),
-          lg: fr(2.5),
-          xl: fr(3),
-          "2xl": fr(3.5),
+          xs: theme.borderRadius.xs,
+          sm: theme.borderRadius.sm,
+          base: theme.borderRadius.base,
+          md: theme.borderRadius.md,
+          lg: theme.borderRadius.lg,
+          xl: theme.borderRadius.xl,
+          "2xl": theme.borderRadius["2xl"],
           full: "9999px",
         }),
       minHeight: mih,

@@ -59,6 +59,13 @@ export const mapTheme = (config: PrismaneTheme): PrismaneMappedTheme => {
     "--prismane-colors-base-800": transformColor(config.colors?.base?.["800"]),
     "--prismane-colors-base-900": transformColor(config.colors?.base?.["900"]),
     "--prismane-spacing": config.spacing,
+    "--prismane-border-radius-xs": config.borderRadius.xs,
+    "--prismane-border-radius-sm": config.borderRadius.sm,
+    "--prismane-border-radius-base": config.borderRadius.base,
+    "--prismane-border-radius-md": config.borderRadius.md,
+    "--prismane-border-radius-lg": config.borderRadius.lg,
+    "--prismane-border-radius-xl": config.borderRadius.xl,
+    "--prismane-border-radius-2xl": config.borderRadius["2xl"],
     mode: config.mode,
   };
 };
