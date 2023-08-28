@@ -22,9 +22,7 @@ export type PrismaneVersatile<C extends Versatile, Props = {}> = VersatileProps<
   Props
 > & { ref?: PrismaneVersatileRef<C | React.ElementType> };
 
-export type PrismaneVersatileComponent<Props = {}> = (
-  props: Props
-) => React.ReactNode | null;
+export type PrismaneVersatileComponent<Props = {}> = (props: Props) => any;
 
 export type PrismaneWithInternal<
   Props,

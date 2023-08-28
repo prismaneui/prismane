@@ -20,9 +20,7 @@ export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
   } & TextProps<E>
 >;
 
-type LinkComponent = <E extends Versatile = "a">(
-  props: LinkProps<E>
-) => React.ReactNode | null;
+type LinkComponent = <E extends Versatile = "a">(props: LinkProps<E>) => any;
 
 const Link: LinkComponent = forwardRef(
   <E extends Versatile = "a">(

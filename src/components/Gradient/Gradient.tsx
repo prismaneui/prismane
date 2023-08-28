@@ -23,7 +23,7 @@ export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type GradientComponent = <E extends Versatile = "div">(
   props: GradientProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Gradient: GradientComponent = forwardRef(
   <E extends Versatile = "div">(

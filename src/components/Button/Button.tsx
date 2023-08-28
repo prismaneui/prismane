@@ -34,7 +34,7 @@ export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
 
 type ButtonComponent = <E extends Versatile = "button">(
   props: ButtonProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Button: ButtonComponent = forwardRef(
   <E extends Versatile = "button">(

@@ -17,7 +17,7 @@ export type CenterProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type CenterComponent = <E extends Versatile = "div">(
   props: CenterProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Center: CenterComponent = forwardRef(
   <E extends Versatile = "div">(

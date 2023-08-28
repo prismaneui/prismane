@@ -20,7 +20,7 @@ export type CircleProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type CircleComponent = <E extends Versatile = "div">(
   props: CircleProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Circle: CircleComponent = forwardRef(
   <E extends Versatile = "div">(

@@ -19,7 +19,7 @@ export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type PaperComponent = <E extends Versatile = "div">(
   props: PaperProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Paper: PaperComponent = forwardRef(
   <E extends Versatile = "div">(

@@ -19,9 +19,7 @@ export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   PrismaneComponent
 >;
 
-type BoxComponent = <E extends Versatile = "div">(
-  props: BoxProps<E>
-) => React.ReactNode | null;
+type BoxComponent = <E extends Versatile = "div">(props: BoxProps<E>) => any;
 
 const Box: BoxComponent = forwardRef(
   <E extends Versatile = "div">(

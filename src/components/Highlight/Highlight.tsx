@@ -17,7 +17,7 @@ export type HighlightProps<E extends Versatile = "mark"> = PrismaneVersatile<
 
 type HighlightComponent = <E extends Versatile = "mark">(
   props: HighlightProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Highlight: HighlightComponent = forwardRef(
   <E extends Versatile = "mark">(

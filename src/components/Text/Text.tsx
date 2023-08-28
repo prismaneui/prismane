@@ -14,9 +14,7 @@ export type TextProps<E extends Versatile = "span"> = PrismaneVersatile<
   BoxProps<E>
 >;
 
-type TextComponent = <E extends Versatile = "span">(
-  props: TextProps<E>
-) => React.ReactNode | null;
+type TextComponent = <E extends Versatile = "span">(props: TextProps<E>) => any;
 
 const Text: TextComponent = forwardRef(
   <E extends Versatile = "span">(

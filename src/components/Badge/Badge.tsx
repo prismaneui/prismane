@@ -26,7 +26,7 @@ export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type BadgeComponent = <E extends Versatile = "div">(
   props: BadgeProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Badge: BadgeComponent = forwardRef(
   <E extends Versatile = "div">(

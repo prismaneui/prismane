@@ -20,7 +20,7 @@ export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type SquareComponent = <E extends Versatile = "div">(
   props: SquareProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Square: SquareComponent = forwardRef(
   <E extends Versatile>(

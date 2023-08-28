@@ -31,7 +31,7 @@ export type AvatarProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type AvatarComponent = <E extends Versatile = "div">(
   props: AvatarProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Avatar: AvatarComponent = forwardRef(
   <E extends Versatile = "div">(

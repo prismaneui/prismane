@@ -23,7 +23,7 @@ export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type TransitionComponent = <E extends Versatile = "div">(
   props: TransitionProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Transition: TransitionComponent = forwardRef(
   <E extends Versatile = "div">(

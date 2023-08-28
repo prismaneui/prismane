@@ -34,7 +34,7 @@ export type AnimationProps<E extends Versatile = "div"> = PrismaneVersatile<
 
 type AnimationComponent = <E extends Versatile = "div">(
   props: AnimationProps<E>
-) => React.ReactNode | null;
+) => any;
 
 const Animation: AnimationComponent = forwardRef(
   <E extends Versatile = "div">(
