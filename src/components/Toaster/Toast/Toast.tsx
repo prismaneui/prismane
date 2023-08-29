@@ -6,16 +6,14 @@ import Animation, { AnimationProps } from "../../Animation/Animation";
 import usePresence from "../../../hooks/usePresence";
 // Context
 import { useToasterContext } from "../ToasterContext";
-// Types
-import { PrismaneAnimations } from "../../../types";
 // Utils
 import { strip } from "../../../utils";
 
 export type ToastProps = {
   id?: number;
   timeout?: number;
-} & FlexProps<"div"> &
-  AnimationProps<"div">;
+} & FlexProps &
+  AnimationProps;
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(
   (

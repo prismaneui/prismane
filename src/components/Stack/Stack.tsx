@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../Flex/Flex";
 // Utils
 import { strip, fr } from "../../utils";
 
-export type StackProps = FlexProps<"div">;
+export type StackProps = FlexProps;
 
 const Stack = forwardRef<HTMLDivElement, StackProps>(
   (

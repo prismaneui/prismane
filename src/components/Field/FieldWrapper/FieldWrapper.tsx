@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip, variants, fr } from "../../../utils";
 
-export type FieldWrapperProps = FlexProps<"div">;
+export type FieldWrapperProps = FlexProps;
 
 /**
  * FieldWrapper Params

@@ -9,8 +9,8 @@ import { PrismaneColors } from "../../../types";
 
 export type MenuItemProps = {
   color?: PrismaneColors;
-} & TransitionProps<"div"> &
-  FlexProps<"div">;
+} & TransitionProps &
+  FlexProps;
 
 const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ color = "base", children, className, ...props }, ref) => {

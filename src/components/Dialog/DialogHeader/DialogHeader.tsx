@@ -7,7 +7,7 @@ import { useDialogContext } from "../DialogContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type DialogHeaderProps = FlexProps<"div">;
+export type DialogHeaderProps = FlexProps;
 
 const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
   ({ children, className, ...props }, ref) => {

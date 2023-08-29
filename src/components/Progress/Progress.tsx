@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
@@ -10,8 +10,8 @@ import { strip, fr, dual } from "../../utils";
 export type ProgressProps = {
   value: number;
   size?: PrismaneStyles | PrismaneBreakpoints;
-} & FlexProps<"div"> &
-  TransitionProps<"div">;
+} & FlexProps &
+  TransitionProps;
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   ({ value, size = "base", className, ...props }, ref) => {

@@ -1,17 +1,15 @@
-import { forwardRef, ReactNode } from "react";
+import { forwardRef } from "react";
 // Components
 import Field, { FieldProps } from "../Field/Field";
 import Text from "../Text/Text";
 // Hooks
 import { useFieldProps } from "../Field";
-// Types
-import { PrismaneFieldComponent } from "../../types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip } from "../../utils";
 
 export type NativeSelectFieldProps = {
   options: { value: string; label: string }[];
-} & FieldProps<"input">;
+} & FieldProps;
 
 /**
     NativeSelectField component displays a dropdown menu to select an option from a list.
@@ -36,7 +34,7 @@ const NativeSelectField = forwardRef<
   return (
     <Field.Wrapper {...rest}>
       <Field.Label
-        size={size}
+        size={size as any}
         htmlFor={field.name}
         className="PrismaneNativeSelectField-label"
       >
@@ -45,7 +43,7 @@ const NativeSelectField = forwardRef<
       <Field
         as="select"
         py={0}
-        size={size}
+        size={size as any}
         error={error}
         className={strip(
           `${className ? className : ""} PrismaneNativeSelectField-root`
@@ -70,7 +68,10 @@ const NativeSelectField = forwardRef<
           </Text>
         ))}
       </Field>
-      <Field.Error size={size} className="PrismaneNativeSelectField-error">
+      <Field.Error
+        size={size as any}
+        className="PrismaneNativeSelectField-error"
+      >
         {error}
       </Field.Error>
     </Field.Wrapper>

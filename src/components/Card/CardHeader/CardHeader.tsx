@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type CardHeaderProps = FlexProps<"div">;
+export type CardHeaderProps = FlexProps;
 
 const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className, ...props }, ref) => {

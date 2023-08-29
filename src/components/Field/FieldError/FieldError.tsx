@@ -10,8 +10,8 @@ import { strip, variants, fr } from "../../../utils";
 
 export type FieldErrorProps = {
   size?: PrismaneBreakpoints;
-} & AnimationProps<"div"> &
-  FlexProps<"div">;
+} & AnimationProps &
+  FlexProps;
 
 const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
   ({ size = "base", children, className, ...props }, ref) => {

@@ -1,7 +1,6 @@
 import { forwardRef, useRef, useEffect, useState } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Box, { BoxProps } from "../../Box/Box";
+import Box from "../../Box/Box";
 import Animation, { AnimationProps } from "../../Animation/Animation";
 // Context
 import { useAccordionContext } from "../AccordionContext";
@@ -9,7 +8,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type AccordionPanelProps = FlexProps<"div"> & AnimationProps<"div">;
+export type AccordionPanelProps = AnimationProps;
 
 const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
   ({ children, className, ...props }, ref) => {
@@ -32,7 +31,7 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
     return (
       <Animation
         px={fr(6)}
-        py={open && fr(2)}
+        py={open ? fr(2) : undefined}
         of="hidden"
         bs="content-box"
         animation={{

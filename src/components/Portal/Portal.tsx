@@ -8,7 +8,7 @@ import { strip } from "../../utils";
 export type PortalProps = {
   target?: React.RefObject<HTMLElement> | null;
   disabled?: boolean;
-} & BoxProps<"div">;
+} & BoxProps;
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
   ({ target, disabled = false, className, children, ...props }, ref) => {

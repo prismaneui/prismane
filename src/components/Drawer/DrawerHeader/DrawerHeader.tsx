@@ -7,7 +7,7 @@ import { useDrawerContext } from "../DrawerContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type DrawerHeaderProps = FlexProps<"div">;
+export type DrawerHeaderProps = FlexProps;
 
 const DrawerHeader = forwardRef<HTMLDivElement, DrawerHeaderProps>(
   ({ children, className, ...props }, ref) => {

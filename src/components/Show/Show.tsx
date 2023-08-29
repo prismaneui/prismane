@@ -10,7 +10,7 @@ import { strip, dual, fr } from "../../utils";
 
 export type ShowProps = {
   breakpoint?: PrismaneBreakpoints | string;
-} & BoxProps<"div">;
+} & BoxProps;
 
 const Show = forwardRef<HTMLDivElement, ShowProps>(
   ({ breakpoint = "base", children, className, ...props }, ref) => {

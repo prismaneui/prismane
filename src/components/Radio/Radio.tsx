@@ -21,9 +21,7 @@ import RadioGroup, { RadioGroupProps } from "./RadioGroup/RadioGroup";
 
 export { type RadioGroupProps };
 
-export type RadioProps = FlexProps<"div"> &
-  TransitionProps<"div"> &
-  PrismaneFieldComponent;
+export type RadioProps = FlexProps & TransitionProps & PrismaneFieldComponent;
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (
@@ -58,7 +56,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           align="center"
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
-          pe={field.disabled && "none"}
+          pe={field.disabled ? "none" : undefined}
           htmlFor={`${group.name || name}-${uuid}`}
         >
           <Transition
@@ -122,9 +120,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 value={value}
                 defaultValue={defaultValue}
                 data-testid="prismane-radio"
+                name={group.name || name}
+                size={size as any}
                 ref={ref}
                 {...field}
-                name={group.name || name}
               />
             </Hidden>
             <Animation
@@ -143,7 +142,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 lg: fr(3.5),
               })}
               br="full"
-              bg={(value === group.value || !group.value) && "white"}
+              bg={value === group.value || !group.value ? "white" : undefined}
               sx={{
                 aspectRatio: "1/1",
               }}

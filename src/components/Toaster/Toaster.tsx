@@ -12,7 +12,7 @@ import Toast from "./Toast/Toast";
 
 export type ToasterProps = {
   position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
   ({ position = "bottom-right", className, children, ...props }, ref) => {

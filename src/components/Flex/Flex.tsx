@@ -1,26 +1,37 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneStyles, Versatile } from "../../types";
+import {
+  PrismaneStyles,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip, variants } from "../../utils";
 
-export type FlexProps<E extends Versatile> = {
-  justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-  align?: "start" | "end" | "center" | "baseline" | "stretch";
-  gap?: PrismaneStyles;
-  direction?: "row" | "row-reverse" | "column" | "column-reverse";
-  self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
-  basis?: PrismaneStyles;
-  grow?: boolean;
-  shrink?: boolean;
-  wrap?: "wrap" | "wrap-reverse" | "nowrap";
-} & BoxProps<E>;
+export type FlexProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
+    align?: "start" | "end" | "center" | "baseline" | "stretch";
+    gap?: PrismaneStyles;
+    direction?: "row" | "row-reverse" | "column" | "column-reverse";
+    self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
+    basis?: PrismaneStyles;
+    grow?: boolean;
+    shrink?: boolean;
+    wrap?: "wrap" | "wrap-reverse" | "nowrap";
+  } & BoxProps<E>
+>;
 
-const Flex = forwardRef(
-  <E extends Versatile>(
+type FlexComponent = <E extends Versatile = "div">(props: FlexProps<E>) => any;
+
+const Flex: FlexComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
+      as,
       justify,
       align,
       gap,
@@ -35,10 +46,13 @@ const Flex = forwardRef(
       sx,
       ...props
     }: FlexProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Box
+        as={Component}
         dp="flex"
         sx={{
           justifyContent: variants(justify, {

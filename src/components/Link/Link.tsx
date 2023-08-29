@@ -1,36 +1,47 @@
-import { ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Text, { TextProps } from "../Text/Text";
 // Types
-import { Versatile } from "../../types";
+import {
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type LinkProps<E extends Versatile> = {
-  before?: Function;
-  underline?: "none" | "hover" | "always";
-  href: string;
-  foreign?: boolean;
-} & TextProps<E>;
+export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
+  E,
+  {
+    before?: Function;
+    underline?: "none" | "hover" | "always";
+    href: string;
+    foreign?: boolean;
+  } & TextProps<E>
+>;
 
-const Link = forwardRef(
-  <E extends Versatile>(
+type LinkComponent = <E extends Versatile = "a">(props: LinkProps<E>) => any;
+
+const Link: LinkComponent = forwardRef(
+  <E extends Versatile = "a">(
     {
       before,
       underline = "hover",
       href,
       foreign,
-      as = "a",
+      as,
       children,
       className,
       sx,
       ...props
     }: LinkProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "a";
+
     return (
       <Text
-        as={as}
+        as={Component}
         href={href}
         target={foreign ? "_blank" : "_self"}
         dp="flex"

@@ -9,7 +9,7 @@ export type DividerProps = {
   size?: PrismaneBreakpoints;
   orientation?: "horizontal" | "vertical";
   variant?: "solid" | "dotted" | "dashed";
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Divider = forwardRef<HTMLDivElement, DividerProps>(
   (

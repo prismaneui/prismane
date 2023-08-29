@@ -7,21 +7,34 @@ import Flex from "../Flex/Flex";
 import Icon from "../Icon/Icon";
 import Image from "../Image/Image";
 // Types
-import { Versatile, PrismaneColors, PrismaneBreakpoints } from "../../types";
+import {
+  PrismaneColors,
+  PrismaneBreakpoints,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type AvatarProps<E extends Versatile> = {
-  src?: string;
-  srcSet?: string;
-  alt?: string;
-  sizes?: string;
-  color?: PrismaneColors;
-  size?: PrismaneBreakpoints;
-} & CircleProps<E>;
+export type AvatarProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  {
+    src?: string;
+    srcSet?: string;
+    alt?: string;
+    sizes?: string;
+    color?: PrismaneColors;
+    size?: PrismaneBreakpoints;
+  } & CircleProps<E>
+>;
 
-const Avatar = forwardRef(
-  <E extends Versatile>(
+type AvatarComponent = <E extends Versatile = "div">(
+  props: AvatarProps<E>
+) => any;
+
+const Avatar: AvatarComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       src,
       srcSet,
@@ -29,19 +42,23 @@ const Avatar = forwardRef(
       sizes,
       color,
       size = "base",
+      as,
       children,
       className,
       sx,
       ...props
     }: AvatarProps<E>,
-    ref: ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
     const isImage = src
       ? /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(src)
       : false;
 
+    const Component = as || "div";
+
     return (
       <Circle
+        as={Component}
         size={variants(size, {
           xs: fr(8),
           sm: fr(12),
@@ -85,7 +102,7 @@ const Avatar = forwardRef(
               <Flex
                 h="fit-content"
                 justify="center"
-                items="center"
+                align="center"
                 cl={(theme) =>
                   theme.mode === "dark"
                     ? [color || "base", 300]

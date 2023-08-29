@@ -1,9 +1,13 @@
-import { forwardRef, ForwardedRef, ReactNode } from "react";
+import { forwardRef, ForwardedRef } from "react";
 // Component
 import Paper, { PaperProps } from "../Paper/Paper";
-import Flex from "../Flex/Flex";
 // Types
-import { Versatile, PrismaneWithInternal } from "../../types";
+import {
+  PrismaneWithInternal,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
@@ -13,7 +17,10 @@ import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
 
 export { type CardHeaderProps, type CardFooterProps };
 
-export type CardProps<E extends Versatile> = PaperProps<E>;
+export type CardProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  PaperProps<E>
+>;
 
 /**
  * Card Props
@@ -27,12 +34,15 @@ export type CardProps<E extends Versatile> = PaperProps<E>;
  */
 
 const Card = forwardRef(
-  <E extends Versatile>(
-    { children, className, ...props }: CardProps<E>,
-    ref: ForwardedRef<any>
+  <E extends Versatile = "div">(
+    { as, children, className, ...props }: CardProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "div";
+
     return (
       <Paper
+        as={Component}
         p={fr(5)}
         className={strip(`${className ? className : ""} PrismaneCard-root`)}
         shadow

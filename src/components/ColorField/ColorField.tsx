@@ -56,11 +56,11 @@ const ColorField = forwardRef<
         addons={
           props.value && (
             <Field.Addon position="left">
-              <Circle bg={props.value} size={fr(5)} />
+              <Circle bg={props.value as string} size={fr(5)} />
             </Field.Addon>
           )
         }
-        size={size}
+        size={size as any}
         item={(chosen, value, label, active) => (
           <Transition
             duration={100}
@@ -77,14 +77,14 @@ const ColorField = forwardRef<
                       : "transparent",
                     { hover: !chosen && ["base", 700, 0.4] },
                   ]
-                : [
+                : ([
                     chosen
                       ? ["base", 500, 0.3]
                       : active
                       ? ["base", 500, 0.2]
                       : "transparent",
                     { hover: !chosen && ["base", 500, 0.2] },
-                  ]
+                  ] as any)
             }
           >
             <Circle bg={value} size={fr(6)} />

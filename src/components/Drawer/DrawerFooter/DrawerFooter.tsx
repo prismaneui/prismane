@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type DrawerFooterProps = FlexProps<"div">;
+export type DrawerFooterProps = FlexProps;
 
 const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
   ({ children, className, ...props }, ref) => {

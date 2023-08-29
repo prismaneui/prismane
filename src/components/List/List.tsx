@@ -2,7 +2,12 @@ import { forwardRef, ForwardedRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { Versatile, PrismaneWithInternal } from "../../types";
+import {
+  PrismaneWithInternal,
+  Versatile,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -21,16 +26,21 @@ export {
   type ListIconProps,
 };
 
-export type ListProps<E extends Versatile> = FlexProps<E>;
+export type ListProps<E extends Versatile = "ul"> = PrismaneVersatile<
+  E,
+  FlexProps<E>
+>;
 
 const List = forwardRef(
-  <E extends Versatile>(
-    { gap = 0, as = "ul", children, className, sx, ...props }: ListProps<E>,
-    ref: ForwardedRef<any>
+  <E extends Versatile = "ul">(
+    { gap = 0, as, children, className, sx, ...props }: ListProps<E>,
+    ref: PrismaneVersatileRef<E>
   ) => {
+    const Component = as || "ul";
+
     return (
       <Flex
-        as={as}
+        as={Component}
         direction="column"
         gap={gap}
         className={strip(`${className ? className : ""} PrismaneList-root`)}

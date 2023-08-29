@@ -1,16 +1,28 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 // Hooks
 import useStyling from "../../hooks/useStyling";
 import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+// Theme
+import { usePrismaneTheme } from "../PrismaneProvider/PrismaneContext";
 // Types
-import { PrismaneVersatile, Versatile } from "../../types";
+import {
+  PrismaneComponent,
+  PrismaneVersatile,
+  Versatile,
+  PrismaneVersatileRef,
+} from "../../types";
 // Utils
 import { strip, dual, variants, fr } from "../../utils";
 
-export type BoxProps<E extends Versatile> = {} & PrismaneVersatile<E>;
+export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
+  E,
+  PrismaneComponent
+>;
 
-const Box = forwardRef(
-  <E extends Versatile>(
+type BoxComponent = <E extends Versatile = "div">(props: BoxProps<E>) => any;
+
+const Box: BoxComponent = forwardRef(
+  <E extends Versatile = "div">(
     {
       as,
       w,
@@ -93,11 +105,13 @@ const Box = forwardRef(
       className,
       ...props
     }: BoxProps<E>,
-    ref: React.ForwardedRef<any>
+    ref: PrismaneVersatileRef<E>
   ) => {
-    const El = as || "div";
+    const El = as ?? "div";
 
     const { getColorStyle } = usePrismaneColor();
+
+    const { theme } = usePrismaneTheme();
 
     const styles = useStyling({
       width: w,
@@ -117,13 +131,13 @@ const Box = forwardRef(
       borderRadius:
         br &&
         dual(br, {
-          xs: fr(0.75),
-          sm: fr(1),
-          base: fr(1.5),
-          md: fr(2),
-          lg: fr(2.5),
-          xl: fr(3),
-          "2xl": fr(3.5),
+          xs: theme.borderRadius.xs,
+          sm: theme.borderRadius.sm,
+          base: theme.borderRadius.base,
+          md: theme.borderRadius.md,
+          lg: theme.borderRadius.lg,
+          xl: theme.borderRadius.xl,
+          "2xl": theme.borderRadius["2xl"],
           full: "9999px",
         }),
       minHeight: mih,

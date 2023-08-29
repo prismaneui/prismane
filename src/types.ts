@@ -1,30 +1,35 @@
 import React from "react";
 
-export type Versatile =
-  | keyof JSX.IntrinsicElements
-  | React.JSXElementConstructor<any>;
+export type Versatile = React.ElementType;
 
-type ElementProps<E extends Versatile> = E extends keyof JSX.IntrinsicElements
-  ? JSX.IntrinsicElements[E] &
-      Omit<React.ComponentPropsWithRef<E>, keyof JSX.IntrinsicElements[E]> &
-      React.RefAttributes<E>
-  : Omit<React.ComponentPropsWithRef<E>, keyof JSX.IntrinsicElements> &
-      React.RefAttributes<E>;
+export type PrismaneVersatileRef<C extends Versatile> =
+  React.ComponentPropsWithRef<C>["ref"];
 
-export type PrismaneVersatile<E extends Versatile> = {
-  as?: Versatile;
-} & ElementProps<E> &
-  PrismaneComponent;
+export type AsProp<C extends Versatile> = {
+  as?: C | React.ElementType;
+};
+
+type PropsToOmit<C extends Versatile, P> = keyof (AsProp<C> & P);
+
+export type VersatileProps<
+  C extends Versatile,
+  Props = {}
+> = React.PropsWithChildren<Props & AsProp<C>> &
+  Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+
+export type PrismaneVersatile<C extends Versatile, Props = {}> = VersatileProps<
+  C,
+  Props
+> & { ref?: PrismaneVersatileRef<C | React.ElementType> };
+
+export type PrismaneVersatileComponent<Props = {}> = (props: Props) => any;
 
 export type PrismaneWithInternal<
   Props,
   Internal extends Record<string, any>
-> = React.ForwardRefExoticComponent<Omit<Props, "ref">> &
-  React.RefAttributes<any> & {
-    [K in keyof Internal]:
-      | React.ForwardRefExoticComponent<Omit<Internal[K], "ref">> &
-          React.RefAttributes<any>;
-  };
+> = React.ForwardRefExoticComponent<Props> & {
+  [K in keyof Internal]: React.ForwardRefExoticComponent<Internal[K]>;
+};
 
 export interface PrismaneFieldComponent extends PrismaneComponent {
   name?: string;
@@ -36,6 +41,7 @@ export interface PrismaneFieldComponent extends PrismaneComponent {
   size?: PrismaneBreakpoints;
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface PrismaneDefault {
@@ -56,10 +62,16 @@ export interface PrismaneDefault {
   pb?: PrismaneStyles;
   pl?: PrismaneStyles;
   cl?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bg?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   br?: PrismaneStyles<PrismaneBreakpoints | "xl" | "2xl" | string | number>;
   mih?: PrismaneStyles;
@@ -153,43 +165,64 @@ export interface PrismaneDefault {
   bdw?: PrismaneStyles;
   bds?: PrismaneStyles;
   bdc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdt?: PrismaneStyles;
   bdtw?: PrismaneStyles;
   bdts?: PrismaneStyles;
   bdtc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdr?: PrismaneStyles;
   bdrw?: PrismaneStyles;
   bdrs?: PrismaneStyles;
   bdrc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdb?: PrismaneStyles;
   bdbw?: PrismaneStyles;
   bdbs?: PrismaneStyles;
   bdbc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdl?: PrismaneStyles;
   bdlw?: PrismaneStyles;
   bdls?: PrismaneStyles;
   bdlc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdx?: PrismaneStyles;
   bdxw?: PrismaneStyles;
   bdxs?: PrismaneStyles;
   bdxc?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   bdy?: PrismaneStyles;
   bdyw?: PrismaneStyles;
   bdyc?: PrismaneStyles;
   bdys?: PrismaneStyles<
-    PrismaneColors | [PrismaneColors, PrismaneShades] | string
+    | PrismaneColors
+    | [PrismaneColors, PrismaneShades]
+    | [PrismaneColors, PrismaneShades, number]
+    | string
   >;
   ft?: PrismaneStyles<string>;
   bft?: PrismaneStyles<string>;
@@ -219,29 +252,41 @@ type GlobalStyles = "inherit" | "initial" | "revert" | "revert-layer" | "unset";
 export type PrismaneStyles<T = string | number> =
   | T
   | GlobalStyles
-  | ((theme: PrismaneTheme) => T | GlobalStyles);
+  | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]
+  | ((
+      theme: PrismaneTheme
+    ) =>
+      | T
+      | GlobalStyles
+      | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
 
-export interface PrismaneInputTheme {
-  mode?: "light" | "dark";
-  colors?: {
-    primary?: { [x in PrismaneShades]: string };
-    base?: { [x in PrismaneShades]: string };
-  };
-  spacing?: string;
-}
-
-export interface PrismaneMappedTheme {
+export type PrismaneMappedTheme = {
   [key: string]: string;
-}
+};
 
-export interface PrismaneTheme {
-  mode: "light" | "dark";
+export type PrismaneTheme = {
+  mode: string;
   colors: {
     primary: { [x in PrismaneShades]: string };
     base: { [x in PrismaneShades]: string };
   };
   spacing: string;
-}
+  borderRadius: {
+    xs: string;
+    sm: string;
+    base: string;
+    md: string;
+    lg: string;
+    xl: string;
+    "2xl": string;
+  };
+};
+
+type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+
+export type PrismaneInputTheme = DeepPartial<PrismaneTheme>;
 
 export type PrismaneTransitions =
   | "all"

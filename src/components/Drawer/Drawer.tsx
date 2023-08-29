@@ -26,8 +26,8 @@ export type DrawerProps = {
   open?: boolean;
   closable?: boolean;
   onClose?: Function;
-} & AnimationProps<"div"> &
-  PaperProps<"div">;
+} & AnimationProps &
+  PaperProps;
 
 const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   (

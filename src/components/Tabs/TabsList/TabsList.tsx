@@ -6,7 +6,7 @@ import { useTabsContext } from "../TabsContext";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type TabsListProps = FlexProps<"div">;
+export type TabsListProps = FlexProps;
 
 const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   ({ children, className, ...props }, ref) => {
@@ -21,7 +21,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         ref={ref}
         {...props}
       >
-        <Flex gap={tabs.variant === "filled" && fr(2)} z={200}>
+        <Flex gap={tabs.variant === "filled" ? fr(2) : undefined} z={200}>
           {children}
         </Flex>
         {tabs.variant === "underlined" && (

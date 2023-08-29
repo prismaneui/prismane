@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import { Check, Minus } from "@phosphor-icons/react";
 // Components
-import Animation from "../Animation/Animation";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Field from "../Field/Field";
+import Animation from "../Animation/Animation";
 import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
@@ -13,8 +13,8 @@ import { PrismaneFieldComponent } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type CheckboxProps = { indeterminate?: boolean } & FlexProps<"div"> &
-  TransitionProps<"div"> &
+export type CheckboxProps = { indeterminate?: boolean } & FlexProps &
+  TransitionProps &
   PrismaneFieldComponent;
 
 /**
@@ -47,7 +47,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           align="center"
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
-          pe={field.disabled && "none"}
+          pe={field.disabled ? "none" : undefined}
           htmlFor={field.name}
         >
           <Transition
@@ -100,13 +100,14 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 type="checkbox"
                 data-testid="prismane-checkbox"
                 ref={ref}
+                size={field.size as any}
                 {...field}
               />
             </Hidden>
             <Animation
               as={Flex}
-              justify="center"
               align="center"
+              justify="center"
               w="100%"
               h="100%"
               fs={variants(size, {
@@ -121,12 +122,12 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
               }
               br="xs"
-              className="PrismaneCheckbox-thumb"
-              animated={field.value}
+              animated={field.value ? true : false}
               animation={{
                 out: { opacity: 0, transform: "scale(0.8)" },
                 in: { opacity: 1, transform: "scale(1)" },
               }}
+              className="PrismaneCheckbox-thumb"
             >
               {indeterminate ? (
                 <Minus weight="bold" />

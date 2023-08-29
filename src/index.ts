@@ -10,4 +10,8 @@ export type {
   PrismaneShades,
   PrismaneColors,
   PrismaneFieldComponent,
+  PrismaneVersatile,
+  PrismaneVersatileRef,
+  Versatile,
+  PrismaneWithInternal,
 } from "./types";

@@ -22,7 +22,7 @@ export { type PopoverControlProps, type PopoverPanelProps };
 
 export type PopoverProps = {
   position?: PrismanePositions;
-} & PaperProps<"div">;
+} & PaperProps;
 
 const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   ({ children, position = "bottom", className, sx, ...props }, ref) => {

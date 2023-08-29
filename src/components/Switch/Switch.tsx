@@ -12,9 +12,7 @@ import { PrismaneFieldComponent } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type SwitchProps = PrismaneFieldComponent &
-  FlexProps<"label"> &
-  TransitionProps<"label">;
+export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 
 /**
  * Switch Params
@@ -36,7 +34,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             as="label"
             pos="relative"
             op={field.disabled ? 0.4 : 1}
-            pe={field.disabled && "none"}
+            pe={field.disabled ? "none" : undefined}
             w={variants(size, {
               xs: fr(7.5),
               sm: fr(8.5),
@@ -78,6 +76,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
               <Field
                 type="checkbox"
                 data-testid="prismane-switch"
+                size={size as any}
                 ref={ref}
                 {...field}
               />

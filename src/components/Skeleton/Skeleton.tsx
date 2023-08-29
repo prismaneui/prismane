@@ -6,7 +6,7 @@ import { strip, fr, variants } from "../../utils";
 
 export type SkeletonProps = {
   variant: "circular" | "rounded" | "rectangular";
-} & FlexProps<"div">;
+} & FlexProps;
 
 const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   ({ variant = "rounded", className, sx, ...props }, ref) => {

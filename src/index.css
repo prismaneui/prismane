@@ -239,8 +239,7 @@ select:focus {
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-box-shadow: inset 0 0 0px 9999px white;
-  box-shadow: inset 0 0 0px 9999px white;
+  -webkit-background-clip: text;
 }
 
 .dark input[type="date"]::-webkit-calendar-picker-indicator {

@@ -9,7 +9,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
 import { strip } from "../../../utils";
 
-export type AccordionIconProps = FlexProps<"div">;
+export type AccordionIconProps = FlexProps;
 
 const AccordionIcon = forwardRef<HTMLDivElement, AccordionIconProps>(
   ({ children, className, ...props }, ref) => {

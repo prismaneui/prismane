@@ -4,7 +4,7 @@ import Center, { CenterProps } from "../Center/Center";
 // Utils
 import { strip } from "../../utils";
 
-export type BackdropProps = CenterProps<"div">;
+export type BackdropProps = CenterProps;
 
 const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
   ({ children, className, ...props }, ref) => {
