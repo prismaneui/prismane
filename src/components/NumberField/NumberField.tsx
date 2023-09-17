@@ -7,14 +7,18 @@ import Transition from "../Transition/Transition";
 // Hooks
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
-
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
-export type NumberFieldProps = {
-  min?: number;
-  max?: number;
-} & FieldProps;
+export type NumberFieldProps = PrismaneProps<
+  {
+    min?: number;
+    max?: number;
+  },
+  FieldProps
+>;
 
 /**
     A component for rendering a password input field with an eye icon to toggle visibility.

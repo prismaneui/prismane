@@ -5,12 +5,14 @@ import Transition, { TransitionProps } from "../../Transition/Transition";
 // Utils
 import { strip, fr } from "../../../utils";
 // Types
-import { PrismaneColors } from "../../../types";
+import { PrismaneColors, PrismaneProps } from "../../../types";
 
-export type MenuItemProps = {
-  color?: PrismaneColors;
-} & TransitionProps &
-  FlexProps;
+export type MenuItemProps = PrismaneProps<
+  {
+    color?: PrismaneColors;
+  },
+  TransitionProps & FlexProps
+>;
 
 const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ color = "base", children, className, ...props }, ref) => {

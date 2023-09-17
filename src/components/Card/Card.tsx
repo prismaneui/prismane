@@ -19,7 +19,7 @@ export { type CardHeaderProps, type CardFooterProps };
 
 export type CardProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  PaperProps<E>
+  PaperProps
 >;
 
 /**

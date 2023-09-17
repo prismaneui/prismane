@@ -12,6 +12,7 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
@@ -31,18 +32,19 @@ export {
 
 export type FieldProps<E extends Versatile = "input"> = PrismaneVersatile<
   E,
-  {
-    type?: string;
-    placeholder?: string;
-    readOnly?: boolean;
-    maxLength?: number;
-    minLength?: number;
-    icon?: ReactNode;
-    validating?: boolean;
-    disabled?: boolean;
-  } & FlexProps<E> &
-    TransitionProps<E> &
-    PrismaneFieldComponent
+  PrismaneProps<
+    {
+      type?: string;
+      placeholder?: string;
+      readOnly?: boolean;
+      maxLength?: number;
+      minLength?: number;
+      icon?: ReactNode;
+      validating?: boolean;
+      disabled?: boolean;
+    },
+    FlexProps & TransitionProps & PrismaneFieldComponent
+  >
 >;
 
 /**

@@ -3,13 +3,18 @@ import { forwardRef } from "react";
 import Field, { FieldProps } from "../Field/Field";
 // Hooks
 import { useFieldProps } from "../Field";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip, fr, variants } from "../../utils";
 
-export type TextFieldProps = {
-  prefix?: string;
-  suffix?: string;
-} & FieldProps;
+export type TextFieldProps = PrismaneProps<
+  {
+    prefix?: string;
+    suffix?: string;
+  },
+  FieldProps
+>;
 
 /**
     A component for rendering a text input field.

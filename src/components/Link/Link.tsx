@@ -6,18 +6,22 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
 export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
   E,
-  {
-    before?: Function;
-    underline?: "none" | "hover" | "always";
-    href: string;
-    foreign?: boolean;
-  } & TextProps<E>
+  PrismaneProps<
+    {
+      before?: Function;
+      underline?: "none" | "hover" | "always";
+      href: string;
+      foreign?: boolean;
+    },
+    TextProps
+  >
 >;
 
 type LinkComponent = <E extends Versatile = "a">(props: LinkProps<E>) => any;

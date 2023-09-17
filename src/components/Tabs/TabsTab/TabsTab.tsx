@@ -4,10 +4,15 @@ import Flex, { FlexProps } from "../../Flex/Flex";
 import Transition, { TransitionProps } from "../../Transition/Transition";
 // Context
 import { useTabsContext } from "../TabsContext";
+// Types
+import { PrismaneProps } from "../../../types";
 // Utils
 import { strip, variants, fr } from "../../../utils";
 
-export type TabsTabProps = { value: string } & FlexProps & TransitionProps;
+export type TabsTabProps = PrismaneProps<
+  { value: string },
+  FlexProps & TransitionProps
+>;
 
 const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
   ({ value, children, className, ...props }, ref) => {

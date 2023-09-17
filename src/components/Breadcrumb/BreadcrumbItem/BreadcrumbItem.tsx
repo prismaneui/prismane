@@ -12,7 +12,7 @@ import {
 import { strip } from "../../../utils";
 
 export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
-  PrismaneVersatile<E, FlexProps<E>>;
+  PrismaneVersatile<E, FlexProps>;
 
 const BreadcrumbItem = forwardRef(
   <E extends Versatile = typeof Link>(

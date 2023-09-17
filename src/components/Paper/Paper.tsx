@@ -6,15 +6,19 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
 export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    shadow?: boolean;
-  } & FlexProps<E>
+  PrismaneProps<
+    {
+      shadow?: boolean;
+    },
+    FlexProps
+  >
 >;
 
 type PaperComponent = <E extends Versatile = "div">(

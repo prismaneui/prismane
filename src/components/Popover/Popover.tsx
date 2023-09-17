@@ -8,7 +8,11 @@ import { PopoverContextProvider } from "./PopoverContext";
 // Hooks
 import useOutsideClick from "../../hooks/useOutsideClick";
 // Types
-import { PrismanePositions, PrismaneWithInternal } from "../../types";
+import {
+  PrismanePositions,
+  PrismaneProps,
+  PrismaneWithInternal,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
@@ -20,9 +24,12 @@ import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel/PopoverPanel";
 
 export { type PopoverControlProps, type PopoverPanelProps };
 
-export type PopoverProps = {
-  position?: PrismanePositions;
-} & PaperProps;
+export type PopoverProps = PrismaneProps<
+  {
+    position?: PrismanePositions;
+  },
+  PaperProps
+>;
 
 const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   ({ children, position = "bottom", className, sx, ...props }, ref) => {

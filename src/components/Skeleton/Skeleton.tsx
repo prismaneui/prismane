@@ -5,7 +5,7 @@ import Flex, { FlexProps } from "../Flex/Flex";
 import { strip, fr, variants } from "../../utils";
 
 export type SkeletonProps = {
-  variant: "circular" | "rounded" | "rectangular";
+  variant?: "circular" | "rounded" | "rectangular";
 } & FlexProps;
 
 const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(

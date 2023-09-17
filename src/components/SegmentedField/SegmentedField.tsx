@@ -8,16 +8,19 @@ import Text from "../Text/Text";
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../types";
 // Utils
 import { variants, fr } from "../../utils";
 
-export type SegmentedFieldProps = {
-  options?: {
-    element: ReactNode;
-    value: string;
-  }[];
-} & FieldProps;
+export type SegmentedFieldProps = PrismaneProps<
+  {
+    options?: {
+      element: ReactNode;
+      value: string;
+    }[];
+  },
+  FieldProps
+>;
 
 const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
   ({ options = [], label, error, size = "base", sx, ...props }, ref) => {

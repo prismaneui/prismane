@@ -11,7 +11,7 @@ import { strip } from "../../utils";
 
 export type TextProps<E extends Versatile = "span"> = PrismaneVersatile<
   E,
-  BoxProps<E>
+  BoxProps
 >;
 
 type TextComponent = <E extends Versatile = "span">(props: TextProps<E>) => any;

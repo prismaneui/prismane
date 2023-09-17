@@ -10,18 +10,22 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
 export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    label?: ReactNode;
-    position?: PrismanePositions;
-    color?: PrismaneColors;
-    size?: PrismaneBreakpoints;
-  } & CenterProps<E>
+  PrismaneProps<
+    {
+      label?: ReactNode;
+      position?: PrismanePositions;
+      color?: PrismaneColors;
+      size?: PrismaneBreakpoints;
+    },
+    CenterProps
+  >
 >;
 
 type BadgeComponent = <E extends Versatile = "div">(

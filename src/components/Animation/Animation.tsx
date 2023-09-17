@@ -8,6 +8,7 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
@@ -23,13 +24,13 @@ export interface Animations {
 
 export type AnimationProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    animation?: PrismaneAnimations | Animation;
-    transition?: PrismaneTransitions | string;
-    duration?: number;
-    animated?: boolean;
-    delay?: number;
-  } & TransitionProps<E>
+  PrismaneProps<
+    {
+      animation?: PrismaneAnimations | Animation;
+      animated?: boolean;
+    },
+    TransitionProps
+  >
 >;
 
 type AnimationComponent = <E extends Versatile = "div">(
@@ -40,9 +41,9 @@ const Animation: AnimationComponent = forwardRef(
   <E extends Versatile = "div">(
     {
       animation = "fade",
-      transition = "all",
-      duration = 150,
-      delay = 0,
+      transition,
+      duration,
+      delay,
       timing = "ease-in-out",
       animated = true,
       className,

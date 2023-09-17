@@ -16,7 +16,8 @@
     "jsx": "react-jsx",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "noErrorTruncation": true
   },
   "include": ["src", "./custom.d.ts"],
   "exclude": ["node_modules"]

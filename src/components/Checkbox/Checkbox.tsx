@@ -9,13 +9,14 @@ import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 // Types
-import { PrismaneFieldComponent } from "../../types";
+import { PrismaneFieldComponent, PrismaneProps } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type CheckboxProps = { indeterminate?: boolean } & FlexProps &
-  TransitionProps &
-  PrismaneFieldComponent;
+export type CheckboxProps = PrismaneProps<
+  { indeterminate?: boolean },
+  FlexProps & TransitionProps & PrismaneFieldComponent
+>;
 
 /**
  * Checkbox Params

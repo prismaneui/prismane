@@ -1,17 +1,18 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef } from "react";
 // Components
-import Box from "../../Box/Box";
 import Flex, { FlexProps } from "../../Flex/Flex";
 import Animation, { AnimationProps } from "../../Animation/Animation";
 // Types
-import { PrismaneBreakpoints } from "../../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../../types";
 // Utils
 import { strip, variants, fr } from "../../../utils";
 
-export type FieldErrorProps = {
-  size?: PrismaneBreakpoints;
-} & AnimationProps &
-  FlexProps;
+export type FieldErrorProps = PrismaneProps<
+  {
+    size?: PrismaneBreakpoints;
+  },
+  AnimationProps & FlexProps
+>;
 
 const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
   ({ size = "base", children, className, ...props }, ref) => {

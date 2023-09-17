@@ -6,13 +6,18 @@ import Hidden from "../Hidden/Hidden";
 // Hooks
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { fr } from "../../utils";
 
-export type PinFieldProps = {
-  length?: number;
-  masked?: boolean;
-} & FieldProps;
+export type PinFieldProps = PrismaneProps<
+  {
+    length?: number;
+    masked?: boolean;
+  },
+  FieldProps
+>;
 
 /**
     A component for rendering a text input field.

@@ -28,7 +28,7 @@ export {
 
 export type ListProps<E extends Versatile = "ul"> = PrismaneVersatile<
   E,
-  FlexProps<E>
+  FlexProps
 >;
 
 const List = forwardRef(

@@ -5,17 +5,23 @@ import Transition, { TransitionProps } from "../Transition/Transition";
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
 // Types
-import { PrismaneColors, PrismaneBreakpoints } from "../../types";
+import {
+  PrismaneColors,
+  PrismaneBreakpoints,
+  PrismaneProps,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type ChipProps = {
-  icon?: ReactNode;
-  iconPosition?: "left" | "right";
-  color?: PrismaneColors;
-  size?: PrismaneBreakpoints;
-} & FlexProps &
-  TransitionProps;
+export type ChipProps = PrismaneProps<
+  {
+    icon?: ReactNode;
+    iconPosition?: "left" | "right";
+    color?: PrismaneColors;
+    size?: PrismaneBreakpoints;
+  },
+  FlexProps & TransitionProps
+>;
 
 const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (

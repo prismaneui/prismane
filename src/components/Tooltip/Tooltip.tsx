@@ -12,17 +12,20 @@ import {
   PrismanePositions,
   PrismaneBreakpoints,
   PrismaneColors,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type TooltipProps = {
-  label?: ReactNode;
-  position?: PrismanePositions;
-  size?: PrismaneBreakpoints;
-  color?: PrismaneColors;
-} & AnimationProps &
-  FlexProps;
+export type TooltipProps = PrismaneProps<
+  {
+    label?: ReactNode;
+    position?: PrismanePositions;
+    size?: PrismaneBreakpoints;
+    color?: PrismaneColors;
+  },
+  AnimationProps & FlexProps
+>;
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (

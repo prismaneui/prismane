@@ -13,7 +13,11 @@ import CloseButton from "../CloseButton/CloseButton";
 import useAnimation from "../../hooks/useAnimation";
 import usePresence from "../../hooks/usePresence";
 // Types
-import { PrismaneActions, PrismaneWithInternal } from "../../types";
+import {
+  PrismaneActions,
+  PrismaneWithInternal,
+  PrismaneProps,
+} from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
@@ -25,13 +29,15 @@ import AlertDescription, {
 
 export { type AlertTitleProps, type AlertDescriptionProps };
 
-export type AlertProps = {
-  variant?: PrismaneActions;
-  icon?: ReactNode;
-  action?: ReactNode;
-  closable?: boolean;
-} & AnimationProps &
-  FlexProps;
+export type AlertProps = PrismaneProps<
+  {
+    variant?: PrismaneActions;
+    icon?: ReactNode;
+    action?: ReactNode;
+    closable?: boolean;
+  },
+  AnimationProps & FlexProps
+>;
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(
   (

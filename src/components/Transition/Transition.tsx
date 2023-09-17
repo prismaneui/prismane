@@ -7,18 +7,22 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
 export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    transition?: PrismaneTransitions | string;
-    duration?: number;
-    delay?: number;
-    timing?: string;
-  } & BoxProps<E>
+  PrismaneProps<
+    {
+      transition?: PrismaneTransitions | string;
+      duration?: number;
+      delay?: number;
+      timing?: string;
+    },
+    BoxProps
+  >
 >;
 
 type TransitionComponent = <E extends Versatile = "div">(

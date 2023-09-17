@@ -3,12 +3,17 @@ import { forwardRef, useState, useEffect } from "react";
 import SelectField, { SelectFieldProps } from "../SelectField/SelectField";
 // Hooks
 import useDebounce from "../../hooks/useDebounce";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type AutocompleteFieldProps = {
-  filter?: Function;
-} & SelectFieldProps;
+export type AutocompleteFieldProps = PrismaneProps<
+  {
+    filter?: Function;
+  },
+  SelectFieldProps
+>;
 
 /**
     AutocompleteField component displays a dropdown menu to select an option from a list.

@@ -7,15 +7,19 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
 export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    size: PrismaneStyles;
-  } & CenterProps<E>
+  PrismaneProps<
+    {
+      size: PrismaneStyles;
+    },
+    CenterProps
+  >
 >;
 
 type SquareComponent = <E extends Versatile = "div">(

@@ -2,12 +2,17 @@ import { forwardRef, useRef } from "react";
 // Components
 import Animation, { AnimationProps } from "../Animation/Animation";
 import Box from "../Box/Box";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type CollapseProps = {
-  open?: boolean;
-} & AnimationProps;
+export type CollapseProps = PrismaneProps<
+  {
+    open?: boolean;
+  },
+  AnimationProps
+>;
 
 const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
   ({ open = false, children, className, ...props }, ref) => {

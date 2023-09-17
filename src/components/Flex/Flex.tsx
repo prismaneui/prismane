@@ -3,27 +3,30 @@ import { forwardRef } from "react";
 import Box, { BoxProps } from "../Box/Box";
 // Types
 import {
-  PrismaneStyles,
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip, variants } from "../../utils";
 
 export type FlexProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-    align?: "start" | "end" | "center" | "baseline" | "stretch";
-    gap?: PrismaneStyles;
-    direction?: "row" | "row-reverse" | "column" | "column-reverse";
-    self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
-    basis?: PrismaneStyles;
-    grow?: boolean;
-    shrink?: boolean;
-    wrap?: "wrap" | "wrap-reverse" | "nowrap";
-  } & BoxProps<E>
+  PrismaneProps<
+    {
+      justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
+      align?: "start" | "end" | "center" | "baseline" | "stretch";
+      gap?: string | number;
+      direction?: "row" | "row-reverse" | "column" | "column-reverse";
+      self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
+      basis?: string | number;
+      grow?: boolean;
+      shrink?: boolean;
+      wrap?: "wrap" | "wrap-reverse" | "nowrap";
+    },
+    BoxProps
+  >
 >;
 
 type FlexComponent = <E extends Versatile = "div">(props: FlexProps<E>) => any;

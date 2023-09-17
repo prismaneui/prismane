@@ -4,15 +4,20 @@ import Portal from "../Portal/Portal";
 import Flex, { FlexProps } from "../Flex/Flex";
 // Context
 import { ToasterContextProvider } from "./ToasterContext";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip, fr, variants } from "../../utils";
 
 // Internal Components
 import Toast from "./Toast/Toast";
 
-export type ToasterProps = {
-  position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
-} & FlexProps;
+export type ToasterProps = PrismaneProps<
+  {
+    position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
+  },
+  FlexProps
+>;
 
 const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
   ({ position = "bottom-right", className, children, ...props }, ref) => {

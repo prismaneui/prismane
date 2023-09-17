@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 const Template = ({ props }: any) => (
-  <Icon size={20}>
+  <Icon>
     <Eye />
   </Icon>
 );

@@ -3,13 +3,16 @@ import { CircleNotch } from "@phosphor-icons/react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types
-import { PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type SpinnerProps = {
-  size?: PrismaneBreakpoints;
-} & FlexProps<"svg">;
+export type SpinnerProps = PrismaneProps<
+  {
+    size?: PrismaneBreakpoints;
+  },
+  FlexProps<"svg">
+>;
 
 /**
  * Spinner Params

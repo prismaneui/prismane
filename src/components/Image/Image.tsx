@@ -1,16 +1,21 @@
 import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type ImageProps = {
-  src?: string;
-  srcSet?: string;
-  alt?: string;
-  sizes?: string;
-  fit?: "contain" | "cover" | "fill" | "none" | "scale-down";
-} & BoxProps<"img">;
+export type ImageProps = PrismaneProps<
+  {
+    src?: string;
+    srcSet?: string;
+    alt?: string;
+    sizes?: string;
+    fit?: "contain" | "cover" | "fill" | "none" | "scale-down";
+  },
+  BoxProps<"img">
+>;
 
 const Image = forwardRef<HTMLImageElement, ImageProps>(
   ({ src, srcSet, alt, sizes, fit = "fill", className, sx, ...props }, ref) => {

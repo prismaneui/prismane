@@ -6,7 +6,7 @@ import Animation, { AnimationProps } from "../Animation/Animation";
 import usePresence from "../../hooks/usePresence";
 import useAnimation from "../../hooks/useAnimation";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
@@ -17,7 +17,10 @@ import MenuIcon, { MenuIconProps } from "./MenuIcon/MenuIcon";
 
 export { type MenuItemProps, type MenuLabelProps, type MenuIconProps };
 
-export type MenuProps = { open?: boolean } & AnimationProps & PaperProps;
+export type MenuProps = PrismaneProps<
+  { open?: boolean },
+  AnimationProps & PaperProps
+>;
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>(
   ({ open = false, children, className, ...props }, ref) => {

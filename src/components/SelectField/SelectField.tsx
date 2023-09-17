@@ -10,18 +10,23 @@ import { useFieldProps } from "../Field";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 import useOutsideClick from "../../hooks/useOutsideClick";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
-export type SelectFieldProps = {
-  options: { value: string; element: ReactNode }[];
-  item?: (
-    chosen: boolean,
-    value: string,
-    element: ReactNode,
-    active: boolean
-  ) => ReactNode;
-} & FieldProps;
+export type SelectFieldProps = PrismaneProps<
+  {
+    options: { value: string; element: ReactNode }[];
+    item?: (
+      chosen: boolean,
+      value: string,
+      element: ReactNode,
+      active: boolean
+    ) => ReactNode;
+  },
+  FieldProps
+>;
 
 /**
     SelectField component displays a dropdown menu to select an option from a list.

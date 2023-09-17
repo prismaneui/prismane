@@ -3,15 +3,21 @@ import { forwardRef } from "react";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 // Types
-import { PrismaneBreakpoints, PrismaneStyles } from "../../types";
+import {
+  PrismaneBreakpoints,
+  PrismaneProps,
+  PrismaneStyles,
+} from "../../types";
 // Utils
 import { strip, fr, dual } from "../../utils";
 
-export type ProgressProps = {
-  value: number;
-  size?: PrismaneStyles | PrismaneBreakpoints;
-} & FlexProps &
-  TransitionProps;
+export type ProgressProps = PrismaneProps<
+  {
+    value: number;
+    size?: PrismaneStyles | PrismaneBreakpoints;
+  },
+  FlexProps & TransitionProps
+>;
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   ({ value, size = "base", className, ...props }, ref) => {

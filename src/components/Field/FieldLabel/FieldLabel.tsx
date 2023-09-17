@@ -2,14 +2,17 @@ import { forwardRef } from "react";
 // Components
 import Text, { TextProps } from "../../Text/Text";
 // Types
-import { PrismaneBreakpoints } from "../../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../../types";
 // Utils
 import { strip, variants } from "../../../utils";
 
-export type FieldLabelProps = {
-  id?: string;
-  size?: PrismaneBreakpoints;
-} & TextProps<"label">;
+export type FieldLabelProps = PrismaneProps<
+  {
+    id?: string;
+    size?: PrismaneBreakpoints;
+  },
+  TextProps<"label">
+>;
 
 const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
   ({ id, size = "base", children, className, sx, ...props }, ref) => {

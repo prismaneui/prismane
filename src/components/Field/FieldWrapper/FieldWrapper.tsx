@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../../Flex/Flex";
 // Utils
-import { strip, variants, fr } from "../../../utils";
+import { strip, fr } from "../../../utils";
 
 export type FieldWrapperProps = FlexProps;
 

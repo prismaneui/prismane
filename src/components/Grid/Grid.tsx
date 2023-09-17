@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
 // Types
-import { PrismaneStyles, PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "../../types";
 // Utils
 import { strip, variants } from "../../utils";
 
@@ -11,14 +11,17 @@ import GridItem, { GridItemProps } from "./GridItem/GridItem";
 
 export { type GridItemProps };
 
-export type GridProps = {
-  templateColumns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
-  templateRows?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
-  flow?: "row" | "column" | "dense" | "row-dense" | "column-dense";
-  autoColumns?: "auto" | "min" | "max" | "fr";
-  autoRows?: "auto" | "min" | "max" | "fr";
-  gap?: PrismaneStyles;
-} & BoxProps;
+export type GridProps = PrismaneProps<
+  {
+    templateColumns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
+    templateRows?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
+    flow?: "row" | "column" | "dense" | "row-dense" | "column-dense";
+    autoColumns?: "auto" | "min" | "max" | "fr";
+    autoRows?: "auto" | "min" | "max" | "fr";
+    gap?: string | number;
+  },
+  BoxProps
+>;
 
 const Grid = forwardRef<HTMLDivElement, GridProps>(
   (
