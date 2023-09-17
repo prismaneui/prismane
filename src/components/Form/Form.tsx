@@ -1,13 +1,18 @@
 import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "../Box/Box";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
-export type FormProps = {
-  onSubmit: any;
-  onReset?: any;
-} & BoxProps<"form">;
+export type FormProps = PrismaneProps<
+  {
+    onSubmit: any;
+    onReset?: any;
+  },
+  BoxProps<"form">
+>;
 
 /**
  * Form Params

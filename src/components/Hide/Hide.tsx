@@ -4,13 +4,16 @@ import Box, { BoxProps } from "../Box/Box";
 // Hooks
 import useMediaQuery from "../../hooks/useMediaQuery/useMediaQuery";
 // Types
-import { PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../types";
 // Utils
 import { strip, dual, fr } from "../../utils";
 
-export type HideProps = {
-  breakpoint?: PrismaneBreakpoints | string;
-} & BoxProps;
+export type HideProps = PrismaneProps<
+  {
+    breakpoint?: PrismaneBreakpoints | string;
+  },
+  BoxProps
+>;
 
 const Hide = forwardRef<HTMLDivElement, HideProps>(
   ({ breakpoint = "base", children, className, ...props }, ref) => {

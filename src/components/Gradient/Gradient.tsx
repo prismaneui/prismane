@@ -8,17 +8,21 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
+  PrismaneProps,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
 export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  {
-    from: any;
-    to: any;
-    deg: number;
-  } & BoxProps<E>
+  PrismaneProps<
+    {
+      from: any;
+      to: any;
+      deg: number;
+    },
+    BoxProps
+  >
 >;
 
 type GradientComponent = <E extends Versatile = "div">(

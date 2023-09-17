@@ -11,7 +11,11 @@ import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 // Context
 import { DrawerContextProvider } from "./DrawerContext";
 // Types
-import { PrismaneWithInternal, PrismaneBreakpoints } from "../../types";
+import {
+  PrismaneWithInternal,
+  PrismaneBreakpoints,
+  PrismaneProps,
+} from "../../types";
 // Utils
 import { strip, variants, dual, fr } from "../../utils";
 // Internal Components
@@ -20,14 +24,16 @@ import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter/DrawerFooter";
 
 export { type DrawerHeaderProps, type DrawerFooterProps };
 
-export type DrawerProps = {
-  position?: "right" | "left" | "top" | "bottom";
-  size?: PrismaneBreakpoints | string | number;
-  open?: boolean;
-  closable?: boolean;
-  onClose?: Function;
-} & AnimationProps &
-  PaperProps;
+export type DrawerProps = PrismaneProps<
+  {
+    position?: "right" | "left" | "top" | "bottom";
+    size?: PrismaneBreakpoints | string | number;
+    open?: boolean;
+    closable?: boolean;
+    onClose?: Function;
+  },
+  AnimationProps & PaperProps
+>;
 
 const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   (

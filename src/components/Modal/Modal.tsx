@@ -11,7 +11,7 @@ import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 // Context
 import { ModalContextProvider } from "./ModalContext";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
@@ -21,12 +21,14 @@ import ModalFooter, { ModalFooterProps } from "./ModalFooter/ModalFooter";
 
 export { type ModalHeaderProps, type ModalFooterProps };
 
-export type ModalProps = {
-  open?: boolean;
-  closable?: boolean;
-  onClose?: Function;
-} & AnimationProps &
-  PaperProps;
+export type ModalProps = PrismaneProps<
+  {
+    open?: boolean;
+    closable?: boolean;
+    onClose?: Function;
+  },
+  AnimationProps & PaperProps
+>;
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (

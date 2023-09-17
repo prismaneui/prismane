@@ -12,7 +12,7 @@ import { strip } from "../../utils";
 
 export type CenterProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
-  FlexProps<E>
+  FlexProps
 >;
 
 type CenterComponent = <E extends Versatile = "div">(

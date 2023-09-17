@@ -4,12 +4,17 @@ import Field, { FieldProps } from "../Field/Field";
 import Text from "../Text/Text";
 // Hooks
 import { useFieldProps } from "../Field";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type NativeSelectFieldProps = {
-  options: { value: string; label: string }[];
-} & FieldProps;
+export type NativeSelectFieldProps = PrismaneProps<
+  {
+    options: { value: string; label: string }[];
+  },
+  FieldProps
+>;
 
 /**
     NativeSelectField component displays a dropdown menu to select an option from a list.

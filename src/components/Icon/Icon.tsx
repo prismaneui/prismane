@@ -2,13 +2,16 @@ import { forwardRef } from "react";
 // Components
 import Square, { SquareProps } from "../Square/Square";
 // Types
-import { PrismaneBreakpoints } from "../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "../../types";
 // Utils
 import { strip, dual, fr } from "../../utils";
 
-export type IconProps = {
-  size?: string | number | PrismaneBreakpoints;
-} & Omit<SquareProps, "size">;
+export type IconProps = PrismaneProps<
+  {
+    size?: string | number | PrismaneBreakpoints;
+  },
+  SquareProps
+>;
 
 const Icon = forwardRef<HTMLDivElement, IconProps>(
   ({ size = "base", children, className, sx, ...props }, ref) => {

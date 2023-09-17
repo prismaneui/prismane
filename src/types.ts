@@ -2,25 +2,29 @@ import React from "react";
 
 export type Versatile = React.ElementType;
 
-export type PrismaneVersatileRef<C extends Versatile> =
-  React.ComponentPropsWithRef<C>["ref"];
+export type PrismaneVersatileRef<E extends Versatile = "div"> =
+  React.ComponentPropsWithRef<E>["ref"];
 
-export type AsProp<C extends Versatile> = {
-  as?: C | React.ElementType;
+export type AsProp<E extends Versatile = "div"> = {
+  as?: E | React.ElementType;
 };
 
-type PropsToOmit<C extends Versatile, P> = keyof (AsProp<C> & P);
+export type PropsToOmit<E extends Versatile, P> = keyof (AsProp<E> & P);
 
 export type VersatileProps<
-  C extends Versatile,
-  Props = {}
-> = React.PropsWithChildren<Props & AsProp<C>> &
-  Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+  E extends Versatile = "div",
+  P = {}
+> = React.PropsWithChildren<P & AsProp<E>> &
+  Omit<React.ComponentPropsWithoutRef<E>, keyof P>;
 
-export type PrismaneVersatile<C extends Versatile, Props = {}> = VersatileProps<
-  C,
-  Props
-> & { ref?: PrismaneVersatileRef<C | React.ElementType> };
+export type PrismaneProps<P, C> = P & Omit<C, keyof P>;
+
+export type PrismaneVersatile<
+  E extends Versatile = "div",
+  P = {}
+> = VersatileProps<E, Omit<P, keyof AsProp<E>>> & {
+  ref?: PrismaneVersatileRef<E | Versatile>;
+};
 
 export type PrismaneVersatileComponent<Props = {}> = (props: Props) => any;
 

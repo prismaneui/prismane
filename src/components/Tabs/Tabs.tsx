@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../Flex/Flex";
 // Context
 import { TabsContextProvider } from "./TabsContext";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -15,10 +15,13 @@ import TabsTab, { TabsTabProps } from "./TabsTab/TabsTab";
 
 export { type TabsListProps, type TabsPanelProps, type TabsTabProps };
 
-export type TabsProps = {
-  variant?: "underlined" | "filled";
-  defaultValue?: string;
-} & FlexProps;
+export type TabsProps = PrismaneProps<
+  {
+    variant?: "underlined" | "filled";
+    defaultValue?: string;
+  },
+  FlexProps
+>;
 
 const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   (

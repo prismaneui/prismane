@@ -3,10 +3,12 @@ import { forwardRef, useState } from "react";
 import Flex, { FlexProps } from "../../Flex/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
+// Types
+import { PrismaneProps } from "../../../types";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type TabsPanelProps = { value: string } & FlexProps;
+export type TabsPanelProps = PrismaneProps<{ value: string }, FlexProps>;
 
 const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(
   ({ value, children, className, ...props }, ref) => {

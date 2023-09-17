@@ -2,13 +2,18 @@ import { forwardRef, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // Components
 import Box, { BoxProps } from "../Box/Box";
+// Types
+import { PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
-export type PortalProps = {
-  target?: React.RefObject<HTMLElement> | null;
-  disabled?: boolean;
-} & BoxProps;
+export type PortalProps = PrismaneProps<
+  {
+    target?: React.RefObject<HTMLElement> | null;
+    disabled?: boolean;
+  },
+  BoxProps
+>;
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
   ({ target, disabled = false, className, children, ...props }, ref) => {

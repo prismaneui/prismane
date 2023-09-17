@@ -11,7 +11,11 @@ import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 // Context
 import { DialogContextProvider } from "./DialogContext";
 // Types
-import { PrismaneWithInternal, PrismanePositions } from "../../types";
+import {
+  PrismaneWithInternal,
+  PrismanePositions,
+  PrismaneProps,
+} from "../../types";
 // Utils
 import { strip, fr, variants } from "../../utils";
 
@@ -21,12 +25,15 @@ import DialogFooter, { DialogFooterProps } from "./DialogFooter/DialogFooter";
 
 export { type DialogHeaderProps, type DialogFooterProps };
 
-export type DialogProps = {
-  position?: PrismanePositions;
-  open?: boolean;
-  closable?: boolean;
-  onClose?: Function;
-} & AnimationProps;
+export type DialogProps = PrismaneProps<
+  {
+    position?: PrismanePositions;
+    open?: boolean;
+    closable?: boolean;
+    onClose?: Function;
+  },
+  AnimationProps
+>;
 
 const Dialog = forwardRef<HTMLDivElement, DialogProps>(
   (

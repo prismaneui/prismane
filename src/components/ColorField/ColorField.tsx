@@ -9,13 +9,16 @@ import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
 // Globals
 import { PRISMANE_DEFAULT_COLORS_MAP } from "../../constants";
 // Types
-import { PrismaneColors } from "../../types";
+import { PrismaneColors, PrismaneProps } from "../../types";
 // Utils
 import { strip, fr } from "../../utils";
 
-export type ColorFieldProps = {
-  options?: PrismaneColors[] | string[];
-} & Omit<SelectFieldProps, "options">;
+export type ColorFieldProps = PrismaneProps<
+  {
+    options?: PrismaneColors[] | string[];
+  },
+  SelectFieldProps
+>;
 
 /**
     ColorField component displays a dropdown menu to select an option from a list.

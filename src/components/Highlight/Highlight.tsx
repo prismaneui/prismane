@@ -12,7 +12,7 @@ import { strip, fr } from "../../utils";
 
 export type HighlightProps<E extends Versatile = "mark"> = PrismaneVersatile<
   E,
-  BoxProps<E>
+  BoxProps
 >;
 
 type HighlightComponent = <E extends Versatile = "mark">(

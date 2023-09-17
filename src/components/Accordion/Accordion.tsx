@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "../Flex/Flex";
 // Context
 import { AccordionContextProvider } from "./AccordionContext";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneWithInternal, PrismaneProps } from "../../types";
 // Utils
 import { strip } from "../../utils";
 
@@ -29,9 +29,12 @@ export {
   type AccordionPanelProps,
 };
 
-export type AccordionProps = {
-  defaultValue?: string;
-} & FlexProps;
+export type AccordionProps = PrismaneProps<
+  {
+    defaultValue?: string;
+  },
+  FlexProps
+>;
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   ({ defaultValue = null, children, className, ...props }, ref) => {

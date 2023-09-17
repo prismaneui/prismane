@@ -5,10 +5,12 @@ import Transition, { TransitionProps } from "../../Transition/Transition";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
+// Types
+import { PrismaneProps } from "../../../types";
 // Utils
 import { strip, fr } from "../../../utils";
 
-export type AccordionControlProps = FlexProps & TransitionProps;
+export type AccordionControlProps = PrismaneProps<FlexProps, TransitionProps>;
 
 const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
   ({ children, className, ...props }, ref) => {
