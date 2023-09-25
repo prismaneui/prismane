@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 const usePresence = (
   present: boolean,
   duration: number = 150,
-  cb: () => void
+  cb?: () => void
 ) => {
   const [presence, setPresence] = useState(present as boolean);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);

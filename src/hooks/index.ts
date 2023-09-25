@@ -15,5 +15,6 @@ export { default as useLocalStorage } from "./useLocalStorage";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useMemoization } from "./useMemoization";
 export { default as useOutsideClick } from "./useOutsideClick";
+export { default as usePresence } from "./usePresence";
 export { default as usePrevious } from "./usePrevious";
 export { default as useToggle } from "./useToggle";
