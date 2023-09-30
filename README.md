@@ -1,7 +1,7 @@
-<h1 align="center">
-  <br>
-  <img src="https://i.ibb.co/LSgSPk7/profile-picture.png" alt="Prismane" width="200">
-  <br>
+<p align="center">
+  <img src="https://www.prismane.io/profile_picture.png" alt="Prismane" width="200">
+</p>
+<h1 align="center">  
   Prismane
   <br>
 </h1>
@@ -57,5 +57,6 @@ MIT
 
 ---
 
-> GitHub [@spleafy](https://github.com/spleafy) &nbsp;&middot;&nbsp;
-> Twitter [@martindaone](https://twitter.com/martindaone)
+> GitHub [@prismaneui](https://github.com/prismaneui) &nbsp;&middot;&nbsp;
+> Twitter [@prismaneui](https://twitter.com/prismaneui) &nbsp;&middot;&nbsp;
+> Reddit [r/prismane](https://www.reddit.com/r/prismane/)
