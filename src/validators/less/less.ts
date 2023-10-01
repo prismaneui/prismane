@@ -1,23 +1,23 @@
 /**
- * max
+ * less
  * @param {string} value The value that should be validated
- * @param {number} length The maximum length that the value has to be
+ * @param {number} less The maximum value that a number can be
  * @param {string} fieldName The field name is needed, so that the validator return a more sensible message
  * @returns {string | null}
- * @description Method that validates if a value is longer than a minimal length
+ * @description Method that validates if a number is less than a given number
  */
-const max = (
-  value: string,
-  length: number,
+const less = (
+  value: number,
+  number: number,
   fieldName?: string
 ): string | null => {
-  if (value.length > length) {
+  if (value > number) {
     return `${
       fieldName ? fieldName : "This field"
-    } has to be shorter than ${length} characters!`;
+    } must be less than ${number}!`;
   }
 
   return null;
 };
 
-export default max;
+export default less;
