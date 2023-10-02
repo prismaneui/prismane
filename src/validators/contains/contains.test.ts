@@ -6,11 +6,13 @@ test("Error: Value does not contain the substring", () => {
 
   // Value does not contain the substring
   expect(contains("This is a test", substring)).toBe(
-    `This value must contain ${substring}!`
+    `This value must contain '${substring}'!`
   );
 
   // Value is an empty string
-  expect(contains("", substring)).toBe(`This value must contain ${substring}!`);
+  expect(contains("", substring)).toBe(
+    `This value must contain '${substring}'!`
+  );
 });
 
 test("No error: Value contains the substring", () => {

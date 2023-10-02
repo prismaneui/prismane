@@ -10,7 +10,7 @@ const substring = (
   fieldName?: string
 ): string | null => {
   if (!string.includes(value)) {
-    return `${fieldName ?? "This value"} must be a substring of ${string}!`;
+    return `${fieldName ?? "This value"} must be a substring of '${string}'!`;
   }
 
   return null;

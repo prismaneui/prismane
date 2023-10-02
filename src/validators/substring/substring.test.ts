@@ -5,7 +5,7 @@ test("Error: Value is not a substring", () => {
   const mainString = "hello world";
   const value = "example";
   expect(substring(value, mainString)).toBe(
-    `This value must be a substring of ${mainString}!`
+    `This value must be a substring of '${mainString}'!`
   );
 });
 

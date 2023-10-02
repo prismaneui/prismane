@@ -6,11 +6,11 @@ test("Error: Value does not end with the suffix", () => {
 
   // Value does not end with the suffix
   expect(ends("This is a test", suffix)).toBe(
-    `This value must end with ${suffix}!`
+    `This value must end with '${suffix}'!`
   );
 
   // Value is an empty string
-  expect(ends("", suffix)).toBe(`This value must end with ${suffix}!`);
+  expect(ends("", suffix)).toBe(`This value must end with '${suffix}'!`);
 });
 
 test("No error: Value ends with the suffix", () => {

@@ -10,7 +10,7 @@ const ends = (
   fieldName?: string
 ): string | null => {
   if (!value.endsWith(suffix)) {
-    return `${fieldName ?? "This value"} must end with ${suffix}!`;
+    return `${fieldName ?? "This value"} must end with '${suffix}'!`;
   }
 
   return null;
