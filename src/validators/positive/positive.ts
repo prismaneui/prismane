@@ -4,9 +4,9 @@
  * @returns {string | null}
  * @description Method that check if a number is positive
  */
-const positive = (value: number): string | null => {
+const positive = (value: number, fieldName?: string): string | null => {
   if (value <= 0) {
-    return "This value must be a positive number!";
+    return `${fieldName ?? "This number"} must be positive!`;
   }
 
   return null;

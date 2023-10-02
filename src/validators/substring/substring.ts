@@ -4,9 +4,13 @@
  * @returns {string | null}
  * @description Method that check if a string is a substring of a given string
  */
-const substring = (value: string, string: string): string | null => {
+const substring = (
+  value: string,
+  string: string,
+  fieldName?: string
+): string | null => {
   if (!string.includes(value)) {
-    return `This value must be a substring of ${string}!`;
+    return `${fieldName ?? "This value"} must be a substring of ${string}!`;
   }
 
   return null;

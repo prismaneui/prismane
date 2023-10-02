@@ -12,9 +12,7 @@ const less = (
   fieldName?: string
 ): string | null => {
   if (value > number) {
-    return `${
-      fieldName ? fieldName : "This field"
-    } must be less than ${number}!`;
+    return `${fieldName ?? "This number"} must be less than ${number}!`;
   }
 
   return null;

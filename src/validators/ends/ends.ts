@@ -4,9 +4,13 @@
  * @returns {string | null}
  * @description Method that check if a string ends with a given suffix
  */
-const ends = (value: string, suffix: string): string | null => {
+const ends = (
+  value: string,
+  suffix: string,
+  fieldName?: string
+): string | null => {
   if (!value.endsWith(suffix)) {
-    return `This value must end with ${suffix}!`;
+    return `${fieldName ?? "This value"} must end with ${suffix}!`;
   }
 
   return null;

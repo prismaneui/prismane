@@ -8,7 +8,7 @@
  */
 const before = (date: Date, target: Date, fieldName?: string) => {
   if (date >= target) {
-    return `${fieldName || "This date"} must be before ${target}!`;
+    return `${fieldName ?? "This date"} must be before ${target}!`;
   }
 
   return null;

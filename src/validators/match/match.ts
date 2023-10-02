@@ -12,7 +12,7 @@ const match = (
   fieldName?: string
 ): string | null => {
   if (value !== revalue) {
-    return `${fieldName ? fieldName : "Fields"} must match!`;
+    return `${fieldName ?? "Fields"} must match!`;
   }
 
   return null;

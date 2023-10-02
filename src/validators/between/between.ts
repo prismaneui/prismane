@@ -4,9 +4,14 @@
  * @returns {string | null}
  * @description Method that check if a number is between a given set of numbers
  */
-const between = (value: number, min: number, max: number): string | null => {
+const between = (
+  value: number,
+  min: number,
+  max: number,
+  fieldName?: string
+): string | null => {
   if (value > max || value < min) {
-    return `This value must be between ${min} and ${max}!`;
+    return `${fieldName ?? "This value"} must be between ${min} and ${max}!`;
   }
 
   return null;

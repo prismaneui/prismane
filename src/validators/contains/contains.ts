@@ -4,9 +4,13 @@
  * @returns {string | null}
  * @description Method that check if a string contains a given substring
  */
-const contains = (value: string, substring: string): string | null => {
+const contains = (
+  value: string,
+  substring: string,
+  fieldName?: string
+): string | null => {
   if (!value.includes(substring)) {
-    return `This value must contain ${substring}!`;
+    return `${fieldName ?? "This value"} must contain ${substring}!`;
   }
 
   return null;

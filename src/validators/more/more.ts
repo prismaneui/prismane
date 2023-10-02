@@ -12,9 +12,7 @@ const more = (
   fieldName?: string
 ): string | null => {
   if (value < number) {
-    return `${
-      fieldName ? fieldName : "This field"
-    } must be more than ${number}!`;
+    return `${fieldName ?? "This number"} must be more than ${number}!`;
   }
 
   return null;

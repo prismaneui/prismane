@@ -13,7 +13,7 @@ const min = (
 ): string | null => {
   if (value.length <= length) {
     return `${
-      fieldName ? fieldName : "This field"
+      fieldName ?? "This field"
     } has to be longer than ${length} characters!`;
   }
 

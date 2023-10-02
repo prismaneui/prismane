@@ -4,9 +4,13 @@
  * @returns {string | null}
  * @description Method that check if a string starts with a given prefix
  */
-const starts = (value: string, prefix: string): string | null => {
+const starts = (
+  value: string,
+  prefix: string,
+  fieldName?: string
+): string | null => {
   if (!value.startsWith(prefix)) {
-    return `This value must start with ${prefix}!`;
+    return `${fieldName ?? "This value"} must start with ${prefix}!`;
   }
 
   return null;
