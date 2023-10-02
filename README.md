@@ -23,7 +23,7 @@
 - Built in support for dark and light theme variants
 - 107+ React components
 - 20+ custom hooks
-- 10+ custom form validators
+- 27+ custom form validators
 
 ## How To Use
 
