@@ -13,7 +13,7 @@ const max = (
 ): string | null => {
   if (value.length > length) {
     return `${
-      fieldName ? fieldName : "This field"
+      fieldName ?? "This field"
     } has to be shorter than ${length} characters!`;
   }
 
