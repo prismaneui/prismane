@@ -7,12 +7,12 @@ test("Error: Value is outside the specified range", () => {
 
   // Value outside the range
   expect(between(5, minValue, maxValue)).toBe(
-    `This value must be between ${minValue} and ${maxValue}!`
+    `This number must be between ${minValue} and ${maxValue}!`
   );
 
   // Value outside the range
   expect(between(25, minValue, maxValue)).toBe(
-    `This value must be between ${minValue} and ${maxValue}!`
+    `This number must be between ${minValue} and ${maxValue}!`
   );
 });
 

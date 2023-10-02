@@ -5,10 +5,10 @@ test("Error: Date is in the past or present", () => {
   const presentDate = new Date();
 
   // Past date
-  expect(future(pastDate)).toBe("This date must be in the future");
+  expect(future(pastDate)).toBe("This date must be in the future!");
 
   // Present date
-  expect(future(presentDate)).toBe("This date must be in the future");
+  expect(future(presentDate)).toBe("This date must be in the future!");
 });
 
 test("No error: Date is in the future", () => {

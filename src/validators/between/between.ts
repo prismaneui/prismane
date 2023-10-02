@@ -11,7 +11,7 @@ const between = (
   fieldName?: string
 ): string | null => {
   if (value > max || value < min) {
-    return `${fieldName ?? "This value"} must be between ${min} and ${max}!`;
+    return `${fieldName ?? "This number"} must be between ${min} and ${max}!`;
   }
 
   return null;

@@ -6,7 +6,7 @@ test("Error: Value is less than the allowed minimum", () => {
 
   // Value is less than the allowed minimum
   expect(more(5, minAllowedValue)).toBe(
-    `This field must be more than ${minAllowedValue}!`
+    `This number must be more than ${minAllowedValue}!`
   );
 });
 

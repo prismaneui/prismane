@@ -6,7 +6,7 @@ test("Error: Value is greater than the allowed maximum", () => {
 
   // Value is greater than the allowed maximum
   expect(less(15, maxAllowedValue)).toBe(
-    `This field must be less than ${maxAllowedValue}!`
+    `This number must be less than ${maxAllowedValue}!`
   );
 });
 

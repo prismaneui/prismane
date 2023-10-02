@@ -5,7 +5,7 @@ const validRegExp = /^[a-z0-9_-]{4,255}$/;
 
 test("Error: Value does not match the regex", () => {
   expect(regex("INVALID", validRegExp)).toBe(
-    "This value does not match the given pattern!"
+    "This field does not match the given pattern!"
   );
 });
 
