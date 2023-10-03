@@ -1,13 +1,17 @@
 // Validator
 import before from "./before";
 
-test("Date is before the target date", () => {
+test("Date is after the target date", () => {
   const currentDate = new Date();
   const pastDate = new Date(currentDate);
   pastDate.setDate(currentDate.getDate() + 1);
 
   expect(before(pastDate, currentDate, "Event Date")).toBe(
-    `Event Date must be before ${currentDate}!`
+    `Event Date must be before ${currentDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}!`
   );
 });
 
