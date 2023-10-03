@@ -49,13 +49,13 @@ const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
             underlined:
               theme.mode === "dark"
                 ? ["transparent", { hover: ["base", 700, 0.2] }]
-                : ["transparent", { hover: ["base", 500, 0.15] }],
+                : ["transparent", { hover: ["base", 500, 0.1] }],
             filled:
               tabs.value === value
                 ? ["primary", 500]
                 : theme.mode === "dark"
                 ? ["transparent", { hover: ["base", 700, 0.2] }]
-                : ["transparent", { hover: ["base", 500, 0.15] }],
+                : ["transparent", { hover: ["base", 500, 0.1] }],
           })
         }
         cs="pointer"

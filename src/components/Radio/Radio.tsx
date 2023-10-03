@@ -120,10 +120,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 value={value}
                 defaultValue={defaultValue}
                 data-testid="prismane-radio"
-                name={group.name || name}
                 size={size as any}
                 ref={ref}
                 {...field}
+                name={group.name || name}
               />
             </Hidden>
             <Animation
