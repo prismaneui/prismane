@@ -7,7 +7,11 @@ test("Date is before the target date", () => {
   pastDate.setDate(currentDate.getDate() - 1);
 
   expect(after(pastDate, currentDate, "Event Date")).toBe(
-    `Event Date must be after ${currentDate}!`
+    `Event Date must be after ${currentDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}!`
   );
 });
 
