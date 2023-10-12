@@ -5,6 +5,7 @@ export { default as useDebounce } from "./useDebounce";
 export { default as useDimensions } from "./useDimensions";
 export { default as useDraggable } from "./useDraggable";
 export { default as useEmulatedFieldChange } from "./useEmulatedFieldChange";
+export { default as useFocusTrap } from "./useFocusTrap";
 export { default as useForm } from "./useForm";
 export { default as useId } from "./useId";
 export { default as useIdle } from "./useIdle";
