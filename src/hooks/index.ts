@@ -17,4 +17,5 @@ export { default as useMemoization } from "./useMemoization";
 export { default as useOutsideClick } from "./useOutsideClick";
 export { default as usePresence } from "./usePresence";
 export { default as usePrevious } from "./usePrevious";
+export { default as useScroll } from "./useScroll";
 export { default as useToggle } from "./useToggle";
