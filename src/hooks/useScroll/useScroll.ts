@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useScroll = () => {
+const useScroll = (cb: (e: Event) => void = (e: Event) => {}) => {
   const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
   const [scrollDirection, setScrollDirection] = useState("none");
 
@@ -29,7 +29,9 @@ const useScroll = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (e: Event) => {
+      cb(e);
+
       const { pageYOffset, pageXOffset } = window;
       setScrollPosition({ x: pageXOffset, y: pageYOffset });
 
