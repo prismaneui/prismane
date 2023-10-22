@@ -5,7 +5,7 @@ type useSortingOptions = {
 };
 
 const useSorting = (
-  data: any,
+  data: any[],
   initialKey: string | null = null,
   initialDirection: "asc" | "desc" = "asc",
   options: useSortingOptions = {
