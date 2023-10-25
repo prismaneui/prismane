@@ -53,4 +53,20 @@ describe("useFocusTrap", () => {
 
     expect(container).not.toHaveFocus();
   });
+
+  it("should focus the element with data-initialfocus attribute", () => {
+    const { result } = renderHook(() => useFocusTrap());
+
+    const { getByTestId } = render(
+      <div ref={result.current}>
+        <input data-testid="test-input" />
+        <button data-testid="test-button" data-initialfocus>
+          Button 1
+        </button>
+        <button>Button 2</button>
+      </div>
+    );
+
+    expect(getByTestId("test-button")).not.toHaveFocus();
+  });
 });
