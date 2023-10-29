@@ -45,7 +45,7 @@ const useSorting = (
 
       setSorted(sortedData);
     }
-  }, [data]);
+  }, [data, key, direction]);
 
   return {
     sorted,

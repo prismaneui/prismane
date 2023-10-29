@@ -22,13 +22,11 @@ describe("useSorting Hook", () => {
 
     const { result } = renderHook(() => useSorting(data, "name"));
 
-    act(() => {
-      result.current.toggleDirection();
-    });
+    act(() => result.current.toggleDirection());
 
     expect(result.current.sorted).toEqual([
-      { name: "Alice", age: 30 },
       { name: "Bob", age: 25 },
+      { name: "Alice", age: 30 },
     ]);
 
     act(() => {
@@ -36,8 +34,8 @@ describe("useSorting Hook", () => {
     });
 
     expect(result.current.sorted).toEqual([
-      { name: "Alice", age: 30 },
       { name: "Bob", age: 25 },
+      { name: "Alice", age: 30 },
     ]);
   });
 
@@ -50,16 +48,11 @@ describe("useSorting Hook", () => {
     const { result } = renderHook(() => useSorting(data, "name"));
 
     act(() => {
-      result.current.toggleDirection();
+      result.current.setKey("age");
     });
 
-    expect(result.current.sorted).toEqual([
-      { name: "Alice", age: 30 },
-      { name: "Bob", age: 25 },
-    ]);
-
     act(() => {
-      result.current.setKey("name");
+      result.current.toggleDirection();
     });
 
     expect(result.current.sorted).toEqual([
