@@ -144,63 +144,67 @@ const SelectField = forwardRef<any, SelectFieldProps>(
           ref={fieldRef}
           {...field}
         />
-        <Flex pos="relative">
-          <Flex pos="absolute" t={0} w="100%">
-            <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
-              {options.map((option: any, index: any) => (
-                <Flex
-                  onClick={() => {
-                    emulateChange(option.value);
-                    setOpen(false);
-                  }}
-                  className="PrismaneSelectField-item"
-                  key={index}
-                >
-                  {!item ? (
-                    <Menu.Item
-                      w="100%"
-                      bg={(theme) =>
-                        theme.mode === "dark"
-                          ? option.value === props.value
-                            ? ["primary", 600]
-                            : [
+        {options.length > 0 ? (
+          <Flex pos="relative">
+            <Flex pos="absolute" t={0} w="100%">
+              <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
+                {options.map((option: any, index: any) => (
+                  <Flex
+                    onClick={() => {
+                      emulateChange(option.value);
+                      setOpen(false);
+                    }}
+                    className="PrismaneSelectField-item"
+                    key={index}
+                  >
+                    {!item ? (
+                      <Menu.Item
+                        w="100%"
+                        bg={(theme) =>
+                          theme.mode === "dark"
+                            ? option.value === props.value
+                              ? ["primary", 600]
+                              : [
+                                  active === index
+                                    ? ["base", 700, 0.3]
+                                    : "transparent",
+                                  { hover: ["base", 700, 0.3] },
+                                ]
+                            : option.value === props.value
+                            ? ["primary", 500]
+                            : ([
                                 active === index
-                                  ? ["base", 700, 0.3]
+                                  ? ["base", 500, 0.15]
                                   : "transparent",
-                                { hover: ["base", 700, 0.3] },
-                              ]
-                          : option.value === props.value
-                          ? ["primary", 500]
-                          : ([
-                              active === index
-                                ? ["base", 500, 0.15]
-                                : "transparent",
-                              { hover: ["base", 500, 0.15] },
-                            ] as any)
-                      }
-                      cl={(theme) =>
-                        theme.mode === "dark"
-                          ? ["base", 200]
-                          : option.value === props.value
-                          ? "white"
-                          : ["base", 700]
-                      }
-                    >
-                      {option.element}
-                    </Menu.Item>
-                  ) : (
-                    item(
-                      option.value === props.value,
-                      option.value,
-                      option.element,
-                      active === index
-                    )
-                  )}
-                </Flex>
-              ))}
-            </Menu>
+                                { hover: ["base", 500, 0.15] },
+                              ] as any)
+                        }
+                        cl={(theme) =>
+                          theme.mode === "dark"
+                            ? ["base", 200]
+                            : option.value === props.value
+                            ? "white"
+                            : ["base", 700]
+                        }
+                      >
+                        {option.element}
+                      </Menu.Item>
+                    ) : (
+                      item(
+                        option.value === props.value,
+                        option.value,
+                        option.element,
+                        active === index
+                      )
+                    )}
+                  </Flex>
+                ))}
+              </Menu>
+            </Flex>
           </Flex>
-        </Flex>
+        ) : (
+          <></>
+        )}
         <Field.Error size={size as any} className="PrismaneSelectField-error">
           {error}
         </Field.Error>
