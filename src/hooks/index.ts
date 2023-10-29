@@ -19,6 +19,7 @@ export { default as useNetworkStatus } from "./useNetworkStatus";
 export { default as useOutsideClick } from "./useOutsideClick";
 export { default as usePresence } from "./usePresence";
 export { default as usePrevious } from "./usePrevious";
+export { default as useScroll } from "./useScroll";
 export { default as useSorting } from "./useSorting";
 export { default as useSearch } from "./useSearch";
 export { default as useToggle } from "./useToggle";
