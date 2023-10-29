@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Flex, Text, Button } from "../../components";
+import { Flex, Text, Button, Stack } from "../../components";
 import useScroll from "./useScroll";
 import { fr } from "../../utils";
 
@@ -10,31 +10,35 @@ export default {
 
 export const Default = () => {
   const {
-    scrollToId,
-    scrollDirection,
-    scrollPosition,
-    scrollToBottom,
-    scrollToPosition,
+    direction,
+    position,
     scrollToTop,
+    scrollToBottom,
+    scrollToLeft,
+    scrollToRight,
+    scrollToPosition,
+    scrollToId,
   } = useScroll();
 
   return (
-    <Flex h="3000px" w="2000px" direction="column">
-      <Flex gap={fr(2)} wrap="wrap" pos="fixed" t={fr(5)} l={fr(5)}>
-        <Button onClick={() => scrollToBottom()}>Scroll To Bottom</Button>
-        <Button onClick={() => scrollToTop()}>Scroll To Top</Button>
-        <Button onClick={() => scrollToPosition(400, 1200)}>
-          Scroll To Position
+    <Stack pos="relative" h="100vh" w="100vw">
+      <Flex gap={fr(2)} pos="fixed" l={fr(5)} r={fr(5)}>
+        <Button onClick={() => scrollToTop()}>Scroll to Top</Button>
+        <Button onClick={() => scrollToBottom()}>Scroll to Bottom</Button>
+        <Button onClick={() => scrollToLeft()}>Scroll to Left</Button>
+        <Button onClick={() => scrollToRight()}>Scroll to Right</Button>
+        <Button onClick={() => scrollToPosition(20, 500)}>
+          Scroll to Position
         </Button>
-        <Button onClick={() => scrollToId("element-id")}>
-          Scroll To Element
-        </Button>
-        <Text>Position: {JSON.stringify(scrollPosition)}</Text>
-        <Text>Direction: {scrollDirection}</Text>
+        <Button onClick={() => scrollToId("elementId")}>Scroll to ID</Button>
+        <Text>Position: {JSON.stringify(position)}</Text>
+        <Text>Direction: {direction}</Text>
       </Flex>
-      <Flex mt={fr(54)} id="element-id">
-        Element With Id
+      <Flex w="150vw" h="200vh">
+        <Flex id="elementId" my={fr(240)}>
+          Element with ID
+        </Flex>
       </Flex>
-    </Flex>
+    </Stack>
   );
 };

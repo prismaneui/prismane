@@ -5,8 +5,8 @@ describe("useScroll", () => {
   it("should initialize with default values", () => {
     const { result } = renderHook(() => useScroll());
 
-    expect(result.current.scrollPosition).toEqual({ x: 0, y: 0 });
-    expect(result.current.scrollDirection).toBe("none");
+    expect(result.current.position).toEqual({ x: 0, y: 0 });
+    expect(result.current.direction).toBe("none");
   });
 
   it("should scroll to top", () => {
