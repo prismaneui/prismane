@@ -22,7 +22,7 @@
 - Dynamic theming out of the box
 - Built in support for dark and light theme variants
 - 107+ React components
-- 20+ custom hooks
+- 25+ custom hooks
 - 27+ custom form validators
 
 ## How To Use
