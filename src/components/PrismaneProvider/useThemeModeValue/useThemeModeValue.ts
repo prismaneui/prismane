@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // Hooks
 import { usePrismaneTheme } from "../PrismaneContext";
 
-const useCopyToClipboard = (dark: any, light: any): any => {
+const useThemeModeValue = (dark: any, light: any): any => {
   const { theme } = usePrismaneTheme();
 
   const [value, setValue] = useState(theme.mode === "dark" ? dark : light);
@@ -14,4 +14,4 @@ const useCopyToClipboard = (dark: any, light: any): any => {
   return value;
 };
 
-export default useCopyToClipboard;
+export default useThemeModeValue;
