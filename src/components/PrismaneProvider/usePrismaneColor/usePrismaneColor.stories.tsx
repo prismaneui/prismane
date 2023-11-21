@@ -1,6 +1,6 @@
-import { Flex, Text } from "..";
-import usePrismaneColor from "./usePrismaneColor";
-import { fr } from "../../utils";
+import { Flex, Text } from "../../..";
+import usePrismaneColor from "../usePrismaneColor/usePrismaneColor";
+import { fr } from "../../../utils";
 
 export default {
   title: "usePrismaneColor",
