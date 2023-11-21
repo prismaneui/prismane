@@ -69,6 +69,7 @@ export {
   type FieldWrapperProps,
 } from "./Field";
 export { default as Flex, type FlexProps } from "./Flex";
+export { default as Footer, type FooterProps } from "./Footer";
 export { default as Form, type FormProps } from "./Form";
 export { default as Gradient, type GradientProps } from "./Gradient";
 export { default as Grid, type GridProps, type GridItemProps } from "./Grid";
