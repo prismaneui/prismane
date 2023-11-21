@@ -88,6 +88,7 @@ export {
   type ListIconProps,
   type ListItemProps,
 } from "./List";
+export { default as Main, type MainProps } from "./Main";
 export {
   default as Menu,
   type MenuProps,
