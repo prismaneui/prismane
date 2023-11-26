@@ -131,6 +131,7 @@ export {
   type PrismaneProviderProps,
   usePrismaneTheme,
   usePrismaneColor,
+  useThemeModeValue,
 } from "./PrismaneProvider";
 export { default as Progress, type ProgressProps } from "./Progress";
 export {
