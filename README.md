@@ -21,8 +21,8 @@
 - Custom styling system
 - Dynamic theming out of the box
 - Built in support for dark and light theme variants
-- 107+ React components
-- 25+ custom hooks
+- 111+ React components
+- 26+ custom hooks
 - 27+ custom form validators
 
 ## How To Use
