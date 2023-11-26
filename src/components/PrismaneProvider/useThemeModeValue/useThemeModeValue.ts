@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // Hooks
 import { usePrismaneTheme } from "../PrismaneContext";
 
-const useThemeModeValue = (dark: any, light: any): any => {
+const useThemeModeValue = (light: any, dark: any): any => {
   const { theme } = usePrismaneTheme();
 
   const [value, setValue] = useState(theme.mode === "dark" ? dark : light);
