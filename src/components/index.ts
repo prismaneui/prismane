@@ -73,6 +73,7 @@ export { default as Footer, type FooterProps } from "./Footer";
 export { default as Form, type FormProps } from "./Form";
 export { default as Gradient, type GradientProps } from "./Gradient";
 export { default as Grid, type GridProps, type GridItemProps } from "./Grid";
+export { default as Header, type HeaderProps } from "./Header";
 export { default as Hidden, type HiddenProps } from "./Hidden";
 export { default as Hide, type HideProps } from "./Hide";
 export { default as Highlight, type HighlightProps } from "./Highlight";
