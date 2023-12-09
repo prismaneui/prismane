@@ -284,6 +284,7 @@ export type PrismaneTheme = {
     xl: string;
     "2xl": string;
   };
+  fontFamily: string;
 };
 
 type DeepPartial<T> = {
