@@ -25,7 +25,7 @@ export const Default = () => {
 
   return (
     <Form
-      onSubmit={(e) => {
+      onSubmit={(e: any) => {
         handleSubmit(e, (v: any) => console.log(v));
       }}
       onReset={() => handleReset()}
@@ -50,8 +50,8 @@ export const No_Name = () => {
 
   return (
     <Checkbox
-      value={value}
-      onChange={(e) => setValue(e.target.checked)}
+      value={value.toString()}
+      onChange={(e: any) => setValue(e.target.checked)}
       label="No name checkbox"
     />
   );
@@ -68,17 +68,37 @@ export const PrismaneBreakpoints = () => {
 
   return (
     <Form
-      onSubmit={(e) => {
+      onSubmit={(e: any) => {
         handleSubmit(e, (v: any) => console.log(v));
       }}
       onReset={() => handleReset()}
       maw={fr(75)}
     >
-      <Checkbox {...register("answer")} size="xs" />
-      <Checkbox {...register("answer")} size="sm" />
-      <Checkbox {...register("answer")} size="base" />
-      <Checkbox {...register("answer")} size="md" />
-      <Checkbox {...register("answer")} size="lg" />
+      <Checkbox
+        {...register("answer")}
+        size="xs"
+        label="Demo label to check size"
+      />
+      <Checkbox
+        {...register("answer")}
+        size="sm"
+        label="Demo label to check size"
+      />
+      <Checkbox
+        {...register("answer")}
+        size="base"
+        label="Demo label to check size"
+      />
+      <Checkbox
+        {...register("answer")}
+        size="md"
+        label="Demo label to check size"
+      />
+      <Checkbox
+        {...register("answer")}
+        size="lg"
+        label="Demo label to check size"
+      />
       <Flex align="center" gap={fr(2)} mt={fr(4)}>
         <Button variant="primary" type="submit">
           Submit

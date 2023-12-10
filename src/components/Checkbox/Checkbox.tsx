@@ -138,14 +138,14 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             </Animation>
           </Transition>
           <Field.Label
-            size={size}
+            fs={size}
             htmlFor={field.name}
             className="PrismaneCheckbox-label"
           >
             {label}
           </Field.Label>
         </Flex>
-        <Field.Error size={size} className="PrismaneCheckbox-error">
+        <Field.Error fs={size} className="PrismaneCheckbox-error">
           {error}
         </Field.Error>
       </Flex>

@@ -226,3 +226,59 @@ export const Validating = () => {
     </Form>
   );
 };
+
+export const Sizes = () => {
+  const { handleSubmit, handleReset, register } = useForm({
+    fields: {
+      field: {
+        value: "Default value",
+      },
+    },
+  });
+
+  return (
+    <Form
+      onSubmit={(e: any) => {
+        handleSubmit(e, (v: any) => console.log(v));
+      }}
+      onReset={() => handleReset()}
+      w={fr(150)}
+    >
+      <TextField
+        {...register("field")}
+        placeholder="Default Field"
+        label="Default Field:"
+        error="Default Error!"
+        size="xs"
+      />
+      <TextField
+        {...register("field")}
+        placeholder="Default Field"
+        label="Default Field:"
+        error="Default Error!"
+        size="sm"
+      />
+      <TextField
+        {...register("field")}
+        placeholder="Default Field"
+        label="Default Field:"
+        error="Default Error!"
+        size="base"
+      />
+      <TextField
+        {...register("field")}
+        placeholder="Default Field"
+        label="Default Field:"
+        error="Default Error!"
+        size="md"
+      />
+      <TextField
+        {...register("field")}
+        placeholder="Default Field"
+        label="Default Field:"
+        error="Default Error!"
+        size="lg"
+      />
+    </Form>
+  );
+};

@@ -95,14 +95,14 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             ></Animation>
           </Transition>
           <Field.Label
-            size={size}
+            fs={size}
             htmlFor={field.name}
             className="PrismaneSwitch-label"
           >
             {label}
           </Field.Label>
         </Flex>
-        <Field.Error size={size} className="PrismaneSwitch-error">
+        <Field.Error fs={size} className="PrismaneSwitch-error">
           {error}
         </Field.Error>
       </Flex>
