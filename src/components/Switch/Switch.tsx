@@ -95,29 +95,14 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             ></Animation>
           </Transition>
           <Field.Label
-            fs={variants(size, {
-              xs: "xs",
-              sm: "sm",
-              base: "sm",
-              md: "base",
-              lg: "md",
-            })}
+            fs={size}
             htmlFor={field.name}
             className="PrismaneSwitch-label"
           >
             {label}
           </Field.Label>
         </Flex>
-        <Field.Error
-          fs={variants(size, {
-            xs: "xs",
-            sm: "sm",
-            base: "sm",
-            md: "base",
-            lg: "md",
-          })}
-          className="PrismaneSwitch-error"
-        >
+        <Field.Error fs={size} className="PrismaneSwitch-error">
           {error}
         </Field.Error>
       </Flex>

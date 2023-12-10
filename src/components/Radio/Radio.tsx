@@ -152,29 +152,14 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
             />
           </Transition>
           <Field.Label
-            fs={variants(group.size || size, {
-              xs: "xs",
-              sm: "sm",
-              base: "sm",
-              md: "base",
-              lg: "md",
-            })}
+            fs={group.size || size}
             htmlFor={`${group.name || name}-${uuid}`}
             className="PrismaneRadio-label"
           >
             {label}
           </Field.Label>
         </Flex>
-        <Field.Error
-          fs={variants(group.size || size, {
-            xs: "xs",
-            sm: "sm",
-            base: "sm",
-            md: "base",
-            lg: "md",
-          })}
-          className="PrismaneRadio-error"
-        >
+        <Field.Error fs={group.size || size} className="PrismaneRadio-error">
           {error}
         </Field.Error>
       </Flex>
