@@ -138,14 +138,29 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             </Animation>
           </Transition>
           <Field.Label
-            size={size}
+            fs={variants(size, {
+              xs: "xs",
+              sm: "sm",
+              base: "sm",
+              md: "base",
+              lg: "md",
+            })}
             htmlFor={field.name}
             className="PrismaneCheckbox-label"
           >
             {label}
           </Field.Label>
         </Flex>
-        <Field.Error size={size} className="PrismaneCheckbox-error">
+        <Field.Error
+          fs={variants(size, {
+            xs: "xs",
+            sm: "sm",
+            base: "sm",
+            md: "base",
+            lg: "md",
+          })}
+          className="PrismaneCheckbox-error"
+        >
           {error}
         </Field.Error>
       </Flex>
