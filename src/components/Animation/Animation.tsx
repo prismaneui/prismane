@@ -46,6 +46,181 @@ type AnimationComponent = <E extends Versatile = "div">(
   props: AnimationProps<E>
 ) => any;
 
+const animations: Animations = {
+  fade: {
+    in: keyframes({
+      "0%": { opacity: 0 },
+      "100%": { opacity: 1 },
+    }),
+    out: keyframes({
+      "0%": { opacity: 1 },
+      "100%": { opacity: 0 },
+    }),
+  },
+  scale: {
+    in: keyframes({
+      "0%": { transform: "scale(0)" },
+      "100%": { transform: "scale(1)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "scale(1)" },
+      "100%": { transform: "scale(0)" },
+    }),
+  },
+  "scale-y": {
+    in: keyframes({
+      "0%": { transform: "scaleY(0)" },
+      "100%": { transform: "scaleY(1)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "scaleY(1)" },
+      "100%": { transform: "scaleY(0)" },
+    }),
+  },
+  "scale-x": {
+    in: keyframes({
+      "0%": { transform: "scaleX(0)" },
+      "100%": { transform: "scaleX(1)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "scaleX(1)" },
+      "100%": { transform: "scaleX(0)" },
+    }),
+  },
+  "skew-up": {
+    in: keyframes({
+      "0%": { transform: "skewY(-15deg)" },
+      "100%": { transform: "skewY(0)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "skewY(0)" },
+      "100%": { transform: "skewY(-15deg)" },
+    }),
+  },
+  "skew-down": {
+    in: keyframes({
+      "0%": { transform: "skewY(15deg)" },
+      "100%": { transform: "skewY(0)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "skewY(0)" },
+      "100%": { transform: "skewY(15deg)" },
+    }),
+  },
+  "rotate-left": {
+    in: keyframes({
+      "0%": { transform: "rotate(-90deg)" },
+      "100%": { transform: "rotate(0)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "rotate(0)" },
+      "100%": { transform: "rotate(-90deg)" },
+    }),
+  },
+  "rotate-right": {
+    in: keyframes({
+      "0%": { transform: "rotate(90deg)" },
+      "100%": { transform: "rotate(0)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "rotate(0)" },
+      "100%": { transform: "rotate(90deg)" },
+    }),
+  },
+  "slide-down": {
+    in: keyframes({
+      "0%": { opacity: 0, transform: "translateY(100%)" },
+      "100%": { opacity: 1, transform: "translateY(0)" },
+    }),
+    out: keyframes({
+      "0%": { opacity: 1, transform: "translateY(0)" },
+      "100%": { opacity: 0, transform: "translateY(100%)" },
+    }),
+  },
+  "slide-up": {
+    in: keyframes({
+      "0%": { opacity: 0, transform: "translateY(-100%)" },
+      "100%": { opacity: 1, transform: "translateY(0)" },
+    }),
+    out: keyframes({
+      "0%": { opacity: 1, transform: "translateY(0)" },
+      "100%": { opacity: 0, transform: "translateY(-100%)" },
+    }),
+  },
+  "slide-left": {
+    in: keyframes({
+      "0%": { opacity: 0, transform: "translateX(-100%)" },
+      "100%": { opacity: 1, transform: "translateX(0)" },
+    }),
+    out: keyframes({
+      "0%": { opacity: 1, transform: "translateX(0)" },
+      "100%": { opacity: 0, transform: "translateX(-100%)" },
+    }),
+  },
+  "slide-right": {
+    in: keyframes({
+      "0%": { opacity: 0, transform: "translateX(100%)" },
+      "100%": { opacity: 1, transform: "translateX(0)" },
+    }),
+    out: keyframes({
+      "0%": { opacity: 1, transform: "translateX(0)" },
+      "100%": { opacity: 0, transform: "translateX(100%)" },
+    }),
+  },
+  roll: {
+    in: keyframes({
+      "0%": { transform: "rotate(-90deg)", opacity: 0 },
+      "100%": { transform: "rotate(0deg)", opacity: 1 },
+    }),
+    out: keyframes({
+      "0%": { transform: "rotate(0deg)", opacity: 1 },
+      "100%": { transform: "rotate(-90deg)", opacity: 0 },
+    }),
+  },
+  pulse: {
+    in: keyframes({
+      "0%": { transform: "scale(0.5)", opacity: 0 },
+      "100%": { transform: "scale(1)", opacity: 1 },
+    }),
+    out: keyframes({
+      "0%": { transform: "scale(1)", opacity: 1 },
+      "100%": { transform: "scale(0.5)", opacity: 0 },
+    }),
+  },
+  shake: {
+    in: keyframes({
+      "0%": { transform: "translateX(-10px)", opacity: 0 },
+      "100%": { transform: "translateX(0)", opacity: 1 },
+    }),
+    out: keyframes({
+      "0%": { transform: "translateX(0)", opacity: 1 },
+      "100%": { transform: "translateX(-10px)", opacity: 0 },
+    }),
+  },
+  bounce: {
+    in: keyframes({
+      "0%": { transform: "translateY(0)" },
+      "50%": { transform: "translateY(-20%)" },
+      "100%": { transform: "translateY(0)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "translateY(0)" },
+      "50%": { transform: "translateY(-20%)" },
+      "100%": { transform: "translateY(0)" },
+    }),
+  },
+  flip: {
+    in: keyframes({
+      "0%": { transform: "rotateY(180deg)" },
+      "100%": { transform: "rotateY(0deg)" },
+    }),
+    out: keyframes({
+      "0%": { transform: "rotateY(0deg)" },
+      "100%": { transform: "rotateY(180deg)" },
+    }),
+  },
+};
+
 const Animation: AnimationComponent = forwardRef(
   <E extends Versatile = "div">(
     {
@@ -66,181 +241,6 @@ const Animation: AnimationComponent = forwardRef(
     }: AnimationProps<E>,
     ref: PrismaneVersatileRef<E>
   ) => {
-    const animations: Animations = {
-      fade: {
-        in: keyframes({
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        }),
-        out: keyframes({
-          "0%": { opacity: 1 },
-          "100%": { opacity: 0 },
-        }),
-      },
-      scale: {
-        in: keyframes({
-          "0%": { transform: "scale(0)" },
-          "100%": { transform: "scale(1)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(0)" },
-        }),
-      },
-      "scale-y": {
-        in: keyframes({
-          "0%": { transform: "scaleY(0)" },
-          "100%": { transform: "scaleY(1)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "scaleY(1)" },
-          "100%": { transform: "scaleY(0)" },
-        }),
-      },
-      "scale-x": {
-        in: keyframes({
-          "0%": { transform: "scaleX(0)" },
-          "100%": { transform: "scaleX(1)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "scaleX(1)" },
-          "100%": { transform: "scaleX(0)" },
-        }),
-      },
-      "skew-up": {
-        in: keyframes({
-          "0%": { transform: "skewY(-15deg)" },
-          "100%": { transform: "skewY(0)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "skewY(0)" },
-          "100%": { transform: "skewY(-15deg)" },
-        }),
-      },
-      "skew-down": {
-        in: keyframes({
-          "0%": { transform: "skewY(15deg)" },
-          "100%": { transform: "skewY(0)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "skewY(0)" },
-          "100%": { transform: "skewY(15deg)" },
-        }),
-      },
-      "rotate-left": {
-        in: keyframes({
-          "0%": { transform: "rotate(-90deg)" },
-          "100%": { transform: "rotate(0)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "rotate(0)" },
-          "100%": { transform: "rotate(-90deg)" },
-        }),
-      },
-      "rotate-right": {
-        in: keyframes({
-          "0%": { transform: "rotate(90deg)" },
-          "100%": { transform: "rotate(0)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "rotate(0)" },
-          "100%": { transform: "rotate(90deg)" },
-        }),
-      },
-      "slide-down": {
-        in: keyframes({
-          "0%": { opacity: 0, transform: "translateY(100%)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        }),
-        out: keyframes({
-          "0%": { opacity: 1, transform: "translateY(0)" },
-          "100%": { opacity: 0, transform: "translateY(100%)" },
-        }),
-      },
-      "slide-up": {
-        in: keyframes({
-          "0%": { opacity: 0, transform: "translateY(-100%)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        }),
-        out: keyframes({
-          "0%": { opacity: 1, transform: "translateY(0)" },
-          "100%": { opacity: 0, transform: "translateY(-100%)" },
-        }),
-      },
-      "slide-left": {
-        in: keyframes({
-          "0%": { opacity: 0, transform: "translateX(-100%)" },
-          "100%": { opacity: 1, transform: "translateX(0)" },
-        }),
-        out: keyframes({
-          "0%": { opacity: 1, transform: "translateX(0)" },
-          "100%": { opacity: 0, transform: "translateX(-100%)" },
-        }),
-      },
-      "slide-right": {
-        in: keyframes({
-          "0%": { opacity: 0, transform: "translateX(100%)" },
-          "100%": { opacity: 1, transform: "translateX(0)" },
-        }),
-        out: keyframes({
-          "0%": { opacity: 1, transform: "translateX(0)" },
-          "100%": { opacity: 0, transform: "translateX(100%)" },
-        }),
-      },
-      roll: {
-        in: keyframes({
-          "0%": { transform: "rotate(-90deg)", opacity: 0 },
-          "100%": { transform: "rotate(0deg)", opacity: 1 },
-        }),
-        out: keyframes({
-          "0%": { transform: "rotate(0deg)", opacity: 1 },
-          "100%": { transform: "rotate(-90deg)", opacity: 0 },
-        }),
-      },
-      pulse: {
-        in: keyframes({
-          "0%": { transform: "scale(0.5)", opacity: 0 },
-          "100%": { transform: "scale(1)", opacity: 1 },
-        }),
-        out: keyframes({
-          "0%": { transform: "scale(1)", opacity: 1 },
-          "100%": { transform: "scale(0.5)", opacity: 0 },
-        }),
-      },
-      shake: {
-        in: keyframes({
-          "0%": { transform: "translateX(-10px)", opacity: 0 },
-          "100%": { transform: "translateX(0)", opacity: 1 },
-        }),
-        out: keyframes({
-          "0%": { transform: "translateX(0)", opacity: 1 },
-          "100%": { transform: "translateX(-10px)", opacity: 0 },
-        }),
-      },
-      bounce: {
-        in: keyframes({
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20%)" },
-          "100%": { transform: "translateY(0)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20%)" },
-          "100%": { transform: "translateY(0)" },
-        }),
-      },
-      flip: {
-        in: keyframes({
-          "0%": { transform: "rotateY(180deg)" },
-          "100%": { transform: "rotateY(0deg)" },
-        }),
-        out: keyframes({
-          "0%": { transform: "rotateY(0deg)" },
-          "100%": { transform: "rotateY(180deg)" },
-        }),
-      },
-    };
-
     const a =
       typeof animation === "string"
         ? animations[animation]

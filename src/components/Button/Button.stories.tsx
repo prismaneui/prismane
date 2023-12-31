@@ -67,3 +67,15 @@ export const Full_Button = () => {
     </Flex>
   );
 };
+
+export const Button_Sizes = () => {
+  return (
+    <Flex w={fr(96)} h={fr(20)} direction="column" gap={fr(4)}>
+      <Button size="xs">Sample Button</Button>
+      <Button size="sm">Sample Button</Button>
+      <Button size="base">Sample Button</Button>
+      <Button size="md">Sample Button</Button>
+      <Button size="lg">Sample Button</Button>
+    </Flex>
+  );
+};

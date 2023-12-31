@@ -22,10 +22,6 @@ const preview: Preview = {
         context.globals.theme === "dark"
           ? {
               mode: "dark",
-              colors: {
-                primary: { ...PRISMANE_COLORS.ruby },
-                base: { ...PRISMANE_COLORS.gray },
-              },
             }
           : {
               mode: "light",
