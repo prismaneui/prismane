@@ -14,6 +14,8 @@ import {
   PrismaneVersatileRef,
   PrismaneProps,
 } from "../../types";
+// Hooks
+import { usePrismaneColor } from "../PrismaneProvider";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
@@ -103,6 +105,8 @@ const Field = forwardRef(
     ref: PrismaneVersatileRef<E>
   ) => {
     const Component = as || "input";
+
+    const { getColor } = usePrismaneColor();
 
     return (
       <Transition
@@ -228,6 +232,15 @@ const Field = forwardRef(
               ? [["base", 300], { ":placeholder": ["base", 400] }]
               : [["base", 800], { ":placeholder": ["base", 500] }]
           }
+          sx={{
+            "&:-webkit-autofill": (theme) => ({
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color":
+                theme.mode === "dark"
+                  ? getColor("base", 300)
+                  : getColor("base", 800),
+            }),
+          }}
           className={strip(`${className ? className : ""} PrismaneField-field`)}
           maxLength={maxLength}
           minLength={minLength}
