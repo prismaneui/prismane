@@ -235,7 +235,15 @@ export interface PrismaneDefault {
   pe?: PrismaneStyles<string>;
   cs?: PrismaneStyles<string>;
   bs?: PrismaneStyles<string>;
-  sx?: PrismaneStyles<any>;
+  sx?: {
+    [x in string]: PrismaneStyles<
+      | string
+      | number
+      | {
+          [x in string]: string | number;
+        }
+    >;
+  };
 }
 
 export interface PrismaneComponent extends PrismaneDefault {

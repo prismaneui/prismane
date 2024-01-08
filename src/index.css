@@ -236,12 +236,6 @@ select:focus {
   outline: none;
 }
 
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-background-clip: text;
-}
-
 .dark input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
