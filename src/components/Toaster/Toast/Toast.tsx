@@ -33,22 +33,22 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
     },
     ref
   ) => {
-    const [shown, setShown] = useState(false);
+    const [shown, setShown] = useState(true);
 
     const { setToasts } = useToasterContext();
 
     useEffect(() => {
-      setShown(true);
-
       const toastTimeout = setTimeout(() => {
         setShown(false);
-      }, timeout);
+      }, timeout + duration);
 
       return () => clearTimeout(toastTimeout);
     }, []);
 
-    const presence = usePresence(true, timeout + duration, () => {
-      setToasts((pt: any) => pt.filter((toast: any) => toast.id !== id));
+    const presence = usePresence(shown, duration, () => {
+      setTimeout(() => {
+        setToasts((pt: any) => pt.filter((toast: any) => toast.id !== id));
+      }, duration);
     });
 
     return presence ? (

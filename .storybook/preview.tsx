@@ -12,8 +12,8 @@ import "@fontsource/poppins/900.css";
 // Prismane
 import PrismaneProvider from "../src/components/PrismaneProvider/PrismaneProvider";
 import Flex from "../src/components/Flex/Flex";
-import Toaster from "../src/components/Toaster/Toaster";
 import { PRISMANE_COLORS } from "../src/constants";
+import Toaster from "../src/components/Toaster";
 
 const preview: Preview = {
   decorators: [
@@ -36,7 +36,7 @@ const preview: Preview = {
             };
 
       return (
-        <Toaster>
+        <Toaster position="top-right">
           <PrismaneProvider theme={theme}>
             <Flex
               w="100vw"
