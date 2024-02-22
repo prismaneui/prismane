@@ -99,17 +99,17 @@ const Button: ButtonComponent = forwardRef(
             secondary:
               theme.mode === "dark"
                 ? [
-                    [color, 700, 0.2],
+                    [color, 700, 0.1],
                     {
-                      hover: fillOnHover ? [color, 700] : [color, 700, 0.25],
-                      active: !fillOnHover && [color, 700, 0.3],
+                      hover: fillOnHover ? [color, 700] : [color, 700, 0.15],
+                      active: !fillOnHover && [color, 700, 0.2],
                     },
                   ]
                 : [
-                    [color, 500, 0.2],
+                    [color, 500, 0.1],
                     {
-                      hover: fillOnHover ? [color, 500] : [color, 500, 0.25],
-                      active: !fillOnHover && [color, 500, 0.3],
+                      hover: fillOnHover ? [color, 500] : [color, 500, 0.15],
+                      active: !fillOnHover && [color, 500, 0.2],
                     },
                   ],
             tertiary:
