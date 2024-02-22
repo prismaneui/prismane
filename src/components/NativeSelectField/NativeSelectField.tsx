@@ -16,20 +16,6 @@ export type NativeSelectFieldProps = PrismaneProps<
   FieldProps
 >;
 
-/**
-    NativeSelectField component displays a dropdown menu to select an option from a list.
-    @param {object} props - The props object of NativeSelectField component.
-    @param {array} [props.options] - The options to display in the dropdown menu, each object must have value and element keys.
-    @param {string} [props.placeholder] - The placeholder text for the NativeSelectField.
-    @param {boolean} [props.readOnly] - Set to true to make the NativeSelectField read-only.
-    @param {object} props.error - The error message to display in case of invalid input.
-    @param {string} props.size - The size of the NativeSelectField component.
-    @param {string} [props.className] - The className of the NativeSelectField component.
-    @param {string} props.label - The label for the NativeSelectField component.
-    @param {function} [props.onChange] - The callback function to execute when the value of NativeSelectField changes.
-    @returns {JSX.Element} Returns the NativeSelectField component.
-    */
-
 const NativeSelectField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   NativeSelectFieldProps

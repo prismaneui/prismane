@@ -14,13 +14,6 @@ export type SpinnerProps = PrismaneProps<
   FlexProps<"svg">
 >;
 
-/**
- * Spinner Params
- * @param {Object} props
- * @param {string} props.className The className of the loading svg element
- * @returns Element
- */
-
 const Spinner = forwardRef<SVGElement, SpinnerProps>(
   ({ size = "base", className, sx, ...props }, ref) => {
     return (

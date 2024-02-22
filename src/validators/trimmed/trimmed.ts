@@ -1,9 +1,3 @@
-/**
- * trimmed
- * @param {string} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a string has no more consecutive spaces than one
- */
 const trimmed = (
   value: string,
   regExp?: RegExp,

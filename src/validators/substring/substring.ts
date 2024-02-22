@@ -1,9 +1,3 @@
-/**
- * substring
- * @param {string} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a string is a substring of a given string
- */
 const substring = (
   value: string,
   string: string,

@@ -14,15 +14,6 @@ import { strip, variants, fr } from "../../utils";
 
 export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 
-/**
- * Switch Params
- * @param {Object} props
- * @param {string} props.name The name the field will be registered with
- * @param {any} props.register The useForm hook register function
- * @param {any} props.getValues The useForm hook getValue function to toggle the "toggled" style of the component
- * @returns Element
- */
-
 const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ label, error, size = "base", className, sx, ...props }, ref) => {
     const [rest, field] = useFieldProps(props);

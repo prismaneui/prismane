@@ -18,13 +18,6 @@ export type CheckboxProps = PrismaneProps<
   FlexProps & TransitionProps & PrismaneFieldComponent
 >;
 
-/**
- * Checkbox Params
- * @param {Object} props
- * @param {string} props.name The name the field will be registered with
- * @returns Element
- */
-
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {

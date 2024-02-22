@@ -14,14 +14,6 @@ export type FormProps = PrismaneProps<
   BoxProps<"form">
 >;
 
-/**
- * Form Params
- * @param {Object} props
- * @param {any} props.children The children of the form
- * @param {any} props.submit The submit function for the onSubmit event
- * @returns Element
- */
-
 const Form = forwardRef<HTMLFormElement, FormProps>(
   ({ children, onSubmit, onReset, className, sx, ...props }, ref) => {
     return (
