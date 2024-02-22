@@ -82,7 +82,13 @@ const Button: ButtonComponent = forwardRef(
           lg: fr(2.75),
         })}
         h="fit-content"
-        br={size}
+        br={variants(size, {
+          xs: "xs",
+          sm: "sm",
+          base: "base",
+          md: "base",
+          lg: "md",
+        })}
         op={[1, { disabled: 0.5 }]}
         bg={(theme) =>
           variants(variant, {

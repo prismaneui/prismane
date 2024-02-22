@@ -3,6 +3,7 @@ import { Pause, ArchiveBox } from "@phosphor-icons/react";
 // Components
 import Button from "./Button";
 import Flex from "../Flex/Flex";
+import Stack from "../Stack/Stack";
 // Utils
 import { fr } from "../../utils";
 
@@ -65,5 +66,27 @@ export const Full_Button = () => {
     <Flex w={fr(96)} h={fr(20)} direction="column">
       <Button full>Full Width Button</Button>
     </Flex>
+  );
+};
+
+export const Button_Sizes = () => {
+  return (
+    <Stack align="center">
+      <Button w={fr(120)} size="xs">
+        xs
+      </Button>
+      <Button w={fr(120)} size="sm">
+        sm
+      </Button>
+      <Button w={fr(120)} size="base">
+        base
+      </Button>
+      <Button w={fr(120)} size="md">
+        md
+      </Button>
+      <Button w={fr(120)} size="lg">
+        lg
+      </Button>
+    </Stack>
   );
 };
