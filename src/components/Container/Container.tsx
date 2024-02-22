@@ -8,7 +8,14 @@ import { strip } from "../../utils";
 
 export type ContainerProps = PrismaneProps<
   {
-    maxSize?: PrismaneBreakpoints;
+    maxSize?:
+      | PrismaneBreakpoints
+      | "xl"
+      | "2xl"
+      | "3xl"
+      | "4xl"
+      | "5xl"
+      | "6xl";
   },
   FlexProps
 >;
