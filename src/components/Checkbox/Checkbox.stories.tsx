@@ -4,6 +4,7 @@ import Form from "../Form/Form";
 import Checkbox from "./Checkbox";
 import Flex from "../Flex/Flex";
 import Button from "../Button/Button";
+import Stack from "../Stack";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
@@ -108,5 +109,41 @@ export const PrismaneBreakpoints = () => {
         </Button>
       </Flex>
     </Form>
+  );
+};
+
+export const Indeterminate_Checkbox = () => {
+  const [checkedItems, setCheckedItems] = useState<any>([false, false]);
+
+  const checked: any = checkedItems.every(Boolean);
+  const indeterminate = checkedItems.some(Boolean) && !checked;
+
+  return (
+    <Stack w="100%" align="center">
+      <Checkbox
+        label="Receive updates about Prismane"
+        value={checked}
+        indeterminate={indeterminate}
+        onChange={(e: any) =>
+          setCheckedItems([e.target.checked, e.target.checked])
+        }
+      />
+      <Stack pl={fr(6)} mt={fr(1)}>
+        <Checkbox
+          label="Receive version updates"
+          value={checkedItems[0]}
+          onChange={(e: any) =>
+            setCheckedItems([e.target.checked, checkedItems[1]])
+          }
+        />
+        <Checkbox
+          label="Receive event updates"
+          value={checkedItems[1]}
+          onChange={(e: any) =>
+            setCheckedItems([checkedItems[0], e.target.checked])
+          }
+        />
+      </Stack>
+    </Stack>
   );
 };

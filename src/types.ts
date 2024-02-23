@@ -46,6 +46,7 @@ export interface PrismaneFieldComponent extends PrismaneComponent {
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;
   disabled?: boolean;
+  checked?: boolean;
 }
 
 export interface PrismaneDefault {

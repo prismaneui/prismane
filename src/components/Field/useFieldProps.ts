@@ -22,6 +22,7 @@ const useFieldProps = (props: any): [any, PrismaneFieldComponent] => {
     "disabled",
     "addons",
     "value",
+    "checked",
     "defaultValue",
     "onChange",
     "onFocus",
