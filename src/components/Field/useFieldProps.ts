@@ -24,13 +24,20 @@ const useFieldProps = (props: any): [any, PrismaneFieldComponent] => {
     "value",
     "checked",
     "defaultValue",
+    "defaultChecked",
     "onChange",
     "onFocus",
     "onBlur",
   ]);
 
+  const id = useId();
+
   if (!field.name) {
-    field.name = useId();
+    field.name = id;
+  }
+
+  if (!field.id) {
+    field.id = field.name;
   }
 
   return [rest, field];

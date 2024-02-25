@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 // Components
 import Form from "../Form/Form";
 import Checkbox from "./Checkbox";
@@ -147,3 +147,27 @@ export const Indeterminate_Checkbox = () => {
     </Stack>
   );
 };
+
+export const Vanilla_Form = () => (
+  <Stack w="100%" align="center">
+    <form
+      style={{
+        width: 100,
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+      }}
+      onSubmit={(e: any) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
+        console.log(formProps);
+      }}
+    >
+      <Checkbox name="checkbox1" value="1" checked />
+      <Checkbox name="checkbox2" value="2" defaultChecked />
+      <input type="text" value="dadadada" name="ivan" />
+      <Button type="submit">Submit</Button>
+    </form>
+  </Stack>
+);

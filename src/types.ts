@@ -42,6 +42,7 @@ export interface PrismaneFieldComponent extends PrismaneComponent {
   label?: string;
   value?: string | number;
   defaultValue?: string | number;
+  defaultChecked?: boolean;
   size?: PrismaneBreakpoints;
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;

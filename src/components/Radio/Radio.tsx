@@ -24,24 +24,7 @@ export { type RadioGroupProps };
 export type RadioProps = FlexProps & TransitionProps & PrismaneFieldComponent;
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  (
-    {
-      label,
-      error,
-      id,
-      name,
-      value,
-      defaultValue,
-      size = "base",
-      onChange,
-      onBlur,
-      onFocus,
-      className,
-      sx,
-      ...props
-    },
-    ref
-  ) => {
+  ({ label, error, size = "base", className, sx, ...props }, ref) => {
     const [rest, field] = useFieldProps(props);
 
     const uuid = useId();
@@ -79,7 +62,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
               lg: fr(7),
             })}
             bg={(theme) =>
-              value === group.value || !group.value
+              field.value === group.value || !group.value
                 ? theme.mode === "dark"
                   ? [["primary", 700], { hover: ["primary", 600] }]
                   : [["primary", 500], { hover: ["primary", 600] }]
@@ -92,10 +75,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
             bdw={1}
             bdc={(theme) =>
               theme.mode === "dark"
-                ? value === group.value || !group.value
+                ? field.value === group.value || !group.value
                   ? [["primary", 700], { hover: ["primary", 600] }]
                   : [["base", 700], { hover: ["base", 600] }]
-                : value === group.value || !group.value
+                : field.value === group.value || !group.value
                 ? [["primary", 500], { hover: ["primary", 600] }]
                 : [["base", 300], { hover: ["base", 400] }]
             }
@@ -105,25 +88,22 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
             }}
             className={strip(
               `${className ? className : ""} ${
-                value === group.value ? "PrismaneRadio-root-active" : ""
+                field.value === group.value ? "PrismaneRadio-root-active" : ""
               } PrismaneRadio-root`
             )}
             {...rest}
           >
             <Hidden>
               <Field
-                id={`${group.name || name}-${uuid}`}
                 type="radio"
-                onBlur={group.onBlur || onBlur}
-                onChange={group.onChange || onChange}
-                onFocus={onFocus}
-                value={value}
-                defaultValue={defaultValue}
                 data-testid="prismane-radio"
                 size={size as any}
                 ref={ref}
                 {...field}
-                name={group.name || name}
+                onBlur={group.onBlur || field.onBlur}
+                onChange={group.onChange || field.onChange}
+                id={`${group.name || field.name}-${uuid}`}
+                name={group.name || field.name}
               />
             </Hidden>
             <Animation
@@ -142,13 +122,17 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 lg: fr(3.5),
               })}
               br="full"
-              bg={value === group.value || !group.value ? "white" : undefined}
+              bg={
+                field.value === group.value || !group.value
+                  ? "white"
+                  : undefined
+              }
               sx={{
                 aspectRatio: "1/1",
               }}
               className="PrismaneRadio-thumb"
               animation="scale"
-              animated={value === group.value}
+              animated={field.value === group.value}
             />
           </Transition>
           <Field.Label
