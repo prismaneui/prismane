@@ -40,7 +40,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           gap={fr(2)}
           op={field.disabled ? 0.4 : 1}
           pe={field.disabled ? "none" : undefined}
-          htmlFor={`${group.name || name}-${uuid}`}
+          htmlFor={`${group.name || field.name}-${uuid}`}
         >
           <Transition
             as={Flex}
@@ -137,7 +137,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           </Transition>
           <Field.Label
             fs={group.size || size}
-            htmlFor={`${group.name || name}-${uuid}`}
+            htmlFor={`${group.name || field.name}-${uuid}`}
             className="PrismaneRadio-label"
           >
             {label}
