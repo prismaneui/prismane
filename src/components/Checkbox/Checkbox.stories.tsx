@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 // Components
 import Form from "../Form/Form";
 import Checkbox from "./Checkbox";
 import Flex from "../Flex/Flex";
 import Button from "../Button/Button";
+import Stack from "../Stack";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
@@ -110,3 +111,61 @@ export const PrismaneBreakpoints = () => {
     </Form>
   );
 };
+
+export const Indeterminate_Checkbox = () => {
+  const [checkedItems, setCheckedItems] = useState<any>([false, false]);
+
+  const checked: any = checkedItems.every(Boolean);
+  const indeterminate = checkedItems.some(Boolean) && !checked;
+
+  return (
+    <Stack w="100%" align="center">
+      <Checkbox
+        label="Receive updates about Prismane"
+        value={checked}
+        indeterminate={indeterminate}
+        onChange={(e: any) => setCheckedItems([!checked, !checked])}
+      />
+      <Stack pl={fr(6)} mt={fr(1)}>
+        <Checkbox
+          label="Receive version updates"
+          value={checkedItems[0]}
+          onChange={(e: any) =>
+            setCheckedItems([!checkedItems[0], checkedItems[1]])
+          }
+        />
+        <Checkbox
+          label="Receive event updates"
+          value={checkedItems[1]}
+          onChange={(e: any) =>
+            setCheckedItems([checkedItems[0], !checkedItems[1]])
+          }
+        />
+      </Stack>
+    </Stack>
+  );
+};
+
+export const Vanilla_Form = () => (
+  <Stack w="100%" align="center">
+    <form
+      style={{
+        width: 100,
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+      }}
+      onSubmit={(e: any) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
+        console.log(formProps);
+      }}
+    >
+      <Checkbox name="checkbox1" value="1" checked />
+      <Checkbox name="checkbox2" value="2" defaultChecked />
+      <input type="text" value="dadadada" name="ivan" />
+      <Button type="submit">Submit</Button>
+    </form>
+  </Stack>
+);

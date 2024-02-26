@@ -16,6 +16,7 @@ import {
 } from "../../types";
 // Hooks
 import { usePrismaneColor } from "../PrismaneProvider";
+import useFieldProps from "./useFieldProps";
 // Utils
 import { strip, variants, fr } from "../../utils";
 
@@ -53,23 +54,11 @@ const Field = forwardRef(
   <E extends Versatile = "input">(
     {
       variant = "outlined",
-      name,
-      id = name,
-      placeholder,
-      type,
-      readOnly,
-      maxLength,
-      minLength,
       icon,
       error,
       validating,
       disabled,
       addons,
-      value,
-      defaultValue,
-      onChange,
-      onFocus,
-      onBlur,
       as,
       size = "base",
       children,
@@ -81,6 +70,8 @@ const Field = forwardRef(
     const Component = as || "input";
 
     const { getColor } = usePrismaneColor();
+
+    const [rest, field] = useFieldProps(props);
 
     return (
       <Transition
@@ -166,7 +157,7 @@ const Field = forwardRef(
             className ? className : ""
           } PrismaneField-root-${size} PrismaneField-root-${variant} PrismaneField-root`
         )}
-        {...props}
+        {...rest}
       >
         {icon && (
           <Icon
@@ -197,10 +188,6 @@ const Field = forwardRef(
             lg: "md",
           })}
           w="100%"
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          type={type}
           cl={(theme) =>
             theme.mode === "dark"
               ? [["base", 300], { ":placeholder": ["base", 400] }]
@@ -216,16 +203,9 @@ const Field = forwardRef(
             }),
           }}
           className={strip(`${className ? className : ""} PrismaneField-field`)}
-          maxLength={maxLength}
-          minLength={minLength}
-          readOnly={readOnly}
-          value={value}
-          defaultValue={defaultValue}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
           data-testid="prismane-field"
           ref={ref}
+          {...field}
         >
           {as === "select" ? children : null}
         </Box>

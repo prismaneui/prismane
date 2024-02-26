@@ -70,10 +70,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             bdw={1}
             bdc={(theme) =>
               theme.mode === "dark"
-                ? field.value
+                ? field.value || field.checked || indeterminate
                   ? [["primary", 700], { hover: ["primary", 600] }]
                   : [["base", 600], { hover: ["base", 500] }]
-                : field.value
+                : field.value || field.checked || indeterminate
                 ? [["primary", 500], { hover: ["primary", 600] }]
                 : [["base", 400], { hover: ["base", 500] }]
             }
@@ -85,6 +85,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             className={strip(
               `${className ? className : ""} ${
                 field.value ? "PrismaneCheckbox-active" : ""
+              } ${
+                indeterminate ? "PrismaneCheckbox-indeterminate" : ""
               } PrismaneCheckbox-root`
             )}
             {...rest}
@@ -116,7 +118,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
               }
               br="xs"
-              animated={field.value ? true : false}
+              animated={
+                field.value || field.checked || indeterminate ? true : false
+              }
               animation={{
                 out: { opacity: 0, transform: "scale(0.8)" },
                 in: { opacity: 1, transform: "scale(1)" },
