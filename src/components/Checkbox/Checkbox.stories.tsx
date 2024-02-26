@@ -124,23 +124,21 @@ export const Indeterminate_Checkbox = () => {
         label="Receive updates about Prismane"
         value={checked}
         indeterminate={indeterminate}
-        onChange={(e: any) =>
-          setCheckedItems([e.target.checked, e.target.checked])
-        }
+        onChange={(e: any) => setCheckedItems([!checked, !checked])}
       />
       <Stack pl={fr(6)} mt={fr(1)}>
         <Checkbox
           label="Receive version updates"
           value={checkedItems[0]}
           onChange={(e: any) =>
-            setCheckedItems([e.target.checked, checkedItems[1]])
+            setCheckedItems([!checkedItems[0], checkedItems[1]])
           }
         />
         <Checkbox
           label="Receive event updates"
           value={checkedItems[1]}
           onChange={(e: any) =>
-            setCheckedItems([checkedItems[0], e.target.checked])
+            setCheckedItems([checkedItems[0], !checkedItems[1]])
           }
         />
       </Stack>
