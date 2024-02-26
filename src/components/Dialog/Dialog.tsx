@@ -136,6 +136,9 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>(
                 "left-end": fr(6),
               })}
               z={200}
+              onClick={(e: any) => {
+                e.stopPropagation();
+              }}
               animated={animating}
               duration={duration}
               timing={timing}
