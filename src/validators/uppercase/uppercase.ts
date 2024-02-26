@@ -1,9 +1,3 @@
-/**
- * uppercase
- * @param {string} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a string has only uppercase characters
- */
 const uppercase = (
   value: string,
   regExp?: RegExp,

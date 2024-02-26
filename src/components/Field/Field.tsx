@@ -49,32 +49,6 @@ export type FieldProps<E extends Versatile = "input"> = PrismaneVersatile<
   >
 >;
 
-/**
- * A form field component that renders an input element wrapped in a customizable box, with support for icons, labels, errors, and addons.
- *
- * @typedef {object} FieldProps
- * @property {string} [placeholder] - The placeholder text for the input field.
- * @property {string} [type] - The type of the input field.
- * @property {boolean} [readOnly] - Whether the input field is read-only.
- * @property {number} [min] - The minimum value for the input field.
- * @property {number} [max] - The maximum value for the input field.
- * @property {ReactNode} [icon] - The icon to display on the left side of the input field.
- * @property {string | null} [error] - The error message to display.
- * @property {boolean} [validating] - Whether the input field is currently being validated.
- * @property {ReactNode} [addons] - Additional elements to render after the input field.
- * @property {Versatile} [as] - The HTML tag to use for the input element. Defaults to "input".
- * @property {string} [size] - The size of the input field.
- * @property {FieldLabelProps} [Label] - A custom label component to use.
- * @property {FieldWrapperProps} [Wrapper] - A custom wrapper component to use.
- * @property {FieldErrorProps} [Error] - A custom error component to use.
- * @property {string} [className] - The class name to apply to the root element.
- *
- * @template E - The HTML element type of the input element.
- * @extends {FlexProps<E> & PrismaneFieldComponent}
- * @property {ForwardedRef<any>} ref - A ref to the input element.
- * @returns {JSX.Element} The rendered Field component.
- */
-
 const Field = forwardRef(
   <E extends Versatile = "input">(
     {

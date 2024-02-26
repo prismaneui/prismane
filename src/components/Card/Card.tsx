@@ -22,17 +22,6 @@ export type CardProps<E extends Versatile = "div"> = PrismaneVersatile<
   PaperProps
 >;
 
-/**
- * Card Props
- * @param {Object} props
- * @param {string=} props.heading The heading of the card if there is any
- * @param {ReactElement | HTMLElement | ReactElement[] | HTMLElement[]} props.children The children of the card
- * @param {string=} props.width The width of the card
- * @param {string=} props.height The height of the card
- * @param {string=} props.className The additional classes for the component
- * @returns Element
- */
-
 const Card = forwardRef(
   <E extends Versatile = "div">(
     { as, children, className, ...props }: CardProps<E>,

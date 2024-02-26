@@ -7,22 +7,6 @@ import { useFieldProps } from "../Field";
 import { strip, fr, variants } from "../../utils";
 
 export type TextareaFieldProps = FieldProps;
-/**
- * Textarea Params
- * @param {Object} props
- * @param {string} props.name The name the field will be registered with
- * @param {string} props.placeholder The placeholder of the field
- * @param {string | HTMLElement} props.label The label text or element for the label element
- * @param {string | ReactNode=} props.action The label action text or element for the label element
- * @param {any} props.validators The validator functions of the field
- * @param {string=} props.className The additional classes for the text field component
- * @param {any=} props.onFocus The function for the onFocus event
- * @param {any=} props.onChange The function for the onChange event
- * @param {boolean=} props.validating The validating boolean for async validation display
- * @param {number=} props.min The min length of the field
- * @param {number=} props.max The max length of the field
- * @returns Element
- */
 
 const TextareaField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

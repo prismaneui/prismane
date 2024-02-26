@@ -1,9 +1,3 @@
-/**
- * contains
- * @param {string} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a string contains a given substring
- */
 const contains = (
   value: string,
   substring: string,

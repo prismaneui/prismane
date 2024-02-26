@@ -1,9 +1,3 @@
-/**
- * alphanumeric
- * @param {string} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a string has only alphanumeric characters
- */
 const alphanumeric = (
   value: string,
   regExp?: RegExp,

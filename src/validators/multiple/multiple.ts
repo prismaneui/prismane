@@ -1,9 +1,3 @@
-/**
- * multiple
- * @param {number} value The value that should be validated
- * @returns {string | null}
- * @description Method that check if a number is multiple of a given number
- */
 const multiple = (
   value: number,
   of: number,
