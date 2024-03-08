@@ -43,3 +43,31 @@ export const Default: FC = () => {
     </Grid>
   );
 };
+
+export const Areas: FC = () => {
+  return (
+    <Grid
+      templateAreas={`"header header"
+                  "nav main"
+                  "nav footer"`}
+      templateRows={3}
+      templateColumns={2}
+      h="200px"
+      w="600px"
+      gap="4px"
+    >
+      <Grid.Item pl="8px" bg="orange" area={"header"}>
+        Header
+      </Grid.Item>
+      <Grid.Item pl="8px" bg="pink" area={"nav"}>
+        Nav
+      </Grid.Item>
+      <Grid.Item pl="8px" bg="green" area={"main"}>
+        Main
+      </Grid.Item>
+      <Grid.Item pl="8px" bg="blue" area={"footer"}>
+        Footer
+      </Grid.Item>
+    </Grid>
+  );
+};
