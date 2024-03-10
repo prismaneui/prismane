@@ -1,4 +1,5 @@
 import React from "react";
+import * as CSS from "csstype";
 
 export type Versatile = React.ElementType;
 
@@ -50,39 +51,57 @@ export interface PrismaneFieldComponent extends PrismaneComponent {
   checked?: boolean;
 }
 
+type GlobalStyles = "inherit" | "initial" | "revert" | "revert-layer" | "unset";
+
+export type PrismaneStyles<T = string | number> =
+  | T
+  | GlobalStyles
+  | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]
+  | ((
+      theme: PrismaneTheme
+    ) =>
+      | T
+      | GlobalStyles
+      | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
+
 export interface PrismaneDefault {
-  w?: PrismaneStyles;
-  h?: PrismaneStyles;
-  m?: PrismaneStyles;
-  my?: PrismaneStyles;
-  mx?: PrismaneStyles;
-  mt?: PrismaneStyles;
-  mr?: PrismaneStyles;
-  mb?: PrismaneStyles;
-  ml?: PrismaneStyles;
-  p?: PrismaneStyles;
-  py?: PrismaneStyles;
-  px?: PrismaneStyles;
-  pt?: PrismaneStyles;
-  pr?: PrismaneStyles;
-  pb?: PrismaneStyles;
-  pl?: PrismaneStyles;
+  w?: PrismaneStyles<CSS.Properties<string | number>["width"]>;
+  h?: PrismaneStyles<CSS.Properties<string | number>["height"]>;
+  m?: PrismaneStyles<CSS.Properties<string | number>["margin"]>;
+  my?: PrismaneStyles<CSS.Properties<string | number>["margin"]>;
+  mx?: PrismaneStyles<CSS.Properties<string | number>["margin"]>;
+  mt?: PrismaneStyles<CSS.Properties<string | number>["marginTop"]>;
+  mr?: PrismaneStyles<CSS.Properties<string | number>["marginRight"]>;
+  mb?: PrismaneStyles<CSS.Properties<string | number>["marginBottom"]>;
+  ml?: PrismaneStyles<CSS.Properties<string | number>["marginLeft"]>;
+  p?: PrismaneStyles<CSS.Properties<string | number>["padding"]>;
+  py?: PrismaneStyles<CSS.Properties<string | number>["padding"]>;
+  px?: PrismaneStyles<CSS.Properties<string | number>["padding"]>;
+  pt?: PrismaneStyles<CSS.Properties<string | number>["paddingTop"]>;
+  pr?: PrismaneStyles<CSS.Properties<string | number>["paddingRight"]>;
+  pb?: PrismaneStyles<CSS.Properties<string | number>["paddingBottom"]>;
+  pl?: PrismaneStyles<CSS.Properties<string | number>["paddingLeft"]>;
   cl?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["color"]
   >;
   bg?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["backgroundColor"]
   >;
-  br?: PrismaneStyles<PrismaneBreakpoints | "xl" | "2xl" | string | number>;
-  mih?: PrismaneStyles;
-  mah?: PrismaneStyles;
-  miw?: PrismaneStyles;
+  br?: PrismaneStyles<
+    | PrismaneBreakpoints
+    | "xl"
+    | "2xl"
+    | CSS.Properties<string | number>["borderRadius"]
+  >;
+  mih?: PrismaneStyles<CSS.Properties<string | number>["minHeight"]>;
+  mah?: PrismaneStyles<CSS.Properties<string | number>["maxHeight"]>;
+  miw?: PrismaneStyles<CSS.Properties<string | number>["minWidth"]>;
   maw?: PrismaneStyles<
     | PrismaneBreakpoints
     | "xl"
@@ -92,41 +111,18 @@ export interface PrismaneDefault {
     | "5xl"
     | "6xl"
     | "7xl"
-    | string
-    | number
+    | CSS.Properties<string | number>["maxWidth"]
   >;
-  op?: PrismaneStyles;
-  pos?: PrismaneStyles<"static" | "relative" | "fixed" | "absolute" | "sticky">;
-  t?: PrismaneStyles;
-  r?: PrismaneStyles;
-  b?: PrismaneStyles;
-  l?: PrismaneStyles;
-  dp?: PrismaneStyles<
-    | "inline"
-    | "block"
-    | "contents"
-    | "flex"
-    | "grid"
-    | "inline-block"
-    | "inline-flex"
-    | "inline-grid"
-    | "inline-table"
-    | "list-item"
-    | "run-in"
-    | "table"
-    | "table-caption"
-    | "table-column-group"
-    | "table-header-group"
-    | "table-footer-group"
-    | "table-row-group"
-    | "table-cell"
-    | "table-column"
-    | "table-row"
-    | "none"
-  >;
-  z?: PrismaneStyles<number>;
-  of?: PrismaneStyles<"visible" | "hidden" | "clip" | "scroll" | "auto">;
-  ff?: PrismaneStyles<string>;
+  op?: PrismaneStyles<CSS.Properties<string | number>["opacity"]>;
+  pos?: PrismaneStyles<CSS.Properties["position"]>;
+  t?: PrismaneStyles<CSS.Properties<string | number>["top"]>;
+  r?: PrismaneStyles<CSS.Properties<string | number>["right"]>;
+  b?: PrismaneStyles<CSS.Properties<string | number>["bottom"]>;
+  l?: PrismaneStyles<CSS.Properties<string | number>["left"]>;
+  dp?: PrismaneStyles<CSS.Properties["display"]>;
+  z?: PrismaneStyles<CSS.Properties<number>["zIndex"]>;
+  of?: PrismaneStyles<CSS.Properties["overflow"]>;
+  ff?: PrismaneStyles<CSS.Properties["fontFamily"]>;
   fs?: PrismaneStyles<
     | PrismaneBreakpoints
     | "xl"
@@ -137,114 +133,100 @@ export interface PrismaneDefault {
     | "6xl"
     | "7xl"
     | "8xl"
-    | string
-    | number
+    | CSS.Properties<string | number>["fontSize"]
   >;
-  fw?: PrismaneStyles<
-    | "thin"
-    | "extralight"
-    | "light"
-    | "normal"
-    | "medium"
-    | "semibold"
-    | "bold"
-    | "extrabold"
-    | "black"
-    | string
-    | number
-  >;
-  ls?: PrismaneStyles;
-  ta?: PrismaneStyles<"left" | "right" | "center" | "justify">;
-  lh?: PrismaneStyles;
-  tt?: PrismaneStyles<
-    | "none"
-    | "capitalize"
-    | "uppercase"
-    | "lowercase"
-    | "full-width"
-    | "full-size-kana"
-  >;
-  td?: PrismaneStyles<
-    "none" | "underline" | "overline" | "line-through" | "blink"
-  >;
-  bd?: PrismaneStyles;
-  bdw?: PrismaneStyles;
-  bds?: PrismaneStyles;
+  fw?: PrismaneStyles<CSS.Properties<string | number>["fontWeight"]>;
+  ls?: PrismaneStyles<CSS.Properties<string | number>["letterSpacing"]>;
+  ta?: PrismaneStyles<CSS.Properties["textAlign"]>;
+  lh?: PrismaneStyles<CSS.Properties<string | number>["lineHeight"]>;
+  tt?: PrismaneStyles<CSS.Properties["textTransform"]>;
+  td?: PrismaneStyles<CSS.Properties["textDecoration"]>;
+  bd?: PrismaneStyles<CSS.Properties<string | number>["border"]>;
+  bdw?: PrismaneStyles<CSS.Properties<string | number>["borderWidth"]>;
+  bds?: PrismaneStyles<CSS.Properties["borderStyle"]>;
   bdc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderColor"]
   >;
-  bdt?: PrismaneStyles;
-  bdtw?: PrismaneStyles;
-  bdts?: PrismaneStyles;
+  bdt?: PrismaneStyles<CSS.Properties<string | number>["borderTop"]>;
+  bdtw?: PrismaneStyles<CSS.Properties<string | number>["borderTopWidth"]>;
+  bdts?: PrismaneStyles<CSS.Properties["borderTopStyle"]>;
   bdtc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderTopColor"]
   >;
-  bdr?: PrismaneStyles;
-  bdrw?: PrismaneStyles;
-  bdrs?: PrismaneStyles;
+  bdr?: PrismaneStyles<CSS.Properties<string | number>["borderRight"]>;
+  bdrw?: PrismaneStyles<CSS.Properties<string | number>["borderRightWidth"]>;
+  bdrs?: PrismaneStyles<CSS.Properties["borderRightStyle"]>;
   bdrc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderRightColor"]
   >;
-  bdb?: PrismaneStyles;
-  bdbw?: PrismaneStyles;
-  bdbs?: PrismaneStyles;
+  bdb?: PrismaneStyles<CSS.Properties<string | number>["borderBottom"]>;
+  bdbw?: PrismaneStyles<CSS.Properties<string | number>["borderBottomWidth"]>;
+  bdbs?: PrismaneStyles<CSS.Properties["borderBottomStyle"]>;
   bdbc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderBottomColor"]
   >;
-  bdl?: PrismaneStyles;
-  bdlw?: PrismaneStyles;
-  bdls?: PrismaneStyles;
+  bdl?: PrismaneStyles<CSS.Properties<string | number>["borderLeft"]>;
+  bdlw?: PrismaneStyles<CSS.Properties<string | number>["borderLeftWidth"]>;
+  bdls?: PrismaneStyles<CSS.Properties["borderLeftStyle"]>;
   bdlc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderLeftColor"]
   >;
-  bdx?: PrismaneStyles;
-  bdxw?: PrismaneStyles;
-  bdxs?: PrismaneStyles;
+  bdx?: PrismaneStyles<CSS.Properties<string | number>["borderInline"]>;
+  bdxw?: PrismaneStyles<CSS.Properties<string | number>["borderInlineWidth"]>;
+  bdxs?: PrismaneStyles<CSS.Properties["borderInlineStyle"]>;
   bdxc?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderInlineColor"]
   >;
-  bdy?: PrismaneStyles;
-  bdyw?: PrismaneStyles;
-  bdyc?: PrismaneStyles;
+  bdy?: PrismaneStyles<CSS.Properties<string | number>["borderBlock"]>;
+  bdyw?: PrismaneStyles<CSS.Properties<string | number>["borderBlockWidth"]>;
+  bdyc?: PrismaneStyles<CSS.Properties["borderBlockColor"]>;
   bdys?: PrismaneStyles<
     | PrismaneColors
     | [PrismaneColors, PrismaneShades]
     | [PrismaneColors, PrismaneShades, number]
-    | string
+    | CSS.Properties["borderBlockColor"]
   >;
-  ft?: PrismaneStyles<string>;
-  bft?: PrismaneStyles<string>;
-  tsh?: PrismaneStyles<PrismaneBreakpoints | string>;
-  bsh?: PrismaneStyles<PrismaneBreakpoints | "xl" | "inner" | string>;
-  pe?: PrismaneStyles<string>;
-  cs?: PrismaneStyles<string>;
-  bs?: PrismaneStyles<string>;
+  ft?: PrismaneStyles<CSS.Properties["filter"]>;
+  bft?: PrismaneStyles<CSS.Properties["backdropFilter"]>;
+  tsh?: PrismaneStyles<CSS.Properties["textShadow"]>;
+  bsh?: PrismaneStyles<
+    PrismaneBreakpoints | "xl" | "inner" | CSS.Properties["boxShadow"]
+  >;
+  pe?: PrismaneStyles<CSS.Properties["pointerEvents"]>;
+  cs?: PrismaneStyles<CSS.Properties["cursor"]>;
+  bs?: PrismaneStyles<CSS.Properties["boxSizing"]>;
   sx?: {
-    [x in string]: PrismaneStyles<
-      | string
-      | number
-      | {
-          [x in string]: string | number;
-        }
+    [K in keyof CSS.Properties]: PrismaneStyles<
+      CSS.Properties<string | number>[K]
     >;
+  } & {
+    [K in CSS.Pseudos]?: CSS.Properties<string | number>;
+  } & {
+    [K in `${CSS.AtRules} ${string}`]?: CSS.Properties<string | number>;
+  } & {
+    [K in `--${string}`]?: string | number;
+  } & {
+    [K in `&${string}`]?: CSS.Properties<string | number>;
+  } & {
+    [K in `${string}&${string}`]?: CSS.Properties<string | number>;
   };
 }
 
@@ -260,19 +242,6 @@ export interface PrismaneComponent extends PrismaneDefault {
   style?: React.CSSProperties;
   children?: React.ReactNode | any;
 }
-
-type GlobalStyles = "inherit" | "initial" | "revert" | "revert-layer" | "unset";
-
-export type PrismaneStyles<T = string | number> =
-  | T
-  | GlobalStyles
-  | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]
-  | ((
-      theme: PrismaneTheme
-    ) =>
-      | T
-      | GlobalStyles
-      | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
 
 export type PrismaneMappedTheme = {
   [key: string]: string;
