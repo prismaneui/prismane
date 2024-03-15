@@ -188,7 +188,15 @@ const Button: ButtonComponent = forwardRef(
         {...props}
       >
         {loading ? (
-          <Spinner />
+          <Spinner
+            size={variants(size, {
+              xs: fr(4.75),
+              sm: fr(4.75),
+              base: fr(5.25),
+              md: fr(6.25),
+              lg: fr(7.75),
+            })}
+          />
         ) : (
           <>
             {icon && (
