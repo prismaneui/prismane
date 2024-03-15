@@ -53,7 +53,7 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
   );
 
-  const compute = (key: string, prop: any) => {
+  const transform = (prop: any) => {
     if (typeof prop === "object" && !Array.isArray(prop) && prop !== null) {
       Object.keys(prop).forEach((k) => {
         if (
@@ -61,19 +61,16 @@ const useStyling: StylingHook = (props: StylingProps) => {
           !Array.isArray(prop[k]) &&
           prop[k] !== null
         ) {
-          compute(k, prop[k]);
+          prop[k] = transform(prop[k]);
         } else {
           prop[k] = typeof prop[k] === "function" ? prop[k](theme) : prop[k];
         }
       });
+
+      return prop;
     }
 
-    const result = generateStyles(
-      key,
-      typeof prop === "function" ? prop(theme) : prop
-    );
-
-    setComputed((pc) => [...pc, result]);
+    return prop;
   };
 
   useLayoutEffect(() => {
@@ -82,10 +79,17 @@ const useStyling: StylingHook = (props: StylingProps) => {
     );
 
     for (const key in stripped) {
-      const prop: StylingProp = stripped[key];
+      let prop: StylingProp = stripped[key];
 
       if (prop !== undefined) {
-        compute(key, prop);
+        prop = transform(prop);
+
+        const result = generateStyles(
+          key,
+          typeof prop === "function" ? prop(theme) : prop
+        );
+
+        setComputed((pc) => [...pc, result]);
       }
     }
 
