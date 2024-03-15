@@ -92,3 +92,11 @@ export const Custom: FC = () => {
     </>
   );
 };
+
+export const Infinite = () => {
+  return (
+    <Animation animation="bounce" count="infinite" duration={1000}>
+      Hello World
+    </Animation>
+  );
+};
