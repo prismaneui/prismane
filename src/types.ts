@@ -218,15 +218,29 @@ export interface PrismaneDefault {
       CSS.Properties<string | number>[K]
     >;
   } & {
-    [K in CSS.Pseudos]?: CSS.Properties<string | number>;
+    [K in CSS.Pseudos]?: {
+      [K in keyof CSS.Properties]: PrismaneStyles<
+        CSS.Properties<string | number>[K]
+      >;
+    };
   } & {
-    [K in `${CSS.AtRules} ${string}`]?: CSS.Properties<string | number>;
+    [K in `${CSS.AtRules} ${string}`]?: PrismaneStyles<
+      CSS.Properties<string | number>
+    >;
   } & {
     [K in `--${string}`]?: string | number;
   } & {
-    [K in `&${string}`]?: CSS.Properties<string | number>;
+    [K in `&${string}`]?: {
+      [K in keyof CSS.Properties]: PrismaneStyles<
+        CSS.Properties<string | number>[K]
+      >;
+    };
   } & {
-    [K in `${string}&${string}`]?: CSS.Properties<string | number>;
+    [K in `${string}&${string}`]?: {
+      [K in keyof CSS.Properties]: PrismaneStyles<
+        CSS.Properties<string | number>[K]
+      >;
+    };
   };
 }
 
