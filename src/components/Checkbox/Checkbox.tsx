@@ -105,7 +105,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 {...field}
               />
             </Hidden>
-            <Animation
+            <Transition
               as={Flex}
               align="center"
               justify="center"
@@ -123,10 +123,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 theme.mode === "dark" ? ["primary", 600] : ["primary", 500]
               }
               br="xs"
-              animated={field.value ? true : false}
-              animation={{
-                out: { opacity: 0, transform: "scale(0.8)" },
-                in: { opacity: 1, transform: "scale(1)" },
+              sx={{
+                opacity: field.value ? 1 : 0,
+                transform: field.value ? "scale(1)" : "scale(0.8)",
               }}
               className="PrismaneCheckbox-thumb"
             >
@@ -135,7 +134,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               ) : (
                 <Check weight="bold" />
               )}
-            </Animation>
+            </Transition>
           </Transition>
           <Field.Label
             size={size}
