@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 // Components
-import Animation from "../Animation/Animation";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
 import Field from "../Field/Field";
@@ -81,7 +80,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                 {...field}
               />
             </Hidden>
-            <Animation
+            <Transition
               as={Flex}
               bs="border-box"
               h="100%"
@@ -92,7 +91,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                 aspectRatio: "1/1",
                 transform: field.value ? "translateX(100%)" : "translateX(0)",
               }}
-            ></Animation>
+            ></Transition>
           </Transition>
           <Field.Label
             size={size}
