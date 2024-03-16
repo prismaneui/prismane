@@ -33,8 +33,8 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>(
     return (
       <>
         {presence && (
-          <Animation
-            as={Paper}
+          <Paper
+            as={Animation}
             p={fr(2)}
             z={200}
             direction="column"
@@ -60,7 +60,7 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>(
             {...props}
           >
             {children}
-          </Animation>
+          </Paper>
         )}
       </>
     );
