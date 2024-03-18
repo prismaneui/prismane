@@ -106,6 +106,10 @@ export const useForm = (initialForm: InitialFormState = {}) => {
   };
 
   const setError = (name: string, error: string) => {
+    if (!formState.fields[name]) {
+      throw new Error("Field with this name is not registered!");
+    }
+
     setFormState((prev: FormState) => ({
       ...prev,
       fields: {
@@ -119,6 +123,10 @@ export const useForm = (initialForm: InitialFormState = {}) => {
   };
 
   const setValue = (name: string, value: Value) => {
+    if (!formState.fields[name]) {
+      throw new Error("Field with this name is not registered!");
+    }
+
     setFormState((prev: FormState) => ({
       ...prev,
       fields: {
@@ -161,6 +169,10 @@ export const useForm = (initialForm: InitialFormState = {}) => {
   };
 
   const validate = async (name: string, value: Value) => {
+    if (!formState.fields[name]) {
+      throw new Error("Field with this name is not registered!");
+    }
+
     let error: Error = null;
 
     const validators = formState.fields[name].validators;
@@ -187,6 +199,10 @@ export const useForm = (initialForm: InitialFormState = {}) => {
   };
 
   const handleBlur = (name: string) => {
+    if (!formState.fields[name]) {
+      throw new Error("Field with this name is not registered!");
+    }
+
     setFormState((prev: FormState) => ({
       ...prev,
       fields: {
@@ -204,6 +220,10 @@ export const useForm = (initialForm: InitialFormState = {}) => {
   };
 
   const handleChange = (name: string, value: Value) => {
+    if (!formState.fields[name]) {
+      throw new Error("Field with this name is not registered!");
+    }
+
     setFormState((prev: FormState) => ({
       ...prev,
       fields: {
