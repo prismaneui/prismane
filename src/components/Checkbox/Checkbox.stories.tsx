@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { Radioactive } from "@phosphor-icons/react";
 // Components
 import Form from "../Form/Form";
 import Checkbox from "./Checkbox";
@@ -168,4 +169,8 @@ export const Vanilla_Form = () => (
       <Button type="submit">Submit</Button>
     </form>
   </Stack>
+);
+
+export const Custom_Icon = () => (
+  <Checkbox name="checkbox" icon={<Radioactive weight="bold" />} checked />
 );
