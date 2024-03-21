@@ -25,7 +25,7 @@ const Spinner = forwardRef<SVGElement, SpinnerProps>(
         ref={ref}
         {...props}
       >
-        <CircleNotch weight="bold" />
+        <CircleNotch />
       </Icon>
     );
   }
