@@ -19,6 +19,7 @@ export const base: PrismaneTheme = {
     xl: fr(3),
     "2xl": fr(3.5),
   },
+  fontFamily: "Poppins",
 };
 
 export default {
