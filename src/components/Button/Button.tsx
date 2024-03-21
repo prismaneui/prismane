@@ -187,42 +187,37 @@ const Button: ButtonComponent = forwardRef(
         data-testid="prismane-button"
         {...props}
       >
-        {loading ? (
-          <Spinner />
-        ) : (
-          <>
-            {icon && (
-              <Icon
-                size={variants(size, {
-                  xs: fr(4.5),
-                  sm: fr(4.5),
-                  base: fr(5),
-                  md: fr(6),
-                  lg: fr(7.5),
-                })}
-                sx={{
-                  order: iconPosition === "right" ? 1 : -1,
-                }}
-                className="PrismaneButton-icon"
-              >
-                {icon}
-              </Icon>
-            )}
-            {children && (
-              <Text
-                className="PrismaneButton-text"
-                fs={variants(size, {
-                  xs: "xs",
-                  sm: "sm",
-                  base: "sm",
-                  md: "base",
-                  lg: "lg",
-                })}
-              >
-                {children}
-              </Text>
-            )}
-          </>
+        {icon && !loading && (
+          <Icon
+            size={variants(size, {
+              xs: fr(4.5),
+              sm: fr(4.5),
+              base: fr(5),
+              md: fr(6),
+              lg: fr(7.5),
+            })}
+            sx={{
+              order: iconPosition === "right" ? 1 : -1,
+            }}
+            className="PrismaneButton-icon"
+          >
+            {icon}
+          </Icon>
+        )}
+        {loading && <Spinner size={size} />}
+        {children && (
+          <Text
+            className="PrismaneButton-text"
+            fs={variants(size, {
+              xs: "xs",
+              sm: "sm",
+              base: "sm",
+              md: "base",
+              lg: "lg",
+            })}
+          >
+            {children}
+          </Text>
         )}
       </Transition>
     );
