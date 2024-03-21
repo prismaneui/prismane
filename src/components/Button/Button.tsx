@@ -204,14 +204,17 @@ const Button: ButtonComponent = forwardRef(
             {icon}
           </Icon>
         )}
-        {loading && <Spinner
+        {loading && (
+          <Spinner
             size={variants(size, {
               xs: fr(4.75),
               sm: fr(4.75),
               base: fr(5.25),
               md: fr(6.25),
               lg: fr(7.75),
-            })}}
+            })}
+          />
+        )}
         {children && (
           <Text
             className="PrismaneButton-text"
