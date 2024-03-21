@@ -96,6 +96,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
           </Icon>
         )}
         <Text
+          cl="inherit"
           fs={variants(size, {
             xs: "xs",
             sm: "sm",

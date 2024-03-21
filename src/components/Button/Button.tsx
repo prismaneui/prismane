@@ -204,20 +204,11 @@ const Button: ButtonComponent = forwardRef(
             {icon}
           </Icon>
         )}
-        {loading && (
-          <Spinner
-            size={variants(size, {
-              xs: fr(4.75),
-              sm: fr(4.75),
-              base: fr(5.25),
-              md: fr(6.25),
-              lg: fr(7.75),
-            })}
-          />
-        )}
+        {loading && <Spinner size={size} />}
         {children && (
           <Text
             className="PrismaneButton-text"
+            cl="inherit"
             fs={variants(size, {
               xs: "xs",
               sm: "sm",
@@ -235,3 +226,4 @@ const Button: ButtonComponent = forwardRef(
 );
 
 export default Button;
+
