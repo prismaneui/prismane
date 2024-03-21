@@ -104,3 +104,24 @@ export const PrismaneBreakpoints = () => {
     </Form>
   );
 };
+
+export const Group_Label_And_Error = () => {
+  const { handleSubmit, handleReset, register, getValue } = useForm({
+    fields: {
+      answer: {
+        value: "yes",
+      },
+    },
+  });
+
+  return (
+    <Radio.Group
+      {...register("answer")}
+      label="Radio Group Label"
+      error="Radio Group Error"
+    >
+      <Radio value="yes" label="Yes" />
+      <Radio value="no" label="No" />
+    </Radio.Group>
+  );
+};
