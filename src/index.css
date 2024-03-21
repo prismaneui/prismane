@@ -217,9 +217,13 @@ html {
 
 body {
   margin: 0;
-  font-family: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*[class^="Prismane"],
+*[class*=" Prismane"] {
+  font-family: var(--prismane-font-family);
 }
 
 * {

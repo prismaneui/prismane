@@ -8,6 +8,7 @@ import { strip, variants } from "../../../utils";
 
 export type GridItemProps = PrismaneProps<
   {
+    area?: string;
     columnStart?:
       | 1
       | 2
@@ -35,6 +36,7 @@ export type GridItemProps = PrismaneProps<
 const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
   (
     {
+      area,
       columnStart,
       columnEnd,
       columnSpan,
@@ -55,9 +57,10 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
         className={strip(`${className ? className : ""} PrismaneGridItem-root`)}
         sx={{
           gap,
+          gridArea: area,
           gridColumnStart: columnStart,
           gridColumnEnd: columnEnd,
-          gridColumnSpan:
+          gridColumn:
             typeof columnSpan === "number"
               ? `span ${columnSpan} / span ${columnSpan}`
               : variants(columnSpan, {
@@ -66,7 +69,7 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
                 }),
           gridRowStart: rowStart,
           gridRowEnd: rowEnd,
-          gridRowSpan:
+          gridRow:
             typeof rowSpan === "number"
               ? `span ${rowSpan} / span ${rowSpan}`
               : variants(rowSpan, {

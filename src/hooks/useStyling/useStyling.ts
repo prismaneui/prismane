@@ -53,15 +53,37 @@ const useStyling: StylingHook = (props: StylingProps) => {
     }
   );
 
+  const transform = (prop: any) => {
+    if (typeof prop === "object" && !Array.isArray(prop) && prop !== null) {
+      Object.keys(prop).forEach((k) => {
+        if (
+          typeof prop[k] === "object" &&
+          !Array.isArray(prop[k]) &&
+          prop[k] !== null
+        ) {
+          prop[k] = transform(prop[k]);
+        } else {
+          prop[k] = typeof prop[k] === "function" ? prop[k](theme) : prop[k];
+        }
+      });
+
+      return prop;
+    }
+
+    return prop;
+  };
+
   useLayoutEffect(() => {
     const stripped = Object.fromEntries(
       Object.entries(props).filter(([_, value]) => value !== undefined)
     );
 
     for (const key in stripped) {
-      const prop: StylingProp = stripped[key];
+      let prop: StylingProp = stripped[key];
 
       if (prop !== undefined) {
+        prop = transform(prop);
+
         const result = generateStyles(
           key,
           typeof prop === "function" ? prop(theme) : prop
