@@ -19,7 +19,7 @@ const TextareaField = forwardRef<
       <Field.Label
         size={size as any}
         htmlFor={field.name}
-        className="PrismaneTextarea-label"
+        className="PrismaneTextareaField-label"
       >
         {label}
       </Field.Label>
@@ -56,12 +56,14 @@ const TextareaField = forwardRef<
           },
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneTextarea-root`)}
+        className={strip(
+          `${className ? className : ""} PrismaneTextareaField-root`
+        )}
         data-testid="prismane-textarea-field"
         ref={ref}
         {...field}
       />
-      <Field.Error size={size as any} className="PrismaneTextarea-error">
+      <Field.Error size={size as any} className="PrismaneTextareaField-error">
         {error}
       </Field.Error>
     </Field.Wrapper>
