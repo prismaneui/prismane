@@ -165,6 +165,9 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
                 justify="center"
                 align="center"
                 ml={fr(16)}
+                onClick={() => {
+                  setShown(false);
+                }}
                 className={`PrismaneAlert-action PrismaneAlert-action-${variant}`}
               >
                 {action ? (
@@ -178,9 +181,6 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
                       success: "green",
                       info: "diamond",
                     })}
-                    onClick={() => {
-                      setShown(false);
-                    }}
                   />
                 )}
               </Flex>
