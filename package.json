@@ -71,7 +71,7 @@
     }
   },
   "dependencies": {
-    "csstype": "^3.1.3"
+    "csstype": "^3.1.3",
     "@fontsource/poppins": "^4.5.10",
     "@phosphor-icons/react": "^2.0.9",
     "@stitches/react": "^1.2.8"
