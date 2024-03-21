@@ -1,39 +1,17 @@
 import { forwardRef } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
-// Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../types";
+import Icon, { IconProps } from "../Icon/Icon";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, dual, fr } from "../../utils";
 
-export type SpinnerProps = PrismaneProps<
-  {
-    size?: PrismaneBreakpoints;
-  },
-  FlexProps<"svg">
->;
+export type SpinnerProps = IconProps;
 
 const Spinner = forwardRef<SVGElement, SpinnerProps>(
   ({ size = "base", className, sx, ...props }, ref) => {
     return (
-      <Flex
-        as={CircleNotch}
-        w={variants(size, {
-          xs: fr(4),
-          sm: fr(5),
-          base: fr(6),
-          md: fr(7),
-          lg: fr(8),
-        })}
-        h={variants(size, {
-          xs: fr(4),
-          sm: fr(5),
-          base: fr(6),
-          md: fr(7),
-          lg: fr(8),
-        })}
-        weight="bold"
+      <Icon
+        size={size}
         sx={{
           animation: "prismane-spin linear 0.5s infinite",
           ...sx,
@@ -46,7 +24,9 @@ const Spinner = forwardRef<SVGElement, SpinnerProps>(
         data-testid="prismane-spinner"
         ref={ref}
         {...props}
-      />
+      >
+        <CircleNotch />
+      </Icon>
     );
   }
 );

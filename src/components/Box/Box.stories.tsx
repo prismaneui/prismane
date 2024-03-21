@@ -60,13 +60,21 @@ export const Pseudo: FC = () => {
   return (
     <Box
       cl={["pink", 600]}
-      bg={[["base", 700], { hover: ["base", 900] }]}
+      // bg={[["base", 700], { hover: ["base", 900] }]}
       p={[20, { hover: 40 }]}
       br={["xs", { hover: "lg" }]}
       sx={{
         transition: "ease-in 0.2s",
         opacity: ["75%", { hover: "100%" }],
         cursor: ["pointer", { hover: "not-allowed", active: "wait" }],
+        "&:hover": {
+          backgroundColor: (theme: any) =>
+            theme.mode === "dark" ? "red" : "green",
+          color: "red",
+        },
+        "&:active": {
+          color: "purple!important",
+        },
       }}
     >
       da

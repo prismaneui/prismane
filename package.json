@@ -71,6 +71,9 @@
     }
   },
   "dependencies": {
+    "csstype": "^3.1.3",
+    "@fontsource/poppins": "^4.5.10",
+    "@phosphor-icons/react": "^2.0.9",
     "@stitches/react": "^1.2.8"
   },
   "peerDependencies": {
@@ -78,8 +81,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@fontsource/poppins": "^4.5.10",
-    "@phosphor-icons/react": "^2.0.9",
     "@storybook/addon-essentials": "7.1.0",
     "@storybook/addon-interactions": "7.1.0",
     "@storybook/addon-links": "7.1.0",

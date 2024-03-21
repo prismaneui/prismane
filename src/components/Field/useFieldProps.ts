@@ -16,6 +16,7 @@ const useFieldProps = (props: any): [any, PrismaneFieldComponent] => {
     "type",
     "readOnly",
     "icon",
+    "label",
     "error",
     "size",
     "validating",

@@ -22,7 +22,8 @@ test("Correctly renders the Radio component with label and error message", () =>
 test("Correctly renders the active Radio component", () => {
   render(<Radio label="Yes" value="yes" />);
 
-  const radioElement = screen.getByLabelText("Yes");
+  const radioElement: any = screen.getByLabelText("Yes");
+
   expect(radioElement.value).toBe("yes");
 });
 
@@ -32,6 +33,7 @@ test("Correctly invokes onChange when the value of Radio component changes", () 
   render(<Radio label="Yes" value="yes" onChange={handleChange} />);
 
   const radioElement = screen.getByLabelText("Yes");
+
   fireEvent.click(radioElement);
 
   expect(handleChange).toHaveBeenCalledTimes(1);

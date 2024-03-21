@@ -86,45 +86,53 @@ const Badge: BadgeComponent = forwardRef(
           z={200}
           pos="absolute"
           t={variants(position, {
-            "right-start": "-30%",
+            "top-start": "0%",
+            top: "0%",
+            "top-end": "0%",
+            "right-start": "0%",
             right: "50%",
-            "bottom-end": "70%",
-            bottom: "80%",
-            "bottom-start": "70%",
-            "left-start": "-30%",
+            "left-start": "0%",
             left: "50%",
           })}
           b={variants(position, {
-            "top-start": "70%",
-            top: "80%",
-            "top-end": "70%",
-            "right-end": "-30%",
-            "left-end": "-30%",
+            "bottom-start": "0%",
+            bottom: "0%",
+            "bottom-end": "0%",
+            "right-end": "0%",
+            "left-end": "0%",
           })}
           r={variants(position, {
-            "top-end": "-30%",
-            "bottom-end": "-30%",
-            "left-start": "70%",
-            left: "80%",
-            "left-end": "70%",
+            "top-end": "0%",
+            "right-start": "0%",
+            right: "0%",
+            "right-end": "0%",
+            "bottom-end": "0%",
           })}
           l={variants(position, {
-            "top-start": "-30%",
+            "top-start": "0%",
             top: "50%",
-            "right-start": "70%",
-            right: "80%",
-            "right-end": "70%",
-            "bottom-start": "-30%",
+            "left-start": "0%",
+            left: "0%",
+            "left-end": "0%",
+            "bottom-start": "0%",
             bottom: "50%",
           })}
           bg={(theme) => (theme.mode === "dark" ? [color, 700] : [color, 500])}
           cl={[color, 200]}
           sx={{
             transform: variants(position, {
-              top: "translateX(-50%)",
-              bottom: "translateX(-50%)",
-              left: "translateY(-50%)",
-              right: "translateY(-50%)",
+              "top-start": "translate(-50%, -50%)",
+              top: "translate(-50%, -50%)",
+              "top-end": "translate(50%, -50%)",
+              "right-start": "translate(50%, -50%)",
+              right: "translate(50%, -50%)",
+              "right-end": "translate(50%, 50%)",
+              "bottom-start": "translate(-50%, 50%)",
+              bottom: "translate(-50%, 50%)",
+              "bottom-end": "translate(50%, 50%)",
+              "left-start": "translate(-50%, -50%)",
+              left: "translate(-50%, -50%)",
+              "left-end": "translate(-50%, 50%)",
             }),
             whiteSpace: "nowrap",
             ...sx,

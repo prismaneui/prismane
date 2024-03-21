@@ -5,6 +5,7 @@ import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import Flex from "../../components/Flex/Flex";
 // Utils
+import { fr } from "../../utils";
 import { required, username, min } from "../../validators";
 // Hooks
 import useForm from "./useForm";
@@ -57,5 +58,58 @@ export const Default = () => {
         </Flex>
       </Form>
     </Card>
+  );
+};
+
+export const Simulate_Errors = () => {
+  const backend = async (v: string) => {
+    return null;
+  };
+
+  const {
+    formState,
+    register,
+    setValue,
+    setError,
+    getFormValues,
+    getValue,
+    getFormErrors,
+    getError,
+    validate,
+    handleChange,
+    handleBlur,
+    validateForm,
+    handleReset,
+    handleSubmit,
+  } = useForm({
+    fields: {
+      username: {
+        value: "",
+        validators: {
+          required: (v: string) => required(v),
+          min: (v: string) => min(v, 4),
+          username: (v: string) => username(v),
+          backend: async (v: string) => await backend(v),
+        },
+      },
+    },
+  });
+
+  return (
+    <Flex gap={fr(2)} align="center">
+      <Button onClick={() => setValue("unexistant", "some_value")}>
+        Set Value
+      </Button>
+      <Button onClick={() => setError("unexistant", "some_error")}>
+        Set Error
+      </Button>
+      <Button onClick={() => validate("unexistant", "some_error")}>
+        Validate
+      </Button>
+      <Button onClick={() => handleChange("unexistant", "some_error")}>
+        Handle Change
+      </Button>
+      <Button onClick={() => handleBlur("unexistant")}>Handle Blur</Button>
+    </Flex>
   );
 };
