@@ -211,6 +211,7 @@ const Button: ButtonComponent = forwardRef(
             {children && (
               <Text
                 className="PrismaneButton-text"
+                cl="inherit"
                 fs={variants(size, {
                   xs: "xs",
                   sm: "sm",

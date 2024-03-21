@@ -142,6 +142,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             {...props}
           >
             <Text
+              cl="inherit"
               fs={variants(size, {
                 xs: "xs",
                 sm: "sm",

@@ -26,6 +26,7 @@ const Text: TextComponent = forwardRef(
     return (
       <Box
         as={Component}
+        cl={(theme) => (theme.mode === "dark" ? ["base", 100] : ["base", 900])}
         className={strip(`${className ? className : ""} PrismaneText-root`)}
         data-testid="prismane-text"
         ref={ref}
