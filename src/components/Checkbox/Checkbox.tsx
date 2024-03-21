@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, ReactNode } from "react";
 import { Check, Minus } from "@phosphor-icons/react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
@@ -14,7 +14,7 @@ import { PrismaneFieldComponent, PrismaneProps } from "../../types";
 import { strip, variants, fr } from "../../utils";
 
 export type CheckboxProps = PrismaneProps<
-  { indeterminate?: boolean },
+  { indeterminate?: boolean; icon?: ReactNode },
   FlexProps & TransitionProps & PrismaneFieldComponent
 >;
 
@@ -22,6 +22,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       indeterminate = false,
+      icon,
       label,
       error,
       size = "base",
@@ -128,7 +129,13 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               className="PrismaneCheckbox-thumb"
             >
               {indeterminate ? (
-                <Minus weight="bold" />
+                icon ? (
+                  icon
+                ) : (
+                  <Minus weight="bold" />
+                )
+              ) : icon ? (
+                icon
               ) : (
                 <Check weight="bold" />
               )}

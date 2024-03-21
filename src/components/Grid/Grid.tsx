@@ -13,6 +13,7 @@ export { type GridItemProps };
 
 export type GridProps = PrismaneProps<
   {
+    templateAreas?: string;
     templateColumns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
     templateRows?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
     flow?: "row" | "column" | "dense" | "row-dense" | "column-dense";
@@ -26,6 +27,7 @@ export type GridProps = PrismaneProps<
 const Grid = forwardRef<HTMLDivElement, GridProps>(
   (
     {
+      templateAreas,
       templateColumns,
       templateRows,
       flow,
@@ -45,6 +47,7 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(
         dp="grid"
         sx={{
           gap: gap,
+          gridTemplateAreas: templateAreas,
           gridTemplateColumns:
             typeof templateColumns === "number"
               ? `repeat(${templateColumns}, minmax(0, 1fr))`

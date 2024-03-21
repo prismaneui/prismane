@@ -66,6 +66,7 @@ export const mapTheme = (config: PrismaneTheme): PrismaneMappedTheme => {
     "--prismane-border-radius-lg": config.borderRadius.lg,
     "--prismane-border-radius-xl": config.borderRadius.xl,
     "--prismane-border-radius-2xl": config.borderRadius["2xl"],
+    "--prismane-font-family": config.fontFamily,
     mode: config.mode,
   };
 };
