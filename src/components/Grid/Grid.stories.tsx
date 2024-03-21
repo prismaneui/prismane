@@ -43,3 +43,14 @@ export const Default: FC = () => {
     </Grid>
   );
 };
+
+export const Spanning: FC = () => {
+  return (
+    <Grid templateColumns={3} templateRows={4} w="100%" h={fr(50)} gap={fr(2)}>
+      <Grid.Item rowSpan={3} columnSpan={1} bg="lime" />
+      <Grid.Item columnSpan={2} bg="teal" />
+      <Grid.Item columnSpan={2} bg="teal" />
+      <Grid.Item columnSpan={3} bg="lime" />
+    </Grid>
+  );
+};
