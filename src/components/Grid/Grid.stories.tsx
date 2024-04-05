@@ -48,8 +48,8 @@ export const Areas: FC = () => {
   return (
     <Grid
       templateAreas={`"header header"
-                  "nav main"
-                  "nav footer"`}
+              "nav main"
+              "nav footer"`}
       templateRows={3}
       templateColumns={2}
       h="200px"
