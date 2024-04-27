@@ -20,8 +20,6 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
 
     const { label, error, ...radio } = field;
 
-    console.log(field, rest);
-
     return (
       <Stack>
         <Field.Label fs={radio.size} className="PrismaneRadioGroup-label">

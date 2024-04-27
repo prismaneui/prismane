@@ -226,4 +226,3 @@ const Button: ButtonComponent = forwardRef(
 );
 
 export default Button;
-
