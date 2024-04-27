@@ -1,4 +1,5 @@
 export default {
-  title: "usePresence",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/usePresence",
   component: <></>,
 };

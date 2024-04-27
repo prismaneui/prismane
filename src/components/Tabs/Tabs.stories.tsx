@@ -1,38 +1,50 @@
 // Components
 import Tabs from "./Tabs";
-import TabsList from "./TabsList";
-import TabsTab from "./TabsTab";
-import TabsPanel from "./TabsPanel";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "Tabs",
+  tags: ["autodocs"],
+  title: "Components/Navigation/Tabs",
   component: Tabs,
 };
 
 export const Default = () => (
-  <Tabs defaultValue="ivan" p={fr(20)}>
-    <TabsList>
-      <TabsTab value="ivan">Ivan</TabsTab>
-      <TabsTab value="gosho">Gosho</TabsTab>
-      <TabsTab value="petkan">Petkan</TabsTab>
-    </TabsList>
-    <TabsPanel value="ivan">Ivan</TabsPanel>
-    <TabsPanel value="gosho">Gosho</TabsPanel>
-    <TabsPanel value="petkan">Petkan</TabsPanel>
+  <Tabs defaultValue="first">
+    <Tabs.List>
+      <Tabs.Tab value="first">First</Tabs.Tab>
+      <Tabs.Tab value="second">Second</Tabs.Tab>
+      <Tabs.Tab value="third">Third</Tabs.Tab>
+    </Tabs.List>
+
+    <Tabs.Panel value="first">First</Tabs.Panel>
+    <Tabs.Panel value="second">Second</Tabs.Panel>
+    <Tabs.Panel value="third">Third</Tabs.Panel>
   </Tabs>
 );
 
 export const Variants = () => (
-  <Tabs defaultValue="ivan" variant="filled" p={fr(20)}>
-    <TabsList>
-      <TabsTab value="ivan">Ivan</TabsTab>
-      <TabsTab value="gosho">Gosho</TabsTab>
-      <TabsTab value="petkan">Petkan</TabsTab>
-    </TabsList>
-    <TabsPanel value="ivan">Ivan</TabsPanel>
-    <TabsPanel value="gosho">Gosho</TabsPanel>
-    <TabsPanel value="petkan">Petkan</TabsPanel>
+  <Tabs defaultValue="first" variant="filled">
+    <Tabs.List>
+      <Tabs.Tab value="first">First</Tabs.Tab>
+      <Tabs.Tab value="second">Second</Tabs.Tab>
+      <Tabs.Tab value="third">Third</Tabs.Tab>
+    </Tabs.List>
+
+    <Tabs.Panel value="first">First</Tabs.Panel>
+    <Tabs.Panel value="second">Second</Tabs.Panel>
+    <Tabs.Panel value="third">Third</Tabs.Panel>
+  </Tabs>
+);
+
+export const Alignment = () => (
+  <Tabs defaultValue="first">
+    <Tabs.List justify="end">
+      <Tabs.Tab value="first">First</Tabs.Tab>
+      <Tabs.Tab value="second">Second</Tabs.Tab>
+      <Tabs.Tab value="third">Third</Tabs.Tab>
+    </Tabs.List>
+
+    <Tabs.Panel value="first">First</Tabs.Panel>
+    <Tabs.Panel value="second">Second</Tabs.Panel>
+    <Tabs.Panel value="third">Third</Tabs.Panel>
   </Tabs>
 );

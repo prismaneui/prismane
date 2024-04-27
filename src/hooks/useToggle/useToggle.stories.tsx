@@ -4,7 +4,8 @@ import useToggle from "./useToggle";
 import { fr } from "../../utils";
 
 export default {
-  title: "useToggle",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useToggle",
   component: useToggle,
 };
 

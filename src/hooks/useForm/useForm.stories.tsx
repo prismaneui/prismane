@@ -11,7 +11,8 @@ import { required, username, min } from "../../validators";
 import useForm from "./useForm";
 
 export default {
-  title: "useForm",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useForm",
   component: useForm,
 };
 

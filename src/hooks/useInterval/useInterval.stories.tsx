@@ -4,7 +4,8 @@ import useInterval from "./useInterval";
 import { fr } from "../../utils";
 
 export default {
-  title: "useInterval",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useInterval",
   component: useInterval,
 };
 

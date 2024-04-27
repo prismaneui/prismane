@@ -4,7 +4,8 @@ import useLocalization from "./useLocalization";
 import { fr } from "../../utils";
 
 export default {
-  title: "useLocalization",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useLocalization",
   component: useLocalization,
 };
 

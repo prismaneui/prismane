@@ -8,7 +8,8 @@ import useThemeModeValue from "./useThemeModeValue";
 import { fr } from "../../../utils";
 
 export default {
-  title: "useThemeModeValue",
+  tags: ["autodocs"],
+  title: "Theming/useThemeModeValue",
   component: useThemeModeValue,
 };
 

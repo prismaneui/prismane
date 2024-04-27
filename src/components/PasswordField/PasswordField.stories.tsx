@@ -1,121 +1,70 @@
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import PasswordField from "../PasswordField/PasswordField";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "PasswordField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/PasswordField",
   component: PasswordField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  const [password, setPassword] = useState("supersecret");
+
+  return (
+    <PasswordField
+      label="Password:"
+      placeholder="Enter password"
+      value={password}
+      onChange={(e: any) => setPassword(e.target.value)}
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [value, setValue] = useState("readonly_password");
+
+  return (
+    <PasswordField
+      label="Password:"
+      placeholder="Choose a password"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [value, setValue] = useState("readonly_password");
+
+  return (
+    <PasswordField
+      label="Password:"
+      placeholder="Choose a password"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_password: {
         value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <PasswordField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-      />
-    </Form>
-  );
-};
-
-export const Icon = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <PasswordField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const ReadOnly = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <PasswordField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        readOnly
-      />
-    </Form>
-  );
-};
-
-export const DefaultValue = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <PasswordField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
+    <PasswordField
+      label="Controlled PasswordField"
+      placeholder="Controlled Field"
+      {...register("hook_password")}
+    />
   );
 };

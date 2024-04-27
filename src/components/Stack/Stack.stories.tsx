@@ -1,90 +1,55 @@
-import React, { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
-import Square from "../Square/Square";
 import Stack from "./Stack";
+import Button from "../Button/Button";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Stack",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Stack",
   component: Stack,
-} as Meta;
+};
 
-export const Default: FC = () => {
+export const Default = () => {
   return (
     <Stack>
-      <Square size={25} bg="primary">
+      <Button color="base" full>
         1
-      </Square>
-      <Square size={25} bg="red">
+      </Button>
+      <Button color="base" full>
         2
-      </Square>
-      <Square size={25} bg="green">
+      </Button>
+      <Button color="base" full>
         3
-      </Square>
+      </Button>
     </Stack>
   );
 };
 
-export const Col: FC = () => {
-  return (
-    <Stack direction="row">
-      <Square size={25} bg="primary">
-        1
-      </Square>
-      <Square size={25} bg="red">
-        2
-      </Square>
-      <Square size={25} bg="green">
-        3
-      </Square>
-    </Stack>
-  );
-};
+export const Gap = () => (
+  <Stack gap={fr(8)}>
+    <Button color="base" full>
+      1
+    </Button>
+    <Button color="base" full>
+      2
+    </Button>
+    <Button color="base" full>
+      3
+    </Button>
+  </Stack>
+);
 
-export const Spacing: FC = () => {
-  return (
-    <Stack direction="column" gap={5}>
-      <Square size={25} bg="primary">
-        1
-      </Square>
-      <Square size={25} bg="red">
-        2
-      </Square>
-      <Square size={25} bg="green">
-        3
-      </Square>
-    </Stack>
-  );
-};
-
-export const ColReverse: FC = () => {
-  return (
-    <Stack direction="column-reverse">
-      <Square size={25} bg="primary">
-        1
-      </Square>
-      <Square size={25} bg="red">
-        2
-      </Square>
-      <Square size={25} bg="green">
-        3
-      </Square>
-    </Stack>
-  );
-};
-
-export const RowReverse: FC = () => {
-  return (
-    <Stack direction="row-reverse">
-      <Square size={25} bg="primary">
-        1
-      </Square>
-      <Square size={25} bg="red">
-        2
-      </Square>
-      <Square size={25} bg="green">
-        3
-      </Square>
-    </Stack>
-  );
-};
+export const Horizontal = () => (
+  <Stack direction="row">
+    <Button color="base" full>
+      1
+    </Button>
+    <Button color="base" full>
+      2
+    </Button>
+    <Button color="base" full>
+      3
+    </Button>
+  </Stack>
+);

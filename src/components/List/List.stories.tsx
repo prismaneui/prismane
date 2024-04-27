@@ -1,84 +1,74 @@
-import { Meta } from "@storybook/react";
-import { Skull } from "@phosphor-icons/react";
+import { CheckCircle, XCircle } from "@phosphor-icons/react";
 // Components
 import List from "./List";
-import ListUnordered from "./ListUnordered/ListUnordered";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "List",
+  tags: ["autodocs"],
+  title: "Components/Data Display/List",
   component: List,
-} as Meta;
+};
 
 export const Default = () => (
   <List>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
   </List>
 );
 
 export const Unordered = () => (
-  <ListUnordered>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-  </ListUnordered>
+  <List.Unordered ml={fr(5)}>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
+  </List.Unordered>
 );
 
 export const Ordered = () => (
-  <List.Ordered>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
-    <List.Item>yes</List.Item>
+  <List.Ordered ml={fr(5)}>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
   </List.Ordered>
 );
 
-export const Icon = () => (
+export const With_Icon = () => (
   <List>
     <List.Item>
-      <List.Icon>
-        <Skull />
+      <List.Icon cl="green">
+        <CheckCircle weight="fill" />
       </List.Icon>
-      yes
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </List.Item>
     <List.Item>
-      <List.Icon>
-        <Skull />
+      <List.Icon cl="green">
+        <CheckCircle weight="fill" />
       </List.Icon>
-      yes
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </List.Item>
     <List.Item>
-      <List.Icon>
-        <Skull />
+      <List.Icon cl="red">
+        <XCircle weight="fill" />
       </List.Icon>
-      yes
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </List.Item>
-    <List.Item>
-      <List.Icon>
-        <Skull />
-      </List.Icon>
-      yes
-    </List.Item>
-    <List.Item>
-      <List.Icon>
-        <Skull />
-      </List.Icon>
-      yes
-    </List.Item>
-    <List.Item>
-      <List.Icon>
-        <Skull />
-      </List.Icon>
-      yes
-    </List.Item>
+  </List>
+);
+
+export const Spacing = () => (
+  <List gap={fr(4)}>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
+  </List>
+);
+
+export const Horizontal = () => (
+  <List direction="row" gap={fr(2)}>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
   </List>
 );

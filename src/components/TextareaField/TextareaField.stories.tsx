@@ -1,183 +1,87 @@
-import { Meta } from "@storybook/react";
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import TextareaField from "./TextareaField";
-import Flex from "../Flex/Flex";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
 import { fr } from "../../utils";
 
 export default {
-  title: "TextareaField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/TextareaField",
   component: TextareaField,
-} as Meta;
+};
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  const [value, setValue] = useState("");
+
+  return (
+    <TextareaField
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Text:"
+      placeholder="Enter Text"
+    />
+  );
+};
+
+export const Size = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <TextareaField
+      w={fr(64)}
+      h={fr(96)}
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Resized Textarea:"
+      placeholder="Enter Text"
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [value, setValue] = useState("I am read only!");
+
+  return (
+    <TextareaField
+      label="Text:"
+      placeholder="Enter Text"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [value, setValue] = useState("I am disabled!");
+
+  return (
+    <TextareaField
+      label="Text:"
+      placeholder="Enter Text"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_textarea: {
         value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <TextareaField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-      />
-    </Form>
-  );
-};
-
-export const Icon = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <TextareaField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const ReadOnly = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <TextareaField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        validating
-      />
-    </Form>
-  );
-};
-
-export const DefaultValue = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <TextareaField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const Validating = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <TextareaField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        validating
-      />
-    </Form>
-  );
-};
-
-export const Sizes = () => {
-  return (
-    <Flex direction="column" gap={fr(2)}>
-      <TextareaField
-        placeholder="Default Field"
-        label="Default Field:"
-        size="xs"
-      />
-      <TextareaField
-        placeholder="Default Field"
-        label="Default Field:"
-        size="sm"
-      />
-      <TextareaField
-        placeholder="Default Field"
-        label="Default Field:"
-        size="base"
-      />
-      <TextareaField
-        placeholder="Default Field"
-        label="Default Field:"
-        size="md"
-      />
-      <TextareaField
-        placeholder="Default Field"
-        label="Default Field:"
-        size="lg"
-      />
-    </Flex>
+    <TextareaField
+      label="Controlled TextareaField"
+      placeholder="Controlled Field"
+      {...register("hook_textarea")}
+    />
   );
 };

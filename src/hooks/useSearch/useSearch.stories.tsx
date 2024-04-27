@@ -3,7 +3,8 @@ import useSearch from "./useSearch";
 import { fr } from "../../utils";
 
 export default {
-  title: "useSearch",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useSearch",
   component: useSearch,
 };
 

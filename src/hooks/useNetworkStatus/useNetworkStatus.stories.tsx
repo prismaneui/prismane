@@ -5,7 +5,8 @@ import { Stack, Button, Text, Center } from "../../components";
 import useNetworkStatus from "./useNetworkStatus";
 
 export default {
-  title: "useNetworkStatus",
+  tags: ["autodocs"],
+  title: "Hooks/Miscellaneous/useNetworkStatus",
   component: useNetworkStatus,
 };
 

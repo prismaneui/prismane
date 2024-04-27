@@ -1,35 +1,60 @@
 import { useState } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Collapse from "../Collapse/Collapse";
 import Button from "../Button/Button";
-import Flex from "../Flex/Flex";
+import Stack from "../Stack/Stack";
 // Utils
 import { fr } from "../../utils";
 
 export default {
-  title: "Collapse",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Collapse",
   component: Collapse,
-} as Meta;
+};
 
 export const Default = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Flex direction="column" gap={10}>
+    <Stack>
       <Collapse open={open} w={fr(64)}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, nam,
-        ullam, natus qui facilis voluptatum quibusdam explicabo doloremque
-        maxime architecto dicta error! Voluptas obcaecati fugiat nihil culpa
-        laudantium quae quos.
+        The Collapse component allows dynamic toggling and collapsing of content
+        for a more organized and user-friendly experience. Easily control
+        visibility and enhance user interactions with this Prismane component.
       </Collapse>
       <Button
         onClick={() => {
           setOpen(!open);
         }}
       >
-        Toggle
+        {!open ? "Click to expand" : "Click to collapse"}
       </Button>
-    </Flex>
+    </Stack>
+  );
+};
+
+export const Custom_Transition = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Stack>
+      <Collapse
+        delay={300}
+        duration={1500}
+        timing="linear"
+        open={open}
+        w={fr(64)}
+      >
+        This Collapse component has a customized transition. Toggle it on and
+        off to see it.
+      </Collapse>
+      <Button
+        onClick={() => {
+          setOpen(!open);
+        }}
+      >
+        {!open ? "Click to expand" : "Click to collapse"}
+      </Button>
+    </Stack>
   );
 };

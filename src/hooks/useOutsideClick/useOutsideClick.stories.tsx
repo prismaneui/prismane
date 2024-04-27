@@ -1,4 +1,5 @@
 export default {
-  title: "useOutsideClick",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useOutsideClick",
   component: <></>,
 };

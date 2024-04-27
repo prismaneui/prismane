@@ -1,284 +1,98 @@
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import TextField from "./TextField";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "TextField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/TextField",
   component: TextField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
+  const [value, setValue] = useState("");
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="outlined"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="underlined"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="filled"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="unstyled"
-      />
-    </Form>
+    <TextField
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Text:"
+      placeholder="Enter Text"
+    />
   );
-};
-
-export const Icon = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const No_Name = () => {
-  return <TextField placeholder="Default Field" label="Default Field:" />;
 };
 
 export const Prefix = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
+  const [value, setValue] = useState("");
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        // icon={<EnvelopeSimple />}
-        prefix="https://"
-      />
-    </Form>
+    <TextField
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Website:"
+      placeholder="Enter A Website Address"
+      prefix="https://"
+    />
   );
 };
 
 export const Suffix = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  const [value, setValue] = useState("");
+
+  return (
+    <TextField
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Website:"
+      placeholder="Enter A Website Address"
+      suffix=".com"
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [value, setValue] = useState("I am read only!");
+
+  return (
+    <TextField
+      label="Text:"
+      placeholder="Enter Text"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [value, setValue] = useState("I am disabled!");
+
+  return (
+    <TextField
+      label="Text:"
+      placeholder="Enter Text"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_text: {
         value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        suffix=".com"
-      />
-    </Form>
-  );
-};
-
-export const ReadOnly = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Ivan The Great",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        readOnly
-      />
-    </Form>
-  );
-};
-
-export const DefaultValue = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const Validating = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        validating
-      />
-    </Form>
-  );
-};
-
-export const Sizes = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        error="Default Error!"
-        size="xs"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        error="Default Error!"
-        size="sm"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        error="Default Error!"
-        size="base"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        error="Default Error!"
-        size="md"
-      />
-      <TextField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        error="Default Error!"
-        size="lg"
-      />
-    </Form>
+    <TextField
+      label="Controlled TextField"
+      placeholder="Controlled Field"
+      {...register("hook_text")}
+    />
   );
 };

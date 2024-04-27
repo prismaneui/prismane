@@ -1,18 +1,19 @@
-import React, { FC } from "react";
-import { Meta } from "@storybook/react";
-import { Bell } from "@phosphor-icons/react";
+import { Wrench } from "@phosphor-icons/react";
 // Components
 import Square from "./Square";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Square",
+  tags: ["autodocs"],
+  title: "Components/Layout/Square",
   component: Square,
-} as Meta;
+};
 
-export const Default: FC = () => {
+export const Default = () => {
   return (
-    <Square size={25} bg="primary">
-      <Bell size={24} />
+    <Square size={fr(10)} bg="primary">
+      <Wrench size={24} />
     </Square>
   );
 };

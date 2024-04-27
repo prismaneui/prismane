@@ -1,65 +1,92 @@
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import ColorField from "./ColorField";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "ColorField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/ColorField",
   component: ColorField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
+  const [color, setColor] = useState("");
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <ColorField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-      />
-    </Form>
+    <ColorField
+      placeholder="No color chosen"
+      label="Choose a color:"
+      value={color}
+      onChange={(e: any) => setColor(e.target.value)}
+    />
   );
 };
 
-export const Custom = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+export const Custom_Colors = () => {
+  const [color, setColor] = useState("");
+
+  return (
+    <ColorField
+      options={[
+        "teal",
+        "amethyst",
+        "ruby",
+        "diamond",
+        "coal",
+        "#1e1e1e",
+        "#3e3e3e",
+      ]}
+      placeholder="No color chosen"
+      label="Custom color:"
+      value={color}
+      onChange={(e: any) => setColor(e.target.value)}
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [color, setColor] = useState("");
+
+  return (
+    <ColorField
+      placeholder="No color chosen"
+      label="Choose a color:"
+      value={color}
+      onChange={(e: any) => setColor(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [color, setColor] = useState("");
+
+  return (
+    <ColorField
+      placeholder="No color chosen"
+      label="Choose a color:"
+      value={color}
+      onChange={(e: any) => setColor(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_color: {
         value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <ColorField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        options={["blue", "#bff5cc"]}
-      />
-    </Form>
+    <ColorField
+      label="Controlled ColorField"
+      placeholder="Controlled Field"
+      {...register("hook_color")}
+    />
   );
 };

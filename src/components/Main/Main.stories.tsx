@@ -1,13 +1,12 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Main from "./Main";
 
 export default {
-  title: "Main",
+  tags: ["autodocs"],
+  title: "Components/Layout/Main",
   component: Main,
-} as Meta;
+};
 
-export const Default: FC = () => {
-  return <Main>Main</Main>;
+export const Default = () => {
+  return <Main>Renders a main element.</Main>;
 };

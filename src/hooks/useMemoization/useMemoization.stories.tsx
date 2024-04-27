@@ -5,7 +5,8 @@ import { Stack, Button, Text } from "../../components";
 import useMemoization from "./useMemoization";
 
 export default {
-  title: "useMemoization",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useMemoization",
   component: useMemoization,
 };
 

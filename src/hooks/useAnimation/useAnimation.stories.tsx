@@ -3,7 +3,8 @@ import useAnimation from "./useAnimation";
 import { fr } from "../../utils";
 
 export default {
-  title: "useAnimation",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useAnimation",
   component: useAnimation,
 };
 

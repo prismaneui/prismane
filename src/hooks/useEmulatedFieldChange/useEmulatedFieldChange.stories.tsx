@@ -4,7 +4,8 @@ import useEmulatedFieldChange from "./useEmulatedFieldChange";
 import { fr } from "../../utils";
 
 export default {
-  title: "useEmulatedFieldChange",
+  tags: ["autodocs"],
+  title: "Hooks/Miscellaneous/useEmulatedFieldChange",
   component: useEmulatedFieldChange,
 };
 

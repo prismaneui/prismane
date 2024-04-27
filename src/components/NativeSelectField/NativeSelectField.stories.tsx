@@ -1,43 +1,108 @@
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import NativeSelectField from "../NativeSelectField/NativeSelectField";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "NativeSelectField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/NativeSelectField",
   component: NativeSelectField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  return (
+    <NativeSelectField
+      name="framework"
+      label="Choose a framework:"
+      placeholder="Choose your favorite framework"
+      options={[
+        { value: "react", label: "React" },
+        { value: "angular", label: "Angular" },
+        { value: "vue", label: "Vue" },
+      ]}
+    />
+  );
+};
+
+export const Controlled = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <NativeSelectField
+      name="framework"
+      label="Choose a framework:"
+      placeholder="Choose your favorite framework"
+      options={[
+        { value: "react", label: "React" },
+        { value: "angular", label: "Angular" },
+        { value: "vue", label: "Vue" },
+      ]}
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <NativeSelectField
+      name="framework"
+      label="Choose a framework:"
+      placeholder="Choose your favorite framework"
+      options={[
+        { value: "react", label: "React" },
+        { value: "angular", label: "Angular" },
+        { value: "vue", label: "Vue" },
+      ]}
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <NativeSelectField
+      name="framework"
+      label="Choose a framework:"
+      placeholder="Choose your favorite framework"
+      options={[
+        { value: "react", label: "React" },
+        { value: "angular", label: "Angular" },
+        { value: "vue", label: "Vue" },
+      ]}
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
-        value: "Yes",
+      hook_native_select: {
+        value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NativeSelectField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        options={[
-          { value: "ivan", label: "Ivan" },
-          { value: "gosho", label: "Gosho" },
-          { value: "petkan", label: "Petkan" },
-        ]}
-      />
-    </Form>
+    <NativeSelectField
+      label="Controlled NativeSelectField"
+      placeholder="Controlled Field"
+      options={[
+        { value: "react", label: "React" },
+        { value: "angular", label: "Angular" },
+        { value: "vue", label: "Vue" },
+      ]}
+      {...register("hook_native_select")}
+    />
   );
 };

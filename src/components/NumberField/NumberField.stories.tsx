@@ -1,123 +1,93 @@
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import NumberField from "../NumberField/NumberField";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "NumberField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/NumberField",
   component: NumberField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  const [value, setValue] = useState(0);
+
+  return (
+    <NumberField
+      label="Increment and decrement:"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+    />
+  );
+};
+
+export const Min_Limit = () => {
+  const [value, setValue] = useState(10);
+
+  return (
+    <NumberField
+      label="Decrement the value:"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      min={5}
+    />
+  );
+};
+
+export const Max_Limit = () => {
+  const [value, setValue] = useState(10);
+
+  return (
+    <NumberField
+      label="Increment the value:"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      max={15}
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [value, setValue] = useState(0);
+
+  return (
+    <NumberField
+      label="Choose a number:"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [value, setValue] = useState(0);
+
+  return (
+    <NumberField
+      label="Choose a number:"
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_number: {
         value: 0,
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NumberField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        max={5}
-        min={-10}
-      />
-    </Form>
-  );
-};
-
-export const Icon = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NumberField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
-  );
-};
-
-export const ReadOnly = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NumberField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-        readOnly
-      />
-    </Form>
-  );
-};
-
-export const DefaultValue = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "Default value",
-      },
-    },
-  });
-
-  return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NumberField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        icon={<EnvelopeSimple />}
-      />
-    </Form>
+    <NumberField
+      label="Controlled NumberField"
+      placeholder="Controlled Field"
+      {...register("hook_number")}
+    />
   );
 };

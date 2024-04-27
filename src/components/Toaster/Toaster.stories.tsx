@@ -1,16 +1,13 @@
-import { useEffect } from "react";
 // Components
 import Toaster from "./Toaster";
 import Button from "../Button/Button";
 import Alert from "../Alert/Alert";
-import Flex from "../Flex/Flex";
-import Radio from "../Radio";
 // Hooks
 import useToast from "./useToast";
-import useForm from "../../hooks/useForm";
 
 export default {
-  title: "Toaster",
+  tags: ["autodocs"],
+  title: "Components/Feedback/Toaster",
   component: Toaster,
 };
 
@@ -18,50 +15,69 @@ export const Default = () => {
   const toast = useToast();
 
   return (
-    <Toaster>
-      <Button
-        onClick={() => {
-          toast({
-            element: <Alert>Hello, World!</Alert>,
-          });
-        }}
-      >
-        Click to show toast
-      </Button>
-    </Toaster>
+    <Button
+      onClick={() => {
+        toast({
+          element: <Alert>Hello, World!</Alert>,
+        });
+      }}
+    >
+      Click to show toast
+    </Button>
   );
 };
 
-export const Positions = () => {
+export const Position = () => {
   const toast = useToast();
 
-  const { register, formState } = useForm({
-    fields: {
-      position: {
-        value: "bottom-right",
-      },
-    },
-  });
+  return (
+    <Button
+      onClick={() => {
+        toast({
+          element: <Alert>Toast with changed position!</Alert>,
+        });
+      }}
+    >
+      Toast with different position
+    </Button>
+  );
+};
+
+export const Timeout = () => {
+  const toast = useToast();
 
   return (
-    <Toaster position={formState.fields.position.value}>
-      <Flex direction="column" gap={12}>
-        <Radio.Group {...register("position")}>
-          <Radio value="top-left" label="Top Left" />
-          <Radio value="top-right" label="Top Right" />
-          <Radio value="bottom-left" label="Bottom Left" />
-          <Radio value="bottom-right" label="Bottom Right" />
-        </Radio.Group>
-        <Button
-          onClick={() => {
-            toast({
-              element: <Alert>Hello, World!</Alert>,
-            });
-          }}
-        >
-          Click to show toast
-        </Button>
-      </Flex>
-    </Toaster>
+    <Button
+      onClick={() => {
+        toast({
+          element: <Alert>I am being shown for 6 seconds, instead of 3!</Alert>,
+          timeout: 6000,
+        });
+      }}
+    >
+      Toast with changed timeout
+    </Button>
+  );
+};
+
+export const Custom_Props = () => {
+  const toast = useToast();
+
+  return (
+    <Button
+      onClick={() => {
+        toast({
+          element: "I am a toast with custom props!",
+          duration: 1000,
+          bg: "red",
+          cl: "white",
+          br: "full",
+          px: 16,
+          py: 12,
+        });
+      }}
+    >
+      Toast with custom props
+    </Button>
   );
 };

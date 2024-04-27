@@ -1,92 +1,112 @@
-import { Meta } from "@storybook/react";
-import { Pause, ArchiveBox } from "@phosphor-icons/react";
+import {
+  DownloadSimple,
+  Phone,
+  ShareNetwork,
+  GearSix,
+} from "@phosphor-icons/react";
 // Components
 import Button from "./Button";
 import Flex from "../Flex/Flex";
-import Stack from "../Stack/Stack";
 // Utils
 import { fr } from "../../utils";
 
 export default {
-  title: "Button",
+  tags: ["autodocs"],
+  title: "Components/Inputs/Button",
   component: Button,
-} as Meta;
-
-const Template: any = (args: any) => {
-  return (
-    <Flex gap={fr(5)}>
-      <Button {...args}></Button>
-      {args.action !== true && (
-        <Button {...args} icon={<ArchiveBox />}></Button>
-      )}
-      <Button {...args} loading></Button>
-      <Button {...args} disabled></Button>
-    </Flex>
-  );
 };
 
-export const Primary = Template.bind({});
+export const Default = () => <Button>Button</Button>;
 
-Primary.args = {
-  variant: "primary",
-  children: "Primary",
-};
+export const Variants = () => (
+  <>
+    <Button variant="primary">Primary Variant</Button>
+    <Button variant="secondary">Secondary Variant</Button>
+    <Button variant="tertiary">Tertiary Variants</Button>
+    <Button variant="text">Text Variant</Button>
+  </>
+);
 
-export const Secondary = Template.bind({});
+export const Sizes = () => (
+  <>
+    <Button size="xs">xs Size</Button>
+    <Button size="sm">sm Size</Button>
+    <Button size="base">base Size</Button>
+    <Button size="md">md Size</Button>
+    <Button size="lg">lg Size</Button>
+  </>
+);
 
-Secondary.args = {
-  variant: "secondary",
-  children: "Secondary",
-};
+export const Colors = () => (
+  <>
+    <Button color="red">Red</Button>
+    <Button color="orange">Orange</Button>
+    <Button color="lime">Lime</Button>
+    <Button color="green">Green</Button>
+    <Button color="cyan">Cyan</Button>
+    <Button color="amethyst">Amethyst</Button>
+    <Button color="magenta">Magenta</Button>
+    <Button color="ruby">Ruby</Button>
+    <Button color="base">Base</Button>
+  </>
+);
 
-export const Tertiary = Template.bind({});
+export const Icon = () => <Button icon={<DownloadSimple />}>Download</Button>;
 
-Tertiary.args = {
-  variant: "tertiary",
-  children: "Tertiary",
-};
+export const Icon_Position = () => (
+  <>
+    <Button iconPosition="left" icon={<Phone />}>
+      Call Us
+    </Button>
+    <Button
+      iconPosition="right"
+      icon={<ShareNetwork />}
+      color="teal"
+      variant="tertiary"
+    >
+      Share
+    </Button>
+  </>
+);
 
-export const Text = Template.bind({});
+export const Shadow = () => <Button shadow>Shadow Button</Button>;
 
-Text.args = {
-  variant: "text",
-  children: "Text",
-};
+export const Full_Width = () => (
+  <Flex w={fr(72)}>
+    <Button full>Full Width Button</Button>
+  </Flex>
+);
 
-export const Icon_Position = Template.bind({});
+export const Fill_On_Hover = () => (
+  <>
+    <Button variant="secondary" fillOnHover>
+      Add to cart
+    </Button>
+    <Button variant="tertiary" color="red" fillOnHover>
+      Delete Post
+    </Button>
+  </>
+);
 
-Icon_Position.args = {
-  variant: "primary",
-  children: "Primary",
-  iconPosition: "right",
-};
+export const Loading = () => (
+  <>
+    <Button variant="primary" loading>
+      Loading
+    </Button>
+    <Button variant="secondary" loading>
+      Loading
+    </Button>
+    <Button variant="tertiary" loading>
+      Loading
+    </Button>
+    <Button variant="text" loading>
+      Loading
+    </Button>
+  </>
+);
 
-export const Full_Button = () => {
-  return (
-    <Flex w={fr(96)} h={fr(20)} direction="column">
-      <Button full>Full Width Button</Button>
-    </Flex>
-  );
-};
-
-export const Button_Sizes = () => {
-  return (
-    <Stack align="center">
-      <Button w={fr(120)} size="xs">
-        xs
-      </Button>
-      <Button w={fr(120)} size="sm">
-        sm
-      </Button>
-      <Button w={fr(120)} size="base">
-        base
-      </Button>
-      <Button w={fr(120)} size="md">
-        md
-      </Button>
-      <Button w={fr(120)} size="lg">
-        lg
-      </Button>
-    </Stack>
-  );
-};
+export const Customized = () => (
+  <Button icon={<GearSix />} variant="secondary" color="gray" br="full">
+    Settings
+  </Button>
+);
