@@ -1,17 +1,44 @@
-import { Meta } from "@storybook/react";
-import { Eye } from "@phosphor-icons/react";
+import { Heart, SquaresFour, Wrench } from "@phosphor-icons/react";
 // Components
 import Icon from "./Icon";
 
 export default {
-  title: "Icon",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Icon",
   component: Icon,
-} as Meta;
+};
 
-const Template = ({ props }: any) => (
+export const Default = () => (
   <Icon>
-    <Eye />
+    <Heart />
   </Icon>
 );
 
-export const Default = Template.bind({});
+export const Sizes = () => (
+  <>
+    <Icon size="xs">
+      <SquaresFour />
+    </Icon>
+    <Icon size="sm">
+      <SquaresFour />
+    </Icon>
+    <Icon size="base">
+      <SquaresFour />
+    </Icon>
+    <Icon size="md">
+      <SquaresFour />
+    </Icon>
+    <Icon size="lg">
+      <SquaresFour />
+    </Icon>
+    <Icon size="52px">
+      <SquaresFour />
+    </Icon>
+  </>
+);
+
+export const Frame = () => (
+  <Icon size="lg" bg="primary" cl="white" br={5}>
+    <Wrench size={24} />
+  </Icon>
+);

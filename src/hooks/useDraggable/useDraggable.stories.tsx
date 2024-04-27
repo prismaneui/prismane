@@ -3,7 +3,8 @@ import useDraggable from "./useDraggable";
 import { fr } from "../../utils";
 
 export default {
-  title: "useDraggable",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useDraggable",
   component: useDraggable,
 };
 

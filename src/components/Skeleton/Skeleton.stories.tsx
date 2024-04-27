@@ -1,25 +1,36 @@
-import React from "react";
 // Components
 import Skeleton from "./Skeleton";
+import Stack from "../Stack";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Skeleton",
+  tags: ["autodocs"],
+  title: "Components/Feedback/Skeleton",
   component: Skeleton,
 };
 
-export const Circular = () => <Skeleton variant="circular" w={64} h={64} />;
-
-export const Rounded = () => <Skeleton variant="rounded" w={200} h={20} />;
-
-export const Rectangular = () => (
-  <Skeleton variant="rectangular" w={200} h={20} />
+export const Default = () => (
+  <Stack>
+    <Skeleton h={fr(6)} />
+    <Skeleton h={fr(6)} />
+    <Skeleton h={fr(6)} />
+  </Stack>
 );
 
-export const Complex = () => (
-  <div className="flex flex-col gap-5 w-52">
-    <Skeleton variant="rounded" h={16} w="100%" />
-    <Skeleton variant="circular" h={64} w={64} />
-    <Skeleton variant="rectangular" h={32} w="100%" />
-    <Skeleton variant="rounded" h={32} w="100%" />
-  </div>
+export const Variants = () => (
+  <>
+    <Skeleton w={120} h={120} variant="circular" />
+    <Skeleton w={240} h={120} variant="rounded" />
+    <Skeleton w={240} h={120} variant="rectangular" />
+  </>
+);
+
+export const Circle_And_Text_Example = () => (
+  <Stack>
+    <Skeleton w={64} h={64} variant="circular" />
+    <Skeleton w={240} h={20} variant="rounded" />
+    <Skeleton w={240} h={20} variant="rounded" />
+    <Skeleton w={240} h={20} variant="rounded" />
+  </Stack>
 );

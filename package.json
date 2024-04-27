@@ -71,10 +71,10 @@
     }
   },
   "dependencies": {
-    "csstype": "^3.1.3",
     "@fontsource/poppins": "^4.5.10",
     "@phosphor-icons/react": "^2.0.9",
-    "@stitches/react": "^1.2.8"
+    "@stitches/react": "^1.2.8",
+    "csstype": "^3.1.3"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -101,6 +101,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.1.0",
+    "storybook-dark-mode": "^4.0.1",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
     "vite-plugin-dts": "^1.7.1",

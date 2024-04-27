@@ -3,7 +3,8 @@ import useIdle from "./useIdle";
 import { fr } from "../../utils";
 
 export default {
-  title: "useIdle",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useIdle",
   component: useIdle,
 };
 

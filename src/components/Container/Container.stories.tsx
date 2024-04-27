@@ -1,37 +1,67 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Container from "./Container";
-import Center from "../Center/Center";
-import Flex from "../Flex/Flex";
-// Utils
-import { fr } from "../../utils";
+import Stack from "../Stack/Stack";
 
 export default {
-  title: "Container",
+  tags: ["autodocs"],
+  title: "Components/Layout/Container",
   component: Container,
-} as Meta;
+};
 
-export const Default: FC = () => {
+export const Default = () => {
   return (
-    <Flex justify="center" align="center" w="100vw" h="100vh">
-      <Container bdw={1} bdc="red">
-        <Center bg="primary" w={fr(24)}>
-          Hello World
-        </Center>
-      </Container>
-    </Flex>
+    <Container>
+      Containing text within a well-designed container is a powerful technique
+      to captivate users' attention. By providing space around the text, the
+      content gains prominence and becomes visually appealing. This focused
+      presentation not only enhances readability but also guides users' eyes to
+      the essential message. A thoughtful container complements the overall
+      aesthetics of the interface and creates a sense of order and elegance.
+      Whether it's a subtle drop shadow or a vibrant background, the container
+      elevates the text, making it stand out amidst other elements.
+    </Container>
   );
 };
 
-export const Fixed: FC = () => {
+export const Sizes = () => {
   return (
-    <Flex justify="center" align="center" w="100vw" h="100vh">
-      <Container bdw={1} bdc="red" maxSize="base">
-        <Center bg="primary" w={fr(24)}>
-          Hello World
-        </Center>
+    <Stack cl="white">
+      <Container maxSize="xs" bg="red">
+        xs (360px)
       </Container>
-    </Flex>
+      <Container maxSize="sm" bg="green">
+        sm (384px)
+      </Container>
+      <Container maxSize="base" bg="teal">
+        base (448px)
+      </Container>
+      <Container maxSize="md" bg="copper">
+        md (512px)
+      </Container>
+      <Container maxSize="lg" bg="ruby">
+        lg (576px)
+      </Container>
+      <Container maxSize="xl" bg="purple">
+        xl (672px)
+      </Container>
+      <Container maxSize="2xl" bg="lime">
+        2xl (768px)
+      </Container>
+      <Container maxSize="3xl" bg="orange">
+        3xl (896px)
+      </Container>
+      <Container maxSize="4xl" bg="amethyst">
+        4xl (1024px)
+      </Container>
+      <Container maxSize="5xl" bg="diamond">
+        5xl (1152px)
+      </Container>
+      <Container maxSize="6xl" bg="primary">
+        6xl (1280px)
+      </Container>
+      <Container maxSize="500px" bg="gray">
+        Custom Size (500px)
+      </Container>
+    </Stack>
   );
 };

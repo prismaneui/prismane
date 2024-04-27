@@ -1,14 +1,25 @@
 // Components
 import Key from "./Key";
-import Flex from "../Flex/Flex";
+import Stack from "../Stack/Stack";
 
 export default {
-  title: "Key",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Key",
   component: Key,
 };
 
-export const Default = () => (
-  <Flex gap={4} align="center">
-    <Key>K</Key> + <Key>Shift</Key>
-  </Flex>
+export const Default = () => <Key>ctrl</Key>;
+
+export const Modifiers = () => (
+  <Stack>
+    <span>
+      <Key>shift</Key> + <Key>H</Key>
+    </span>
+    <span>
+      <Key>shift</Key> then <Key>M</Key>
+    </span>
+    <span>
+      <Key>shift</Key> or <Key>T</Key>
+    </span>
+  </Stack>
 );

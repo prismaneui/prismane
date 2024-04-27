@@ -1,17 +1,36 @@
-import React from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Image from ".";
 
 export default {
-  title: "Image",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Image",
   component: Image,
-} as Meta;
+};
 
 export const Default = () => (
   <Image
-    w="320px"
-    h="320px"
-    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.avb9nDfw3kq7NOoP0grM4wHaEK%26pid%3DApi&f=1&ipt=e5c1654d7eeb8d570cb67511e9a05259fee84f93026959f071f08cd8d854fcc8&ipo=images"
+    src="https://wallup.net/wp-content/uploads/2016/01/136699-coast-beach-waves-lighthouse-Oregon-landscape.jpg"
+    alt="Coast Image"
+  />
+);
+
+export const Object_Fit = () => (
+  <Image
+    h={320}
+    w="100%"
+    src="https://i2.wp.com/wadetours.com/wp-content/uploads/2020/01/Statue-of-Liberty-2-scaled.jpg"
+    alt="Person Image"
+    fit="cover"
+  />
+);
+
+export const Rounded = () => (
+  <Image
+    h={240}
+    w={240}
+    src="https://i.pinimg.com/originals/e5/3c/6b/e53c6bfa45da3f684fda60c4b21b1307.jpg"
+    alt="Person Image"
+    fit="cover"
+    br="full"
   />
 );

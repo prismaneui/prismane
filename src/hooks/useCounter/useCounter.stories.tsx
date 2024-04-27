@@ -3,7 +3,8 @@ import useCounter from "./useCounter";
 import { fr } from "../../utils";
 
 export default {
-  title: "useCounter",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useCounter",
   component: useCounter,
 };
 

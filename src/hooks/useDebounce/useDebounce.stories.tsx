@@ -4,7 +4,8 @@ import useDebounce from "./useDebounce";
 import { fr } from "../../utils";
 
 export default {
-  title: "useDebounce",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useDebounce",
   component: useDebounce,
 };
 

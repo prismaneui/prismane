@@ -1,78 +1,44 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Grid from "./Grid";
 // Utils
 import { fr } from "../../utils";
 
 export default {
-  title: "Grid",
+  tags: ["autodocs"],
+  title: "Components/Layout/Grid",
   component: Grid,
-} as Meta;
-
-export const Default: FC = () => {
-  return (
-    <Grid gap={3} templateColumns={8} templateRows={4} h={fr(120)} w={fr(120)}>
-      <Grid.Item
-        columnStart={1}
-        columnEnd={3}
-        rowStart={1}
-        rowEnd={2}
-        h={fr(10)}
-        w="100%"
-        bg="primary"
-      ></Grid.Item>
-      <Grid.Item
-        columnStart={3}
-        columnEnd={8}
-        rowStart={1}
-        rowEnd={2}
-        h={fr(10)}
-        w="100%"
-        bg="primary"
-      ></Grid.Item>
-      <Grid.Item
-        columnStart={2}
-        columnEnd={8}
-        rowStart={2}
-        rowEnd={4}
-        h={fr(10)}
-        w="100%"
-        bg="primary"
-      ></Grid.Item>
-    </Grid>
-  );
 };
 
-export const Areas: FC = () => {
+export const Default = () => {
   return (
-    <Grid
-      templateAreas={`"header header"
-              "nav main"
-              "nav footer"`}
-      templateRows={3}
-      templateColumns={2}
-      h="200px"
-      w="600px"
-      gap="4px"
-    >
-      <Grid.Item pl="8px" bg="orange" area={"header"}>
-        Header
+    <Grid w="100%" h={fr(40)} gap={fr(2)}>
+      <Grid.Item bg="primary" cl="white">
+        1
       </Grid.Item>
-      <Grid.Item pl="8px" bg="pink" area={"nav"}>
-        Nav
+      <Grid.Item bg="primary" cl="white">
+        2
       </Grid.Item>
-      <Grid.Item pl="8px" bg="green" area={"main"}>
-        Main
+      <Grid.Item bg="primary" cl="white">
+        3
       </Grid.Item>
-      <Grid.Item pl="8px" bg="blue" area={"footer"}>
-        Footer
+      <Grid.Item bg="primary" cl="white">
+        4
       </Grid.Item>
     </Grid>
   );
 };
 
-export const Spanning: FC = () => {
+export const Columns = () => {
+  return (
+    <Grid templateColumns={3} w="100%" h={fr(20)} gap={fr(2)}>
+      <Grid.Item bg="primary" cl="white" />
+      <Grid.Item bg="primary" cl="white" />
+      <Grid.Item bg="primary" cl="white" />
+    </Grid>
+  );
+};
+
+export const Spanning = () => {
   return (
     <Grid templateColumns={3} templateRows={4} w="100%" h={fr(50)} gap={fr(2)}>
       <Grid.Item rowSpan={3} columnSpan={1} bg="lime" />
@@ -82,3 +48,37 @@ export const Spanning: FC = () => {
     </Grid>
   );
 };
+
+export const Start_And_End_Positions = () => (
+  <Grid templateColumns={3} w="100%" h={fr(10)} gap={fr(2)}>
+    <Grid.Item columnStart={1} columnEnd={2} bg="lime" />
+    <Grid.Item columnStart={3} columnEnd={4} bg="teal" />
+  </Grid>
+);
+
+export const Areas = () => (
+  <Grid
+    templateAreas={`"header header header"
+                  "nav main main"
+                  "nav footer footer"`}
+    templateRows={"40px 1fr 40px"}
+    templateColumns={"120px 1fr"}
+    h={fr(60)}
+    w="100%"
+    gap={fr(1)}
+    cl="white"
+  >
+    <Grid.Item pl="8px" bg="orange" area={"header"}>
+      Header
+    </Grid.Item>
+    <Grid.Item pl="8px" bg="pink" area={"nav"}>
+      Nav
+    </Grid.Item>
+    <Grid.Item pl="8px" bg="green" area={"main"}>
+      Main
+    </Grid.Item>
+    <Grid.Item pl="8px" bg="blue" area={"footer"}>
+      Footer
+    </Grid.Item>
+  </Grid>
+);

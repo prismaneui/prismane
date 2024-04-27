@@ -4,7 +4,8 @@ import { fr } from "../../utils";
 import useId from "./useId";
 
 export default {
-  title: "useId",
+  tags: ["autodocs"],
+  title: "Hooks/Miscellaneous/useId",
   component: useId,
 };
 

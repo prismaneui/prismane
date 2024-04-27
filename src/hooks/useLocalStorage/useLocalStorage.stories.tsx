@@ -3,7 +3,8 @@ import useLocalStorage from "./useLocalStorage";
 import { fr } from "../../utils";
 
 export default {
-  title: "useLocalStorage",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useLocalStorage",
   component: useLocalStorage,
 };
 

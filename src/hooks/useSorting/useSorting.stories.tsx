@@ -3,7 +3,8 @@ import { fr } from "../../utils";
 import useSorting from "./useSorting";
 
 export default {
-  title: "useSorting",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useSorting",
   component: useSorting,
 };
 

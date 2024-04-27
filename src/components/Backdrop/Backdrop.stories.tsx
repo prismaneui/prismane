@@ -1,29 +1,61 @@
+import { useState } from "react";
 // Components
 import Backdrop from "./Backdrop";
-import Card from "../Card/Card";
 import Button from "../Button/Button";
-import Flex from "../Flex/Flex";
-// Utils
-import { fr } from "../../utils";
+import Text from "../Text/Text";
 
 export default {
-  title: "Backdrop",
+  tags: ["autodocs"],
+  title: "Components/Overlay/Backdrop",
   component: Backdrop,
 };
 
-export const Default = () => (
-  <Backdrop>
-    <Card w={fr(75)} p={fr(5)}>
-      <Flex direction="column" gap={fr(2)}>
-        <h1>Payment</h1>
-        <span>
-          Would you like to accept this incoming payment from{" "}
-          <strong>John Doe</strong> sending the sum of <strong>$405.30</strong>
-        </span>
-      </Flex>
-      <Card.Footer>
-        <Button variant="primary">Accept</Button>
-      </Card.Footer>
-    </Card>
-  </Backdrop>
-);
+export const Default = () => {
+  const [shown, setShown] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setShown(true)}>Show Backdrop</Button>
+      {shown && (
+        <Backdrop onClick={() => setShown(false)}>
+          <Text>This is the backdrop! Click on the backdrop to close it!</Text>
+        </Backdrop>
+      )}
+    </>
+  );
+};
+
+export const No_Blur = () => {
+  const [shown, setShown] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setShown(true)}>Show Backdrop</Button>
+      {shown && (
+        <Backdrop onClick={() => setShown(false)} bft="blur(0px)">
+          <Text>
+            This backdrop does not have blur! Click on the backdrop to close it!
+          </Text>
+        </Backdrop>
+      )}
+    </>
+  );
+};
+
+export const Background_Color = () => {
+  const [shown, setShown] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setShown(true)}>Show Backdrop</Button>
+      {shown && (
+        <Backdrop onClick={() => setShown(false)} bg={["diamond", 500, 0.1]}>
+          <Text>
+            This backdrop has a different color! Click on the backdrop to close
+            it!
+          </Text>
+        </Backdrop>
+      )}
+    </>
+  );
+};

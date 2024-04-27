@@ -1,322 +1,80 @@
+import { WarningDiamond } from "@phosphor-icons/react";
 // Components
-import Flex from "../Flex/Flex";
-import Text from "../Text/Text";
 import Alert from "./Alert";
 import Button from "../Button/Button";
-// Utils
-import { fr } from "../../utils";
+import Stack from "../Stack";
 
 export default {
-  title: "Alert",
+  tags: ["autodocs"],
+  title: "Components/Feedback/Alert",
   component: Alert,
 };
 
-export const Default = () => (
-  <Flex gap={fr(2)}>
-    <Flex direction="column" gap={fr(5)}>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Error Alert
-        </Text>
-        <Alert variant="error">This is an error alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Warning Alert
-        </Text>
-        <Alert variant="warning">This is a warning alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert
-        </Text>
-        <Alert variant="success">This is a success alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert
-        </Text>
-        <Alert variant="info">This is an info alert!</Alert>
-      </Flex>
-    </Flex>
-    <Flex direction="column" gap={fr(5)}>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Error Alert Round
-        </Text>
-        <Alert variant="error">This is an error alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Warning Alert Round
-        </Text>
-        <Alert variant="warning">This is a warning alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert Round
-        </Text>
-        <Alert variant="success">This is a success alert!</Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Info Alert
-        </Text>
-        <Alert variant="info">This is an info alert!</Alert>
-      </Flex>
-    </Flex>
-  </Flex>
+export const Default = () => <Alert>This is the default alert!</Alert>;
+
+export const Variants = () => (
+  <Stack>
+    <Alert variant="info">
+      This is an info alert. It provides important information or updates.
+    </Alert>
+    <Alert variant="success">
+      This is a success alert. It represents that an action has resulted in a
+      success.
+    </Alert>
+    <Alert variant="warning">
+      This is a warning alert. It represents that an action has completed with a
+      warning.
+    </Alert>
+    <Alert variant="error">
+      This is an error alert. It represents that an action couldn't complete due
+      to an error.
+    </Alert>
+  </Stack>
 );
 
-export const Closable = () => {
-  return (
-    <Flex gap={fr(2)}>
-      <Flex direction="column" gap={fr(5)}>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Error Alert
-          </Text>
-          <Alert closable variant="error">
-            This is an error alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Warning Alert
-          </Text>
-          <Alert closable variant="warning">
-            This is a warning alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Success Alert
-          </Text>
-          <Alert closable variant="success">
-            This is a success alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Info Alert
-          </Text>
-          <Alert closable variant="info">
-            This is an info alert!
-          </Alert>
-        </Flex>
-      </Flex>
-      <Flex direction="column" gap={fr(5)}>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Error Alert Round
-          </Text>
-          <Alert closable variant="error">
-            This is an error alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Warning Alert Round
-          </Text>
-          <Alert closable variant="warning">
-            This is a warning alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Success Alert Round
-          </Text>
-          <Alert closable variant="success">
-            This is a success alert!
-          </Alert>
-        </Flex>
-        <Flex direction="column" gap={fr(2)}>
-          <Text fw="bold" fs="md">
-            Success Alert Round
-          </Text>
-          <Alert closable variant="info">
-            This is an info alert!
-          </Alert>
-        </Flex>
-      </Flex>
-    </Flex>
-  );
-};
-
-export const Advanced = () => (
-  <Flex direction="column" gap={fr(5)}>
-    <Alert closable variant="error">
-      <Alert.Title>This is an error alert!</Alert.Title>
-      <Alert.Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
-        cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
-        quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
-        voluptate tempore.
-      </Alert.Description>
-    </Alert>
-    <Alert closable variant="warning">
-      <Alert.Title>This is an warning alert!</Alert.Title>
-      <Alert.Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
-        cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
-        quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
-        voluptate tempore.
-      </Alert.Description>
-    </Alert>
-    <Alert closable variant="success">
-      <Alert.Title>This is an success alert!</Alert.Title>
-      <Alert.Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
-        cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
-        quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
-        voluptate tempore.
-      </Alert.Description>
-    </Alert>
-    <Alert closable variant="info">
-      <Alert.Title>This is an info alert!</Alert.Title>
-      <Alert.Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quo eveniet
-        cum voluptas aspernatur explicabo velit dolores quis minus, voluptatibus
-        quas deserunt nostrum repellendus saepe harum provident, necessitatibus,
-        voluptate tempore.
-      </Alert.Description>
-    </Alert>
-  </Flex>
+export const Closable = () => (
+  <Alert closable>
+    This is a closable alert. Click the close button to dismiss it.
+  </Alert>
 );
 
 export const Custom_Action = () => (
-  <Flex gap={fr(2)}>
-    <Flex direction="column" gap={fr(5)}>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Error Alert
-        </Text>
-        <Alert
-          closable
-          variant="error"
-          action={
-            <Button variant="tertiary" color="red" className="py-2">
-              See more
-            </Button>
-          }
-        >
-          This is an error alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Warning Alert
-        </Text>
-        <Alert
-          closable
-          variant="warning"
-          action={
-            <Button variant="tertiary" color="copper" className="py-2">
-              See more
-            </Button>
-          }
-        >
-          This is a warning alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert
-        </Text>
-        <Alert
-          closable
-          variant="success"
-          action={
-            <Button variant="tertiary" color="green" className="py-2">
-              See more
-            </Button>
-          }
-        >
-          This is a success alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Info Alert
-        </Text>
-        <Alert
-          closable
-          variant="info"
-          action={
-            <Button variant="tertiary" color="diamond" className="py-2">
-              See more
-            </Button>
-          }
-        >
-          This is an info alert!
-        </Alert>
-      </Flex>
-    </Flex>
-    <Flex direction="column" gap={fr(5)}>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Error Alert Round
-        </Text>
-        <Alert
-          closable
-          variant="error"
-          action={
-            <Button variant="tertiary" color="red" className="py-2" round>
-              See more
-            </Button>
-          }
-        >
-          This is an error alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Warning Alert Round
-        </Text>
-        <Alert
-          closable
-          variant="warning"
-          action={
-            <Button variant="tertiary" color="copper" className="py-2" round>
-              See more
-            </Button>
-          }
-        >
-          This is a warning alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert Round
-        </Text>
-        <Alert
-          closable
-          variant="success"
-          action={
-            <Button variant="tertiary" color="green" className="py-2" round>
-              See more
-            </Button>
-          }
-        >
-          This is a success alert!
-        </Alert>
-      </Flex>
-      <Flex direction="column" gap={fr(2)}>
-        <Text fw="bold" fs="md">
-          Success Alert Round
-        </Text>
-        <Alert
-          closable
-          variant="info"
-          action={
-            <Button variant="tertiary" color="diamond" className="py-2" round>
-              See more
-            </Button>
-          }
-        >
-          This is an info alert!
-        </Alert>
-      </Flex>
-    </Flex>
-  </Flex>
+  <Alert
+    action={
+      <Button color="red" variant="tertiary" fillOnHover>
+        See more
+      </Button>
+    }
+    variant="error"
+    closable
+  >
+    Oops, an unknown error ocurred!
+  </Alert>
+);
+
+export const Custom_Icon = () => (
+  <Alert icon={<WarningDiamond size={24} />} variant="warning">
+    This is an alert with a custom icon.
+  </Alert>
+);
+
+export const Alert_Title = () => (
+  <Alert variant="error">
+    <Alert.Title>Error 404</Alert.Title>
+    The desired file was not found on our system!
+  </Alert>
+);
+
+export const Alert_Description = () => (
+  <Alert>
+    <Alert.Description>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Alert.Description>
+  </Alert>
 );

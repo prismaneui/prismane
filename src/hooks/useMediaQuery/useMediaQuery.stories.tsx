@@ -4,7 +4,8 @@ import { Stack, Button, Text } from "../../components";
 import useMediaQuery from "./useMediaQuery";
 
 export default {
-  title: "useMediaQuery",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useMediaQuery",
   component: useMediaQuery,
 };
 

@@ -4,7 +4,8 @@ import useDimensions from "./useDimensions";
 import { fr } from "../../utils";
 
 export default {
-  title: "useDimensions",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useDimensions",
   component: useDimensions,
 };
 

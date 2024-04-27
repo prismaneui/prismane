@@ -1,50 +1,52 @@
-import { Skull } from "@phosphor-icons/react";
+import { User } from "@phosphor-icons/react";
 // Components
 import Avatar from "./Avatar";
-import Flex from "../Flex/Flex";
 import Initials from "../Initials/Initials";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "Avatar",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Avatar",
   component: Avatar,
 };
 
-export const Default = () => (
-  <Avatar src="https://annemariesegal.files.wordpress.com/2017/06/img_0422-linkedin-size-smiling-man-in-suit.png" />
+export const Default = () => <Avatar />;
+
+export const Custom_Icon = () => (
+  <Avatar>
+    <User weight="bold" size={36} />
+  </Avatar>
+);
+
+export const Image = () => (
+  <Avatar src="https://i.pinimg.com/originals/a7/3b/3d/a73b3d77e2fdca58f57e568ddcfab1a5.jpg" />
+);
+
+export const Colors = () => (
+  <>
+    <Avatar color="red" />
+    <Avatar color="orange" />
+    <Avatar color="lime" />
+    <Avatar color="green" />
+    <Avatar color="cyan" />
+    <Avatar color="amethyst" />
+    <Avatar color="magenta" />
+    <Avatar color="ruby" />
+    <Avatar color="base" />
+  </>
 );
 
 export const Sizes = () => (
-  <Flex align="center" gap={fr(5)}>
-    <Avatar size="xs">
-      <Initials name="John Doe" />
-    </Avatar>
-    <Avatar size="sm">
-      <Initials name="John Doe" />
-    </Avatar>
-    <Avatar size="base">
-      <Initials name="John Doe" />
-    </Avatar>
-    <Avatar size="md">
-      <Initials name="John Doe" />
-    </Avatar>
-    <Avatar size="lg">
-      <Initials name="John Doe" />
-    </Avatar>
-  </Flex>
+  <>
+    <Avatar size="xs" />
+    <Avatar size="sm" />
+    <Avatar size="base" />
+    <Avatar size="md" />
+    <Avatar size="lg" />
+  </>
 );
 
-export const Letter = () => (
+export const Name = () => (
   <Avatar>
     <Initials name="John Doe" />
   </Avatar>
 );
-
-export const Icon = () => (
-  <Avatar>
-    <Skull size={24} />
-  </Avatar>
-);
-
-export const Placeholder = () => <Avatar />;

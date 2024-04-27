@@ -4,7 +4,8 @@ import useKeyboardShortcut from "./useKeyboardShortcut";
 import { fr } from "../../utils";
 
 export default {
-  title: "useKeyboardShortcut",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useKeyboardShortcut",
   component: useKeyboardShortcut,
 };
 
