@@ -32,7 +32,7 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
         data-testid="prismane-skeleton"
         ref={ref}
         {...props}
-      ></Flex>
+      />
     );
   }
 );

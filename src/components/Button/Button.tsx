@@ -105,10 +105,10 @@ const Button: ButtonComponent = forwardRef(
             secondary:
               theme.mode === "dark"
                 ? [
-                    [color, 700, 0.1],
+                    [color, 700, 0.2],
                     {
-                      hover: fillOnHover ? [color, 700] : [color, 700, 0.15],
-                      active: !fillOnHover && [color, 700, 0.2],
+                      hover: fillOnHover ? [color, 700] : [color, 700, 0.25],
+                      active: !fillOnHover && [color, 700, 0.3],
                     },
                   ]
                 : [
@@ -226,4 +226,3 @@ const Button: ButtonComponent = forwardRef(
 );
 
 export default Button;
-
