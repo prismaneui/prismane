@@ -15,7 +15,8 @@ export type ContainerProps = PrismaneProps<
       | "3xl"
       | "4xl"
       | "5xl"
-      | "6xl";
+      | "6xl"
+      | string;
   },
   FlexProps
 >;
