@@ -60,7 +60,7 @@ export const Addon_Positions = () => (
 
 export const Advanced_Composition = () => (
   <Field.Wrapper>
-    <Field.Label for="hashtag">Hashtag:</Field.Label>
+    <Field.Label htmlFor="hashtag">Hashtag:</Field.Label>
     <Field
       name="hashtag"
       addons={<Field.Addon position="left">#</Field.Addon>}
