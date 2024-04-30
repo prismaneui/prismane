@@ -156,8 +156,8 @@ const Button: ButtonComponent = forwardRef(
         bdw={variant === "tertiary" && 1}
         bdc={(theme) =>
           variant === "tertiary" && theme.mode === "dark"
-            ? [color, 500]
-            : [color, 300]
+            ? [[color, 500], { hover: fillOnHover && [color, 700] }]
+            : [[color, 300], { hover: fillOnHover && [color, 500] }]
         }
         pe={[loading && "none", { disabled: "none" }]}
         cs="pointer"
