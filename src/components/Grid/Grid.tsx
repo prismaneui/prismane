@@ -14,8 +14,36 @@ export { type GridItemProps };
 export type GridProps = PrismaneProps<
   {
     templateAreas?: string;
-    templateColumns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
-    templateRows?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "none";
+    templateColumns?:
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | "none"
+      | string;
+    templateRows?:
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | "none"
+      | string;
     flow?: "row" | "column" | "dense" | "row-dense" | "column-dense";
     autoColumns?: "auto" | "min" | "max" | "fr";
     autoRows?: "auto" | "min" | "max" | "fr";
