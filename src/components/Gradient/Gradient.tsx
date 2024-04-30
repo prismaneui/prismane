@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import * as CSS from "csstype";
 // Component
 import Box, { BoxProps } from "../Box/Box";
 // Hooks
@@ -9,6 +10,8 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
+  PrismaneColors,
+  PrismaneShades,
 } from "../../types";
 // Utils
 import { strip } from "../../utils";
@@ -17,9 +20,17 @@ export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
   PrismaneProps<
     {
-      from: any;
-      to: any;
-      deg: number;
+      from?:
+        | PrismaneColors
+        | [PrismaneColors, PrismaneShades]
+        | [PrismaneColors, PrismaneShades, number]
+        | CSS.Properties["backgroundColor"];
+      to?:
+        | PrismaneColors
+        | [PrismaneColors, PrismaneShades]
+        | [PrismaneColors, PrismaneShades, number]
+        | CSS.Properties["backgroundColor"];
+      deg?: number;
     },
     BoxProps
   >
