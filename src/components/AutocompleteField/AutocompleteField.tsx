@@ -10,7 +10,13 @@ import { strip } from "../../utils";
 
 export type AutocompleteFieldProps = PrismaneProps<
   {
-    filter?: Function;
+    filter?: (
+      value: any,
+      item: {
+        value: string;
+        element: React.ReactNode;
+      }
+    ) => boolean;
   },
   SelectFieldProps
 >;
