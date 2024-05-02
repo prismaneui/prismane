@@ -1,4 +1,4 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Icon, { IconProps } from "../../Icon/Icon";
 // Utils

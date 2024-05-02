@@ -1,5 +1,5 @@
 // Components
-import { Stack, Button, Text } from "../../components";
+import { Text } from "../../components";
 // Hooks
 import useMediaQuery from "./useMediaQuery";
 

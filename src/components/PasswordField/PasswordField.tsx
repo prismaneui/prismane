@@ -7,7 +7,7 @@ import Transition from "../Transition/Transition";
 // Hooks
 import { useFieldProps } from "../Field";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { variants, fr } from "../../utils";
 
 export type PasswordFieldProps = FieldProps;
 

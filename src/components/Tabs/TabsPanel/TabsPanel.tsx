@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../../Flex/Flex";
 // Context
@@ -6,7 +6,7 @@ import { useTabsContext } from "../TabsContext";
 // Types
 import { PrismaneProps } from "../../../types";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip } from "../../../utils";
 
 export type TabsPanelProps = PrismaneProps<{ value: string }, FlexProps>;
 

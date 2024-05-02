@@ -67,6 +67,7 @@ const Gradient: GradientComponent = forwardRef(
           background: `linear-gradient(${deg}deg, ${getColorStyle(
             from
           )}, ${getColorStyle(to)})`,
+          ...sx,
         }}
         data-testid="prismane-gradient"
         ref={ref}

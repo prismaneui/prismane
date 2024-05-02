@@ -1,6 +1,6 @@
 import { test, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 // Hook
 import useOutsideClick from "./useOutsideClick";
 

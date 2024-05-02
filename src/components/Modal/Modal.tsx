@@ -25,7 +25,7 @@ export type ModalProps = PrismaneProps<
   {
     open?: boolean;
     closable?: boolean;
-    onClose?: Function;
+    onClose?: () => void;
   },
   AnimationProps & PaperProps
 >;

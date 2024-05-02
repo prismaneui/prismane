@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { FC, useState } from "react";
 // Components
 import Animation from "./Animation";
 import Button from "../Button/Button";
@@ -13,7 +13,7 @@ export default {
   component: Animation,
 };
 
-export const Default = () => {
+export const Default: FC = () => {
   const [animated, setAnimated] = useState(true);
 
   return (
@@ -24,7 +24,7 @@ export const Default = () => {
   );
 };
 
-export const Variants = () => {
+export const Variants: FC = () => {
   const [animated, setAnimated] = useState(true);
 
   const [animation, setAnimation] = useState("fade");
@@ -61,7 +61,7 @@ export const Variants = () => {
   );
 };
 
-export const Delay = () => {
+export const Delay: FC = () => {
   const [animated, setAnimated] = useState(true);
 
   return (
@@ -78,7 +78,7 @@ export const Delay = () => {
   );
 };
 
-export const Duration = () => {
+export const Duration: FC = () => {
   const [animated, setAnimated] = useState(true);
 
   return (
@@ -95,7 +95,7 @@ export const Duration = () => {
   );
 };
 
-export const Timing = () => {
+export const Timing: FC = () => {
   const [animated, setAnimated] = useState(true);
 
   return (

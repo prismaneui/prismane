@@ -1,4 +1,4 @@
-import { Stack, Center, Flex, Button, Text } from "../../components";
+import { Stack, Center, Button, Text } from "../../components";
 import { fr } from "../../utils";
 import useSorting from "./useSorting";
 

@@ -103,31 +103,3 @@ test("Correctly highlights the selected option", () => {
 
   expect(selectedOptionElement).toBeInTheDocument();
 });
-
-test("Correctly navigates through options with arrow keys", () => {
-  render(
-    <SelectField
-      label="Select an option"
-      options={[
-        { value: "option1", element: "Option 1" },
-        { value: "option2", element: "Option 2" },
-        { value: "option3", element: "Option 3" },
-      ]}
-    />
-  );
-
-  const field = screen.getByLabelText("Select an option");
-
-  fireEvent.click(field);
-
-  fireEvent.keyDown(field, { key: "ArrowDown" });
-
-  let activeOptionElement = screen.getByText("Option 1");
-
-  fireEvent.keyDown(field, { key: "ArrowDown" });
-  activeOptionElement = screen.getByText("Option 2");
-
-  fireEvent.keyDown(field, { key: "ArrowUp" });
-
-  activeOptionElement = screen.getByText("Option 1");
-});

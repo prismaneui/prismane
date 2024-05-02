@@ -12,13 +12,14 @@ export const Default = () => {
   return (
     <Container>
       Containing text within a well-designed container is a powerful technique
-      to captivate users' attention. By providing space around the text, the
-      content gains prominence and becomes visually appealing. This focused
-      presentation not only enhances readability but also guides users' eyes to
-      the essential message. A thoughtful container complements the overall
-      aesthetics of the interface and creates a sense of order and elegance.
-      Whether it's a subtle drop shadow or a vibrant background, the container
-      elevates the text, making it stand out amidst other elements.
+      to captivate users&apos; attention. By providing space around the text,
+      the content gains prominence and becomes visually appealing. This focused
+      presentation not only enhances readability but also guides users&apos;
+      eyes to the essential message. A thoughtful container complements the
+      overall aesthetics of the interface and creates a sense of order and
+      elegance. Whether it&apos;s a subtle drop shadow or a vibrant background,
+      the container elevates the text, making it stand out amidst other
+      elements.
     </Container>
   );
 };

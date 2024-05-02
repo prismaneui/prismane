@@ -14,7 +14,7 @@ export type PropsToOmit<E extends Versatile, P> = keyof (AsProp<E> & P);
 
 export type VersatileProps<
   E extends Versatile = "div",
-  P = {}
+  P = Record<string, never>
 > = React.PropsWithChildren<P & AsProp<E>> &
   Omit<React.ComponentPropsWithoutRef<E>, keyof P>;
 
@@ -22,12 +22,14 @@ export type PrismaneProps<P, C> = P & Omit<C, keyof P>;
 
 export type PrismaneVersatile<
   E extends Versatile = "div",
-  P = {}
+  P = Record<string, never>
 > = VersatileProps<E, Omit<P, keyof AsProp<E>>> & {
   ref?: PrismaneVersatileRef<E | Versatile>;
 };
 
-export type PrismaneVersatileComponent<Props = {}> = (props: Props) => any;
+export type PrismaneVersatileComponent<Props = Record<string, never>> = (
+  props: Props
+) => any;
 
 export type PrismaneWithInternal<
   Props,

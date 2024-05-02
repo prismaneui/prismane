@@ -15,7 +15,7 @@ export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
   E,
   PrismaneProps<
     {
-      before?: Function;
+      before?: () => void;
       underline?: "none" | "hover" | "always";
       href: string;
       foreign?: boolean;

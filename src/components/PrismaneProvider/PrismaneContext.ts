@@ -7,7 +7,7 @@ import { PrismaneTheme } from "../../types";
 export interface PrismaneContextValue {
   theme: PrismaneTheme;
   setTheme: Dispatch<PrismaneTheme>;
-  toggleThemeMode: Function;
+  toggleThemeMode: () => void;
 }
 
 export const PrismaneContext = createContext<PrismaneContextValue>({

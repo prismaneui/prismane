@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../../Flex/Flex";
 import Transition, { TransitionProps } from "../../Transition/Transition";

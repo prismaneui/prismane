@@ -89,22 +89,18 @@ export const Indeterminate = () => {
         label="Receive updates about Prismane"
         value={checked as any}
         indeterminate={indeterminate}
-        onChange={(e: any) => setCheckedItems([!checked, !checked])}
+        onChange={() => setCheckedItems([!checked, !checked])}
       />
       <Stack pl={fr(7)} mt={fr(1)}>
         <Checkbox
           label="Receive version updates"
           value={checkedItems[0] as any}
-          onChange={(e: any) =>
-            setCheckedItems([!checkedItems[0], checkedItems[1]])
-          }
+          onChange={() => setCheckedItems([!checkedItems[0], checkedItems[1]])}
         />
         <Checkbox
           label="Receive event updates"
           value={checkedItems[1] as any}
-          onChange={(e: any) =>
-            setCheckedItems([checkedItems[0], !checkedItems[1]])
-          }
+          onChange={() => setCheckedItems([checkedItems[0], !checkedItems[1]])}
         />
       </Stack>
     </Stack>

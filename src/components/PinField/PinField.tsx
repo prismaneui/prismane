@@ -30,7 +30,6 @@ const PinField = forwardRef<
       label,
       error,
       size = "base",
-      className,
       ...props
     },
     ref

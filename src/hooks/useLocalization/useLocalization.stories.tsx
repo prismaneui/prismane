@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Flex, Text, Button } from "../../components";
 import useLocalization from "./useLocalization";
 import { fr } from "../../utils";
@@ -10,8 +9,6 @@ export default {
 };
 
 export const Default = () => {
-  const [registered, setRegistered] = useState(false);
-
   const { locale, text, changeLocale } = useLocalization("en", {
     en: "Hello from Bulgaria!",
     bg: "Здравейте, от България!",

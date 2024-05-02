@@ -74,7 +74,7 @@ test("Correctly pastes a valid PIN into the PinField", () => {
   const fields = screen.getAllByRole("textbox");
 
   const clipboardData = {
-    getData: (type) => {
+    getData: () => {
       return "1234";
     },
   };

@@ -30,7 +30,7 @@ export type DialogProps = PrismaneProps<
     position?: PrismanePositions;
     open?: boolean;
     closable?: boolean;
-    onClose?: Function;
+    onClose?: () => void;
   },
   AnimationProps
 >;

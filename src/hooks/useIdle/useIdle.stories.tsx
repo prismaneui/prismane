@@ -1,6 +1,5 @@
-import { Box, Text } from "../../components";
+import { Text } from "../../components";
 import useIdle from "./useIdle";
-import { fr } from "../../utils";
 
 export default {
   tags: ["autodocs"],

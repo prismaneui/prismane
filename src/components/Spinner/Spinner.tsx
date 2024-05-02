@@ -3,7 +3,7 @@ import { CircleNotch } from "@phosphor-icons/react";
 // Components
 import Icon, { IconProps } from "../Icon/Icon";
 // Utils
-import { strip, dual, fr } from "../../utils";
+import { strip } from "../../utils";
 
 export type SpinnerProps = IconProps;
 
