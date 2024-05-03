@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { Plus } from "@phosphor-icons/react";
 // Components
 import Accordion from "./Accordion";
@@ -9,7 +10,7 @@ export default {
   component: Accordion,
 };
 
-export const Default = () => (
+export const Default: FC = () => (
   <Accordion>
     <Accordion.Item value="first">
       <Accordion.Control>
@@ -29,7 +30,7 @@ export const Default = () => (
   </Accordion>
 );
 
-export const Default_Value = () => (
+export const Default_Value: FC = () => (
   <Accordion defaultValue="first">
     <Accordion.Item value="first">
       <Accordion.Control>
@@ -49,7 +50,7 @@ export const Default_Value = () => (
   </Accordion>
 );
 
-export const Custom_Item = () => (
+export const Custom_Item: FC = () => (
   <Accordion defaultValue="first">
     <Accordion.Item value="first">
       <Accordion.Control>

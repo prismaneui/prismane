@@ -16,7 +16,7 @@ const useDraggable = (
       const { offsetLeft, offsetTop } = element.offsetParent;
       const { offsetWidth, offsetHeight } = element;
 
-      setPosition((prevPosition) => ({
+      setPosition(() => ({
         x: pageX - offsetLeft - offsetWidth / 2,
         y: pageY - offsetTop - offsetHeight / 2,
       }));
@@ -28,7 +28,7 @@ const useDraggable = (
         const { offsetLeft, offsetTop } = element.offsetParent;
         const { offsetWidth, offsetHeight } = element;
 
-        setPosition((prevPosition) => ({
+        setPosition(() => ({
           x: pageX - offsetLeft - offsetWidth / 2,
           y: pageY - offsetTop - offsetHeight / 2,
         }));

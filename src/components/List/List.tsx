@@ -1,4 +1,4 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "../Flex/Flex";
 // Types

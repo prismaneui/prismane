@@ -4,7 +4,6 @@ import Transition, { TransitionProps } from "../Transition/Transition";
 // Types
 import {
   PrismaneAnimations,
-  PrismaneTransitions,
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,

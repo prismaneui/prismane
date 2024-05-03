@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 export interface DrawerContextValue {
   open?: boolean;
   closable?: boolean;
-  onClose?: Function;
+  onClose?: () => void;
 }
 
 const DrawerContext = createContext<DrawerContextValue>({

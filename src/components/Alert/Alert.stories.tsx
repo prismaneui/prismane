@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { WarningDiamond } from "@phosphor-icons/react";
 // Components
 import Alert from "./Alert";
@@ -10,9 +11,9 @@ export default {
   component: Alert,
 };
 
-export const Default = () => <Alert>This is the default alert!</Alert>;
+export const Default: FC = () => <Alert>This is the default alert!</Alert>;
 
-export const Variants = () => (
+export const Variants: FC = () => (
   <Stack>
     <Alert variant="info">
       This is an info alert. It provides important information or updates.
@@ -26,19 +27,19 @@ export const Variants = () => (
       warning.
     </Alert>
     <Alert variant="error">
-      This is an error alert. It represents that an action couldn't complete due
-      to an error.
+      This is an error alert. It represents that an action couldn&apos;t
+      complete due to an error.
     </Alert>
   </Stack>
 );
 
-export const Closable = () => (
+export const Closable: FC = () => (
   <Alert closable>
     This is a closable alert. Click the close button to dismiss it.
   </Alert>
 );
 
-export const Custom_Action = () => (
+export const Custom_Action: FC = () => (
   <Alert
     action={
       <Button color="red" variant="tertiary" fillOnHover>
@@ -52,20 +53,20 @@ export const Custom_Action = () => (
   </Alert>
 );
 
-export const Custom_Icon = () => (
+export const Custom_Icon: FC = () => (
   <Alert icon={<WarningDiamond size={24} />} variant="warning">
     This is an alert with a custom icon.
   </Alert>
 );
 
-export const Alert_Title = () => (
+export const Alert_Title: FC = () => (
   <Alert variant="error">
     <Alert.Title>Error 404</Alert.Title>
     The desired file was not found on our system!
   </Alert>
 );
 
-export const Alert_Description = () => (
+export const Alert_Description: FC = () => (
   <Alert>
     <Alert.Description>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import {
   MagnifyingGlass,
   ThumbsUp,
@@ -21,7 +21,7 @@ export const Default: FC = () => {
   );
 };
 
-export const Variants = () => (
+export const Variants: FC = () => (
   <>
     <ActionButton
       variant="primary"
@@ -46,7 +46,7 @@ export const Variants = () => (
   </>
 );
 
-export const Sizes = () => (
+export const Sizes: FC = () => (
   <>
     <ActionButton
       size="xs"
@@ -76,11 +76,11 @@ export const Sizes = () => (
   </>
 );
 
-export const Custom_Color = () => (
+export const Custom_Color: FC = () => (
   <ActionButton color="base" icon={<GearSix />} aria-label="Open Settings" />
 );
 
-export const Custom_Button = () => (
+export const Custom_Button: FC = () => (
   <ActionButton
     icon={<Play />}
     aria-label="Play Soundgarden - Black Hole Sun"

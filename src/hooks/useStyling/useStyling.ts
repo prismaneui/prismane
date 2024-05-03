@@ -75,7 +75,7 @@ const useStyling: StylingHook = (props: StylingProps) => {
 
   useLayoutEffect(() => {
     const stripped = Object.fromEntries(
-      Object.entries(props).filter(([_, value]) => value !== undefined)
+      Object.entries(props).filter(([, value]) => value !== undefined)
     );
 
     for (const key in stripped) {

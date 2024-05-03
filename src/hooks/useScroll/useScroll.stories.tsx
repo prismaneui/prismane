@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Flex, Text, Button, Stack } from "../../components";
 import useScroll from "./useScroll";
 import { fr } from "../../utils";

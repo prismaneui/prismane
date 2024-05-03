@@ -49,14 +49,14 @@ export const Article_Example = () => (
     <Text as="h1">Enchanting Waterfalls</Text>
     <Divider />
     <Text>
-      Immerse yourself in the breathtaking beauty of nature's marvels – the
-      cascading waterfalls. Discover nature's symphony as water gracefully
+      Immerse yourself in the breathtaking beauty of nature&apos;s marvels – the
+      cascading waterfalls. Discover nature&apos;s symphony as water gracefully
       dances down rugged cliffs, filling the air with a soothing melody. Feel
       the cool mist on your skin and the invigorating rush of energy that these
       natural wonders evoke. Each waterfall is a unique masterpiece, adorned
       with lush greenery, vibrant wildlife, and hidden grottos. Witness the raw
       power and tranquility coexisting in harmony, and let the enchanting
-      waterfalls transport you to a world of awe and wonder, where nature's
+      waterfalls transport you to a world of awe and wonder, where nature&apos;s
       magic reigns supreme.
     </Text>
   </Stack>
@@ -83,9 +83,9 @@ export const Vertical_Example = () => (
       <Text as="h1">Hamlet</Text>
       <Text maw={fr(144)}>
         Hamlet is a tragedy play written by William Shakespeare, telling the
-        story of Prince Hamlet seeking revenge for his father's death. Fueled by
-        his inner turmoil, Hamlet grapples with existential questions, madness,
-        and the consequences of his actions.
+        story of Prince Hamlet seeking revenge for his father&apos;s death.
+        Fueled by his inner turmoil, Hamlet grapples with existential questions,
+        madness, and the consequences of his actions.
       </Text>
     </Stack>
   </Flex>

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 // Components
 import Paper, { PaperProps } from "../Paper/Paper";
 import Animation, { AnimationProps } from "../Animation/Animation";
@@ -30,7 +30,7 @@ export type DrawerProps = PrismaneProps<
     size?: PrismaneBreakpoints | string | number;
     open?: boolean;
     closable?: boolean;
-    onClose?: Function;
+    onClose?: () => void;
   },
   AnimationProps & PaperProps
 >;

@@ -8,7 +8,7 @@ import Text from "../Text/Text";
 import { useFieldProps } from "../Field";
 import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../types";
+import { PrismaneProps } from "../../types";
 // Utils
 import { variants, fr } from "../../utils";
 

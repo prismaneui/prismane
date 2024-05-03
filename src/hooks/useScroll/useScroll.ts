@@ -47,7 +47,7 @@ const useScroll = (
   };
 
   useEffect(() => {
-    const handleScroll = (e: Event) => {
+    const handleScroll = () => {
       const { pageYOffset, pageXOffset } = window;
 
       if (pageYOffset > position.y) {

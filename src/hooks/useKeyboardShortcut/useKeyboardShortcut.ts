@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from "react";
 
 const useKeyboardShortcut = (
   keys: string[],
-  cb: Function,
+  cb: () => void,
   shouldRegister: boolean = true
 ) => {
   const pressedKeysRef = useRef<string[]>([]);

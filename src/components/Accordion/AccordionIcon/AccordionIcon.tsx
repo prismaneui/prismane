@@ -1,5 +1,5 @@
 import { ReactNode, forwardRef } from "react";
-import { CaretUp, CaretDown } from "@phosphor-icons/react";
+import { CaretUp } from "@phosphor-icons/react";
 // Components
 import Flex, { FlexProps } from "../../Flex/Flex";
 import Transition from "../../Transition/Transition";

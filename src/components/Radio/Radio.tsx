@@ -4,7 +4,6 @@ import Animation from "../Animation";
 import Field from "../Field/Field";
 import Flex, { FlexProps } from "../Flex/Flex";
 import Transition, { TransitionProps } from "../Transition/Transition";
-import Text from "../Text/Text";
 import Hidden from "../Hidden/Hidden";
 // Context
 import { useRadioContext } from "./RadioContext";

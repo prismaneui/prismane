@@ -1,12 +1,10 @@
 import { forwardRef } from "react";
 // Components
 import Stack from "../../Stack";
-import Field from "../../Field";
+import Field, { useFieldProps } from "../../Field";
 import Flex, { FlexProps } from "../../Flex/Flex";
 // Context
 import { RadioContextProvider } from "../RadioContext";
-// Hooks
-import { useFieldProps } from "../../Field";
 // Types
 import { PrismaneFieldComponent } from "../../../types";
 // Utils

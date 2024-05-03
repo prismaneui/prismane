@@ -1,6 +1,4 @@
 import { test, vi } from "vitest";
-import { renderHook } from "@testing-library/react-hooks";
-import { fireEvent } from "@testing-library/react";
 // Hook
 import useEmulatedFieldChange from "./useEmulatedFieldChange";
 

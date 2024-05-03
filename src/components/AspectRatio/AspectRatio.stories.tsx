@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 // Components
 import AspectRatio from "./AspectRatio";
 
@@ -7,11 +8,11 @@ export default {
   component: AspectRatio,
 };
 
-export const Default = () => {
+export const Default: FC = () => {
   return <AspectRatio ratio="16/9" w={320} bg="base" />;
 };
 
-export const Video = () => {
+export const Video: FC = () => {
   return (
     <AspectRatio ratio="1/1" w={420}>
       <iframe
@@ -24,13 +25,15 @@ export const Video = () => {
   );
 };
 
-export const Image = () => {
+export const Image: FC = () => {
   return (
     <AspectRatio w={360} ratio="1/1">
       <img
         src="https://memes.co.in/memes/update/uploads/2021/04/65efc04-1536x1536.jpg"
         alt="meme"
-        objectFit="cover"
+        style={{
+          objectFit: "cover",
+        }}
       />
     </AspectRatio>
   );

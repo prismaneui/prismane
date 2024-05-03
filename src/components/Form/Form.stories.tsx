@@ -92,18 +92,17 @@ export const useForm_Hook = () => {
 };
 
 export const Validators = () => {
-  const { handleSubmit, handleReset, setValue, register, getFormValues } =
-    useForm({
-      fields: {
-        fullname: {
-          value: "",
-          validators: {
-            required: (v) => required(v),
-            min: (v) => min(v, 4),
-          },
+  const { handleSubmit, handleReset, register } = useForm({
+    fields: {
+      fullname: {
+        value: "",
+        validators: {
+          required: (v) => required(v),
+          min: (v) => min(v, 4),
         },
       },
-    });
+    },
+  });
 
   const [values, setValues] = useState("");
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Flex, Text, Box } from "../../components";
 import useDimensions from "./useDimensions";
 import { fr } from "../../utils";

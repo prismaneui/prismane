@@ -56,6 +56,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             htmlFor={field.name}
             sx={{
               cursor: "pointer",
+              ...sx,
             }}
             className={strip(
               `${className ? className : ""} ${

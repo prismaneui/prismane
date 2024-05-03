@@ -52,7 +52,7 @@ export const dual = (
   return result;
 };
 
-export const parse: any = (v: any, cb: Function) => {
+export const parse: any = (v: any, cb: (value: any) => any) => {
   if (
     Array.isArray(v) &&
     v.length === 2 &&
