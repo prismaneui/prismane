@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 import * as CSS from "csstype";
 // Component
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Hooks
-import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Types
 import {
   Versatile,
@@ -12,9 +12,9 @@ import {
   PrismaneProps,
   PrismaneColors,
   PrismaneShades,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

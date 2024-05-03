@@ -1,1 +1,1 @@
-export { default } from "./TableHead";
+export { default, type TableHeadProps } from "./TableHead";

@@ -1,14 +1,14 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Transition, { TransitionProps } from "../../Transition/Transition";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
-import { PrismaneProps } from "../../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 
 export type AccordionControlProps = PrismaneProps<FlexProps, TransitionProps>;
 

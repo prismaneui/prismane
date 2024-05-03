@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
 // Components
-import Icon, { IconProps } from "../Icon/Icon";
+import Icon, { IconProps } from "@components/Icon";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type SpinnerProps = IconProps;
 

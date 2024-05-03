@@ -1,19 +1,18 @@
 import { forwardRef, useState, useRef, ReactNode } from "react";
 import { CaretUpDown } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Menu from "../Menu/Menu";
-import Icon from "../Icon/Icon";
-import Flex from "../Flex/Flex";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Menu from "@components/Menu";
+import Icon from "@components/Icon";
+import Flex from "@components/Flex";
 // Hooks
-import { useFieldProps } from "../Field";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
-import useOutsideClick from "../../hooks/useOutsideClick";
+import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
+import useOutsideClick from "@hooks/useOutsideClick";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type SelectFieldProps = PrismaneProps<
   {

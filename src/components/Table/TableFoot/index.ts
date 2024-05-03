@@ -1,1 +1,1 @@
-export { default } from "./TableFoot";
+export { default, type TableFootProps } from "./TableFoot";

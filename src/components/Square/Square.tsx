@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 // Components
-import Center, { CenterProps } from "../Center/Center";
+import Center, { CenterProps } from "@components/Center";
 // Types
 import {
   PrismaneStyles,
@@ -8,9 +8,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

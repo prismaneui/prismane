@@ -1,1 +1,1 @@
-export { default } from "./CardFooter";
+export { default, type CardFooterProps } from "./CardFooter";

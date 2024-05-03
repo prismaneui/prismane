@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 
 export type TableCellProps = BoxProps<"td">;
 

@@ -1,1 +1,1 @@
-export { default } from "./TableCaption";
+export { default, type TableCaptionProps } from "./TableCaption";

@@ -1,1 +1,1 @@
-export { default } from "./MenuLabel";
+export { default, type MenuLabelProps } from "./MenuLabel";

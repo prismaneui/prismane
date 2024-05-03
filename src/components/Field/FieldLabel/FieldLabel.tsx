@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 // Components
-import Text, { TextProps } from "../../Text/Text";
+import Text, { TextProps } from "@components/Text";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "@/types";
 // Utils
-import { strip, variants } from "../../../utils";
+import { strip, variants } from "@/utils";
 
 export type FieldLabelProps = PrismaneProps<
   {

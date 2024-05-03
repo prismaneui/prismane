@@ -1,13 +1,11 @@
 import { useState, forwardRef } from "react";
 import { Eye, EyeClosed } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Icon from "../Icon/Icon";
-import Transition from "../Transition/Transition";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Icon from "@components/Icon";
+import Transition from "@components/Transition";
 // Utils
-import { variants, fr } from "../../utils";
+import { variants, fr } from "@/utils";
 
 export type PasswordFieldProps = FieldProps;
 

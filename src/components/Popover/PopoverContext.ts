@@ -1,6 +1,6 @@
 import { createContext, useContext, Dispatch } from "react";
 // Types
-import { PrismanePositions } from "../../types";
+import { PrismanePositions } from "@/types";
 
 export interface PopoverContextValue {
   open: boolean;

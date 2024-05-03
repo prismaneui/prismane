@@ -1,1 +1,1 @@
-export { default } from "./TableBody";
+export { default, type TableBodyProps } from "./TableBody";

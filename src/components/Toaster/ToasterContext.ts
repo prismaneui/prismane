@@ -1,6 +1,6 @@
 import { Dispatch, createContext, useContext } from "react";
 // Types
-import { ToastProps } from "./Toast/Toast";
+import { ToastProps } from "./Toast";
 
 export interface ToasterContextValue {
   toasts: ToastProps[];

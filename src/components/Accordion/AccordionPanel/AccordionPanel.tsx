@@ -1,12 +1,12 @@
 import { forwardRef, useRef, useEffect, useState } from "react";
 // Components
-import Box from "../../Box/Box";
-import Animation, { AnimationProps } from "../../Animation/Animation";
+import Box from "@components/Box";
+import Animation, { AnimationProps } from "@components/Animation";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 
 export type AccordionPanelProps = AnimationProps;
 

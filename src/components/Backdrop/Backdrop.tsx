@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Center, { CenterProps } from "../Center/Center";
+import Center, { CenterProps } from "@components/Center";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type BackdropProps = CenterProps;
 

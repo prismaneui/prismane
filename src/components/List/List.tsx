@@ -1,23 +1,21 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Types
 import {
   PrismaneWithInternal,
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import ListUnordered, {
-  ListUnorderedProps,
-} from "./ListUnordered/ListUnordered";
-import ListOrdered, { ListOrderedProps } from "./ListOrdered/ListOrdered";
-import ListItem, { ListItemProps } from "./ListItem/ListItem";
-import ListIcon, { ListIconProps } from "./ListIcon/ListIcon";
+import ListUnordered, { ListUnorderedProps } from "./ListUnordered";
+import ListOrdered, { ListOrderedProps } from "./ListOrdered";
+import ListItem, { ListItemProps } from "./ListItem";
+import ListIcon, { ListIconProps } from "./ListIcon";
 
 export {
   type ListUnorderedProps,

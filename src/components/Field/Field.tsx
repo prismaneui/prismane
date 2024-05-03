@@ -1,10 +1,10 @@
 import { forwardRef, ReactNode } from "react";
 // Components
-import Box from "../Box/Box";
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Icon from "../Icon/Icon";
-import Spinner from "../Spinner/Spinner";
+import Box from "@components/Box";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
+import Icon from "@components/Icon";
+import Spinner from "@components/Spinner";
 // Types
 import {
   PrismaneFieldComponent,
@@ -13,18 +13,18 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Hooks
 import { usePrismaneColor } from "../PrismaneProvider";
 import useFieldProps from "./useFieldProps";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 // Internal Components
-import FieldError, { FieldErrorProps } from "./FieldError/FieldError";
-import FieldLabel, { FieldLabelProps } from "./FieldLabel/FieldLabel";
-import FieldWrapper, { FieldWrapperProps } from "./FieldWrapper/FieldWrapper";
-import FieldAddon, { FieldAddonProps } from "./FieldAddon/FieldAddon";
+import FieldError, { FieldErrorProps } from "./FieldError";
+import FieldLabel, { FieldLabelProps } from "./FieldLabel";
+import FieldWrapper, { FieldWrapperProps } from "./FieldWrapper";
+import FieldAddon, { FieldAddonProps } from "./FieldAddon";
 
 export {
   type FieldErrorProps,

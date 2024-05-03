@@ -1,13 +1,11 @@
 import { forwardRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Text from "../Text/Text";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Text from "@components/Text";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type NativeSelectFieldProps = PrismaneProps<
   {

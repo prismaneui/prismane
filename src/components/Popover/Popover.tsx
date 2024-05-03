@@ -1,25 +1,23 @@
 import { useState, forwardRef, useRef } from "react";
 // Components
-import Paper, { PaperProps } from "../Paper/Paper";
-import Box from "../Box/Box";
+import Paper, { PaperProps } from "@components/Paper";
+import Box from "@components/Box";
 // Context
 import { PopoverContextProvider } from "./PopoverContext";
 // Hooks
-import useOutsideClick from "../../hooks/useOutsideClick";
+import useOutsideClick from "@hooks/useOutsideClick";
 // Types
 import {
   PrismanePositions,
   PrismaneProps,
   PrismaneWithInternal,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import PopoverControl, {
-  PopoverControlProps,
-} from "./PopoverControl/PopoverControl";
-import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel/PopoverPanel";
+import PopoverControl, { PopoverControlProps } from "./PopoverControl";
+import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel";
 
 export { type PopoverControlProps, type PopoverPanelProps };
 

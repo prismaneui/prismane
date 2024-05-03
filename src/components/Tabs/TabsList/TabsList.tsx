@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 
 export type TabsListProps = FlexProps;
 

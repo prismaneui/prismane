@@ -1,1 +1,1 @@
-export { default } from "./BreadcrumbItem";
+export { default, type BreadcrumbItemProps } from "./BreadcrumbItem";

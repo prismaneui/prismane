@@ -1,15 +1,14 @@
 import { forwardRef, useState, useRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Flex from "../Flex/Flex";
-import Hidden from "../Hidden/Hidden";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Flex from "@components/Flex";
+import Hidden from "@components/Hidden";
 // Hooks
-import { useFieldProps } from "../Field";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@/utils";
 
 export type PinFieldProps = PrismaneProps<
   {
@@ -24,14 +23,7 @@ const PinField = forwardRef<
   PinFieldProps
 >(
   (
-    {
-      length = 4,
-      masked = false,
-      label,
-      error,
-      size = "base",
-      ...props
-    },
+    { length = 4, masked = false, label, error, size = "base", ...props },
     ref
   ) => {
     const [rest, field] = useFieldProps(props);

@@ -1,16 +1,14 @@
 import { forwardRef } from "react";
 // Components
-import Animation from "../Animation/Animation";
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Field from "../Field/Field";
-import Hidden from "../Hidden/Hidden";
-// Hooks
-import { useFieldProps } from "../Field";
+import Animation from "@components/Animation";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
+import Field, { useFieldProps } from "@components/Field";
+import Hidden from "@components/Hidden";
 // Types
-import { PrismaneFieldComponent } from "../../types";
+import { PrismaneFieldComponent } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 

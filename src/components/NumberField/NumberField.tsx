@@ -1,16 +1,15 @@
 import { forwardRef, useRef } from "react";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Flex from "../Flex/Flex";
-import Transition from "../Transition/Transition";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 // Hooks
-import { useFieldProps } from "../Field";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 export type NumberFieldProps = PrismaneProps<
   {

@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useState } from "react";
 // Components
-import Transition, { TransitionProps } from "../Transition/Transition";
+import Transition, { TransitionProps } from "@components/Transition";
 // Types
 import {
   PrismaneAnimations,
@@ -8,9 +8,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export interface Animation {
   in: object;

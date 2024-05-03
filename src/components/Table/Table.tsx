@@ -1,18 +1,18 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneWithInternal } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import TableRow, { TableRowProps } from "./TableRow/TableRow";
-import TableHead, { TableHeadProps } from "./TableHead/TableHead";
-import TableFoot, { TableFootProps } from "./TableFoot/TableFoot";
-import TableCell, { TableCellProps } from "./TableCell/TableCell";
-import TableBody, { TableBodyProps } from "./TableBody/TableBody";
-import TableCaption, { TableCaptionProps } from "./TableCaption/TableCaption";
+import TableRow, { TableRowProps } from "./TableRow";
+import TableHead, { TableHeadProps } from "./TableHead";
+import TableFoot, { TableFootProps } from "./TableFoot";
+import TableCell, { TableCellProps } from "./TableCell";
+import TableBody, { TableBodyProps } from "./TableBody";
+import TableCaption, { TableCaptionProps } from "./TableCaption";
 
 export {
   type TableRowProps,

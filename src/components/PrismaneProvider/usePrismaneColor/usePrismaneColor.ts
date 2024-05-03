@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 // Theme
-import { transformColor } from "../../../themes/theme";
+import { transformColor } from "@themes/theme";
 import { usePrismaneTheme } from "../PrismaneContext";
 // Globals
 import {
   PRISMANE_COLORS,
   PRISMANE_COLORS_MAP,
   PRISMANE_SHADES_MAP,
-} from "../../../constants";
+} from "@/constants";
 // Types
-import { PrismaneColors, PrismaneShades, PrismaneTheme } from "../../../types";
+import { PrismaneColors, PrismaneShades, PrismaneTheme } from "@/types";
 // Utils
-import { parse } from "../../../utils";
+import { parse } from "@/utils";
 
 const usePrismaneColor: any = () => {
   const { theme } = usePrismaneTheme();

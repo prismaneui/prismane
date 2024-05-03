@@ -1,13 +1,13 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Transition, { TransitionProps } from "../../Transition/Transition";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Types
-import { PrismaneProps } from "../../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type TabsTabProps = PrismaneProps<
   { value: string },

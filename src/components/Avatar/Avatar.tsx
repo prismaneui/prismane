@@ -1,11 +1,11 @@
 import { forwardRef } from "react";
 import { UserCircle } from "@phosphor-icons/react";
 // Components
-import Center from "../Center/Center";
-import Circle, { CircleProps } from "../Circle/Circle";
-import Flex from "../Flex/Flex";
-import Icon from "../Icon/Icon";
-import Image from "../Image/Image";
+import Center from "@components/Center";
+import Circle, { CircleProps } from "@components/Circle";
+import Flex from "@components/Flex";
+import Icon from "@components/Icon";
+import Image from "@components/Image";
 // Types
 import {
   PrismaneColors,
@@ -14,9 +14,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type AvatarProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
