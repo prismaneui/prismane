@@ -1,16 +1,16 @@
 import { forwardRef, useState } from "react";
 // Components
-import Portal from "../Portal/Portal";
-import Flex, { FlexProps } from "../Flex/Flex";
+import Portal from "@components/Portal";
+import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { ToasterContextProvider } from "./ToasterContext";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
 // Internal Components
-import Toast from "./Toast/Toast";
+import Toast from "./Toast";
 
 export type ToasterProps = PrismaneProps<
   {

@@ -1,14 +1,14 @@
 import { forwardRef } from "react";
 // Components
-import Stack from "../../Stack";
-import Field, { useFieldProps } from "../../Field";
-import Flex, { FlexProps } from "../../Flex/Flex";
+import Stack from "@components/Stack";
+import Field, { useFieldProps } from "@components/Field";
+import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { RadioContextProvider } from "../RadioContext";
 // Types
-import { PrismaneFieldComponent } from "../../../types";
+import { PrismaneFieldComponent } from "@/types";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 
 export type RadioGroupProps = PrismaneFieldComponent & FlexProps;
 

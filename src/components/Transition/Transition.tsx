@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
 import {
   PrismaneTransitions,
@@ -8,9 +8,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

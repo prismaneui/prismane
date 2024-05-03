@@ -1,18 +1,16 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Types
-import { PrismaneWithInternal } from "../../types";
+import { PrismaneWithInternal } from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 // Internal Components
-import BreadcrumbItem, {
-  BreadcrumbItemProps,
-} from "./BreadcrumbItem/BreadcrumbItem";
+import BreadcrumbItem, { BreadcrumbItemProps } from "./BreadcrumbItem";
 import BreadcrumbSeparator, {
   BreadcrumbSeparatorProps,
-} from "./BreadcrumbSeparator/BreadcrumbSeparator";
+} from "./BreadcrumbSeparator";
 
 export { type BreadcrumbItemProps, type BreadcrumbSeparatorProps };
 

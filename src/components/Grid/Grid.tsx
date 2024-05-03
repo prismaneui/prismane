@@ -1,13 +1,13 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
-import { PrismaneProps, PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "@/types";
 // Utils
-import { strip, variants } from "../../utils";
+import { strip, variants } from "@/utils";
 
 // Internal Components
-import GridItem, { GridItemProps } from "./GridItem/GridItem";
+import GridItem, { GridItemProps } from "./GridItem";
 
 export { type GridItemProps };
 

@@ -6,26 +6,20 @@ import {
   Info,
 } from "@phosphor-icons/react";
 // Components
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Flex, { FlexProps } from "../Flex/Flex";
-import CloseButton from "../CloseButton/CloseButton";
+import Animation, { AnimationProps } from "@components/Animation";
+import Flex, { FlexProps } from "@components/Flex";
+import CloseButton from "@components/CloseButton";
 // Hooks
-import useAnimation from "../../hooks/useAnimation";
-import usePresence from "../../hooks/usePresence";
+import useAnimation from "@hooks/useAnimation";
+import usePresence from "@hooks/usePresence";
 // Types
-import {
-  PrismaneActions,
-  PrismaneWithInternal,
-  PrismaneProps,
-} from "../../types";
+import { PrismaneActions, PrismaneWithInternal, PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 // Internal Components
-import AlertTitle, { AlertTitleProps } from "./AlertTitle/AlertTitle";
-import AlertDescription, {
-  AlertDescriptionProps,
-} from "./AlertDescription/AlertDescription";
+import AlertTitle, { AlertTitleProps } from "./AlertTitle";
+import AlertDescription, { AlertDescriptionProps } from "./AlertDescription";
 
 export { type AlertTitleProps, type AlertDescriptionProps };
 

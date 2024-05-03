@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { PrismaneFieldComponent } from "../../types";
+import { PrismaneFieldComponent } from "@/types";
 
 export type RadioContextValue = PrismaneFieldComponent;
 

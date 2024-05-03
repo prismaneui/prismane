@@ -1,9 +1,9 @@
 import { forwardRef, ReactNode } from "react";
 // Components
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Text from "../Text/Text";
-import Icon from "../Icon/Icon";
-import Spinner from "../Spinner/Spinner";
+import Transition, { TransitionProps } from "@components/Transition";
+import Text from "@components/Text";
+import Icon from "@components/Icon";
+import Spinner from "@components/Spinner";
 // Types
 import {
   PrismaneBreakpoints,
@@ -12,9 +12,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
   E,

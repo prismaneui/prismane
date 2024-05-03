@@ -1,17 +1,17 @@
 import { forwardRef } from "react";
 // Components
-import SelectField, { SelectFieldProps } from "../SelectField/SelectField";
-import Field from "../Field/Field";
-import Circle from "../Circle/Circle";
-import Transition from "../Transition/Transition";
+import SelectField, { SelectFieldProps } from "@components/SelectField";
+import Field from "@components/Field";
+import Circle from "@components/Circle";
+import Transition from "@components/Transition";
 // Hooks
-import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Globals
-import { PRISMANE_DEFAULT_COLORS_MAP } from "../../constants";
+import { PRISMANE_DEFAULT_COLORS_MAP } from "@/constants";
 // Types
-import { PrismaneColors, PrismaneProps } from "../../types";
+import { PrismaneColors, PrismaneProps } from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 export type ColorFieldProps = PrismaneProps<
   {

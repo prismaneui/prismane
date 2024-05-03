@@ -1,7 +1,7 @@
 // Context
 import { useToasterContext } from "./ToasterContext";
 // Types
-import { ToastProps } from "./Toast/Toast";
+import { ToastProps } from "./Toast";
 
 const useToast = () => {
   const { setToasts }: any = useToasterContext();

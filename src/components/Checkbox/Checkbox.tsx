@@ -1,17 +1,15 @@
 import { forwardRef, ReactNode } from "react";
 import { Check, Minus } from "@phosphor-icons/react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Field from "../Field/Field";
-import Animation from "../Animation/Animation";
-import Hidden from "../Hidden/Hidden";
-// Hooks
-import { useFieldProps } from "../Field";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
+import Field, { useFieldProps } from "@components/Field";
+import Animation from "@components/Animation";
+import Hidden from "@components/Hidden";
 // Types
-import { PrismaneFieldComponent, PrismaneProps } from "../../types";
+import { PrismaneFieldComponent, PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type CheckboxProps = PrismaneProps<
   { indeterminate?: boolean; icon?: ReactNode },

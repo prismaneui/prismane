@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
 export type SkeletonProps = {
   variant?: "circular" | "rounded" | "rectangular";

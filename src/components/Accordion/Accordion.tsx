@@ -1,26 +1,18 @@
 import { forwardRef, useState } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { AccordionContextProvider } from "./AccordionContext";
 // Types
-import { PrismaneWithInternal, PrismaneProps } from "../../types";
+import { PrismaneWithInternal, PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import AccordionControl, {
-  AccordionControlProps,
-} from "./AccordionControl/AccordionControl";
-import AccordionIcon, {
-  AccordionIconProps,
-} from "./AccordionIcon/AccordionIcon";
-import AccordionItem, {
-  AccordionItemProps,
-} from "./AccordionItem/AccordionItem";
-import AccordionPanel, {
-  AccordionPanelProps,
-} from "./AccordionPanel/AccordionPanel";
+import AccordionControl, { AccordionControlProps } from "./AccordionControl";
+import AccordionIcon, { AccordionIconProps } from "./AccordionIcon";
+import AccordionItem, { AccordionItemProps } from "./AccordionItem";
+import AccordionPanel, { AccordionPanelProps } from "./AccordionPanel";
 
 export {
   type AccordionControlProps,

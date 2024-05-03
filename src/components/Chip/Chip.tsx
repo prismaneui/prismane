@@ -1,17 +1,13 @@
 import { forwardRef, ReactNode } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Icon from "../Icon/Icon";
-import Text from "../Text/Text";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
+import Icon from "@components/Icon";
+import Text from "@components/Text";
 // Types
-import {
-  PrismaneColors,
-  PrismaneBreakpoints,
-  PrismaneProps,
-} from "../../types";
+import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type ChipProps = PrismaneProps<
   {

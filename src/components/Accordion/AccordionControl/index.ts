@@ -1,1 +1,1 @@
-export { default } from "./AccordionControl";
+export { default, type AccordionControlProps } from "./AccordionControl";

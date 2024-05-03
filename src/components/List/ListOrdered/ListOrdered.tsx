@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import List, { ListProps } from "../../List/List";
+import List, { ListProps } from "@components/List";
 // Utils
-import { strip } from "../../../utils";
+import { strip } from "@/utils";
 
 export type ListOrderedProps = ListProps<"ol">;
 

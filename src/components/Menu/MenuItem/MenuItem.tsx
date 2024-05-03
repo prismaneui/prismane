@@ -1,11 +1,11 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Transition, { TransitionProps } from "../../Transition/Transition";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
 // Utils
-import { strip, fr } from "../../../utils";
+import { strip, fr } from "@/utils";
 // Types
-import { PrismaneColors, PrismaneProps } from "../../../types";
+import { PrismaneColors, PrismaneProps } from "@/types";
 
 export type MenuItemProps = PrismaneProps<
   {

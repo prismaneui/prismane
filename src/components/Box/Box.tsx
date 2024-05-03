@@ -1,18 +1,18 @@
 import { forwardRef } from "react";
 // Hooks
-import useStyling from "../../hooks/useStyling";
-import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+import useStyling from "@hooks/useStyling";
+import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Theme
-import { usePrismaneTheme } from "../PrismaneProvider/PrismaneContext";
+import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Types
 import {
   PrismaneComponent,
   PrismaneVersatile,
   Versatile,
   PrismaneVersatileRef,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, dual, variants, fr } from "../../utils";
+import { strip, dual, variants, fr } from "@/utils";
 
 export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

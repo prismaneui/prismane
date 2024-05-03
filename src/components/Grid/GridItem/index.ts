@@ -1,1 +1,1 @@
-export { default } from "./GridItem";
+export { default, type GridItemProps } from "./GridItem";

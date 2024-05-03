@@ -1,1 +1,1 @@
-export { default } from "./FieldAddon";
+export { default, type FieldAddonProps } from "./FieldAddon";

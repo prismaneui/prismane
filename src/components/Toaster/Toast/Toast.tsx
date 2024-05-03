@@ -1,15 +1,15 @@
 import { forwardRef, useEffect, useState } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Animation, { AnimationProps } from "../../Animation/Animation";
+import Flex, { FlexProps } from "@components/Flex";
+import Animation, { AnimationProps } from "@components/Animation";
 // Hooks
-import usePresence from "../../../hooks/usePresence";
+import usePresence from "@hooks/usePresence";
 // Context
 import { useToasterContext } from "../ToasterContext";
 // Types
-import { PrismaneProps } from "../../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../../utils";
+import { strip } from "@/utils";
 
 export type ToastProps = PrismaneProps<
   {

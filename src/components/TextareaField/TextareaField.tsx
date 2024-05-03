@@ -1,10 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
 export type TextareaFieldProps = FieldProps;
 

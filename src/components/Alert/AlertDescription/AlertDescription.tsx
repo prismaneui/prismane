@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Text, { TextProps } from "../../Text/Text";
+import Text, { TextProps } from "@components/Text";
 // Utils
-import { strip } from "../../../utils";
+import { strip } from "@/utils";
 
 export type AlertDescriptionProps = TextProps;
 

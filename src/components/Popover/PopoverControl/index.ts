@@ -1,1 +1,1 @@
-export { default } from "./PopoverControl";
+export { default, type PopoverControlProps } from "./PopoverControl";

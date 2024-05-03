@@ -1,1 +1,1 @@
-export { default } from "./FieldWrapper";
+export { default, type FieldWrapperProps } from "./FieldWrapper";

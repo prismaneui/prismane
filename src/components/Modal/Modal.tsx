@@ -1,23 +1,23 @@
 import { forwardRef, useEffect } from "react";
 // Components
-import Paper, { PaperProps } from "../Paper/Paper";
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Backdrop from "../Backdrop/Backdrop";
-import Portal from "../Portal/Portal";
+import Paper, { PaperProps } from "@components/Paper";
+import Animation, { AnimationProps } from "@components/Animation";
+import Backdrop from "@components/Backdrop";
+import Portal from "@components/Portal";
 // Hooks
-import useAnimation from "../../hooks/useAnimation";
-import usePresence from "../../hooks/usePresence";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
+import useAnimation from "@hooks/useAnimation";
+import usePresence from "@hooks/usePresence";
+import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
 // Context
 import { ModalContextProvider } from "./ModalContext";
 // Types
-import { PrismaneProps, PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 // Internal Components
-import ModalHeader, { ModalHeaderProps } from "./ModalHeader/ModalHeader";
-import ModalFooter, { ModalFooterProps } from "./ModalFooter/ModalFooter";
+import ModalHeader, { ModalHeaderProps } from "./ModalHeader";
+import ModalFooter, { ModalFooterProps } from "./ModalFooter";
 
 export { type ModalHeaderProps, type ModalFooterProps };
 

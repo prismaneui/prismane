@@ -1,21 +1,21 @@
 import { forwardRef, ReactNode, useState } from "react";
 // Components
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Box from "../Box/Box";
-import Flex, { FlexProps } from "../Flex/Flex";
-import Text from "../Text/Text";
+import Animation, { AnimationProps } from "@components/Animation";
+import Box from "@components/Box";
+import Flex, { FlexProps } from "@components/Flex";
+import Text from "@components/Text";
 // Hooks
-import useAnimation from "../../hooks/useAnimation";
-import usePresence from "../../hooks/usePresence";
+import useAnimation from "@hooks/useAnimation";
+import usePresence from "@hooks/usePresence";
 // Types
 import {
   PrismanePositions,
   PrismaneBreakpoints,
   PrismaneColors,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type TooltipProps = PrismaneProps<
   {

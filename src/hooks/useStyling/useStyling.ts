@@ -1,11 +1,11 @@
 import { useLayoutEffect, useState } from "react";
-import { css } from "../../../stitches.config";
+import { css } from "@/../stitches.config";
 // Theme
-import { usePrismaneTheme } from "../../components/PrismaneProvider/PrismaneContext";
+import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Hooks
-import useMemoization from "../useMemoization";
+import useMemoization from "@hooks/useMemoization";
 // Types
-import { PrismaneTheme } from "../../types";
+import { PrismaneTheme } from "@/types";
 
 type StylingProp =
   | any

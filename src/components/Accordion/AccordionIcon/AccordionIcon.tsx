@@ -1,15 +1,15 @@
 import { ReactNode, forwardRef } from "react";
 import { CaretUp } from "@phosphor-icons/react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Transition from "../../Transition/Transition";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition from "@components/Transition";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
-import { PrismaneProps } from "../../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../../utils";
+import { strip } from "@/utils";
 
 export type AccordionIconProps = PrismaneProps<
   {

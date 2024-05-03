@@ -1,1 +1,1 @@
-export { default } from "./CardHeader";
+export { default, type CardHeaderProps } from "./CardHeader";

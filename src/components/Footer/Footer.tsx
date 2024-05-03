@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type FooterProps = FlexProps<"footer">;
 

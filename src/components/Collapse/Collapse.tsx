@@ -1,11 +1,11 @@
 import { forwardRef, useRef } from "react";
 // Components
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Box from "../Box/Box";
+import Animation, { AnimationProps } from "@components/Animation";
+import Box from "@components/Box";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type CollapseProps = PrismaneProps<
   {

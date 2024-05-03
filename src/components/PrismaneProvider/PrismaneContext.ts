@@ -1,8 +1,8 @@
 import { Dispatch, createContext, useContext } from "react";
 // Themes
-import { base } from "../../themes/base";
+import { base } from "@themes/base";
 // Types
-import { PrismaneTheme } from "../../types";
+import { PrismaneTheme } from "@/types";
 
 export interface PrismaneContextValue {
   theme: PrismaneTheme;

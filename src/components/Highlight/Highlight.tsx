@@ -1,14 +1,10 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
-import {
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-} from "../../types";
+import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 export type HighlightProps<E extends Versatile = "mark"> = PrismaneVersatile<
   E,

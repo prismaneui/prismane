@@ -17,7 +17,15 @@
     "outDir": "dist",
     "declaration": true,
     "declarationMap": true,
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@themes/*": ["src/themes/*"],
+      "@validators/*": ["src/validators/*"]
+    }
   },
   "include": ["src", "./custom.d.ts"],
   "exclude": ["node_modules"]
