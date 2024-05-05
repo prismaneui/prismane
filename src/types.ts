@@ -1,6 +1,11 @@
 import React from "react";
 import * as CSS from "csstype";
 
+import type { CSSProperties } from "@stitches/react";
+import type * as Util from "@stitches/react/types/util";
+import type * as Native from "@stitches/react/types/css";
+import type * as Config from "@stitches/react/types/config";
+
 export type Versatile = React.ElementType;
 
 export type PrismaneVersatileRef<E extends Versatile = "div"> =
@@ -65,6 +70,21 @@ export type PrismaneStyles<T = string | number> =
       | T
       | GlobalStyles
       | [T | GlobalStyles, { [pseudo in string]?: T | GlobalStyles }]);
+
+type ValueByPropertyName<PropertyName> =
+  PropertyName extends keyof CSSProperties
+    ? CSSProperties[PropertyName]
+    : never;
+
+type SxProp = {
+  [K in Util.Prefixed<"@", keyof Config.ConfigType.Media>]?: SxProp;
+} & {
+  [K in keyof CSSProperties]?: PrismaneStyles<
+    ValueByPropertyName<K> | Native.Globals | Util.Index | undefined
+  >;
+} & {
+  [K: string]: PrismaneStyles<number | string | SxProp | object | undefined>;
+};
 
 export interface PrismaneDefault {
   w?: PrismaneStyles<CSS.Properties<string | number>["width"]>;
@@ -215,35 +235,7 @@ export interface PrismaneDefault {
   pe?: PrismaneStyles<CSS.Properties["pointerEvents"]>;
   cs?: PrismaneStyles<CSS.Properties["cursor"]>;
   bs?: PrismaneStyles<CSS.Properties["boxSizing"]>;
-  sx?: {
-    [K in keyof CSS.Properties]: PrismaneStyles<
-      CSS.Properties<string | number>[K]
-    >;
-  } & {
-    [K in CSS.Pseudos]?: {
-      [K in keyof CSS.Properties]: PrismaneStyles<
-        CSS.Properties<string | number>[K]
-      >;
-    };
-  } & {
-    [K in `${CSS.AtRules} ${string}`]?: PrismaneStyles<
-      CSS.Properties<string | number>
-    >;
-  } & {
-    [K in `--${string}`]?: string | number;
-  } & {
-    [K in `&${string}`]?: {
-      [K in keyof CSS.Properties]: PrismaneStyles<
-        CSS.Properties<string | number>[K]
-      >;
-    };
-  } & {
-    [K in `${string}&${string}`]?: {
-      [K in keyof CSS.Properties]: PrismaneStyles<
-        CSS.Properties<string | number>[K]
-      >;
-    };
-  };
+  sx?: SxProp;
 }
 
 export interface PrismaneComponent extends PrismaneDefault {
