@@ -43,20 +43,17 @@ export type PrismaneWithInternal<
   [K in keyof Internal]: React.ForwardRefExoticComponent<Internal[K]>;
 };
 
-export interface PrismaneFieldComponent extends PrismaneComponent {
-  name?: string;
+type PrismaneField = {
   id?: string;
   error?: string | null;
   label?: string;
-  value?: string | number;
-  defaultValue?: string | number;
-  defaultChecked?: boolean;
   size?: PrismaneBreakpoints;
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;
-  disabled?: boolean;
-  checked?: boolean;
-}
+};
+
+export type PrismaneFieldComponent = PrismaneField &
+  Omit<JSX.IntrinsicElements["input"], keyof PrismaneField>;
 
 type GlobalStyles = "inherit" | "initial" | "revert" | "revert-layer" | "unset";
 

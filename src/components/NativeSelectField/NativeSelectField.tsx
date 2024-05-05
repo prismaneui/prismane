@@ -21,7 +21,7 @@ const NativeSelectField = forwardRef<
   const [rest, field] = useFieldProps(props);
 
   return (
-    <Field.Wrapper {...rest}>
+    <Field.Wrapper pe={(field.disabled || field.readOnly) && "none"} {...rest}>
       <Field.Label
         size={size as any}
         htmlFor={field.name}
