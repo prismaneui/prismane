@@ -83,7 +83,10 @@ const PinField = forwardRef<
     };
 
     return (
-      <Field.Wrapper {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}
@@ -107,6 +110,7 @@ const PinField = forwardRef<
               error={error}
               size={size as any}
               type={masked ? "password" : "text"}
+              disabled={field.disabled}
               px={fr(1)}
               py={fr(1)}
               grow={false}

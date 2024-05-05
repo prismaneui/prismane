@@ -89,7 +89,11 @@ const SelectField = forwardRef<any, SelectFieldProps>(
     );
 
     return (
-      <Field.Wrapper ref={wrapperRef} {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        ref={wrapperRef}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}

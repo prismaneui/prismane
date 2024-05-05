@@ -37,14 +37,8 @@ export type FieldProps<E extends Versatile = "input"> = PrismaneVersatile<
   E,
   PrismaneProps<
     {
-      type?: string;
-      placeholder?: string;
-      readOnly?: boolean;
-      maxLength?: number;
-      minLength?: number;
       icon?: ReactNode;
       validating?: boolean;
-      disabled?: boolean;
     },
     FlexProps & TransitionProps & PrismaneFieldComponent
   >

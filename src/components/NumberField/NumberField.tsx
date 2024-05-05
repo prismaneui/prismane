@@ -34,7 +34,10 @@ const NumberField = forwardRef<
     const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
 
     return (
-      <Field.Wrapper {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}
