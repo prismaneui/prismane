@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from "react";
+import { forwardRef } from "react";
 // Components
 import Box from "@components/Box";
 import Flex, { FlexProps } from "@components/Flex";
@@ -35,13 +35,7 @@ export {
 
 export type FieldProps<E extends Versatile = "input"> = PrismaneVersatile<
   E,
-  PrismaneProps<
-    {
-      icon?: ReactNode;
-      validating?: boolean;
-    },
-    FlexProps & TransitionProps & PrismaneFieldComponent
-  >
+  PrismaneProps<PrismaneFieldComponent, FlexProps & TransitionProps>
 >;
 
 const Field = forwardRef(

@@ -23,7 +23,7 @@ const PinField = forwardRef<
   PinFieldProps
 >(
   (
-    { length = 4, masked = false, label, error, size = "base", ...props },
+    { size = "base", label, error, length = 4, masked = false, ...props },
     ref
   ) => {
     const [rest, field] = useFieldProps(props);
@@ -36,7 +36,10 @@ const PinField = forwardRef<
 
     const fieldRef: any = useRef(ref || null);
 
-    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+    const emulateChange = useEmulatedFieldChange(
+      fieldRef,
+      props.onChange as any
+    );
 
     const focus = (index: number) => {
       if (fieldRefs.current[index]) {
@@ -114,7 +117,7 @@ const PinField = forwardRef<
               px={fr(1)}
               py={fr(1)}
               grow={false}
-              placeholder="o"
+              placeholder={field.placeholder ? field.placeholder : "o"}
               onKeyDown={(event: any) => handleKeyDown(event, index)}
               onChange={(event: any) => handleChange(event, index)}
               onPaste={handlePaste}
