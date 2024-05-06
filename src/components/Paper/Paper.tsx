@@ -38,7 +38,6 @@ const Paper: PaperComponent = forwardRef(
         direction="column"
         br="md"
         bg={(theme) => (theme.mode === "dark" ? ["base", 800] : "white")}
-        of="hidden"
         bsh={shadow && "base"}
         className={strip(`${className ? className : ""} PrismanePaper-root`)}
         data-testid="prismane-paper"
