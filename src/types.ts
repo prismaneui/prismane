@@ -50,6 +50,8 @@ type PrismaneField = {
   size?: PrismaneBreakpoints;
   variant?: "outlined" | "filled" | "underlined" | "unstyled";
   addons?: React.ReactNode;
+  icon?: React.ReactNode;
+  validating?: boolean;
 };
 
 export type PrismaneFieldComponent = PrismaneField &
