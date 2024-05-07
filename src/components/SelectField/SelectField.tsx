@@ -40,7 +40,10 @@ const SelectField = forwardRef<any, SelectFieldProps>(
 
     const wrapperRef = useRef(null);
 
-    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+    const emulateChange = useEmulatedFieldChange(
+      fieldRef,
+      props.onChange as any
+    );
 
     useOutsideClick(wrapperRef, () => {
       setOpen(false);
@@ -134,8 +137,8 @@ const SelectField = forwardRef<any, SelectFieldProps>(
           {...field}
         />
         {options.length > 0 ? (
-          <Flex pos="relative">
-            <Flex pos="absolute" t={0} w="100%">
+          <Flex pos="relative" mt={fr(-2)}>
+            <Flex pos="absolute" mt={fr(2)} t={0} w="100%">
               <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
                 {options.map((option: any, index: any) => (
                   <Flex
