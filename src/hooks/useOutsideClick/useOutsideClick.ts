@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 
-const useOutsideClick = (ref: any, cb: any) => {
+const useOutsideClick = (
+  ref: any,
+  cb: any,
+  events: string[] = ["mousedown", "touchstart"]
+) => {
   const handleClickOutside = (event: any) => {
     if (ref.current && !ref.current.contains(event.target)) {
       cb();
@@ -8,14 +12,16 @@ const useOutsideClick = (ref: any, cb: any) => {
   };
 
   useEffect(() => {
-    const handleDocumentClick = (event: any) => {
+    const handleDocumentEvent = (event: any) => {
       handleClickOutside(event);
     };
 
-    document.addEventListener("click", handleDocumentClick);
+    events.forEach((ev) => document.addEventListener(ev, handleDocumentEvent));
 
     return () => {
-      document.removeEventListener("click", handleDocumentClick);
+      events.forEach((ev) =>
+        document.removeEventListener(ev, handleDocumentEvent)
+      );
     };
   }, [cb]);
 
