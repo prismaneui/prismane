@@ -24,3 +24,5 @@ export const Sizes = () => (
     <Progress value={30} size="20px" />
   </Stack>
 );
+
+export const Color = () => <Progress value={80} color="lime" />;
