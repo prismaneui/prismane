@@ -142,7 +142,20 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>(
               animated={animating}
               duration={duration}
               timing={timing}
-              animation="slide-up"
+              animation={variants(position, {
+                "top-start": "slide-up",
+                top: "slide-up",
+                "top-end": "slide-up",
+                "right-start": "slide-right",
+                right: "slide-right",
+                "right-end": "slide-right",
+                "bottom-start": "slide-down",
+                bottom: "slide-down",
+                "bottom-end": "slide-down",
+                "left-start": "slide-left",
+                left: "slide-left",
+                "left-end": "slide-left",
+              })}
               className={strip(
                 `${className ? className : ""} ${
                   open ? "PrismaneDialog-root-open" : ""
