@@ -72,9 +72,6 @@ const TextField = forwardRef<
                     md: fr(5),
                     lg: fr(6),
                   })}
-                  sx={{
-                    order: -1,
-                  }}
                 >
                   {prefix}
                 </Field.Addon>
@@ -103,9 +100,6 @@ const TextField = forwardRef<
                     md: fr(5),
                     lg: fr(6),
                   })}
-                  sx={{
-                    order: 3,
-                  }}
                 >
                   {suffix}
                 </Field.Addon>
