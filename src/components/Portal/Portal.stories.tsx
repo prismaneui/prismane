@@ -35,3 +35,20 @@ export const Custom_Container = () => {
     </Box>
   );
 };
+
+export const Disabled = () => {
+  const ref = useRef(null);
+
+  return (
+    <Box bg="orange" cl="white">
+      This will be rendered inside the box
+      <Portal target={ref} disabled>
+        This will be rendered inside the orange box, because the portal is
+        disabled.
+      </Portal>
+      <Box ref={ref} bg="ruby">
+        This is the ruby box.
+      </Box>
+    </Box>
+  );
+};
