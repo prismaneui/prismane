@@ -10,6 +10,7 @@ const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
   ({ children, className, ...props }, ref) => {
     return (
       <Flex
+        w="100%"
         direction="column"
         gap={fr(2)}
         className={strip(
