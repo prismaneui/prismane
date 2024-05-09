@@ -19,4 +19,4 @@ export const Sizes = () => (
   </>
 );
 
-export const Color = () => <Spinner cl="primary" />;
+export const Color = () => <Spinner color="primary" />;
