@@ -29,7 +29,7 @@ test("Correct callback call on outside click", () => {
 
   renderHook(() => useOutsideClick(ref, mockFn));
 
-  fireEvent.click(getByTestId("parent"));
+  fireEvent.mouseDown(getByTestId("parent"));
 
   expect(mockFn).toHaveBeenCalledTimes(1);
 });
