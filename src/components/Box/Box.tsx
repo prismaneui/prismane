@@ -12,7 +12,7 @@ import {
   PrismaneVersatileRef,
 } from "@/types";
 // Utils
-import { strip, dual, variants, fr } from "@/utils";
+import { strip, dual, fr } from "@/utils";
 
 export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -183,7 +183,7 @@ const Box: BoxComponent = forwardRef(
         "7xl": fr(24),
         "8xl": fr(32),
       }),
-      fontWeight: variants(fw, {
+      fontWeight: dual(fw, {
         thin: "100",
         extralight: "200",
         light: "300",
