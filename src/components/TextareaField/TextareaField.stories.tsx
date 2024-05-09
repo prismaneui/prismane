@@ -25,6 +25,20 @@ export const Default = () => {
   );
 };
 
+export const Resizable = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <TextareaField
+      value={value}
+      onChange={(e: any) => setValue(e.target.value)}
+      label="Text:"
+      placeholder="Enter Text"
+      resize="both"
+    />
+  );
+};
+
 export const Size = () => {
   const [value, setValue] = useState("");
 
