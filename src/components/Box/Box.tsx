@@ -168,7 +168,7 @@ const Box: BoxComponent = forwardRef(
       zIndex: z,
       overflow: of,
       fontFamily: ff,
-      fontSize: variants(fs, {
+      fontSize: dual(fs, {
         xs: fr(3),
         sm: fr(3.5),
         base: fr(4),
