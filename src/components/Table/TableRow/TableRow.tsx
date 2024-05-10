@@ -12,6 +12,7 @@ const TableRow = forwardRef<HTMLTableSectionElement, TableRowProps>(
       <Box
         as="tr"
         w="100%"
+        bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
         className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
         data-testid="prismane-table-row"
         ref={ref}

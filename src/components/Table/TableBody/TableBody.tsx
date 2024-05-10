@@ -7,10 +7,19 @@ import { strip } from "@/utils";
 export type TableBodyProps = BoxProps<"tbody">;
 
 const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, sx, ...props }, ref) => {
     return (
       <Box
         as="tbody"
+        sx={{
+          "& > .PrismaneTableRow-root:first-child": {
+            borderTopWidth: 1,
+          },
+          "& > .PrismaneTableRow-root": {
+            borderBottomWidth: 1,
+          },
+          ...sx,
+        }}
         className={strip(
           `${className ? className : ""} PrismaneTableBody-root`
         )}
