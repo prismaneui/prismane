@@ -30,6 +30,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
     return (
       <Box
         as="table"
+        w="100%"
         sx={{
           borderCollapse: "collapse",
           ...sx,

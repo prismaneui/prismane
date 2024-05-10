@@ -11,6 +11,7 @@ const TableCell = forwardRef<HTMLTableSectionElement, TableCellProps>(
     return (
       <Box
         as="td"
+        ta="start"
         py={fr(3)}
         px={fr(6)}
         cl={(theme) => (theme.mode === "dark" ? "white" : ["base", 900])}
