@@ -4,7 +4,11 @@ import Box, { BoxProps } from "@components/Box";
 // Context
 import { TableContextProvider } from "./TableContext";
 // Types
-import { PrismaneWithInternal, PrismaneProps } from "@/types";
+import {
+  PrismaneWithInternal,
+  PrismaneProps,
+  PrismaneBreakpoints,
+} from "@/types";
 // Utils
 import { strip } from "@/utils";
 
@@ -30,6 +34,7 @@ export type TableProps = PrismaneProps<
     lines?: "vertical" | "horizontal" | "both" | "none";
     striped?: boolean;
     bordered?: boolean;
+    size?: PrismaneBreakpoints;
   },
   BoxProps<"table">
 >;
@@ -40,6 +45,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
       lines = "horizontal",
       striped = false,
       bordered = false,
+      size = "base",
       children,
       className,
       sx,
@@ -52,6 +58,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
         value={{
           lines,
           striped,
+          size,
         }}
       >
         <Box
