@@ -74,6 +74,51 @@ export const Various_Column_Widths = () => (
   </Table>
 );
 
+export const Table_Size = () => {
+  const [size, setSize] = useState<"xs" | "sm" | "base" | "md" | "lg">("base");
+
+  return (
+    <Stack maw="fit-content">
+      <Radio.Group value={size} onChange={(e: any) => setSize(e.target.value)}>
+        <Radio value="xs" label="xs" />
+        <Radio value="sm" label="sm" />
+        <Radio value="base" label="base" />
+        <Radio value="md" label="md" />
+        <Radio value="lg" label="lg" />
+      </Radio.Group>
+      <Table size={size}>
+        <Table.Caption>Imperial to metric conversion factors</Table.Caption>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>To convert</Table.Cell>
+            <Table.Cell>into</Table.Cell>
+            <Table.Cell>multiply by</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>inches</Table.Cell>
+            <Table.Cell>millimeters</Table.Cell>
+            <Table.Cell>25.4</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>feet</Table.Cell>
+            <Table.Cell>centimeters</Table.Cell>
+            <Table.Cell>30.48</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Foot>
+          <Table.Row>
+            <Table.Cell>To convert</Table.Cell>
+            <Table.Cell>into</Table.Cell>
+            <Table.Cell>multiply by</Table.Cell>
+          </Table.Row>
+        </Table.Foot>
+      </Table>
+    </Stack>
+  );
+};
+
 export const Bordered_Table = () => {
   return (
     <Table bordered>
