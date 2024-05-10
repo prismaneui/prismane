@@ -12,7 +12,7 @@ export type MenuLabelProps = PrismaneProps<
 >;
 
 const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
-  ({ color = "base", children, className, ...props }, ref) => {
+  ({ color = "base", children, className, sx, ...props }, ref) => {
     return (
       <Flex
         gap={fr(2)}
@@ -20,6 +20,13 @@ const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
         px={fr(3)}
         fs="sm"
         cl={(theme) => (theme.mode === "dark" ? [color, 400] : [color, 600])}
+        bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 200])}
+        sx={{
+          "&:not(:first-child)": {
+            marginTop: fr(4),
+          },
+          ...sx,
+        }}
         className={strip(
           `${
             className ? className : ""
