@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import Transition, { TransitionProps } from "@components/Transition";
 import Flex, { FlexProps } from "@components/Flex";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

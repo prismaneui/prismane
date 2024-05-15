@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@components/Box";
 // Hooks
 import useMediaQuery from "@hooks/useMediaQuery";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { strip, dual, fr } from "@/utils";
 

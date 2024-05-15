@@ -4,7 +4,7 @@ import * as CSS from "csstype";
 // Components
 import Icon, { IconProps } from "@components/Icon";
 // Types
-import { PrismaneProps, PrismaneColors, PrismaneShades } from "@/types";
+import { PrismaneProps, PrismaneColors, PrismaneShades } from "@types";
 // Utils
 import { strip } from "@/utils";
 

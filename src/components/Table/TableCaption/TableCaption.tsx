@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@components/Box";
 // Context
 import { useTableContext } from "../TableContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, fr, variants } from "@/utils";
 

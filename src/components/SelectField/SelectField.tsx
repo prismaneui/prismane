@@ -10,7 +10,7 @@ import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 import useOutsideClick from "@hooks/useOutsideClick";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

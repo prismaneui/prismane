@@ -14,7 +14,7 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "@/types";
+} from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

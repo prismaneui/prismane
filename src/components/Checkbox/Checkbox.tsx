@@ -7,7 +7,7 @@ import Field, { useFieldProps } from "@components/Field";
 import Animation from "@components/Animation";
 import Hidden from "@components/Hidden";
 // Types
-import { PrismaneFieldComponent, PrismaneProps } from "@/types";
+import { PrismaneFieldComponent, PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

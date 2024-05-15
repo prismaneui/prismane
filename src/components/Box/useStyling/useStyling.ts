@@ -5,7 +5,7 @@ import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Hooks
 import useMemoization from "@hooks/useMemoization";
 // Types
-import { PrismaneTheme } from "@/types";
+import { PrismaneTheme } from "@types";
 
 type StylingProp =
   | any

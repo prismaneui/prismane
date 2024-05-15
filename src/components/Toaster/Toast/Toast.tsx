@@ -7,7 +7,7 @@ import usePresence from "@hooks/usePresence";
 // Context
 import { useToasterContext } from "../ToasterContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

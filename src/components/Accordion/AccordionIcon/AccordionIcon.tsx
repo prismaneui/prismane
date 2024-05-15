@@ -7,7 +7,7 @@ import Transition from "@components/Transition";
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

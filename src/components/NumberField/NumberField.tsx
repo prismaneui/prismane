@@ -7,7 +7,7 @@ import Transition from "@components/Transition";
 // Hooks
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, fr } from "@/utils";
 

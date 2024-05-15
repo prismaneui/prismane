@@ -71,6 +71,7 @@ export default defineConfig({
       "@hooks": resolve(__dirname, "./src/hooks"),
       "@themes": resolve(__dirname, "./src/themes"),
       "@validators": resolve(__dirname, "./src/validators"),
+      "@types": resolve(__dirname, "./src/types"),
     },
   },
 });

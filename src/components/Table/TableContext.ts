@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 // Types
-import { PrismaneBreakpoints } from "@/types";
+import { PrismaneBreakpoints } from "@types";
 
 export interface TableContextValue {
   lines?: "vertical" | "horizontal" | "both" | "none";

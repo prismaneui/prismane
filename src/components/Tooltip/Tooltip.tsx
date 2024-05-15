@@ -13,7 +13,7 @@ import {
   PrismaneBreakpoints,
   PrismaneColors,
   PrismaneProps,
-} from "@/types";
+} from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

@@ -4,7 +4,7 @@ import SelectField, { SelectFieldProps } from "@components/SelectField";
 // Hooks
 import useDebounce from "@hooks/useDebounce";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

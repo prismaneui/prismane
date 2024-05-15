@@ -15,7 +15,7 @@ import {
   PrismaneWithInternal,
   PrismaneBreakpoints,
   PrismaneProps,
-} from "@/types";
+} from "@types";
 // Utils
 import { strip, variants, dual, fr } from "@/utils";
 // Internal Components

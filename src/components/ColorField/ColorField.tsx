@@ -9,7 +9,7 @@ import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Globals
 import { PRISMANE_DEFAULT_COLORS_MAP } from "@/constants";
 // Types
-import { PrismaneColors, PrismaneProps } from "@/types";
+import { PrismaneColors, PrismaneProps } from "@types";
 // Utils
 import { strip, fr } from "@/utils";
 

@@ -1,4 +1,4 @@
-import { PrismaneTheme } from "../types";
+import { PrismaneTheme } from "@types";
 import { PRISMANE_COLORS } from "../constants";
 // Utils
 import { fr } from "../utils";

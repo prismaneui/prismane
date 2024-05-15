@@ -3,7 +3,7 @@ import { forwardRef, useRef } from "react";
 import Animation, { AnimationProps } from "@components/Animation";
 import Box from "@components/Box";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 
