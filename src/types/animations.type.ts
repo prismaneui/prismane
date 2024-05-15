@@ -1,0 +1,18 @@
+export type PrismaneAnimations =
+  | "fade"
+  | "scale"
+  | "scale-y"
+  | "scale-x"
+  | "skew-up"
+  | "skew-down"
+  | "rotate-left"
+  | "rotate-right"
+  | "slide-down"
+  | "slide-up"
+  | "slide-left"
+  | "slide-right"
+  | "roll"
+  | "pulse"
+  | "shake"
+  | "bounce"
+  | "flip";

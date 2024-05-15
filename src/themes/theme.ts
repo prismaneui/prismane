@@ -1,9 +1,5 @@
 import { base as defaultTheme } from "./base";
-import {
-  PrismaneTheme,
-  PrismaneInputTheme,
-  PrismaneMappedTheme,
-} from "../types";
+import { PrismaneTheme, PrismaneInputTheme, PrismaneMappedTheme } from "@types";
 // Utils
 import { mergeDeep } from "../utils";
 

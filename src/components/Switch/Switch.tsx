@@ -6,7 +6,7 @@ import Transition, { TransitionProps } from "@components/Transition";
 import Field, { useFieldProps } from "@components/Field";
 import Hidden from "@components/Hidden";
 // Types
-import { PrismaneFieldComponent } from "@/types";
+import { PrismaneFieldComponent } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

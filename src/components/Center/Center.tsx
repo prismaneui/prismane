@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Types
-import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@/types";
+import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { strip } from "@/utils";
 

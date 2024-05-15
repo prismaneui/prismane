@@ -6,7 +6,7 @@ import Animation, { AnimationProps } from "@components/Animation";
 import usePresence from "@hooks/usePresence";
 import useAnimation from "@hooks/useAnimation";
 // Types
-import { PrismaneProps, PrismaneWithInternal } from "@/types";
+import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
 import { strip, fr } from "@/utils";
 

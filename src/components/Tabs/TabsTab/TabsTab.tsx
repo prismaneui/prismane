@@ -5,7 +5,7 @@ import Transition, { TransitionProps } from "@components/Transition";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

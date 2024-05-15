@@ -5,7 +5,7 @@ import Transition, { TransitionProps } from "@components/Transition";
 import Icon from "@components/Icon";
 import Text from "@components/Text";
 // Types
-import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

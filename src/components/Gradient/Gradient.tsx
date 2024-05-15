@@ -12,7 +12,7 @@ import {
   PrismaneProps,
   PrismaneColors,
   PrismaneShades,
-} from "@/types";
+} from "@types";
 // Utils
 import { strip } from "@/utils";
 

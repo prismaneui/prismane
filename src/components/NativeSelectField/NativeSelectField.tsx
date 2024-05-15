@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import Field, { FieldProps, useFieldProps } from "@components/Field";
 import Text from "@components/Text";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

@@ -13,7 +13,7 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "@/types";
+} from "@types";
 // Hooks
 import { usePrismaneColor } from "../PrismaneProvider";
 import useFieldProps from "./useFieldProps";

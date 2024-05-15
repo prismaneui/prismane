@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Types
-import { PrismaneProps, PrismaneWithInternal } from "@/types";
+import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
 import { strip, variants } from "@/utils";
 

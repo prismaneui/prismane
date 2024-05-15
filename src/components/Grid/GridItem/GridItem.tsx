@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, variants } from "@/utils";
 

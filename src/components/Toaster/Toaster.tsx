@@ -5,7 +5,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { ToasterContextProvider } from "./ToasterContext";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, fr, variants } from "@/utils";
 

@@ -7,11 +7,7 @@ import { PopoverContextProvider } from "./PopoverContext";
 // Hooks
 import useOutsideClick from "@hooks/useOutsideClick";
 // Types
-import {
-  PrismanePositions,
-  PrismaneProps,
-  PrismaneWithInternal,
-} from "@/types";
+import { PrismanePositions, PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
 import { strip } from "@/utils";
 

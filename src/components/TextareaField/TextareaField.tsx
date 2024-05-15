@@ -3,7 +3,7 @@ import * as CSS from "csstype";
 // Components
 import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip, fr, variants } from "@/utils";
 

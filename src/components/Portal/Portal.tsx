@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

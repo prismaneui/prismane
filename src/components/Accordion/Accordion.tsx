@@ -4,7 +4,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { AccordionContextProvider } from "./AccordionContext";
 // Types
-import { PrismaneWithInternal, PrismaneProps } from "@/types";
+import { PrismaneWithInternal, PrismaneProps } from "@types";
 // Utils
 import { strip } from "@/utils";
 

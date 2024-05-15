@@ -6,7 +6,7 @@ import Hidden from "@components/Hidden";
 // Hooks
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneProps } from "@/types";
+import { PrismaneProps } from "@types";
 // Utils
 import { fr } from "@/utils";
 

@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { RadioContextProvider } from "../RadioContext";
 // Types
-import { PrismaneFieldComponent } from "@/types";
+import { PrismaneFieldComponent } from "@types";
 // Utils
 import { strip, fr } from "@/utils";
 

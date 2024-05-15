@@ -9,7 +9,7 @@ import {
   PRISMANE_SHADES_MAP,
 } from "@/constants";
 // Types
-import { PrismaneColors, PrismaneShades, PrismaneTheme } from "@/types";
+import { PrismaneColors, PrismaneShades, PrismaneTheme } from "@types";
 // Utils
 import { parse } from "@/utils";
 

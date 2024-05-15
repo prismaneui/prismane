@@ -7,7 +7,7 @@ import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
-} from "@/types";
+} from "@types";
 // Utils
 import { strip } from "@/utils";
 

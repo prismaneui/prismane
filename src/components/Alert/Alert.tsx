@@ -13,7 +13,7 @@ import CloseButton from "@components/CloseButton";
 import useAnimation from "@hooks/useAnimation";
 import usePresence from "@hooks/usePresence";
 // Types
-import { PrismaneActions, PrismaneWithInternal, PrismaneProps } from "@/types";
+import { PrismaneActions, PrismaneWithInternal, PrismaneProps } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

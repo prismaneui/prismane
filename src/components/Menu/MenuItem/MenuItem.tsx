@@ -5,7 +5,7 @@ import Transition, { TransitionProps } from "@components/Transition";
 // Utils
 import { strip, fr } from "@/utils";
 // Types
-import { PrismaneColors, PrismaneProps } from "@/types";
+import { PrismaneColors, PrismaneProps } from "@types";
 
 export type MenuItemProps = PrismaneProps<
   {

@@ -24,7 +24,8 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@themes/*": ["src/themes/*"],
-      "@validators/*": ["src/validators/*"]
+      "@validators/*": ["src/validators/*"],
+      "@types": ["src/types/index"]
     }
   },
   "include": ["src", "./custom.d.ts"],

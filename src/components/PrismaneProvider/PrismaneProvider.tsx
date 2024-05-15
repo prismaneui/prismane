@@ -7,7 +7,7 @@ import { PrismaneContextProvider } from "./PrismaneContext";
 import { base } from "@themes/base";
 import { createTheme, applyTheme } from "@themes/theme";
 // Types
-import { PrismaneInputTheme } from "@/types";
+import { PrismaneInputTheme } from "@types";
 // Font
 import "@fontsource/poppins/100.css";
 import "@fontsource/poppins/200.css";

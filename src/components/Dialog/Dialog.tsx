@@ -11,11 +11,7 @@ import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 // Context
 import { DialogContextProvider } from "./DialogContext";
 // Types
-import {
-  PrismaneWithInternal,
-  PrismanePositions,
-  PrismaneProps,
-} from "@/types";
+import { PrismaneWithInternal, PrismanePositions, PrismaneProps } from "@types";
 // Utils
 import { strip, fr, variants } from "@/utils";
 

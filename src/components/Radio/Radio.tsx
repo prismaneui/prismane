@@ -10,7 +10,7 @@ import { useRadioContext } from "./RadioContext";
 // Hooks
 import useId from "@hooks/useId";
 // Types
-import { PrismaneFieldComponent, PrismaneWithInternal } from "@/types";
+import { PrismaneFieldComponent, PrismaneWithInternal } from "@types";
 // Utils
 import { strip, variants, fr } from "@/utils";
 

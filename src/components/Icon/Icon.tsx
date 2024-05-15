@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 // Components
 import Square, { SquareProps } from "@components/Square";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { strip, dual, fr } from "@/utils";
 
