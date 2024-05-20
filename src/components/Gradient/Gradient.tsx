@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import * as CSS from "csstype";
 // Component
 import Box, { BoxProps } from "@components/Box";

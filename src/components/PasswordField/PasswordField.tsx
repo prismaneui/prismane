@@ -1,4 +1,4 @@
-import { useState, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import { Eye, EyeClosed } from "@phosphor-icons/react";
 // Components
 import Field, { FieldProps, useFieldProps } from "@components/Field";

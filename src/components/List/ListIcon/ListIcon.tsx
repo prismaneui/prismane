@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Components
 import Icon, { IconProps } from "@components/Icon";
 // Utils

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Components
 import Paper, { PaperProps } from "@components/Paper";
 import Animation, { AnimationProps } from "@components/Animation";

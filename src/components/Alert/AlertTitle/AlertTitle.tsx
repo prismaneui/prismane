@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Components
 import Text, { TextProps } from "@components/Text";
 // Utils

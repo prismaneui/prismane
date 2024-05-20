@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Hooks
 import useStyling from "./useStyling";
 import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";

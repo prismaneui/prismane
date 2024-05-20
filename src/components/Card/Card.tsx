@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Component
 import Paper, { PaperProps } from "@components/Paper";
 // Types

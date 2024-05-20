@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { UserCircle } from "@phosphor-icons/react";
 // Components
 import Center from "@components/Center";

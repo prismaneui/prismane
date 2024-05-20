@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from "react";
+import React, { ReactNode, forwardRef } from "react";
 import { CaretUp } from "@phosphor-icons/react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
