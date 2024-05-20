@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Show from "./Show";
 import Stack from "../Stack";

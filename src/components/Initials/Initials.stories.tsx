@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Initials from "./Initials";
 import Avatar from "../Avatar/Avatar";

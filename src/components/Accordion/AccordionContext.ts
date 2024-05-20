@@ -1,4 +1,4 @@
-import { createContext, useContext, Dispatch } from "react";
+import React, { createContext, useContext, Dispatch } from "react";
 
 export interface AccordionContextValue {
   value?: string | null;

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import * as CSS from "csstype";
 // Components
 import Flex, { FlexProps } from "@components/Flex";

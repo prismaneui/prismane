@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect } from "react";
+import React, { forwardRef, useEffect } from "react";
 // Components
 import Animation, { AnimationProps } from "@components/Animation";
 import Paper from "@components/Paper";

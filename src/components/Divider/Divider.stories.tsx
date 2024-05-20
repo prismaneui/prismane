@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Divider from "./Divider";
 import Stack from "../Stack/Stack";

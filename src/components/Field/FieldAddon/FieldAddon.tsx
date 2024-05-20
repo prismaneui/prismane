@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 // Components
 import Transition, { TransitionProps } from "@components/Transition";
 import Flex, { FlexProps } from "@components/Flex";

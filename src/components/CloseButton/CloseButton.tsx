@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { X } from "@phosphor-icons/react";
 // Components
 import ActionButton, { ActionButtonProps } from "@components/ActionButton";

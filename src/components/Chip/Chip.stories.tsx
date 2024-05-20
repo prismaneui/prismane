@@ -1,3 +1,4 @@
+import React from "react";
 import { At, Lightning, PaperPlaneTilt } from "@phosphor-icons/react";
 // Components
 import Chip from "./Chip";

@@ -1,3 +1,4 @@
+import React from "react";
 import { expect, test, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
 // Component

@@ -1,3 +1,4 @@
+import React from "react";
 import { Heart, SquaresFour, Wrench } from "@phosphor-icons/react";
 // Components
 import Icon from "./Icon";
