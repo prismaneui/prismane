@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
 import * as CSS from "csstype";

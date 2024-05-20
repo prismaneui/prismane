@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useEffect } from "react";
 // Components
 import Paper, { PaperProps } from "@components/Paper";
