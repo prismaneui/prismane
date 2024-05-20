@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, ReactNode } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";

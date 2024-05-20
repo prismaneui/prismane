@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode, forwardRef } from "react";
 import { CaretUp } from "@phosphor-icons/react";
 // Components

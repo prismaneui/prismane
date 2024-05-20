@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useEffect, useState } from "react";
 // Components
 import Transition, { TransitionProps } from "@components/Transition";

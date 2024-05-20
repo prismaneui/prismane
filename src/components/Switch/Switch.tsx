@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 // Components
 import Animation from "@components/Animation";

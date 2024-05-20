@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useState, useRef, ReactNode } from "react";
 import { CaretUpDown } from "@phosphor-icons/react";
 // Components

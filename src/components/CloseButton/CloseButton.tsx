@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 import { X } from "@phosphor-icons/react";
 // Components

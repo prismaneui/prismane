@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode, FC, useState, useEffect } from "react";
 import { getCssText } from "@/../stitches.config";
 import styles from "@/index.css";

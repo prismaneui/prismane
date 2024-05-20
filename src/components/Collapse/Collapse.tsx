@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useRef } from "react";
 // Components
 import Animation, { AnimationProps } from "@components/Animation";

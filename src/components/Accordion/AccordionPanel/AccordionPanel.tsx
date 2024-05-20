@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useRef, useEffect, useState } from "react";
 // Components
 import Box from "@components/Box";
