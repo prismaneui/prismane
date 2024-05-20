@@ -25,8 +25,8 @@ const isFocusable = (element: HTMLElement) => {
   return false;
 };
 
-const useFocusTrap = (isOpen: boolean = true) => {
-  const ref = useRef<any>(null);
+const useFocusTrap = <T extends HTMLElement = any>(isOpen: boolean = true) => {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     if (ref.current && isOpen) {
@@ -35,7 +35,9 @@ const useFocusTrap = (isOpen: boolean = true) => {
       );
 
       if (defaultFocusElement.length > 0) {
-        const element = defaultFocusElement[defaultFocusElement.length - 1];
+        const element = defaultFocusElement[
+          defaultFocusElement.length - 1
+        ] as HTMLElement;
 
         if (isFocusable(element)) {
           element.focus();
@@ -45,7 +47,7 @@ const useFocusTrap = (isOpen: boolean = true) => {
           );
 
           if (innerElements.length > 0) {
-            innerElements[0].focus();
+            (innerElements[0] as HTMLElement).focus();
           }
         }
 
@@ -57,7 +59,7 @@ const useFocusTrap = (isOpen: boolean = true) => {
       );
 
       if (focusableElements.length > 0) {
-        focusableElements[0].focus();
+        (focusableElements[0] as HTMLElement).focus();
       }
     }
   }, [ref.current, isOpen]);
