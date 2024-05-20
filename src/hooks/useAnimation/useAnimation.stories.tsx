@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex, Button, Animation } from "../../components";
 import useAnimation from "./useAnimation";
 import { fr } from "../../utils";

@@ -1,3 +1,4 @@
+import React from "react";
 import { Wrench } from "@phosphor-icons/react";
 // Components
 import Square from "./Square";

@@ -1,4 +1,3 @@
-import React from "react";
 import { test, vi } from "vitest";
 // Hook
 import useEmulatedFieldChange from "./useEmulatedFieldChange";

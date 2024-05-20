@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Paper from "./Paper";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { test, vi } from "vitest";
 import { renderHook, act } from "@testing-library/react-hooks";
 // Hook

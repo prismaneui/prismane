@@ -1,5 +1,4 @@
 import { renderHook } from "@testing-library/react-hooks/dom";
-import React from "react";
 import { describe, vi } from "vitest";
 
 // Hook

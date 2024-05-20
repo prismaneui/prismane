@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex, Text, Button } from "../../components";
 import useLocalization from "./useLocalization";
 import { fr } from "../../utils";
