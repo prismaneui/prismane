@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex, TextField, List } from "../../components";
 import useSearch from "./useSearch";
 import { fr } from "../../utils";

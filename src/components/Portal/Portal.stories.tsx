@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 // Components
 import Portal from "./Portal";
 import Box from "../Box/Box";

@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import { Stack, Text, Center } from "../../components";
 // Hooks

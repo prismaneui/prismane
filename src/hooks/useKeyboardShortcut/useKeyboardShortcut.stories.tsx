@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Text, Button, Stack } from "../../components";
 import useKeyboardShortcut from "./useKeyboardShortcut";
 

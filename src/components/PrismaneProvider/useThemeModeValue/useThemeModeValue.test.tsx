@@ -1,3 +1,4 @@
+import React from "react";
 import { renderHook, act } from "@testing-library/react-hooks/dom";
 import { usePrismaneTheme } from "../PrismaneContext";
 import PrismaneProvider from "../PrismaneProvider";

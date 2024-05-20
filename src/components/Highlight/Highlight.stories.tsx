@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Highlight from "./Highlight";
 import Text from "../Text/Text";

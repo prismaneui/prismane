@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 // Components
 import Transition from "./Transition";
 import Button from "../Button/Button";

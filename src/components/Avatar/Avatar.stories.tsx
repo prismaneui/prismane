@@ -1,3 +1,4 @@
+import React from "react";
 import { User } from "@phosphor-icons/react";
 // Components
 import Avatar from "./Avatar";

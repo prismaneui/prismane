@@ -1,3 +1,4 @@
+import React from "react";
 import { CheckCircle, XCircle } from "@phosphor-icons/react";
 // Components
 import List from "./List";

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useRef, useEffect, useState } from "react";
+import React, { forwardRef, useRef, useEffect, useState } from "react";
 // Components
 import Box from "@components/Box";
 import Animation, { AnimationProps } from "@components/Animation";

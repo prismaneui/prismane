@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Hide from "./Hide";
 import Stack from "../Stack/Stack";

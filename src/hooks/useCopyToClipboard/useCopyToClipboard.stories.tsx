@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex, Button, Text } from "../../components";
 import useCopyToClipboard from "./useCopyToClipboard";
 import { fr } from "../../utils";

@@ -1,3 +1,4 @@
+import React from "react";
 // Components
 import Gradient from "./Gradient";
 import Stack from "../Stack/Stack";

@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 // Components
 import Field, { FieldProps, useFieldProps } from "@components/Field";

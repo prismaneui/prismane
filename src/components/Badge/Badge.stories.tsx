@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { EnvelopeSimple, Bell } from "@phosphor-icons/react";
 // Components
 import Badge from "./Badge";

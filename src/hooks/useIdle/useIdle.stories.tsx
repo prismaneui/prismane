@@ -1,3 +1,4 @@
+import React from "react";
 import { Text } from "../../components";
 import useIdle from "./useIdle";
 

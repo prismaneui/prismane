@@ -1,3 +1,4 @@
+import React from "react";
 import { Box } from "../../components";
 import useDraggable from "./useDraggable";
 import { fr } from "../../utils";
