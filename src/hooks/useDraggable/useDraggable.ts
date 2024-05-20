@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-const useDraggable = (
+const useDraggable = <T extends HTMLElement = any>(
   defaultPosition: { x: number; y: number } = { x: 0, y: 0 }
 ) => {
-  const ref = useRef(null);
+  const ref = useRef<T>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState(defaultPosition);
 
