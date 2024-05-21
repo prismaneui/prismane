@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 // Types
 import { PrismaneColors, PrismaneProps } from "@types";
 
@@ -29,11 +29,9 @@ const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
           },
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneMenuLabel-root-${color} PrismaneMenuLabel-root`
-        )}
+        className={cx("PrismaneMenuLabel-root", className, {
+          [`PrismaneMenuLabel-root-${color}`]: true,
+        })}
         data-testid="prismane-menu-label"
         ref={ref}
         {...props}

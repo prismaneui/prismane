@@ -7,14 +7,14 @@ import Field, { FieldProps, useFieldProps } from "@components/Field";
 import Icon from "@components/Icon";
 import Transition from "@components/Transition";
 // Utils
-import { variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type PasswordFieldProps = FieldProps;
 
 const PasswordField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   PasswordFieldProps
->(({ label, error, size = "base", ...props }, ref) => {
+>(({ label, error, size = "base", className, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 
   const [mutableType, setMutableType] = useState("password");
@@ -58,7 +58,7 @@ const PasswordField = forwardRef<
             </Transition>
           </Field.Addon>
         }
-        className="PrismanePasswordField-root"
+        className={cx("PrismanePasswordField-root", className)}
         data-testid="prismane-password-field"
         ref={ref}
         {...field}

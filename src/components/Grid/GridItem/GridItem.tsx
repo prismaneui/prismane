@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, variants } from "@utils";
+import { cx, variants } from "@utils";
 
 export type GridItemProps = PrismaneProps<
   {
@@ -56,7 +56,7 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
     return (
       <Flex
         dp="grid"
-        className={strip(`${className ? className : ""} PrismaneGridItem-root`)}
+        className={cx("PrismaneGridItem-root", className)}
         sx={{
           gap,
           gridArea: area,

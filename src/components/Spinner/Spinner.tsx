@@ -8,7 +8,7 @@ import Icon, { IconProps } from "@components/Icon";
 // Types
 import { PrismaneProps, PrismaneColors, PrismaneShades } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type SpinnerProps = PrismaneProps<
   {
@@ -31,11 +31,9 @@ const Spinner = forwardRef<SVGElement, SpinnerProps>(
           animation: "prismane-spin linear 0.5s infinite",
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneSpinner-root-${size} PrismaneSpinner-root`
-        )}
+        className={cx("PrismaneSpinner-root", className, {
+          [`PrismaneSpinner-root-${size}`]: true,
+        })}
         data-testid="prismane-spinner"
         ref={ref}
         {...props}

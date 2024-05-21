@@ -7,7 +7,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type PortalProps = PrismaneProps<
   {
@@ -27,11 +27,9 @@ const Portal = forwardRef<HTMLDivElement, PortalProps>(
 
     const portal = (
       <Box
-        className={strip(
-          `${className ? className : ""} ${
-            disabled ? "PrismanePortal-root-disabled" : ""
-          } PrismanePortal-root`
-        )}
+        className={cx("PrismanePortal-root", className, {
+          "PrismanePortal-root-disabled": disabled,
+        })}
         data-testid="prismane-portal"
         ref={ref}
         {...props}

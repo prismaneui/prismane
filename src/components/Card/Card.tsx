@@ -11,7 +11,7 @@ import {
   PrismaneVersatileRef,
 } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 // Internal Components
 import CardHeader, { CardHeaderProps } from "./CardHeader";
@@ -35,7 +35,7 @@ const Card = forwardRef(
       <Paper
         as={Component}
         p={fr(5)}
-        className={strip(`${className ? className : ""} PrismaneCard-root`)}
+        className={cx("PrismaneCard-root", className)}
         shadow
         data-testid="prismane-card"
         ref={ref}

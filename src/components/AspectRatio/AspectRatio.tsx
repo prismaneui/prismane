@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { PrismaneStyles, PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type AspectRatioProps = PrismaneProps<
   {
@@ -20,9 +20,7 @@ const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
   ({ ratio, size, children, className, style, ...props }, ref) => {
     return (
       <Box
-        className={strip(
-          `${className ? className : ""} PrismaneAspectRatio-root`
-        )}
+        className={cx("PrismaneAspectRatio-root", className)}
         w={size}
         style={{
           aspectRatio: ratio,

@@ -9,7 +9,7 @@ import { useTabsContext } from "../TabsContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type TabsTabProps = PrismaneProps<
   { value: string; disabled?: boolean },
@@ -66,7 +66,7 @@ const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
         onClick={() => {
           tabs.setValue(value);
         }}
-        className={strip(`${className ? className : ""} PrismaneTabsTab-root`)}
+        className={cx("PrismaneTabsTab-root", className)}
         data-testid="prismane-tabs-tab"
         ref={ref}
         {...props}

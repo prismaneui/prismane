@@ -5,7 +5,7 @@ import React, { forwardRef } from "react";
 import Flex, { FlexProps } from "@components/Flex";
 import Transition, { TransitionProps } from "@components/Transition";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 // Types
 import { PrismaneColors, PrismaneProps } from "@types";
 
@@ -43,11 +43,9 @@ const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         br="base"
         cs="pointer"
         bs="border-box"
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneMenuItem-root-${color} PrismaneMenuItem-root`
-        )}
+        className={cx("PrismaneMenuItem-root", className, {
+          [`PrismaneMenuItem-root-${color}`]: true,
+        })}
         data-testid="prismane-menu-item"
         role="menuitem"
         ref={ref}

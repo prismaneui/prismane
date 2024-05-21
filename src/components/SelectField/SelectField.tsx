@@ -14,7 +14,7 @@ import useOutsideClick from "@hooks/useOutsideClick";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type SelectFieldProps = PrismaneProps<
   {
@@ -130,9 +130,7 @@ const SelectField = forwardRef<any, SelectFieldProps>(
               </Field.Addon>
             </>
           }
-          className={strip(
-            `${className ? className : ""} PrismaneSelectField-root`
-          )}
+          className={cx("PrismaneSelectField-root", className)}
           readOnly
           data-testid="prismane-select-field"
           ref={fieldRef}

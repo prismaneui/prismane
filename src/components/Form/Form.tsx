@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type FormProps = BoxProps<"form">;
 
@@ -14,7 +14,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>(
       <Box
         as="form"
         dp="flex"
-        className={strip(`${className ? className : ""} PrismaneForm-root`)}
+        className={cx("PrismaneForm-root", className)}
         onSubmit={onSubmit}
         onReset={onReset}
         sx={{

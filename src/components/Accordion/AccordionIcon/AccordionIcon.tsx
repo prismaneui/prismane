@@ -11,7 +11,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type AccordionIconProps = PrismaneProps<
   {
@@ -28,11 +28,9 @@ const AccordionIcon = forwardRef<HTMLDivElement, AccordionIconProps>(
 
     return (
       <Flex
-        className={strip(
-          `${className ? className : ""} ${
-            value === item ? "PrismaneAccordionIcon-root-active" : ""
-          } PrismaneAccordionIcon-root`
-        )}
+        className={cx("PrismaneAccordionIcon-root", className, {
+          "PrismaneAccordionIcon-root-active": value === item,
+        })}
         data-testid="prismane-accordion-icon"
         ref={ref}
         {...props}

@@ -11,7 +11,7 @@ import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type NumberFieldProps = PrismaneProps<
   {
@@ -115,9 +115,7 @@ const NumberField = forwardRef<
               </Transition>
             </Field.Addon>
           }
-          className={strip(
-            `${className ? className : ""} PrismaneNumberField-root`
-          )}
+          className={cx("PrismaneNumberField-root", className)}
           data-testid="prismane-number-field"
           ref={fieldRef}
           {...field}

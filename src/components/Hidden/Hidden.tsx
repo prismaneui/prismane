@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type HiddenProps = BoxProps;
 
@@ -17,7 +17,7 @@ const Hidden = forwardRef<HTMLSpanElement, HiddenProps>(
         h={0}
         of="hidden"
         dp="block"
-        className={strip(`${className ? className : ""} PrismaneHidden-root`)}
+        className={cx("PrismaneHidden-root", className)}
         data-testid="prismane-hidden"
         ref={ref}
         {...props}

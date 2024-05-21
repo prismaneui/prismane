@@ -12,7 +12,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -64,9 +64,7 @@ const Transition: TransitionComponent = forwardRef(
     return (
       <Box
         as={Component}
-        className={strip(
-          `${className ? className : ""} PrismaneTransition-root`
-        )}
+        className={cx("PrismaneTransition-root", className)}
         sx={{
           transitionProperty: property,
           transitionDuration: `${duration}ms`,

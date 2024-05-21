@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import List, { ListProps } from "@components/List";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type ListOrderedProps = ListProps<"ol">;
 
@@ -18,9 +18,7 @@ const ListOrdered = forwardRef<HTMLOListElement, ListOrderedProps>(
           listStyleType: "revert",
           ...sx,
         }}
-        className={strip(
-          `${className ? className : ""} PrismaneListOrdered-root`
-        )}
+        className={cx("PrismaneListOrdered-root", className)}
         data-testid="prismane-list-ordered"
         ref={ref}
         {...props}

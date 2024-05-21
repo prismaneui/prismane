@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneProps, PrismaneBreakpoints } from "@types";
 // Utils
-import { strip, variants } from "@utils";
+import { cx, variants } from "@utils";
 
 export type DividerProps = PrismaneProps<
   {
@@ -70,7 +70,7 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>(
         }
         bs="border-box"
         bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
-        className={strip(`${className ? className : ""} PrismaneDivider-root`)}
+        className={cx("PrismaneDivider-root", className)}
         grow
         data-testid="prismane-divider"
         ref={ref}

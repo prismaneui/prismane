@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type CardHeaderProps = FlexProps;
 
@@ -15,9 +15,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
         of="hidden"
         w="100%"
         mb={fr(2)}
-        className={strip(
-          `${className ? className : ""} PrismaneCardHeader-root`
-        )}
+        className={cx("PrismaneCardHeader-root", className)}
         data-testid="prismane-card-header"
         ref={ref}
         {...props}

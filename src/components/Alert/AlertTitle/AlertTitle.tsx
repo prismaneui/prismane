@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Text, { TextProps } from "@components/Text";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type AlertTitleProps = TextProps;
 
@@ -15,9 +15,7 @@ const AlertTitle = forwardRef<HTMLSpanElement, AlertTitleProps>(
         fw="bold"
         fs="base"
         cl="inherit"
-        className={strip(
-          `${className ? className : ""} PrismaneAlertTitle-root`
-        )}
+        className={cx("PrismaneAlertTitle-root", className)}
         data-testid="prismane-alert-title"
         ref={ref}
         {...props}

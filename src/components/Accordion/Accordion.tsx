@@ -8,7 +8,7 @@ import { AccordionContextProvider } from "./AccordionContext";
 // Types
 import { PrismaneWithInternal, PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 // Internal Components
 import AccordionControl, { AccordionControlProps } from "./AccordionControl";
@@ -38,9 +38,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       <Flex
         direction="column"
         w="100%"
-        className={strip(
-          `${className ? className : ""} PrismaneAccordion-root`
-        )}
+        className={cx("PrismaneAccordion-root", className)}
         data-testid="prismane-accordion"
         ref={ref}
         {...props}

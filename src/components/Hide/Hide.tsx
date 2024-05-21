@@ -8,7 +8,7 @@ import useMediaQuery from "@hooks/useMediaQuery";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, dual, fr } from "@utils";
+import { cx, dual, fr } from "@utils";
 
 export type HideProps = PrismaneProps<
   {
@@ -32,7 +32,7 @@ const Hide = forwardRef<HTMLDivElement, HideProps>(
     return (
       <Box
         dp={hidden ? "none" : "flex"}
-        className={strip(`${className ? className : ""} PrismaneHide-root`)}
+        className={cx("PrismaneHide-root", className)}
         ref={ref}
         data-testid="prismane-hide"
         {...props}

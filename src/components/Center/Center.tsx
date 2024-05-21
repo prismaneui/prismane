@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type CenterProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -29,7 +29,7 @@ const Center: CenterComponent = forwardRef(
         as={Component}
         justify="center"
         align="center"
-        className={strip(`${className ? className : ""} PrismaneCenter-root`)}
+        className={cx("PrismaneCenter-root", className)}
         data-testid="prismane-center"
         ref={ref}
         {...props}

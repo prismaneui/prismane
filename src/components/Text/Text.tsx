@@ -5,7 +5,7 @@ import React, { forwardRef } from "react";
 import Box, { BoxProps } from "@components/Box";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TextProps<E extends Versatile = "span"> = PrismaneVersatile<
   E,
@@ -25,7 +25,7 @@ const Text: TextComponent = forwardRef(
       <Box
         as={Component}
         cl={(theme) => (theme.mode === "dark" ? ["base", 100] : ["base", 900])}
-        className={strip(`${className ? className : ""} PrismaneText-root`)}
+        className={cx("PrismaneText-root", className)}
         data-testid="prismane-text"
         ref={ref}
         {...props}

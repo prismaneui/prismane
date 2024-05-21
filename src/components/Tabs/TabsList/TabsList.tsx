@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type TabsListProps = FlexProps;
 
@@ -18,7 +18,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       <Flex
         w="100%"
         pos="relative"
-        className={strip(`${className ? className : ""} PrismaneTabsList-root`)}
+        className={cx("PrismaneTabsList-root", className)}
         data-testid="prismane-tabs-list"
         ref={ref}
         {...props}

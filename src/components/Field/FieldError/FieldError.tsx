@@ -7,7 +7,7 @@ import Animation, { AnimationProps } from "@components/Animation";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type FieldErrorProps = PrismaneProps<
   {
@@ -43,9 +43,7 @@ const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
               lg: "md",
             })}
             cl="red"
-            className={strip(
-              `${className ? className : ""} PrismaneFieldError-root`
-            )}
+            className={cx("PrismaneFieldError-root", className)}
             data-testid="prismane-field-error"
             ref={ref}
             {...props}

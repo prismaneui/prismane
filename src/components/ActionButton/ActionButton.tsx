@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Button, { ButtonProps } from "@components/Button";
 // Utils
-import { fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type ActionButtonProps = ButtonProps;
 
@@ -15,6 +15,7 @@ const ActionButton = forwardRef<any, ActionButtonProps>(
       color = "primary",
       variant = "tertiary",
       children,
+      className,
       ...props
     },
     ref
@@ -39,6 +40,11 @@ const ActionButton = forwardRef<any, ActionButtonProps>(
         size={size}
         color={color}
         variant={variant}
+        className={cx("PrismaneActionButton-root", className, {
+          [`PrismaneActionButton-${size}`]: true,
+          [`PrismaneActionButton-${color}`]: true,
+          [`PrismaneActionButton-${variant}`]: true,
+        })}
         data-testid="prismane-action-button"
         {...props}
       >

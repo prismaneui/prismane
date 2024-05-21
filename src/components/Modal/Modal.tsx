@@ -15,7 +15,7 @@ import { ModalContextProvider } from "./ModalContext";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 // Internal Components
 import ModalHeader, { ModalHeaderProps } from "./ModalHeader";
@@ -83,11 +83,9 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
               onClick={(e: any) => {
                 e.stopPropagation();
               }}
-              className={strip(
-                `${className ? className : ""} ${
-                  open ? "PrismaneModal-root-open" : ""
-                } PrismaneModal-root`
-              )}
+              className={cx("PrismaneModal-root", className, {
+                "PrismaneModal-root-open": open,
+              })}
               data-testid="prismane-modal"
               ref={ref}
               {...props}

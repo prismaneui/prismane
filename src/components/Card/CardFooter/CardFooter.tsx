@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type CardFooterProps = FlexProps;
 
@@ -15,9 +15,7 @@ const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
         of="hidden"
         w="100%"
         mt={fr(4)}
-        className={strip(
-          `${className ? className : ""} PrismaneCardFooter-root`
-        )}
+        className={cx("PrismaneCardFooter-root", className)}
         data-testid="prismane-card-footer"
         ref={ref}
         {...props}

@@ -6,7 +6,7 @@ import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type TextFieldProps = PrismaneProps<
   {
@@ -45,9 +45,7 @@ const TextField = forwardRef<
           pr={suffix && "0"}
           pl={prefix && "0"}
           py={(prefix || suffix) && "0"}
-          className={strip(
-            `${className ? className : ""} PrismaneTextField-root`
-          )}
+          className={cx("PrismaneTextField-root", className)}
           addons={
             <>
               {prefix && (

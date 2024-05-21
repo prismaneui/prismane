@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type MainProps = FlexProps<"main">;
 
@@ -16,7 +16,7 @@ const Main = forwardRef<HTMLElement, MainProps>(
         px={fr(5)}
         py={fr(3)}
         grow
-        className={strip(`${className ? className : ""} PrismaneMain-root`)}
+        className={cx("PrismaneMain-root", className)}
         data-testid="prismane-main"
         ref={ref}
         {...props}

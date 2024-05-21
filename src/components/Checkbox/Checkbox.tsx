@@ -11,7 +11,7 @@ import Hidden from "@components/Hidden";
 // Types
 import { PrismaneFieldComponent, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type CheckboxProps = PrismaneProps<
   { indeterminate?: boolean; icon?: ReactNode },
@@ -83,13 +83,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               aspectRatio: 1,
               ...sx,
             }}
-            className={strip(
-              `${className ? className : ""} ${
-                field.value ? "PrismaneCheckbox-active" : ""
-              } ${
-                indeterminate ? "PrismaneCheckbox-indeterminate" : ""
-              } PrismaneCheckbox-root`
-            )}
+            className={cx("PrismaneCheckbox-root", className, {
+              "PrismaneCheckbox-active": field.value,
+              "PrismaneCheckbox-indeterminate": indeterminate,
+            })}
             {...rest}
           >
             <Hidden>

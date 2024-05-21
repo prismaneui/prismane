@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type FooterProps = FlexProps<"footer">;
 
@@ -14,7 +14,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
       <Flex
         as="footer"
         grow
-        className={strip(`${className ? className : ""} PrismaneFooter-root`)}
+        className={cx("PrismaneFooter-root", className)}
         data-testid="prismane-footer"
         ref={ref}
         {...props}

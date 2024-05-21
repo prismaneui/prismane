@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type NativeDateFieldProps = FieldProps;
 
@@ -28,9 +28,7 @@ const NativeDateField = forwardRef<
         py={0}
         size={size as any}
         error={error}
-        className={strip(
-          `${className ? className : ""} PrismaneNativeDateField-root`
-        )}
+        className={cx("PrismaneNativeDateField-root", className)}
         data-testid="prismane-native-date-field"
         ref={ref}
         {...field}

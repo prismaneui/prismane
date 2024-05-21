@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type TableCellProps = BoxProps<"td">;
 
@@ -34,9 +34,7 @@ const TableCell = forwardRef<HTMLTableSectionElement, TableCellProps>(
         fs={size}
         cl={(theme) => (theme.mode === "dark" ? "white" : ["base", 900])}
         bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
-        className={strip(
-          `${className ? className : ""} PrismaneTableCell-root`
-        )}
+        className={cx("PrismaneTableCell-root", className)}
         data-testid="prismane-table-cell"
         ref={ref}
         {...props}

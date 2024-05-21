@@ -14,7 +14,7 @@ import useId from "@hooks/useId";
 // Types
 import { PrismaneFieldComponent, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 // Internal Components
 import RadioGroup, { RadioGroupProps } from "./RadioGroup";
@@ -86,11 +86,9 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
               aspectRatio: "1/1",
               ...sx,
             }}
-            className={strip(
-              `${className ? className : ""} ${
-                field.value === group.value ? "PrismaneRadio-root-active" : ""
-              } PrismaneRadio-root`
-            )}
+            className={cx("PrismaneRadio-root", className, {
+              "PrismaneRadio-root-active": field.value === group.value,
+            })}
             {...rest}
           >
             <Hidden>

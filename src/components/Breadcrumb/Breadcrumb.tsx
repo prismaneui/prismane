@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 // Internal Components
 import BreadcrumbItem, { BreadcrumbItemProps } from "./BreadcrumbItem";
@@ -23,9 +23,7 @@ const Breadcrumb = forwardRef<HTMLDivElement, BreadcrumbProps>(
     return (
       <Flex
         align="center"
-        className={strip(
-          `${className ? className : ""} PrismaneBreadcrumb-root`
-        )}
+        className={cx("PrismaneBreadcrumb-root", className)}
         gap={fr(2)}
         cl="primary"
         data-testid="prismane-breadcrumb"

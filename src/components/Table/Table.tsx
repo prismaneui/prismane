@@ -12,7 +12,7 @@ import {
   PrismaneBreakpoints,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 // Internal Components
 import TableRow, { TableRowProps } from "./TableRow";
@@ -77,7 +77,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
             },
             ...sx,
           }}
-          className={strip(`${className ? className : ""} PrismaneTable-root`)}
+          className={cx("PrismaneTable-root", className)}
           data-testid="prismane-table"
           ref={ref}
           {...props}

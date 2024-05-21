@@ -8,7 +8,7 @@ import { TabsContextProvider } from "./TabsContext";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 // Internal Components
 import TabsList, { TabsListProps } from "./TabsList";
@@ -43,11 +43,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(
         direction="column"
         w="100%"
         h="100%"
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneTabs-root-${variant} PrismaneTabs-root`
-        )}
+        className={cx("PrismaneTabs-root", className, {
+          [`PrismaneTabs-root-${variant}`]: true,
+        })}
         data-testid="prismane-tabs"
         ref={ref}
         {...props}

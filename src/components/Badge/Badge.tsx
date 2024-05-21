@@ -15,7 +15,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -139,11 +139,11 @@ const Badge: BadgeComponent = forwardRef(
             whiteSpace: "nowrap",
             ...sx,
           }}
-          className={strip(
-            `${
-              className ? className : ""
-            } PrismaneBadge-root-${position} PrismaneBadge-root-${color} PrismaneBadge-root-${size} PrismaneBadge-root`
-          )}
+          className={cx("PrismaneBadge-root", className, {
+            [`PrismaneBadge-root-${position}`]: true,
+            [`PrismaneBadge-root-${color}`]: true,
+            [`PrismaneBadge-root-${size}`]: true,
+          })}
           ref={ref}
           data-testid="prismane-badge"
           {...props}

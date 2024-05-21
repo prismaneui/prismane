@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type HighlightProps<E extends Versatile = "mark"> = PrismaneVersatile<
   E,
@@ -32,9 +32,7 @@ const Highlight: HighlightComponent = forwardRef(
         }
         cl={(theme) => (theme.mode === "dark" ? "white" : ["base", 900])}
         p={fr(1)}
-        className={strip(
-          `${className ? className : ""} PrismaneHighlight-root`
-        )}
+        className={cx("PrismaneHighlight-root", className)}
         data-testid="prismane-highlight"
         ref={ref}
         {...props}

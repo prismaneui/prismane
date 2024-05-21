@@ -15,7 +15,7 @@ import {
   PrismaneVersatileRef,
 } from "@types";
 // Utils
-import { strip, dual, fr } from "@utils";
+import { cx, dual, fr } from "@utils";
 
 export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -242,9 +242,7 @@ const Box: BoxComponent = forwardRef(
 
     return (
       <El
-        className={strip(
-          `${styles.join(" ")} ${className ? className : ""} PrismaneBox-root`
-        )}
+        className={cx("PrismaneBox-root", className, styles.join(" "))}
         data-testid="prismane-box"
         ref={ref}
         {...props}

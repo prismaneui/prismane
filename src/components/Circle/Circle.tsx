@@ -12,7 +12,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type CircleProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -41,7 +41,7 @@ const Circle: CircleComponent = forwardRef(
         w={size}
         h={size}
         br="100%"
-        className={strip(`${className ? className : ""} PrismaneCircle-root`)}
+        className={cx("PrismaneCircle-root", className)}
         data-testid="prismane-circle"
         ref={ref}
         {...props}

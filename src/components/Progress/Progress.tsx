@@ -13,7 +13,7 @@ import {
   PrismaneShades,
 } from "@types";
 // Utils
-import { strip, fr, dual } from "@utils";
+import { cx, fr, dual } from "@utils";
 
 export type ProgressProps = PrismaneProps<
   {
@@ -44,11 +44,9 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
         br="full"
         bg={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 200])}
         grow
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneProgress-root-${size} PrismaneProgress-root`
-        )}
+        className={cx("PrismaneProgress-root", className, {
+          [`PrismaneProgress-root-${size}`]: true,
+        })}
         data-testid="prismane-progress"
         ref={ref}
         {...props}

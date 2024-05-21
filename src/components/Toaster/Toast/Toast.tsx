@@ -11,7 +11,7 @@ import { useToasterContext } from "../ToasterContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type ToastProps = PrismaneProps<
   {
@@ -60,7 +60,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
         duration={duration}
         timing={timing}
         animated={shown}
-        className={strip(`${className ? className : ""} PrismaneToast-root`)}
+        className={cx("PrismaneToast-root", className)}
         data-testid="prismane-toast"
         ref={ref}
         {...props}

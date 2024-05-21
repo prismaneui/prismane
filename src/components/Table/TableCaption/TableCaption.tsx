@@ -8,7 +8,7 @@ import { useTableContext } from "../TableContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type TableCaptionProps = PrismaneProps<
   {
@@ -39,9 +39,7 @@ const TableCaption = forwardRef<HTMLTableSectionElement, TableCaptionProps>(
           lg: fr(3),
         })}
         fs={size}
-        className={strip(
-          `${className ? className : ""} PrismaneTableCaption-root`
-        )}
+        className={cx("PrismaneTableCaption-root", className)}
         sx={{
           captionSide: placement,
           ...sx,

@@ -7,7 +7,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type FieldAddonProps = PrismaneProps<
   {
@@ -37,9 +37,7 @@ const FieldAddon = forwardRef<HTMLDivElement, FieldAddonProps>(
         })}
         align="center"
         justify="center"
-        className={strip(
-          `${className ? className : ""} PrismaneFieldAddon-root`
-        )}
+        className={cx("PrismaneFieldAddon-root", className)}
         sx={{
           order: position === "right" ? 1 : -1,
           ...sx,

@@ -11,7 +11,7 @@ import {
   PrismaneVersatileRef,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 // Internal Components
 import ListUnordered, { ListUnorderedProps } from "./ListUnordered";
@@ -43,7 +43,7 @@ const List = forwardRef(
         as={Component}
         direction="column"
         gap={gap}
-        className={strip(`${className ? className : ""} PrismaneList-root`)}
+        className={cx("PrismaneList-root", className)}
         sx={{ listStyleType: "none", ...sx }}
         data-testid="prismane-list"
         ref={ref}

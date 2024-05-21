@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, variants } from "@utils";
+import { cx, variants } from "@utils";
 
 // Internal Components
 import GridItem, { GridItemProps } from "./GridItem";
@@ -73,7 +73,7 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(
   ) => {
     return (
       <Box
-        className={strip(`${className ? className : ""} PrismaneGrid-root`)}
+        className={cx("PrismaneGrid-root", className)}
         dp="grid"
         sx={{
           gap: gap,

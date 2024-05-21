@@ -10,7 +10,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type AccordionControlProps = PrismaneProps<FlexProps, TransitionProps>;
 
@@ -37,11 +37,9 @@ const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
         onClick={() => {
           value === item ? setValue(null) : setValue(item);
         }}
-        className={strip(
-          `${className ? className : ""} ${
-            value === item ? "PrismaneAccordionControl-root-active" : ""
-          } PrismaneAccordionControl-root`
-        )}
+        className={cx("PrismaneAccordionControl-root", className, {
+          "PrismaneAccordionControl-root-active": value === item,
+        })}
         data-testid="prismane-accordion-control"
         ref={ref}
         {...props}

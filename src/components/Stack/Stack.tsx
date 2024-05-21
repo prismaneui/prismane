@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type StackProps = FlexProps;
 
@@ -18,7 +18,7 @@ const Stack = forwardRef<HTMLDivElement, StackProps>(
         grow
         direction={direction}
         gap={gap}
-        className={strip(`${className ? className : ""} PrismaneStack-root`)}
+        className={cx("PrismaneStack-root", className)}
         data-testid="prismane-stack"
         ref={ref}
         {...props}

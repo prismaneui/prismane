@@ -7,7 +7,7 @@ import Link from "@components/Link";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
   PrismaneVersatile<E, FlexProps>;
@@ -24,9 +24,7 @@ const BreadcrumbItem = forwardRef(
         as={Component}
         align="center"
         justify="center"
-        className={strip(
-          `${className ? className : ""} PrismaneBreadcrumbItem-root`
-        )}
+        className={cx("PrismaneBreadcrumbItem-root", className)}
         data-testid="prismane-breadcrumb-item"
         ref={ref}
         {...props}

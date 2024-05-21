@@ -11,7 +11,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
   E,
@@ -63,7 +63,7 @@ const Link: LinkComponent = forwardRef(
           }),
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneLink-root`)}
+        className={cx("PrismaneLink-root", className)}
         onClick={async (e: any) => {
           if (before) {
             e.preventDefault();

@@ -16,7 +16,7 @@ import {
   PrismaneShades,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -63,7 +63,7 @@ const Gradient: GradientComponent = forwardRef(
     return (
       <Box
         as={Component}
-        className={strip(`${className ? className : ""} PrismaneGradient-root`)}
+        className={cx("PrismaneGradient-root", className)}
         bg="transparent"
         sx={{
           background: `linear-gradient(${deg}deg, ${getColorStyle(

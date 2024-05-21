@@ -9,7 +9,7 @@ import { ToasterContextProvider } from "./ToasterContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 // Internal Components
 import Toast from "./Toast";
@@ -56,11 +56,9 @@ const Toaster = forwardRef<HTMLDivElement, ToasterProps>(
               "top-left": fr(4),
             })}
             gap={fr(2)}
-            className={strip(
-              `${
-                className ? className : ""
-              } PrismaneToaster-root-${position} PrismaneToaster-root`
-            )}
+            className={cx("PrismaneToaster-root", className, {
+              [`PrismaneToaster-root-${position}`]: true,
+            })}
             data-testid="prismane-toaster"
             ref={ref}
             {...props}

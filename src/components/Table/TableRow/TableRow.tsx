@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TableRowProps = BoxProps<"tr">;
 
@@ -15,7 +15,7 @@ const TableRow = forwardRef<HTMLTableSectionElement, TableRowProps>(
         as="tr"
         w="100%"
         bdc={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
-        className={strip(`${className ? className : ""} PrismaneTableRow-root`)}
+        className={cx("PrismaneTableRow-root", className)}
         data-testid="prismane-table-row"
         ref={ref}
         {...props}

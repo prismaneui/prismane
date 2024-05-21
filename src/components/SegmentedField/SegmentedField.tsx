@@ -11,7 +11,7 @@ import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type SegmentedFieldProps = PrismaneProps<
   {
@@ -24,7 +24,10 @@ export type SegmentedFieldProps = PrismaneProps<
 >;
 
 const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
-  ({ options = [], label, error, size = "base", sx, ...props }, ref) => {
+  (
+    { options = [], label, error, size = "base", className, sx, ...props },
+    ref
+  ) => {
     const [rest, field] = useFieldProps(props);
 
     const fieldRef = useRef(ref || null);
@@ -47,7 +50,7 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
           size={size as any}
           px={fr(0)}
           py={fr(0)}
-          className="PrismaneSegmentedField-root"
+          className={cx("PrismaneSegmentedField-root", className)}
           sx={{
             ".PrismaneField-field": {
               display: "none",

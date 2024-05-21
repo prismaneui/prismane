@@ -17,7 +17,7 @@ import usePresence from "@hooks/usePresence";
 // Types
 import { PrismaneActions, PrismaneWithInternal, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 // Internal Components
 import AlertTitle, { AlertTitleProps } from "./AlertTitle";
@@ -93,18 +93,18 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
                     info: ["diamond", 700],
                   })
             }
-            className={strip(
-              `${
-                className ? className : ""
-              } PrismaneAlert-root PrismaneAlert-root-${variant}`
-            )}
+            className={cx("PrismaneAlert-root", className, {
+              [`PrismaneAlert-root-${variant}`]: true,
+            })}
             data-testid="prismane-alert"
             ref={ref}
             {...props}
           >
             <Flex
               align="center"
-              className={`PrismaneAlert-icon PrismaneAlert-icon-${variant}`}
+              className={cx("PrismaneAlert-icon", {
+                [`PrismaneAlert-icon-${variant}`]: true,
+              })}
             >
               {variant === "warning" ? (
                 icon ? (
@@ -150,7 +150,9 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
               direction="column"
               fs="sm"
               gap={fr(2)}
-              className={`PrismaneAlert-text PrismaneAlert-text-${variant}`}
+              className={cx("PrismaneAlert-text", {
+                [`PrismaneAlert-text-${variant}`]: true,
+              })}
             >
               {children}
             </Flex>
@@ -164,7 +166,9 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
                 onClick={() => {
                   setShown(false);
                 }}
-                className={`PrismaneAlert-action PrismaneAlert-action-${variant}`}
+                className={cx("PrismaneAlert-action", {
+                  [`PrismaneAlert-action-${variant}`]: true,
+                })}
               >
                 {action ? (
                   action

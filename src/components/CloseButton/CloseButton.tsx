@@ -5,12 +5,21 @@ import { X } from "@phosphor-icons/react";
 // Components
 import ActionButton, { ActionButtonProps } from "@components/ActionButton";
 // Utils
-import { variants } from "@utils";
+import { cx, variants } from "@utils";
 
 export type CloseButtonProps = ActionButtonProps;
 
 const CloseButton = forwardRef<any, CloseButtonProps>(
-  ({ size = "base", variant = "secondary", color = "base", ...props }, ref) => {
+  (
+    {
+      size = "base",
+      variant = "secondary",
+      color = "base",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <ActionButton
         color={color}
@@ -28,6 +37,11 @@ const CloseButton = forwardRef<any, CloseButtonProps>(
             weight="bold"
           />
         }
+        className={cx("PrismaneCloseButton-root", className, {
+          [`PrismaneCloseButton-${size}`]: true,
+          [`PrismaneCloseButton-${color}`]: true,
+          [`PrismaneCloseButton-${variant}`]: true,
+        })}
         ref={ref}
         {...props}
       />

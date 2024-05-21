@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type BreadcrumbSeparatorProps = FlexProps;
 
@@ -17,9 +17,7 @@ const BreadcrumbSeparator = forwardRef<
       align="center"
       justify="center"
       cl={(theme) => (theme.mode === "dark" ? ["base", 700] : ["base", 300])}
-      className={strip(
-        `${className ? className : ""} PrismaneBreadcrumbSeparator-root`
-      )}
+      className={cx("PrismaneBreadcrumbSeparator-root", className)}
       data-testid="prismane-breadcrumb-separator"
       ref={ref}
       {...props}

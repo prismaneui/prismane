@@ -11,7 +11,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -41,7 +41,7 @@ const Paper: PaperComponent = forwardRef(
         br="md"
         bg={(theme) => (theme.mode === "dark" ? ["base", 800] : "white")}
         bsh={shadow && "base"}
-        className={strip(`${className ? className : ""} PrismanePaper-root`)}
+        className={cx("PrismanePaper-root", className)}
         data-testid="prismane-paper"
         ref={ref}
         {...props}

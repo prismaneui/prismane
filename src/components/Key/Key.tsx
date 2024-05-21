@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type KeyProps = BoxProps<"kbd">;
 
@@ -22,7 +22,7 @@ const Key = forwardRef<HTMLDivElement, KeyProps>(
         bdbw={3}
         bdc={(theme) => (theme.mode === "dark" ? ["base", 600] : ["base", 400])}
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
-        className={strip(`${className ? className : ""} PrismaneKey-root`)}
+        className={cx("PrismaneKey-root", className)}
         data-testid="prismane-key"
         ref={ref}
         {...props}
