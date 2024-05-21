@@ -9,7 +9,7 @@ import {
 import Button from "./Button";
 import Flex from "../Flex/Flex";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

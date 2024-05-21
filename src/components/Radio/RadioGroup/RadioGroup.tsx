@@ -10,7 +10,7 @@ import { RadioContextProvider } from "../RadioContext";
 // Types
 import { PrismaneFieldComponent } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type RadioGroupProps = PrismaneFieldComponent & FlexProps;
 

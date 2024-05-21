@@ -2,7 +2,7 @@ import React from "react";
 // Components
 import Grid from "./Grid";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

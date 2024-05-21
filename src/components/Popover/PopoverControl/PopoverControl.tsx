@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { usePopoverContext } from "../PopoverContext";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type PopoverControlProps = FlexProps;
 

@@ -6,7 +6,7 @@ import Stack from "../Stack";
 import Radio from "../Radio";
 import ActionButton from "../ActionButton";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

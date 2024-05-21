@@ -5,7 +5,7 @@ import React, { forwardRef } from "react";
 import Flex, { FlexProps } from "@components/Flex";
 import Transition, { TransitionProps } from "@components/Transition";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 // Types
 import { PrismaneColors, PrismaneProps } from "@types";
 

@@ -8,7 +8,7 @@ import useMediaQuery from "@hooks/useMediaQuery/useMediaQuery";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, dual, fr } from "@/utils";
+import { strip, dual, fr } from "@utils";
 
 export type ShowProps = PrismaneProps<
   {

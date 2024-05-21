@@ -3,7 +3,7 @@ import React from "react";
 import Progress from "../Progress/Progress";
 import Stack from "../Stack/Stack";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

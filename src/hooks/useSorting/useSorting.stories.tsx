@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Center, Button, Text } from "../../components";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 import useSorting from "./useSorting";
 
 export default {

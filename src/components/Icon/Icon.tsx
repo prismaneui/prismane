@@ -6,7 +6,7 @@ import Square, { SquareProps } from "@components/Square";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, dual, fr } from "@/utils";
+import { strip, dual, fr } from "@utils";
 
 export type IconProps = PrismaneProps<
   {

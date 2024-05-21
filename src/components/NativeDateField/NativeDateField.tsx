@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type NativeDateFieldProps = FieldProps;
 

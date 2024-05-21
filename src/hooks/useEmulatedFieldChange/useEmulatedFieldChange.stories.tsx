@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Flex, Text, Box } from "../../components";
 import useEmulatedFieldChange from "./useEmulatedFieldChange";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

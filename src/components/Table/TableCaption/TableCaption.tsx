@@ -8,7 +8,7 @@ import { useTableContext } from "../TableContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@/utils";
+import { strip, fr, variants } from "@utils";
 
 export type TableCaptionProps = PrismaneProps<
   {

@@ -10,7 +10,7 @@ import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { fr } from "@/utils";
+import { fr } from "@utils";
 
 export type PinFieldProps = PrismaneProps<
   {

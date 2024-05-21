@@ -7,7 +7,7 @@ import Field, { FieldProps, useFieldProps } from "@components/Field";
 import Icon from "@components/Icon";
 import Transition from "@components/Transition";
 // Utils
-import { variants, fr } from "@/utils";
+import { variants, fr } from "@utils";
 
 export type PasswordFieldProps = FieldProps;
 

@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 // Internal Components
 import BreadcrumbItem, { BreadcrumbItemProps } from "./BreadcrumbItem";

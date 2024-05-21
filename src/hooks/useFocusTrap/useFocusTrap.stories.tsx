@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Flex, Button, TextField, Stack } from "../../components";
 import useFocusTrap from "./useFocusTrap";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

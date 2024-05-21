@@ -11,7 +11,7 @@ import Hidden from "@components/Hidden";
 // Types
 import { PrismaneFieldComponent, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type CheckboxProps = PrismaneProps<
   { indeterminate?: boolean; icon?: ReactNode },

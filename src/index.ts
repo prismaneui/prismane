@@ -1,6 +1,6 @@
 export * from "./components";
 export * from "./constants";
-export { fr } from "./utils";
+export { fr } from "@utils";
 // Types
 export type {
   PrismaneTransitions,

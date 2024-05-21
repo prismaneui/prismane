@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useModalContext } from "../ModalContext";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type ModalHeaderProps = FlexProps;
 

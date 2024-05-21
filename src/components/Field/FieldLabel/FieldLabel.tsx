@@ -6,7 +6,7 @@ import Text, { TextProps } from "@components/Text";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants } from "@/utils";
+import { strip, variants } from "@utils";
 
 export type FieldLabelProps = PrismaneProps<
   {

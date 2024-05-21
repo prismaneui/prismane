@@ -20,7 +20,7 @@ import {
 import { usePrismaneColor } from "../PrismaneProvider";
 import useFieldProps from "./useFieldProps";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 // Internal Components
 import FieldError, { FieldErrorProps } from "./FieldError";

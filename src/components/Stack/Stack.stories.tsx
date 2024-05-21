@@ -3,7 +3,7 @@ import React from "react";
 import Stack from "./Stack";
 import Button from "../Button/Button";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

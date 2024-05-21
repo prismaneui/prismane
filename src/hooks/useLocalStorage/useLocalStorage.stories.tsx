@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text, Button } from "../../components";
 import useLocalStorage from "./useLocalStorage";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

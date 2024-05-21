@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, TextField, List } from "../../components";
 import useSearch from "./useSearch";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

@@ -10,7 +10,7 @@ import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type AccordionControlProps = PrismaneProps<FlexProps, TransitionProps>;
 

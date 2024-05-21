@@ -4,7 +4,7 @@ import TextareaField from "./TextareaField";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

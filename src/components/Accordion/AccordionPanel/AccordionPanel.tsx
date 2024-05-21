@@ -8,7 +8,7 @@ import Animation, { AnimationProps } from "@components/Animation";
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type AccordionPanelProps = AnimationProps;
 

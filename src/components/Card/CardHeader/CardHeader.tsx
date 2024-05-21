@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type CardHeaderProps = FlexProps;
 

@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
-import { strip, fr, variants } from "@/utils";
+import { strip, fr, variants } from "@utils";
 
 export type TableCellProps = BoxProps<"td">;
 

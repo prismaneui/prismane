@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Button, Text } from "../../components";
 import useCounter from "./useCounter";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

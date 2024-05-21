@@ -7,7 +7,7 @@ import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@/utils";
+import { strip, fr, variants } from "@utils";
 
 export type TextareaFieldProps = PrismaneProps<
   { resize?: CSS.Properties["resize"] },

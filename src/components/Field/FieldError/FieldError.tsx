@@ -7,7 +7,7 @@ import Animation, { AnimationProps } from "@components/Animation";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type FieldErrorProps = PrismaneProps<
   {

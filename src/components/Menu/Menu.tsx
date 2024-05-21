@@ -10,7 +10,7 @@ import useAnimation from "@hooks/useAnimation";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 // Internal Components
 import MenuItem, { MenuItemProps } from "./MenuItem";

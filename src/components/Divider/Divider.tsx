@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneProps, PrismaneBreakpoints } from "@types";
 // Utils
-import { strip, variants } from "@/utils";
+import { strip, variants } from "@utils";
 
 export type DividerProps = PrismaneProps<
   {

@@ -5,7 +5,7 @@ import React, { forwardRef } from "react";
 import Flex, { FlexProps } from "@components/Flex";
 import Box from "@components/Box";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type ListItemProps = FlexProps<"li">;
 

@@ -8,7 +8,7 @@ import Flex from "../Flex/Flex";
 import Square from "../Square/Square";
 import Image from "../Image/Image";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

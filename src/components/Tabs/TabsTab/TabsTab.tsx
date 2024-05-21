@@ -9,7 +9,7 @@ import { useTabsContext } from "../TabsContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type TabsTabProps = PrismaneProps<
   { value: string; disabled?: boolean },

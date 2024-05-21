@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Button, { ButtonProps } from "@components/Button";
 // Utils
-import { fr, variants } from "@/utils";
+import { fr, variants } from "@utils";
 
 export type ActionButtonProps = ButtonProps;
 

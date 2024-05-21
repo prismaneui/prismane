@@ -1,7 +1,7 @@
 import { base as defaultTheme } from "./base";
 import { PrismaneTheme, PrismaneInputTheme, PrismaneMappedTheme } from "@types";
 // Utils
-import { mergeDeep } from "../utils";
+import { merge } from "@utils";
 
 export const transformColor = (color: string | undefined): string => {
   const hex = color?.split("#")[1].match(/.{1,2}/g);
@@ -71,7 +71,7 @@ export const extendTheme = (
   a: PrismaneTheme,
   b: PrismaneInputTheme
 ): PrismaneTheme => {
-  return mergeDeep(a, b);
+  return merge(a, b);
 };
 
 export const createTheme = (theme: PrismaneInputTheme): PrismaneTheme => {
