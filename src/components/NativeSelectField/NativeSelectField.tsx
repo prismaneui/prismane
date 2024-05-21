@@ -7,7 +7,7 @@ import Text from "@components/Text";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type NativeSelectFieldProps = PrismaneProps<
   {
@@ -36,9 +36,7 @@ const NativeSelectField = forwardRef<
         py={0}
         size={size as any}
         error={error}
-        className={strip(
-          `${className ? className : ""} PrismaneNativeSelectField-root`
-        )}
+        className={cx("PrismaneNativeSelectField-root", className)}
         data-testid="prismane-native-select-field"
         ref={ref}
         {...field}

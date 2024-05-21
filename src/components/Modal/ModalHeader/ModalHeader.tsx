@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useModalContext } from "../ModalContext";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type ModalHeaderProps = FlexProps;
 
@@ -21,9 +21,7 @@ const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
         justify="between"
         w="100%"
         mb={fr(3)}
-        className={strip(
-          `${className ? className : ""} PrismaneModalHeader-root`
-        )}
+        className={cx("PrismaneModalHeader-root", className)}
         data-testid="prismane-modal-header"
         ref={ref}
         {...props}

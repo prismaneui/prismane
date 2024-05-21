@@ -8,7 +8,7 @@ import { AccordionItemContextProvider } from "./AccordionItemContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type AccordionItemProps = PrismaneProps<
   {
@@ -28,9 +28,7 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
           theme.mode === "dark" ? ["base", 700] : ["base", 200]
         }
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
-        className={strip(
-          `${className ? className : ""} PrismaneAccordionItem-root`
-        )}
+        className={cx("PrismaneAccordionItem-root", className)}
         data-testid="prismane-accordion-item"
         ref={ref}
         {...props}

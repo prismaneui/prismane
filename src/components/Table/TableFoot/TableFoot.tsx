@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TableFootProps = BoxProps<"tfoot">;
 
@@ -15,9 +15,7 @@ const TableFoot = forwardRef<HTMLTableSectionElement, TableFootProps>(
         as="tfoot"
         fw="semibold"
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
-        className={strip(
-          `${className ? className : ""} PrismaneTableFoot-root`
-        )}
+        className={cx("PrismaneTableFoot-root", className)}
         data-testid="prismane-table-foot"
         ref={ref}
         {...props}

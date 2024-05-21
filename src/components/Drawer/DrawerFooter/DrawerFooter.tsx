@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type DrawerFooterProps = FlexProps;
 
@@ -17,9 +17,7 @@ const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
         mt="auto"
         pt={fr(6)}
         self="end"
-        className={strip(
-          `${className ? className : ""} PrismaneDrawerFooter-root`
-        )}
+        className={cx("PrismaneDrawerFooter-root", className)}
         data-testid="prismane-drawer-footer"
         ref={ref}
         {...props}

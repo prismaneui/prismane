@@ -17,7 +17,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type TooltipProps = PrismaneProps<
   {
@@ -134,7 +134,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               whiteSpace: "nowrap",
               ...sx,
             }}
-            className={strip(
+            className={cx(
               `${
                 className ? className : ""
               } PrismaneTooltip-root-${color} PrismaneTooltip-root-${position} PrismaneTooltip-root-${size} PrismaneTooltip-root`

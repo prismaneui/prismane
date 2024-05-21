@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type ImageProps = PrismaneProps<
   {
@@ -32,7 +32,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(
           objectFit: fit,
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneImage-root`)}
+        className={cx("PrismaneImage-root", className)}
         data-testid="prismane-image"
         ref={ref}
         {...props}

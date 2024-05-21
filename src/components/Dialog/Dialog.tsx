@@ -15,7 +15,7 @@ import { DialogContextProvider } from "./DialogContext";
 // Types
 import { PrismaneWithInternal, PrismanePositions, PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 // Internal Components
 import DialogHeader, { DialogHeaderProps } from "./DialogHeader";
@@ -154,11 +154,9 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>(
                 left: "slide-left",
                 "left-end": "slide-left",
               })}
-              className={strip(
-                `${className ? className : ""} ${
-                  open ? "PrismaneDialog-root-open" : ""
-                } PrismaneDialog-root`
-              )}
+              className={cx("PrismaneDialog-root", className, {
+                "PrismaneDialog-root-open": open,
+              })}
               data-testid="prismane-dialog"
               ref={ref}
               shadow

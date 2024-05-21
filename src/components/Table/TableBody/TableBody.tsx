@@ -8,7 +8,7 @@ import { usePrismaneColor } from "@/components/PrismaneProvider";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TableBodyProps = BoxProps<"tbody">;
 
@@ -38,9 +38,7 @@ const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
           },
           ...sx,
         }}
-        className={strip(
-          `${className ? className : ""} PrismaneTableBody-root`
-        )}
+        className={cx("PrismaneTableBody-root", className)}
         data-testid="prismane-table-body"
         ref={ref}
         {...props}

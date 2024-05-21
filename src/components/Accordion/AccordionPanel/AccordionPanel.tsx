@@ -8,7 +8,7 @@ import Animation, { AnimationProps } from "@components/Animation";
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type AccordionPanelProps = AnimationProps;
 
@@ -47,11 +47,9 @@ const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
           },
         }}
         animated={open}
-        className={strip(
-          `${className ? className : ""} ${
-            value === item ? "PrismaneAccordionPanel-root-active" : ""
-          } PrismaneAccordionPanel-root`
-        )}
+        className={cx("PrismaneAccordionPanel-root", className, {
+          "PrismaneAccordionPanel-root-active": value === item,
+        })}
         data-testid="prismane-accordion-panel"
         ref={ref}
         {...props}

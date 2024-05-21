@@ -12,7 +12,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -40,7 +40,7 @@ const Square: SquareComponent = forwardRef(
         as={Component}
         w={size}
         h={size}
-        className={strip(`${className ? className : ""} PrismaneSquare-root`)}
+        className={cx("PrismaneSquare-root", className)}
         data-testid="prismane-square"
         ref={ref}
         {...props}

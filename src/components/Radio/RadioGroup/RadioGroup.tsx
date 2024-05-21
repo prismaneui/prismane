@@ -10,7 +10,7 @@ import { RadioContextProvider } from "../RadioContext";
 // Types
 import { PrismaneFieldComponent } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type RadioGroupProps = PrismaneFieldComponent & FlexProps;
 
@@ -26,9 +26,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           {label}
         </Field.Label>
         <Flex
-          className={strip(
-            `${className ? className : ""} PrismaneRadioGroup-root`
-          )}
+          className={cx("PrismaneRadioGroup-root", className)}
           align="center"
           gap={fr(4)}
           data-testid="prismane-radio-group"

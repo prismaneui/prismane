@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type ContainerProps = PrismaneProps<
   {
@@ -32,11 +32,9 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         direction="column"
         maw={maxSize}
         grow
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneContainer-root-${maxSize} PrismaneContainer-root`
-        )}
+        className={cx("PrismaneContainer-root", className, {
+          [`PrismaneContainer-root-${maxSize}`]: true,
+        })}
         data-testid="prismane-container"
         ref={ref}
         {...props}

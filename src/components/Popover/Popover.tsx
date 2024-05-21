@@ -11,7 +11,7 @@ import useOutsideClick from "@hooks/useOutsideClick";
 // Types
 import { PrismanePositions, PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 // Internal Components
 import PopoverControl, { PopoverControlProps } from "./PopoverControl";
@@ -42,11 +42,9 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         w="fit-content"
         h="fit-content"
         pos="relative"
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismanePopover-root-${position} PrismanePopover-root`
-        )}
+        className={cx("PrismanePopover-root", className, {
+          [`PrismanePopover-root-${position}`]: true,
+        })}
         data-testid="prismane-popover"
         ref={boxRef}
         {...props}

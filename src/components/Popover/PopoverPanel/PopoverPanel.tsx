@@ -11,7 +11,7 @@ import useAnimation from "@hooks/useAnimation";
 import usePresence from "@hooks/usePresence";
 
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type PopoverPanelProps = AnimationProps & PaperProps;
 
@@ -84,11 +84,9 @@ const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
               whiteSpace: "nowrap",
               ...sx,
             }}
-            className={strip(
-              `${className ? className : ""} ${
-                open ? "PrismanePopoverPanel-root-open" : ""
-              } PrismanePopoverPanel-root`
-            )}
+            className={cx("PrismanePopoverPanel-root", className, {
+              "PrismanePopoverPanel-root-open": open,
+            })}
             data-testid="prismane-popover-panel"
             ref={ref}
             {...props}

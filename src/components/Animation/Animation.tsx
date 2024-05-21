@@ -12,7 +12,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export interface Animation {
   in: object;
@@ -146,9 +146,7 @@ const Animation: AnimationComponent = forwardRef(
     return (
       <Transition
         as={Component}
-        className={strip(
-          `${className ? className : ""} PrismaneAnimation-root`
-        )}
+        className={cx("PrismaneAnimation-root", className)}
         transition={transition}
         duration={duration}
         delay={delay}

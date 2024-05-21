@@ -18,7 +18,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type AvatarProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -76,11 +76,9 @@ const Avatar: AvatarComponent = forwardRef(
           overflow: "hidden",
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneAvatar-root-${size} PrismaneAvatar-root`
-        )}
+        className={cx("PrismaneAvatar-root", className, {
+          [`PrismaneAvatar-root-${size}`]: true,
+        })}
         ref={ref}
         data-testid="prismane-avatar"
         {...props}

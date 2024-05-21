@@ -7,7 +7,7 @@ import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type TextareaFieldProps = PrismaneProps<
   { resize?: CSS.Properties["resize"] },
@@ -63,9 +63,7 @@ const TextareaField = forwardRef<
           },
           ...sx,
         }}
-        className={strip(
-          `${className ? className : ""} PrismaneTextareaField-root`
-        )}
+        className={cx("PrismaneTextareaField-root", className)}
         data-testid="prismane-textarea-field"
         ref={ref}
         {...field}

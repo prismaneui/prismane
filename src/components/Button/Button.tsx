@@ -16,7 +16,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
   E,
@@ -178,11 +178,11 @@ const Button: ButtonComponent = forwardRef(
           }),
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneButton-${size} PrismaneButton-${color} PrismaneButton-${variant} PrismaneButton-root`
-        )}
+        className={cx("PrismaneButton-root", className, {
+          [`PrismaneButton-${size}`]: true,
+          [`PrismaneButton-${color}`]: true,
+          [`PrismaneButton-${variant}`]: true,
+        })}
         type={type}
         disabled={loading || disabled}
         ref={ref}
@@ -201,7 +201,7 @@ const Button: ButtonComponent = forwardRef(
             sx={{
               order: iconPosition === "right" ? 1 : -1,
             }}
-            className="PrismaneButton-icon"
+            className={"PrismaneButton-icon"}
           >
             {icon}
           </Icon>
@@ -209,7 +209,7 @@ const Button: ButtonComponent = forwardRef(
         {loading && <Spinner size={size} />}
         {children && (
           <Text
-            className="PrismaneButton-text"
+            className={"PrismaneButton-text"}
             cl="inherit"
             fs={variants(size, {
               xs: "xs",

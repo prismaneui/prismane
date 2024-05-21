@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip, fr, variants } from "@utils";
+import { cx, fr, variants } from "@utils";
 
 export type SkeletonProps = {
   variant?: "circular" | "rounded" | "rectangular";
@@ -26,11 +26,9 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
           animation: "prismane-pulse linear 2s infinite",
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneSkeleton-root-${variant} PrismaneSkeleton-root`
-        )}
+        className={cx("PrismaneSkeleton-root", className, {
+          [`PrismaneSkeleton-root-${variant}`]: true,
+        })}
         data-testid="prismane-skeleton"
         ref={ref}
         {...props}

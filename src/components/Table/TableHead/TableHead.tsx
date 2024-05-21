@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TableHeadProps = BoxProps<"thead">;
 
@@ -15,9 +15,7 @@ const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
         as="thead"
         fw="semibold"
         cl={(theme) => (theme.mode === "dark" ? ["base", 200] : ["base", 700])}
-        className={strip(
-          `${className ? className : ""} PrismaneTableHead-root`
-        )}
+        className={cx("PrismaneTableHead-root", className)}
         data-testid="prismane-table-head"
         ref={ref}
         {...props}

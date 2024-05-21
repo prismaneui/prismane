@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useDrawerContext } from "../DrawerContext";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type DrawerHeaderProps = FlexProps;
 
@@ -21,9 +21,7 @@ const DrawerHeader = forwardRef<HTMLDivElement, DrawerHeaderProps>(
         justify="between"
         w="100%"
         mb={fr(3)}
-        className={strip(
-          `${className ? className : ""} PrismaneDrawerHeader-root`
-        )}
+        className={cx("PrismaneDrawerHeader-root", className)}
         data-testid="prismane-drawer-header"
         ref={ref}
         {...props}

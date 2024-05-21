@@ -8,7 +8,7 @@ import useDebounce from "@hooks/useDebounce";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type AutocompleteFieldProps = PrismaneProps<
   {
@@ -50,9 +50,7 @@ const AutocompleteField = forwardRef<
     <SelectField
       readOnly={false}
       options={filtered}
-      className={strip(
-        `${className ? className : ""} PrismaneAutocompleteField-root`
-      )}
+      className={cx("PrismaneAutocompleteField-root", className)}
       data-testid="prismane-autocomplete-field"
       ref={ref}
       {...props}

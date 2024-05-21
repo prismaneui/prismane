@@ -6,7 +6,7 @@ import Square, { SquareProps } from "@components/Square";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, dual, fr } from "@utils";
+import { cx, dual, fr } from "@utils";
 
 export type IconProps = PrismaneProps<
   {
@@ -26,11 +26,9 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
           md: fr(7),
           lg: fr(8),
         })}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneIcon-root-${size} PrismaneIcon-root`
-        )}
+        className={cx("PrismaneIcon-root", className, {
+          [`PrismaneIcon-root-${size}`]: true,
+        })}
         sx={{
           fontSize: dual(size, {
             xs: fr(4),

@@ -6,7 +6,7 @@ import Text, { TextProps } from "@components/Text";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants } from "@utils";
+import { cx, variants } from "@utils";
 
 export type FieldLabelProps = PrismaneProps<
   {
@@ -40,9 +40,7 @@ const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(
               justifyContent: "space-between",
               ...sx,
             }}
-            className={strip(
-              `${className ? className : ""} PrismaneFieldLabel-root`
-            )}
+            className={cx("PrismaneFieldLabel-root", className)}
             data-testid="prismane-field-label"
             ref={ref}
             {...props}

@@ -19,7 +19,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, dual, fr } from "@utils";
+import { cx, variants, dual, fr } from "@utils";
 // Internal Components
 import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader";
 import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter";
@@ -145,11 +145,9 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
               onClick={(e: any) => {
                 e.stopPropagation();
               }}
-              className={strip(
-                `${className ? className : ""} ${
-                  open ? "PrismaneDrawer-root-open" : ""
-                } PrismaneDrawer-root`
-              )}
+              className={cx("PrismaneDrawer-root", className, {
+                "PrismaneDrawer-root-open": open,
+              })}
               data-testid="prismane-drawer"
               ref={ref}
               {...props}

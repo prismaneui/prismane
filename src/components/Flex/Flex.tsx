@@ -11,7 +11,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants } from "@utils";
+import { cx, variants } from "@utils";
 
 export type FlexProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -100,7 +100,7 @@ const Flex: FlexComponent = forwardRef(
           gap: gap,
           ...sx,
         }}
-        className={strip(`${className ? className : ""} PrismaneFlex-root`)}
+        className={cx("PrismaneFlex-root", className)}
         data-testid="prismane-flex"
         ref={ref}
         {...props}

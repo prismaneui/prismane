@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useDialogContext } from "../DialogContext";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type DialogHeaderProps = FlexProps;
 
@@ -21,9 +21,7 @@ const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
         justify="between"
         w="100%"
         mb={fr(2)}
-        className={strip(
-          `${className ? className : ""} PrismaneDialogHeader-root`
-        )}
+        className={cx("PrismaneDialogHeader-root", className)}
         data-testid="prismane-dialog-header"
         ref={ref}
         {...props}

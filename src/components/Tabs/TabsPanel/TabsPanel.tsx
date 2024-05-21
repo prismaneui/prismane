@@ -8,7 +8,7 @@ import { useTabsContext } from "../TabsContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type TabsPanelProps = PrismaneProps<{ value: string }, FlexProps>;
 
@@ -23,9 +23,7 @@ const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(
             w="100%"
             h="100%"
             grow
-            className={strip(
-              `${className ? className : ""} PrismaneTabsPanel-root`
-            )}
+            className={cx("PrismaneTabsPanel-root", className)}
             data-testid="prismane-tabs-panel"
             ref={ref}
             {...props}

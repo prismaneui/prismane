@@ -8,7 +8,7 @@ import useMediaQuery from "@hooks/useMediaQuery/useMediaQuery";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, dual, fr } from "@utils";
+import { cx, dual, fr } from "@utils";
 
 export type ShowProps = PrismaneProps<
   {
@@ -32,7 +32,7 @@ const Show = forwardRef<HTMLDivElement, ShowProps>(
     return (
       <Box
         dp={shown ? "flex" : "none"}
-        className={strip(`${className ? className : ""} PrismaneShow-root`)}
+        className={cx("PrismaneShow-root", className)}
         data-testid="prismane-show"
         ref={ref}
         {...props}

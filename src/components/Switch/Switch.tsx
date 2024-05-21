@@ -10,7 +10,7 @@ import Hidden from "@components/Hidden";
 // Types
 import { PrismaneFieldComponent } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 
@@ -58,11 +58,9 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
               cursor: "pointer",
               ...sx,
             }}
-            className={strip(
-              `${className ? className : ""} ${
-                field.value ? "PrismaneSwitch-root-active" : ""
-              } PrismaneSwitch-root`
-            )}
+            className={cx("PrismaneSwitch-root", className, {
+              "PrismaneSwitch-root-active": field.value,
+            })}
           >
             <Hidden>
               <Field

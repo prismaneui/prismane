@@ -13,7 +13,7 @@ import { PRISMANE_DEFAULT_COLORS_MAP } from "@/constants";
 // Types
 import { PrismaneColors, PrismaneProps } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type ColorFieldProps = PrismaneProps<
   {
@@ -88,9 +88,7 @@ const ColorField = forwardRef<
           },
           ...sx,
         }}
-        className={strip(
-          `${className ? className : ""} PrismaneColorField-root`
-        )}
+        className={cx("PrismaneColorField-root", className)}
         data-testid="prismane-color-field"
         ref={ref}
         {...props}

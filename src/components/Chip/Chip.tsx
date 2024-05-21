@@ -9,7 +9,7 @@ import Text from "@components/Text";
 // Types
 import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 export type ChipProps = PrismaneProps<
   {
@@ -67,11 +67,10 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
           gap: fr(1.5),
           ...sx,
         }}
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneChip-root-${size} PrismaneChip-root-${color} PrismaneChip-root`
-        )}
+        className={cx("PrismaneChip-root", className, {
+          [`PrismaneChip-root-${size}`]: true,
+          [`PrismaneChip-root-${color}`]: true,
+        })}
         data-testid="prismane-chip"
         ref={ref}
         {...props}

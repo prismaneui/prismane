@@ -10,7 +10,7 @@ import useAnimation from "@hooks/useAnimation";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@utils";
+import { cx, fr } from "@utils";
 
 // Internal Components
 import MenuItem, { MenuItemProps } from "./MenuItem";
@@ -51,11 +51,9 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>(
             animated={animating}
             duration={duration}
             timing={timing}
-            className={strip(
-              `${className ? className : ""} ${
-                open ? "PrismaneMenu-root-open" : ""
-              } PrismaneMenu-root`
-            )}
+            className={cx("PrismaneMenu-root", className, {
+              "PrismaneMenu-root-open": open,
+            })}
             data-testid="prismane-menu"
             role="menu"
             ref={ref}

@@ -20,7 +20,7 @@ import {
 import { usePrismaneColor } from "../PrismaneProvider";
 import useFieldProps from "./useFieldProps";
 // Utils
-import { strip, variants, fr } from "@utils";
+import { cx, variants, fr } from "@utils";
 
 // Internal Components
 import FieldError, { FieldErrorProps } from "./FieldError";
@@ -142,11 +142,10 @@ const Field = forwardRef(
         pe={disabled && "none"}
         op={disabled ? 0.4 : 1}
         of="hidden"
-        className={strip(
-          `${
-            className ? className : ""
-          } PrismaneField-root-${size} PrismaneField-root-${variant} PrismaneField-root`
-        )}
+        className={cx("PrismaneField-root", className, {
+          [`PrismaneField-root-${size}`]: true,
+          [`PrismaneField-root-${variant}`]: true,
+        })}
         {...rest}
       >
         {icon && (
@@ -192,7 +191,7 @@ const Field = forwardRef(
                   : getColor("base", 800),
             }),
           }}
-          className={strip(`${className ? className : ""} PrismaneField-field`)}
+          className={cx("PrismaneField-field", className)}
           data-testid="prismane-field"
           ref={ref}
           {...field}

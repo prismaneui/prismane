@@ -7,7 +7,7 @@ import Box from "@components/Box";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type CollapseProps = PrismaneProps<
   {
@@ -22,11 +22,9 @@ const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
     return (
       <Animation
-        className={strip(
-          `${className ? className : ""} ${
-            open ? "PrismaneCollapse-root-open" : ""
-          } PrismaneCollapse-root`
-        )}
+        className={cx("PrismaneCollapse-root", className, {
+          "PrismaneCollapse-root-open": open,
+        })}
         of="hidden"
         animation={{
           in: {

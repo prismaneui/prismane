@@ -6,7 +6,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { usePopoverContext } from "../PopoverContext";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type PopoverControlProps = FlexProps;
 
@@ -19,11 +19,9 @@ const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
         onClick={() => {
           setOpen(!open);
         }}
-        className={strip(
-          `${className ? className : ""} ${
-            open ? "PrismanePopoverControl-root-open" : ""
-          } PrismanePopoverControl-root`
-        )}
+        className={cx("PrismanePopoverControl-root", className, {
+          "PrismanePopoverControl-root-open": open,
+        })}
         data-testid="prismane-popover-control"
         ref={ref}
         {...props}

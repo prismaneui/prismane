@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Center, { CenterProps } from "@components/Center";
 // Utils
-import { strip } from "@utils";
+import { cx } from "@utils";
 
 export type BackdropProps = CenterProps;
 
@@ -23,7 +23,7 @@ const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
         bg={(theme) =>
           theme.mode === "dark" ? ["base", 900, 0.2] : ["base", 500, 0.2]
         }
-        className={strip(`${className ? className : ""} PrismaneBackdrop-root`)}
+        className={cx("PrismaneBackdrop-root", className)}
         ref={ref}
         data-testid="prismane-backdrop"
         {...props}

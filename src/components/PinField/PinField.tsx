@@ -10,7 +10,7 @@ import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { fr } from "@utils";
+import { cx, fr } from "@utils";
 
 export type PinFieldProps = PrismaneProps<
   {
@@ -25,7 +25,15 @@ const PinField = forwardRef<
   PinFieldProps
 >(
   (
-    { size = "base", label, error, length = 4, masked = false, ...props },
+    {
+      size = "base",
+      label,
+      error,
+      length = 4,
+      masked = false,
+      className,
+      ...props
+    },
     ref
   ) => {
     const [rest, field] = useFieldProps(props);
@@ -130,6 +138,7 @@ const PinField = forwardRef<
                 },
                 aspectRatio: "1/1",
               }}
+              className={cx("PrismanePinField-root", className)}
               key={index}
               ref={(el: any) => (fieldRefs.current[index] = el) as any}
             />
