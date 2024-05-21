@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text } from "../../..";
 import usePrismaneColor from "../usePrismaneColor/usePrismaneColor";
-import { fr } from "../@utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],
