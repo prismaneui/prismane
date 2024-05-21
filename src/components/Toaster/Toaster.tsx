@@ -9,7 +9,7 @@ import { ToasterContextProvider } from "./ToasterContext";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@/utils";
+import { strip, fr, variants } from "@utils";
 
 // Internal Components
 import Toast from "./Toast";

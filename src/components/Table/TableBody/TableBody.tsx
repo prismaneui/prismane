@@ -8,7 +8,7 @@ import { usePrismaneColor } from "@/components/PrismaneProvider";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type TableBodyProps = BoxProps<"tbody">;
 

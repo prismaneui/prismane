@@ -1,7 +1,7 @@
 import { PrismaneTheme } from "@types";
 import { PRISMANE_COLORS } from "../constants";
 // Utils
-import { fr } from "../utils";
+import { fr } from "@utils";
 
 export const base: PrismaneTheme = {
   mode: "light",

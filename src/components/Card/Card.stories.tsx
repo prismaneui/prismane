@@ -20,7 +20,7 @@ import Avatar from "../Avatar/Avatar";
 import ActionButton from "../ActionButton/ActionButton";
 import Stack from "../Stack/Stack";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useDialogContext } from "../DialogContext";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type DialogHeaderProps = FlexProps;
 

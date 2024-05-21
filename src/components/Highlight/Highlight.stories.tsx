@@ -3,7 +3,7 @@ import React from "react";
 import Highlight from "./Highlight";
 import Text from "../Text/Text";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

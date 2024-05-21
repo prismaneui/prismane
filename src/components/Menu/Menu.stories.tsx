@@ -12,7 +12,7 @@ import Menu from "../Menu/Menu";
 import Stack from "../Stack/Stack";
 import Button from "../Button/Button";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

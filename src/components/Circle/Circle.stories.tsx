@@ -3,7 +3,7 @@ import { Wrench } from "@phosphor-icons/react";
 // Components
 import Circle from "./Circle";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

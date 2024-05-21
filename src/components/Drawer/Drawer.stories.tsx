@@ -10,7 +10,7 @@ import Radio from "../Radio/Radio";
 import Flex from "../Flex/Flex";
 import Stack from "../Stack/Stack";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

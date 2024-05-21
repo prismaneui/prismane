@@ -7,7 +7,7 @@ import Flex, { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type FieldAddonProps = PrismaneProps<
   {

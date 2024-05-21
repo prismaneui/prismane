@@ -19,7 +19,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, dual, fr } from "@/utils";
+import { strip, variants, dual, fr } from "@utils";
 // Internal Components
 import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader";
 import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter";

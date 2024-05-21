@@ -7,7 +7,7 @@ import CloseButton from "@components/CloseButton";
 // Context
 import { useDrawerContext } from "../DrawerContext";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type DrawerHeaderProps = FlexProps;
 

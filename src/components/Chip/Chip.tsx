@@ -9,7 +9,7 @@ import Text from "@components/Text";
 // Types
 import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type ChipProps = PrismaneProps<
   {

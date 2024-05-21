@@ -11,7 +11,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
   E,

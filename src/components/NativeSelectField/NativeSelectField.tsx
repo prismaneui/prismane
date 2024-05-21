@@ -7,7 +7,7 @@ import Text from "@components/Text";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type NativeSelectFieldProps = PrismaneProps<
   {

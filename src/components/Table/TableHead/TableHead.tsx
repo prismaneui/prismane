@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type TableHeadProps = BoxProps<"thead">;
 

@@ -10,7 +10,7 @@ import Hidden from "@components/Hidden";
 // Types
 import { PrismaneFieldComponent } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
 

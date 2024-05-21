@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Flex, Text, Field } from "../../components";
 import useDebounce from "./useDebounce";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

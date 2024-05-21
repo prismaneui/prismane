@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Flex, Button } from "../../components";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 import useId from "./useId";
 
 export default {

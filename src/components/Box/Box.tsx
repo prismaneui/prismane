@@ -15,7 +15,7 @@ import {
   PrismaneVersatileRef,
 } from "@types";
 // Utils
-import { strip, dual, fr } from "@/utils";
+import { strip, dual, fr } from "@utils";
 
 export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

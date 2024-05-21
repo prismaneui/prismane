@@ -15,6 +15,7 @@ export default defineConfig({
       "@themes": resolve(__dirname, "./src/themes"),
       "@validators": resolve(__dirname, "./src/validators"),
       "@types": resolve(__dirname, "./src/types"),
+      "@utils": resolve(__dirname, "./src/utils"),
     },
   },
 });

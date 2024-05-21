@@ -13,7 +13,7 @@ import {
   PrismaneShades,
 } from "@types";
 // Utils
-import { strip, fr, dual } from "@/utils";
+import { strip, fr, dual } from "@utils";
 
 export type ProgressProps = PrismaneProps<
   {

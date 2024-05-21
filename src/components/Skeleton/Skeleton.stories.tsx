@@ -3,7 +3,7 @@ import React from "react";
 import Skeleton from "./Skeleton";
 import Stack from "../Stack";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

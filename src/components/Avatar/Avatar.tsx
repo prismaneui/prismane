@@ -18,7 +18,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 export type AvatarProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

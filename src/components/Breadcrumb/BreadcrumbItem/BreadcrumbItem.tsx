@@ -7,7 +7,7 @@ import Link from "@components/Link";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
   PrismaneVersatile<E, FlexProps>;

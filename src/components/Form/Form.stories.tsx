@@ -8,7 +8,7 @@ import Flex from "../Flex/Flex";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 import { required, min } from "../../validators";
 
 export default {

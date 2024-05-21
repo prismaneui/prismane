@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "../../components";
 import useDraggable from "./useDraggable";
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

@@ -8,7 +8,7 @@ import { TabsContextProvider } from "./TabsContext";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 // Internal Components
 import TabsList, { TabsListProps } from "./TabsList";

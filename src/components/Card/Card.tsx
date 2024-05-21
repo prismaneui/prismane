@@ -11,7 +11,7 @@ import {
   PrismaneVersatileRef,
 } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 // Internal Components
 import CardHeader, { CardHeaderProps } from "./CardHeader";

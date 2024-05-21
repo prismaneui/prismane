@@ -12,7 +12,7 @@ import {
   PrismaneProps,
 } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

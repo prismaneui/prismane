@@ -5,7 +5,7 @@ import Center from "./Center";
 import Text from "../Text";
 import Link from "../Link";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

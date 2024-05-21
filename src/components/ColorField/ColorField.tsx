@@ -13,7 +13,7 @@ import { PRISMANE_DEFAULT_COLORS_MAP } from "@/constants";
 // Types
 import { PrismaneColors, PrismaneProps } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 export type ColorFieldProps = PrismaneProps<
   {

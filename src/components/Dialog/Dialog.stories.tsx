@@ -6,7 +6,7 @@ import Radio from "../Radio/Radio";
 import Stack from "../Stack/Stack";
 import Text from "../Text/Text";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

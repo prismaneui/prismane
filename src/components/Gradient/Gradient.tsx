@@ -16,7 +16,7 @@ import {
   PrismaneShades,
 } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

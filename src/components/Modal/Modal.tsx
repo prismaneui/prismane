@@ -15,7 +15,7 @@ import { ModalContextProvider } from "./ModalContext";
 // Types
 import { PrismaneProps, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, fr } from "@/utils";
+import { strip, fr } from "@utils";
 
 // Internal Components
 import ModalHeader, { ModalHeaderProps } from "./ModalHeader";

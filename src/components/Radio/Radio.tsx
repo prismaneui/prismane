@@ -14,7 +14,7 @@ import useId from "@hooks/useId";
 // Types
 import { PrismaneFieldComponent, PrismaneWithInternal } from "@types";
 // Utils
-import { strip, variants, fr } from "@/utils";
+import { strip, variants, fr } from "@utils";
 
 // Internal Components
 import RadioGroup, { RadioGroupProps } from "./RadioGroup";

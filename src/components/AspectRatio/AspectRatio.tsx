@@ -6,7 +6,7 @@ import Box, { BoxProps } from "@components/Box";
 // Types
 import { PrismaneStyles, PrismaneProps } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type AspectRatioProps = PrismaneProps<
   {

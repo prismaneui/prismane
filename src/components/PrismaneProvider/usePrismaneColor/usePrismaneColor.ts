@@ -11,7 +11,7 @@ import {
 // Types
 import { PrismaneColors, PrismaneShades, PrismaneTheme } from "@types";
 // Utils
-import { parse } from "@/utils";
+import { parse } from "@utils";
 
 const usePrismaneColor: any = () => {
   const { theme } = usePrismaneTheme();

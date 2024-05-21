@@ -8,7 +8,7 @@ import { AccordionContextProvider } from "./AccordionContext";
 // Types
 import { PrismaneWithInternal, PrismaneProps } from "@types";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 // Internal Components
 import AccordionControl, { AccordionControlProps } from "./AccordionControl";

@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Icon, { IconProps } from "@components/Icon";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type MenuIconProps = Omit<IconProps, "size">;
 

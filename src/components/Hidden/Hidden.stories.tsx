@@ -8,7 +8,7 @@ import Flex from "../Flex/Flex";
 import Text from "../Text/Text";
 import Box from "../Box/Box";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

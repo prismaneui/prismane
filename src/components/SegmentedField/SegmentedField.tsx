@@ -11,7 +11,7 @@ import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
 import { PrismaneProps } from "@types";
 // Utils
-import { variants, fr } from "@/utils";
+import { variants, fr } from "@utils";
 
 export type SegmentedFieldProps = PrismaneProps<
   {

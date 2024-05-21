@@ -4,7 +4,7 @@ import Collapse from "../Collapse/Collapse";
 import Button from "../Button/Button";
 import Stack from "../Stack/Stack";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

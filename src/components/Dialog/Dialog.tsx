@@ -15,7 +15,7 @@ import { DialogContextProvider } from "./DialogContext";
 // Types
 import { PrismaneWithInternal, PrismanePositions, PrismaneProps } from "@types";
 // Utils
-import { strip, fr, variants } from "@/utils";
+import { strip, fr, variants } from "@utils";
 
 // Internal Components
 import DialogHeader, { DialogHeaderProps } from "./DialogHeader";

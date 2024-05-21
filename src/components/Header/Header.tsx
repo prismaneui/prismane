@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Flex, { FlexProps } from "@components/Flex";
 // Utils
-import { strip } from "@/utils";
+import { strip } from "@utils";
 
 export type HeaderProps = FlexProps<"header">;
 

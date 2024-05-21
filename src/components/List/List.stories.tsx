@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from "@phosphor-icons/react";
 // Components
 import List from "./List";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

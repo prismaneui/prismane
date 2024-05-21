@@ -5,7 +5,7 @@ import { X } from "@phosphor-icons/react";
 // Components
 import ActionButton, { ActionButtonProps } from "@components/ActionButton";
 // Utils
-import { variants } from "@/utils";
+import { variants } from "@utils";
 
 export type CloseButtonProps = ActionButtonProps;
 

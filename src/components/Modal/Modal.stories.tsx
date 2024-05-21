@@ -7,7 +7,7 @@ import Form from "../Form/Form";
 import TextField from "../TextField/TextField";
 import PasswordField from "../PasswordField/PasswordField";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],

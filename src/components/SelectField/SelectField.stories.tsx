@@ -5,7 +5,7 @@ import Flex from "../Flex/Flex";
 // Hooks
 import useForm from "../../hooks/useForm";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@utils";
 
 export default {
   tags: ["autodocs"],
