@@ -7,9 +7,9 @@ import Paper from "@components/Paper";
 import Portal from "@components/Portal";
 import Backdrop from "@components/Backdrop";
 // Hooks
-import usePresence from "@/hooks/usePresence";
-import useAnimation from "@/hooks/useAnimation";
-import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
+import usePresence from "@hooks/usePresence";
+import useAnimation from "@hooks/useAnimation";
+import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
 // Context
 import { DialogContextProvider } from "./DialogContext";
 // Types

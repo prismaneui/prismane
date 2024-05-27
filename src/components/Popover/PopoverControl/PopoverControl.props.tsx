@@ -1,4 +1,4 @@
 // Components Props
-import { FlexProps } from "@/components/Flex";
+import { FlexProps } from "@components/Flex";
 
 export type PopoverControlProps = FlexProps;

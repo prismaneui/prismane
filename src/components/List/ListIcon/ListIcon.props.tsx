@@ -1,4 +1,4 @@
 // Components Props
-import { IconProps } from "@/components/Icon";
+import { IconProps } from "@components/Icon";
 
 export type ListIconProps = IconProps;

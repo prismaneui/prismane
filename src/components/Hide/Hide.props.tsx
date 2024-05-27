@@ -1,7 +1,7 @@
 // Components Props
-import { BoxProps } from "@/components/Box";
+import { BoxProps } from "@components/Box";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 
 export type HideProps = PrismaneProps<
   {

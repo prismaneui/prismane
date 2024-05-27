@@ -1,7 +1,7 @@
 // Components Props
-import { FlexProps } from "@/components/Flex";
+import { FlexProps } from "@components/Flex";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 
 export type ContainerProps = PrismaneProps<
   {

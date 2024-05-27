@@ -1,6 +1,6 @@
 // Components Props
-import { BoxProps } from "@/components/Box";
-import { PrismaneProps } from "@/types";
+import { BoxProps } from "@components/Box";
+import { PrismaneProps } from "@types";
 
 export type PortalProps = PrismaneProps<
   {

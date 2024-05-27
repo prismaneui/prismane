@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 // Components
 import Box from "@components/Box";
 // Hooks
-import { usePrismaneColor } from "@/components/PrismaneProvider";
+import { usePrismaneColor } from "@components/PrismaneProvider";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils

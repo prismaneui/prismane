@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 // Components
 import Flex from "@components/Flex";
-import Link from "@/components/Link";
+import Link from "@components/Link";
 // Types
 import { PrismaneVersatileRef, Versatile } from "@types";
 // Utils

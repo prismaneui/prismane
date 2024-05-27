@@ -1,7 +1,7 @@
 // Components Props
-import { TextProps } from "@/components/Text";
+import { TextProps } from "@components/Text";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 
 export type FieldLabelProps = PrismaneProps<
   {

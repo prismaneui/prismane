@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 // Component Props
-import { FlexProps } from "@/components/Flex";
-import { TransitionProps } from "@/components/Transition";
+import { FlexProps } from "@components/Flex";
+import { TransitionProps } from "@components/Transition";
 // Types
-import { PrismaneBreakpoints, PrismaneColors, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneColors, PrismaneProps } from "@types";
 
 export type ChipProps = PrismaneProps<
   {

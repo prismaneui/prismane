@@ -1,12 +1,12 @@
 // Component Props
-import { CenterProps } from "@/components/Center";
+import { CenterProps } from "@components/Center";
 // Types
 import {
   PrismaneProps,
   PrismaneStyles,
   PrismaneVersatile,
   Versatile,
-} from "@/types";
+} from "@types";
 
 export type CircleProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

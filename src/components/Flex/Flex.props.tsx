@@ -1,5 +1,5 @@
 // Components Props
-import { BoxProps } from "@/components/Box";
+import { BoxProps } from "@components/Box";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneProps } from "@types";
 

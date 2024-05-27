@@ -1,8 +1,8 @@
 // Component Props
-import { FlexProps } from "@/components/Flex";
-import { TransitionProps } from "@/components/Transition";
+import { FlexProps } from "@components/Flex";
+import { TransitionProps } from "@components/Transition";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 
 export type FieldAddonProps = PrismaneProps<
   {

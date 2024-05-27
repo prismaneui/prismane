@@ -1,5 +1,5 @@
 // Component Props
-import { CircleProps } from "@/components/Circle";
+import { CircleProps } from "@components/Circle";
 // Types
 import {
   PrismaneColors,

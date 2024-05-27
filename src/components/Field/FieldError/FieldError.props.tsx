@@ -1,8 +1,8 @@
 // Components Props
-import { AnimationProps } from "@/components/Animation";
-import { FlexProps } from "@/components/Flex";
+import { AnimationProps } from "@components/Animation";
+import { FlexProps } from "@components/Flex";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "@/types";
+import { PrismaneBreakpoints, PrismaneProps } from "@types";
 
 export type FieldErrorProps = PrismaneProps<
   {

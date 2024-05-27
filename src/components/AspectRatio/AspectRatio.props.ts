@@ -1,7 +1,7 @@
 // Components Props
-import { BoxProps } from "@/components/Box";
+import { BoxProps } from "@components/Box";
 // Types
-import { PrismaneProps, PrismaneStyles } from "@/types";
+import { PrismaneProps, PrismaneStyles } from "@types";
 
 export type AspectRatioProps = PrismaneProps<
   {
