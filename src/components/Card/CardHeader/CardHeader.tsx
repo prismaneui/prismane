@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
 
-export type CardHeaderProps = FlexProps;
+import { CardHeaderProps } from "./CardHeader.props";
 
 const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className, ...props }, ref) => {

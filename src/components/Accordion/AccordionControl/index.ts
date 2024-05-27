@@ -1,1 +1,2 @@
-export { default, type AccordionControlProps } from "./AccordionControl";
+export { default } from "./AccordionControl";
+export type { AccordionControlProps } from "./AccordionControl.props";

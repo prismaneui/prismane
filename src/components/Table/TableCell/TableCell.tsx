@@ -2,13 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type TableCellProps = BoxProps<"td">;
+// Props
+import { TableCellProps } from "./TableCell.props";
 
 const TableCell = forwardRef<HTMLTableSectionElement, TableCellProps>(
   ({ children, className, ...props }, ref) => {

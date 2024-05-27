@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-
-export type CardFooterProps = FlexProps;
+// Props
+import { CardFooterProps } from "./CardFooter.props";
 
 const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ children, className, ...props }, ref) => {

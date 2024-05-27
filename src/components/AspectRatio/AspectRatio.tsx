@@ -2,19 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
-// Types
-import { PrismaneStyles, PrismaneProps } from "@types";
+import Box from "@components/Box";
 // Utils
 import { cx } from "@utils";
-
-export type AspectRatioProps = PrismaneProps<
-  {
-    ratio?: string;
-    size?: PrismaneStyles;
-  },
-  BoxProps
->;
+// Props
+import { AspectRatioProps } from "./AspectRatio.props";
 
 const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
   ({ ratio, size, children, className, style, ...props }, ref) => {

@@ -1,34 +1,15 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef } from "react";
 // Components
 import Box from "@components/Box";
-import Center, { CenterProps } from "@components/Center";
+import Center from "@components/Center";
 // Types
-import {
-  PrismaneColors,
-  PrismanePositions,
-  PrismaneBreakpoints,
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { PrismaneVersatileRef, Versatile } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      label?: ReactNode;
-      position?: PrismanePositions;
-      color?: PrismaneColors;
-      size?: PrismaneBreakpoints;
-    },
-    CenterProps
-  >
->;
+// Props
+import { BadgeProps } from "./Badge.props";
 
 type BadgeComponent = <E extends Versatile = "div">(
   props: BadgeProps<E>

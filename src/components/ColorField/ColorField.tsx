@@ -2,7 +2,7 @@
 
 import React, { forwardRef } from "react";
 // Components
-import SelectField, { SelectFieldProps } from "@components/SelectField";
+import SelectField from "@components/SelectField";
 import Field from "@components/Field";
 import Circle from "@components/Circle";
 import Transition from "@components/Transition";
@@ -10,17 +10,10 @@ import Transition from "@components/Transition";
 import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Globals
 import { PRISMANE_DEFAULT_COLORS_MAP } from "@/constants";
-// Types
-import { PrismaneColors, PrismaneProps } from "@types";
 // Utils
 import { cx, fr } from "@utils";
-
-export type ColorFieldProps = PrismaneProps<
-  {
-    options?: PrismaneColors[] | string[];
-  },
-  SelectFieldProps
->;
+// Props
+import { ColorFieldProps } from "./ColorField.props";
 
 const ColorField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

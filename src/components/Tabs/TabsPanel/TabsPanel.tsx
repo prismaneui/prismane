@@ -2,15 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type TabsPanelProps = PrismaneProps<{ value: string }, FlexProps>;
+// Props
+import { TabsPanelProps } from "./TabsPanel.props";
 
 const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(
   ({ value, children, className, ...props }, ref) => {

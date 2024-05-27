@@ -1,9 +1,9 @@
 "use client";
 
-import React, { forwardRef, useState, useRef, ReactNode } from "react";
+import React, { forwardRef, useState, useRef } from "react";
 import { CaretUpDown } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Menu from "@components/Menu";
 import Icon from "@components/Icon";
 import Flex from "@components/Flex";
@@ -11,23 +11,10 @@ import Flex from "@components/Flex";
 import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 import useOutsideClick from "@hooks/useOutsideClick";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type SelectFieldProps = PrismaneProps<
-  {
-    options: { value: string; element: ReactNode }[];
-    item?: (
-      chosen: boolean,
-      value: string,
-      element: ReactNode,
-      active: boolean
-    ) => ReactNode;
-  },
-  FieldProps
->;
+// Props
+import { SelectFieldProps } from "./SelectField.props";
 
 const SelectField = forwardRef<any, SelectFieldProps>(
   (

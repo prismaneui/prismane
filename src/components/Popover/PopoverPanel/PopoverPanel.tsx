@@ -2,8 +2,8 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Paper, { PaperProps } from "@components/Paper";
-import Animation, { AnimationProps } from "@components/Animation";
+import Paper from "@components/Paper";
+import Animation from "@components/Animation";
 // Context
 import { usePopoverContext } from "../PopoverContext";
 // Hooks
@@ -12,8 +12,8 @@ import usePresence from "@hooks/usePresence";
 
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type PopoverPanelProps = AnimationProps & PaperProps;
+// Props
+import { PopoverPanelProps } from "./PopoverPanel.props";
 
 const PopoverPanel = forwardRef<HTMLDivElement, PopoverPanelProps>(
   ({ children, className, sx, ...props }, ref) => {

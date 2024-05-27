@@ -2,20 +2,12 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Transition, { TransitionProps } from "@components/Transition";
-import Flex, { FlexProps } from "@components/Flex";
-// Types
-import { PrismaneBreakpoints, PrismaneProps } from "@types";
+import Transition from "@components/Transition";
+import Flex from "@components/Flex";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type FieldAddonProps = PrismaneProps<
-  {
-    size?: PrismaneBreakpoints;
-    position?: "right" | "left";
-  },
-  TransitionProps & FlexProps
->;
+// Props
+import { FieldAddonProps } from "./FieldAddon.props";
 
 const FieldAddon = forwardRef<HTMLDivElement, FieldAddonProps>(
   (

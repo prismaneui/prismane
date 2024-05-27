@@ -2,19 +2,12 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Text from "@components/Text";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type NativeSelectFieldProps = PrismaneProps<
-  {
-    options: { value: string; label: string }[];
-  },
-  FieldProps
->;
+// Props
+import { NativeSelectFieldProps } from "./NativeSelectField.props";
 
 const NativeSelectField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

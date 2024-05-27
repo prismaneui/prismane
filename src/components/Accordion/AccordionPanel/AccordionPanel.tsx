@@ -3,14 +3,14 @@
 import React, { forwardRef, useRef, useEffect, useState } from "react";
 // Components
 import Box from "@components/Box";
-import Animation, { AnimationProps } from "@components/Animation";
+import Animation from "@components/Animation";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
 // Utils
 import { cx, fr } from "@utils";
-
-export type AccordionPanelProps = AnimationProps;
+// Props
+import { AccordionPanelProps } from "./AccordionPanel.props";
 
 const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
   ({ children, className, ...props }, ref) => {

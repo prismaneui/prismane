@@ -2,20 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Context
 import { useTableContext } from "../TableContext";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type TableCaptionProps = PrismaneProps<
-  {
-    placement?: "bottom" | "top";
-  },
-  BoxProps<"caption">
->;
+// Props
+import { TableCaptionProps } from "./TableCaption.props";
 
 const TableCaption = forwardRef<HTMLTableSectionElement, TableCaptionProps>(
   ({ placement = "bottom", children, className, sx, ...props }, ref) => {

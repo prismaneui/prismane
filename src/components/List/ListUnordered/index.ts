@@ -1,1 +1,2 @@
-export { default, type ListUnorderedProps } from "./ListUnordered";
+export { default } from "./ListUnordered";
+export type { ListUnorderedProps } from "./ListUnordered.props";

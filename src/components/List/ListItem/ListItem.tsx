@@ -2,12 +2,12 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import Box from "@components/Box";
 // Utils
 import { cx, fr } from "@utils";
-
-export type ListItemProps = FlexProps<"li">;
+// Props
+import { ListItemProps } from "./ListItem.props";
 
 const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ gap = fr(1), children, className, ...props }, ref) => {

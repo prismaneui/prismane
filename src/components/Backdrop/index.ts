@@ -1,1 +1,2 @@
-export { default, type BackdropProps } from "./Backdrop";
+export { default } from "./Backdrop";
+export type { BackdropProps } from "./Backdrop.props";

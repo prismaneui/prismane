@@ -1,27 +1,17 @@
 "use client";
 
-import React, { ReactNode, forwardRef, useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Transition from "@components/Transition";
 import Flex from "@components/Flex";
 import Text from "@components/Text";
 // Hooks
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type SegmentedFieldProps = PrismaneProps<
-  {
-    options?: {
-      element: ReactNode;
-      value: string;
-    }[];
-  },
-  FieldProps
->;
+// Props
+import { SegmentedFieldProps } from "./SegmentedField.props";
 
 const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
   (

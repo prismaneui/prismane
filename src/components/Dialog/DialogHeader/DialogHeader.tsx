@@ -2,14 +2,14 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import CloseButton from "@components/CloseButton";
 // Context
 import { useDialogContext } from "../DialogContext";
 // Utils
 import { cx, fr } from "@utils";
-
-export type DialogHeaderProps = FlexProps;
+// Props
+import { DialogHeaderProps } from "./DialogHeader.props";
 
 const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
   ({ children, className, ...props }, ref) => {

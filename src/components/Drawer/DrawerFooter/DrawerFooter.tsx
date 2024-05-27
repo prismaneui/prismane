@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-
-export type DrawerFooterProps = FlexProps;
+// Props
+import { DrawerFooterProps } from "./DrawerFooter.props";
 
 const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
   ({ children, className, ...props }, ref) => {

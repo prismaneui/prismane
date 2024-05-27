@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx } from "@utils";
-
-export type FooterProps = FlexProps<"footer">;
+// Props
+import { FooterProps } from "./Footer.props";
 
 const Footer = forwardRef<HTMLElement, FooterProps>(
   ({ children, className, ...props }, ref) => {

@@ -2,30 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Types
-import {
-  PrismaneTransitions,
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      transition?: PrismaneTransitions | string;
-      duration?: number;
-      delay?: number;
-      timing?: string;
-    },
-    BoxProps
-  >
->;
+// Props
+import { TransitionProps } from "./Transition.props";
 
 type TransitionComponent = <E extends Versatile = "div">(
   props: TransitionProps<E>

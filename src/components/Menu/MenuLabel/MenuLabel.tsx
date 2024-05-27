@@ -2,16 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-// Types
-import { PrismaneColors, PrismaneProps } from "@types";
-
-export type MenuLabelProps = PrismaneProps<
-  { color?: PrismaneColors },
-  FlexProps
->;
+// Props
+import { MenuLabelProps } from "./MenuLabel.props";
 
 const MenuLabel = forwardRef<HTMLDivElement, MenuLabelProps>(
   ({ color = "base", children, className, sx, ...props }, ref) => {

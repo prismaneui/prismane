@@ -1,1 +1,2 @@
-export { default, type AnimationProps } from "./Animation";
+export { default } from "./Animation";
+export type { AnimationProps } from "./Animation.props";

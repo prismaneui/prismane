@@ -1,1 +1,2 @@
-export { default, type TabsListProps } from "./TabsList";
+export { default } from "./TabsList";
+export type { TabsListProps } from "./TabsList.props";

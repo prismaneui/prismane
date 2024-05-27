@@ -2,27 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Center, { CenterProps } from "@components/Center";
+import Center from "@components/Center";
 // Types
-import {
-  PrismaneStyles,
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type SquareProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      size: PrismaneStyles;
-    },
-    CenterProps
-  >
->;
+// Props
+import { SquareProps } from "./Square.props";
 
 type SquareComponent = <E extends Versatile = "div">(
   props: SquareProps<E>

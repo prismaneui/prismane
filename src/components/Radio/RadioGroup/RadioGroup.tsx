@@ -4,15 +4,13 @@ import React, { forwardRef } from "react";
 // Components
 import Stack from "@components/Stack";
 import Field, { useFieldProps } from "@components/Field";
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Context
 import { RadioContextProvider } from "../RadioContext";
-// Types
-import { PrismaneFieldComponent } from "@types";
 // Utils
 import { cx, fr } from "@utils";
-
-export type RadioGroupProps = PrismaneFieldComponent & FlexProps;
+// Props
+import { RadioGroupProps } from "./RadioGroup.props";
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ children, className, ...props }, ref) => {

@@ -2,26 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Types
-import {
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      shadow?: boolean;
-    },
-    FlexProps
-  >
->;
+// Props
+import { PaperProps } from "./Paper.props";
 
 type PaperComponent = <E extends Versatile = "div">(
   props: PaperProps<E>

@@ -2,13 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Context
 import { useTabsContext } from "../TabsContext";
 // Utils
 import { cx, fr } from "@utils";
-
-export type TabsListProps = FlexProps;
+// Props
+import { TabsListProps } from "./TabsList.props";
 
 const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   ({ children, className, ...props }, ref) => {

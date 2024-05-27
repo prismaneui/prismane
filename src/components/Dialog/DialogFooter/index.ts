@@ -1,1 +1,2 @@
-export { default, type DialogFooterProps } from "./DialogFooter";
+export { default } from "./DialogFooter";
+export type { DialogFooterProps } from "./DialogFooter.props";

@@ -2,16 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Types
-import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type CenterProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  FlexProps
->;
+// Props
+import { CenterProps } from "./Center.props";
 
 type CenterComponent = <E extends Versatile = "div">(
   props: CenterProps<E>

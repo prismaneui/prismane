@@ -1,42 +1,20 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import * as CSS from "csstype";
 // Component
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Hooks
 import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Types
 import {
   Versatile,
-  PrismaneVersatile,
   PrismaneVersatileRef,
-  PrismaneProps,
-  PrismaneColors,
-  PrismaneShades,
+  
 } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type GradientProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      from?:
-        | PrismaneColors
-        | [PrismaneColors, PrismaneShades]
-        | [PrismaneColors, PrismaneShades, number]
-        | CSS.Properties["backgroundColor"];
-      to?:
-        | PrismaneColors
-        | [PrismaneColors, PrismaneShades]
-        | [PrismaneColors, PrismaneShades, number]
-        | CSS.Properties["backgroundColor"];
-      deg?: number;
-    },
-    BoxProps
-  >
->;
+// Props
+import { GradientProps } from "./Gradient.props";
 
 type GradientComponent = <E extends Versatile = "div">(
   props: GradientProps<E>

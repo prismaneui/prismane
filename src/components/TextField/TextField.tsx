@@ -2,19 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
-// Types
-import { PrismaneProps } from "@types";
+import Field, { useFieldProps } from "@components/Field";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type TextFieldProps = PrismaneProps<
-  {
-    prefix?: string;
-    suffix?: string;
-  },
-  FieldProps
->;
+// Props
+import { TextFieldProps } from "./TextField.props";
 
 const TextField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

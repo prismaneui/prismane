@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-
-export type FieldWrapperProps = FlexProps;
+import { FieldWrapperProps } from "./FieldWrapper.props";
+// Props
 
 const FieldWrapper = forwardRef<HTMLDivElement, FieldWrapperProps>(
   ({ children, className, ...props }, ref) => {

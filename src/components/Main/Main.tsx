@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-
-export type MainProps = FlexProps<"main">;
+// Props
+import { MainProps } from "./Main.props";
 
 const Main = forwardRef<HTMLElement, MainProps>(
   ({ children, className, ...props }, ref) => {

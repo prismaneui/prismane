@@ -3,16 +3,14 @@
 import React, { forwardRef } from "react";
 // Components
 import Animation from "@components/Animation";
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 import Field, { useFieldProps } from "@components/Field";
 import Hidden from "@components/Hidden";
-// Types
-import { PrismaneFieldComponent } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type SwitchProps = PrismaneFieldComponent & FlexProps & TransitionProps;
+// Props
+import { SwitchProps } from "./Switch.props";
 
 const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ label, error, size = "base", className, sx, ...props }, ref) => {

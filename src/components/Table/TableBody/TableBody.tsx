@@ -2,15 +2,15 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Hooks
 import { usePrismaneColor } from "@/components/PrismaneProvider";
 // Context
 import { useTableContext } from "../TableContext";
 // Utils
 import { cx } from "@utils";
-
-export type TableBodyProps = BoxProps<"tbody">;
+// Props
+import { TableBodyProps } from "./TableBody.props";
 
 const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ children, className, sx, ...props }, ref) => {

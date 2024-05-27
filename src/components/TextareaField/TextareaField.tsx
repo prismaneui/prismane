@@ -1,18 +1,13 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import * as CSS from "csstype";
+
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
-// Types
-import { PrismaneProps } from "@types";
+import Field, { useFieldProps } from "@components/Field";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type TextareaFieldProps = PrismaneProps<
-  { resize?: CSS.Properties["resize"] },
-  FieldProps
->;
+// Props
+import { TextareaFieldProps } from "./TextareaField.props";
 
 const TextareaField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

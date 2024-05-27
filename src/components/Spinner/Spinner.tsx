@@ -2,24 +2,12 @@
 
 import React, { forwardRef } from "react";
 import { CircleNotch } from "@phosphor-icons/react";
-import * as CSS from "csstype";
 // Components
-import Icon, { IconProps } from "@components/Icon";
-// Types
-import { PrismaneProps, PrismaneColors, PrismaneShades } from "@types";
+import Icon from "@components/Icon";
 // Utils
 import { cx } from "@utils";
-
-export type SpinnerProps = PrismaneProps<
-  {
-    color?:
-      | PrismaneColors
-      | [PrismaneColors, PrismaneShades]
-      | [PrismaneColors, PrismaneShades, number]
-      | CSS.Properties["color"];
-  },
-  IconProps
->;
+// Props
+import { SpinnerProps } from "./Spinner.props";
 
 const Spinner = forwardRef<SVGElement, SpinnerProps>(
   ({ color, size = "base", className, sx, ...props }, ref) => {

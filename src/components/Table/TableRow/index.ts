@@ -1,1 +1,2 @@
-export { default, type TableRowProps } from "./TableRow";
+export { default } from "./TableRow";
+export type { TableRowProps } from "./TableRow.props";

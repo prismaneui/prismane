@@ -2,20 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Hooks
 import useMediaQuery from "@hooks/useMediaQuery/useMediaQuery";
-// Types
-import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { cx, dual, fr } from "@utils";
-
-export type ShowProps = PrismaneProps<
-  {
-    breakpoint?: PrismaneBreakpoints | string;
-  },
-  BoxProps
->;
+// Props
+import { ShowProps } from "./Show.props";
 
 const Show = forwardRef<HTMLDivElement, ShowProps>(
   ({ breakpoint = "base", children, className, ...props }, ref) => {

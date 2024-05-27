@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Button, { ButtonProps } from "@components/Button";
+import Button from "@components/Button";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type ActionButtonProps = ButtonProps;
+// Props
+import { ActionButtonProps } from "./ActionButton.props";
 
 const ActionButton = forwardRef<any, ActionButtonProps>(
   (

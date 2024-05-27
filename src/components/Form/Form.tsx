@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Utils
 import { cx, fr } from "@utils";
-
-export type FormProps = BoxProps<"form">;
+// Props
+import { FormProps } from "./Form.props";
 
 const Form = forwardRef<HTMLFormElement, FormProps>(
   ({ children, onSubmit, onReset, className, sx, ...props }, ref) => {

@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Text, { TextProps } from "@components/Text";
+import Text from "@components/Text";
 // Utils
 import { cx } from "@utils";
-
-export type AlertDescriptionProps = TextProps;
+// Props
+import { AlertDescriptionProps } from "./AlertDescription.props";
 
 const AlertDescription = forwardRef<HTMLSpanElement, AlertDescriptionProps>(
   ({ children, className, ...props }, ref) => {

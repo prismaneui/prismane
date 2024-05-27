@@ -1,1 +1,2 @@
-export { default, type AccordionIconProps } from "./AccordionIcon";
+export { default } from "./AccordionIcon";
+export type { AccordionIconProps } from "./AccordionIcon.props";

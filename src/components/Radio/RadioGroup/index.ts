@@ -1,1 +1,2 @@
-export { default, type RadioGroupProps } from "./RadioGroup";
+export { default } from "./RadioGroup";
+export type { RadioGroupProps } from "./RadioGroup.props";

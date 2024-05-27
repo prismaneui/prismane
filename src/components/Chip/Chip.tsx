@@ -1,25 +1,15 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 import Icon from "@components/Icon";
 import Text from "@components/Text";
-// Types
-import { PrismaneColors, PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type ChipProps = PrismaneProps<
-  {
-    icon?: ReactNode;
-    iconPosition?: "left" | "right";
-    color?: PrismaneColors;
-    size?: PrismaneBreakpoints;
-  },
-  FlexProps & TransitionProps
->;
+// Props
+import { ChipProps } from "./Chip.props";
 
 const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (

@@ -2,17 +2,13 @@
 
 import React, { forwardRef, useEffect, useState } from "react";
 // Components
-import Transition, { TransitionProps } from "@components/Transition";
+import Transition from "@components/Transition";
 // Types
-import {
-  PrismaneAnimations,
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx } from "@utils";
+// Props
+import { AnimationProps } from "./Animation.props";
 
 export interface Animation {
   in: object;
@@ -22,17 +18,6 @@ export interface Animation {
 export interface Animations {
   [key: string]: Animation;
 }
-
-export type AnimationProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      animation?: PrismaneAnimations | Animation;
-      animated?: boolean;
-    },
-    TransitionProps
-  >
->;
 
 type AnimationComponent = <E extends Versatile = "div">(
   props: AnimationProps<E>

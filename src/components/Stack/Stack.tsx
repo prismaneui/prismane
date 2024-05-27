@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr } from "@utils";
-
-export type StackProps = FlexProps;
+// Props
+import { StackProps } from "./Stack.props";
 
 const Stack = forwardRef<HTMLDivElement, StackProps>(
   (

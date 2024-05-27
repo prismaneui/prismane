@@ -1,1 +1,2 @@
-export { default, type TableCaptionProps } from "./TableCaption";
+export { default } from "./TableCaption";
+export type { TableCaptionProps } from "./TableCaption.props";

@@ -2,13 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx, fr, variants } from "@utils";
-
-export type SkeletonProps = {
-  variant?: "circular" | "rounded" | "rectangular";
-} & FlexProps;
+// Props
+import { SkeletonProps } from "./Skeleton.props";
 
 const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   ({ variant = "rounded", className, sx, ...props }, ref) => {

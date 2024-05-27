@@ -2,24 +2,16 @@
 
 import React, { forwardRef, useEffect, useState } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Animation, { AnimationProps } from "@components/Animation";
+import Flex from "@components/Flex";
+import Animation from "@components/Animation";
 // Hooks
 import usePresence from "@hooks/usePresence";
 // Context
 import { useToasterContext } from "../ToasterContext";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type ToastProps = PrismaneProps<
-  {
-    id?: number;
-    timeout?: number;
-  },
-  FlexProps & AnimationProps
->;
+// Props
+import { ToastProps } from "./Toast.props";
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(
   (

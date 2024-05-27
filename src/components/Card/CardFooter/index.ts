@@ -1,1 +1,2 @@
-export { default, type CardFooterProps } from "./CardFooter";
+export { default } from "./CardFooter";
+export type { CardFooterProps } from "./CardFooter.props";

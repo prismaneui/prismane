@@ -1,1 +1,2 @@
-export { default, type AspectRatioProps } from "./AspectRatio";
+export { default } from "./AspectRatio";
+export type { AspectRatioProps } from "./AspectRatio.props";

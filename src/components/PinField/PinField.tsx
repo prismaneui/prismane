@@ -2,23 +2,15 @@
 
 import React, { forwardRef, useState, useRef } from "react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Flex from "@components/Flex";
 import Hidden from "@components/Hidden";
 // Hooks
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, fr } from "@utils";
-
-export type PinFieldProps = PrismaneProps<
-  {
-    length?: number;
-    masked?: boolean;
-  },
-  FieldProps
->;
+// Props
+import { PinFieldProps } from "./PinField.props";
 
 const PinField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

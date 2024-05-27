@@ -1,10 +1,8 @@
 "use client";
 
 import React, { FC } from "react";
-
-export type InitialsProps = {
-  name: string;
-};
+// Props
+import { InitialsProps } from "./Initials.props";
 
 export const Initials: FC<InitialsProps> = ({ name }) => {
   const arr = name.split(" ");

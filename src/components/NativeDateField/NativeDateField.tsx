@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 // Utils
 import { cx } from "@utils";
-
-export type NativeDateFieldProps = FieldProps;
+// Props
+import { NativeDateFieldProps } from "./NativeDateField.props";
 
 const NativeDateField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

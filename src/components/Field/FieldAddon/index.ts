@@ -1,1 +1,2 @@
-export { default, type FieldAddonProps } from "./FieldAddon";
+export { default } from "./FieldAddon";
+export type { FieldAddonProps } from "./FieldAddon.props";

@@ -1,1 +1,2 @@
-export { default, type AccordionItemProps } from "./AccordionItem";
+export { default } from "./AccordionItem";
+export type { AccordionItemProps } from "./AccordionItem.props";
