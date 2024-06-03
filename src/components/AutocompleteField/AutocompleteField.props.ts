@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { SelectFieldProps } from "@components/SelectField";
 // Types
 import { PrismaneProps } from "@types";

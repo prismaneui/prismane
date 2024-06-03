@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { AnimationProps } from "@components/Animation";
 import { FlexProps } from "@components/Flex";
 // Types

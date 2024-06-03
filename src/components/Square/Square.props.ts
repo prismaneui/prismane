@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { CenterProps } from "@components/Center";
 // Types
 import {

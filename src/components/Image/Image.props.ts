@@ -1,4 +1,4 @@
-// Components
+// Component Props
 import { BoxProps } from "@components/Box";
 // Types
 import { PrismaneProps } from "@types";

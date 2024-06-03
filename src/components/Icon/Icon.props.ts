@@ -1,4 +1,4 @@
-// Components
+// Component Props
 import { SquareProps } from "@components/Square";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";

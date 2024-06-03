@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-// Components
+// Component Props
 import { TransitionProps } from "@components/Transition";
 // Types
 import {

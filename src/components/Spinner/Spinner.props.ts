@@ -1,5 +1,5 @@
 import * as CSS from "csstype";
-// Components Props
+// Component Props
 import { IconProps } from "@components/Icon";
 // Types
 import { PrismaneProps, PrismaneColors, PrismaneShades } from "@types";

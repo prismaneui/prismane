@@ -1,5 +1,5 @@
 import * as CSS from "csstype";
-// Components
+// Component Props
 import { FlexProps } from "@components/Flex";
 import { TransitionProps } from "@components/Transition";
 // Types

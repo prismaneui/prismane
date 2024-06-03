@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { FlexProps } from "@components/Flex";
 // Types
 import { PrismaneBreakpoints, PrismaneProps } from "@types";

@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { TransitionProps } from "@components/Transition";
 // Types
 import {

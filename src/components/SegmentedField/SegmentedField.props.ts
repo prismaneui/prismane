@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-// Components Props
+// Component Props
 import { FieldProps } from "@components/Field";
 // Types
 import { PrismaneProps } from "@types";

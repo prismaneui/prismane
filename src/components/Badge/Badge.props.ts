@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-// Components
+// Component Props
 import { CenterProps } from "@components/Center";
 // Types
 import {

@@ -1,4 +1,4 @@
-// Components Props
+// Component Props
 import { TextProps } from "@components/Text";
 // Types
 import { Versatile, PrismaneVersatile, PrismaneProps } from "@types";

@@ -1,4 +1,4 @@
-// Components
+// Component Props
 import { AnimationProps } from "@components/Animation";
 // Types
 import { PrismaneProps } from "@types";

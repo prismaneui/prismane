@@ -1,5 +1,5 @@
-// Components
-import  { BoxProps } from "@components/Box";
+// Component Props
+import { BoxProps } from "@components/Box";
 // Types
 import {
   PrismaneTransitions,
