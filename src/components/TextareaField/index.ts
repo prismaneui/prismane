@@ -1,1 +1,2 @@
-export { default, type TextareaFieldProps } from "./TextareaField";
+export { default } from "./TextareaField";
+export type { TextareaFieldProps } from "./TextareaField.props";

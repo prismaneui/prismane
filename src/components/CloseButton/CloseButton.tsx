@@ -3,11 +3,11 @@
 import React, { forwardRef } from "react";
 import { X } from "@phosphor-icons/react";
 // Components
-import ActionButton, { ActionButtonProps } from "@components/ActionButton";
+import ActionButton from "@components/ActionButton";
 // Utils
 import { cx, variants } from "@utils";
-
-export type CloseButtonProps = ActionButtonProps;
+// Props
+import { CloseButtonProps } from "./CloseButton.props";
 
 const CloseButton = forwardRef<any, CloseButtonProps>(
   (

@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Utils
 import { cx, fr } from "@utils";
-
-export type KeyProps = BoxProps<"kbd">;
+// Props
+import { KeyProps } from "./Key.props";
 
 const Key = forwardRef<HTMLDivElement, KeyProps>(
   ({ children, className, ...props }, ref) => {

@@ -2,20 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Hooks
 import useMediaQuery from "@hooks/useMediaQuery";
-// Types
-import { PrismaneBreakpoints, PrismaneProps } from "@types";
 // Utils
 import { cx, dual, fr } from "@utils";
-
-export type HideProps = PrismaneProps<
-  {
-    breakpoint?: PrismaneBreakpoints | string;
-  },
-  BoxProps
->;
+// Props
+import { HideProps } from "./Hide.props";
 
 const Hide = forwardRef<HTMLDivElement, HideProps>(
   ({ breakpoint = "base", children, className, ...props }, ref) => {

@@ -1,42 +1,17 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef } from "react";
 // Components
-import Transition, { TransitionProps } from "@components/Transition";
+import Transition from "@components/Transition";
 import Text from "@components/Text";
 import Icon from "@components/Icon";
 import Spinner from "@components/Spinner";
 // Types
-import {
-  PrismaneBreakpoints,
-  PrismaneColors,
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      icon?: ReactNode;
-      iconPosition?: "left" | "right";
-      type?: "submit" | "reset" | "button";
-      loading?: boolean;
-      disabled?: boolean;
-      variant?: "primary" | "secondary" | "tertiary" | "text";
-      color?: PrismaneColors;
-      size?: PrismaneBreakpoints;
-      full?: boolean;
-      shadow?: boolean;
-      fillOnHover?: boolean;
-    },
-    TransitionProps
-  >
->;
+// Props
+import { ButtonProps } from "./Button.props";
 
 type ButtonComponent = <E extends Versatile = "button">(
   props: ButtonProps<E>

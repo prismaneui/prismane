@@ -1,1 +1,2 @@
-export { default, type AccordionPanelProps } from "./AccordionPanel";
+export { default } from "./AccordionPanel";
+export type { AccordionPanelProps } from "./AccordionPanel.props";

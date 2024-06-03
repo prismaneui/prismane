@@ -3,19 +3,11 @@
 import React, { forwardRef } from "react";
 import ReactDOM from "react-dom";
 // Components
-import Box, { BoxProps } from "@components/Box";
-// Types
-import { PrismaneProps } from "@types";
+import Box from "@components/Box";
 // Utils
 import { cx } from "@utils";
-
-export type PortalProps = PrismaneProps<
-  {
-    target?: React.RefObject<HTMLElement> | null;
-    disabled?: boolean;
-  },
-  BoxProps
->;
+// Props
+import { PortalProps } from "./Portal.props";
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
   ({ target, disabled = false, className, children, ...props }, ref) => {

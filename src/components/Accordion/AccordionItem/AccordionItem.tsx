@@ -2,20 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Context
 import { AccordionItemContextProvider } from "./AccordionItemContext";
-// Types
-import { PrismaneProps } from "@types";
+// Props
+import { AccordionItemProps } from "./AccordionItem.props";
 // Utils
 import { cx } from "@utils";
-
-export type AccordionItemProps = PrismaneProps<
-  {
-    value?: string | null;
-  },
-  FlexProps
->;
 
 const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ value = null, children, className, ...props }, ref) => {

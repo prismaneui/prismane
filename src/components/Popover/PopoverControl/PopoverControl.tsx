@@ -2,13 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Context
 import { usePopoverContext } from "../PopoverContext";
 // Utils
 import { cx } from "@utils";
-
-export type PopoverControlProps = FlexProps;
+// Props
+import { PopoverControlProps } from "./PopoverControl.props";
 
 const PopoverControl = forwardRef<HTMLDivElement, PopoverControlProps>(
   ({ children, className, ...props }, ref) => {

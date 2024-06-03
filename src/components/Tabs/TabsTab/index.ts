@@ -1,1 +1,2 @@
-export { default, type TabsTabProps } from "./TabsTab";
+export { default } from "./TabsTab";
+export type { TabsTabProps } from "./TabsTab.props";

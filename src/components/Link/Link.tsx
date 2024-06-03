@@ -2,29 +2,13 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Text, { TextProps } from "@components/Text";
+import Text from "@components/Text";
 // Types
-import {
-  Versatile,
-  PrismaneVersatile,
-  PrismaneVersatileRef,
-  PrismaneProps,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type LinkProps<E extends Versatile = "a"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      before?: () => void;
-      underline?: "none" | "hover" | "always";
-      href: string;
-      foreign?: boolean;
-    },
-    TextProps
-  >
->;
+// Props
+import { LinkProps } from "./Link.props";
 
 type LinkComponent = <E extends Versatile = "a">(props: LinkProps<E>) => any;
 

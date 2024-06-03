@@ -1,1 +1,2 @@
-export { default, type TableCellProps } from "./TableCell";
+export { default } from "./TableCell";
+export type { TableCellProps } from "./TableCell.props";

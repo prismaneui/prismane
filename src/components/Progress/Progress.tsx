@@ -1,32 +1,13 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import * as CSS from "csstype";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
-// Types
-import {
-  PrismaneBreakpoints,
-  PrismaneProps,
-  PrismaneColors,
-  PrismaneShades,
-} from "@types";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 // Utils
 import { cx, fr, dual } from "@utils";
-
-export type ProgressProps = PrismaneProps<
-  {
-    value: number;
-    size?: string | number | PrismaneBreakpoints;
-    color?:
-      | PrismaneColors
-      | [PrismaneColors, PrismaneShades]
-      | [PrismaneColors, PrismaneShades, number]
-      | CSS.Properties["color"];
-  },
-  FlexProps & TransitionProps
->;
+// Props
+import { ProgressProps } from "./Progress.props";
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   ({ value, size = "base", color = "primary", className, ...props }, ref) => {

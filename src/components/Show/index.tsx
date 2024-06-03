@@ -1,1 +1,2 @@
-export { default, type ShowProps } from "./Show";
+export { default } from "./Show";
+export type { ShowProps } from "./Show.props";

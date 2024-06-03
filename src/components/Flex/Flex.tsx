@@ -2,34 +2,16 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Types
 import {
   Versatile,
-  PrismaneVersatile,
   PrismaneVersatileRef,
-  PrismaneProps,
 } from "@types";
 // Utils
 import { cx, variants } from "@utils";
-
-export type FlexProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<
-    {
-      justify?: "start" | "end" | "center" | "between" | "around" | "evenly";
-      align?: "start" | "end" | "center" | "baseline" | "stretch";
-      gap?: string | number;
-      direction?: "row" | "row-reverse" | "column" | "column-reverse";
-      self?: "auto" | "start" | "end" | "center" | "stretch" | "baseline";
-      basis?: string | number;
-      grow?: boolean;
-      shrink?: boolean;
-      wrap?: "wrap" | "wrap-reverse" | "nowrap";
-    },
-    BoxProps
-  >
->;
+// Props
+import { FlexProps } from "./Flex.props";
 
 type FlexComponent = <E extends Versatile = "div">(props: FlexProps<E>) => any;
 

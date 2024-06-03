@@ -1,1 +1,2 @@
-export { default, type AutocompleteFieldProps } from "./AutocompleteField";
+export { default } from "./AutocompleteField";
+export type { AutocompleteFieldProps } from "./AutocompleteField.props";

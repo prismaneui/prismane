@@ -1,33 +1,18 @@
 "use client";
 
-import React, { forwardRef, ReactNode, useState } from "react";
+import React, { forwardRef, useState } from "react";
 // Components
-import Animation, { AnimationProps } from "@components/Animation";
+import Animation from "@components/Animation";
 import Box from "@components/Box";
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import Text from "@components/Text";
 // Hooks
 import useAnimation from "@hooks/useAnimation";
 import usePresence from "@hooks/usePresence";
-// Types
-import {
-  PrismanePositions,
-  PrismaneBreakpoints,
-  PrismaneColors,
-  PrismaneProps,
-} from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type TooltipProps = PrismaneProps<
-  {
-    label?: ReactNode;
-    position?: PrismanePositions;
-    size?: PrismaneBreakpoints;
-    color?: PrismaneColors;
-  },
-  AnimationProps & FlexProps
->;
+// Props
+import { TooltipProps } from "./Tooltip.props";
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (

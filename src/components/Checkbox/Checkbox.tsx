@@ -1,22 +1,17 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef } from "react";
 import { Check, Minus } from "@phosphor-icons/react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 import Field, { useFieldProps } from "@components/Field";
 import Animation from "@components/Animation";
 import Hidden from "@components/Hidden";
-// Types
-import { PrismaneFieldComponent, PrismaneProps } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type CheckboxProps = PrismaneProps<
-  { indeterminate?: boolean; icon?: ReactNode },
-  FlexProps & TransitionProps & PrismaneFieldComponent
->;
+// Props
+import { CheckboxProps } from "./Checkbox.props";
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (

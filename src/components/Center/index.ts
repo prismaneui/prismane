@@ -1,1 +1,2 @@
-export { default, type CenterProps } from "./Center";
+export { default } from "./Center";
+export type { CenterProps } from "./Center.props";

@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Utils
 import { cx } from "@utils";
-
-export type HiddenProps = BoxProps;
+// Props
+import { HiddenProps } from "./Hidden.props";
 
 const Hidden = forwardRef<HTMLSpanElement, HiddenProps>(
   ({ children, className, ...props }, ref) => {

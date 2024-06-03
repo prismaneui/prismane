@@ -2,20 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-// Types
-import { PrismaneProps, PrismaneBreakpoints } from "@types";
+import Flex from "@components/Flex";
 // Utils
 import { cx, variants } from "@utils";
-
-export type DividerProps = PrismaneProps<
-  {
-    size?: PrismaneBreakpoints;
-    orientation?: "horizontal" | "vertical";
-    variant?: "solid" | "dotted" | "dashed";
-  },
-  FlexProps
->;
+// Props
+import { DividerProps } from "./Divider.props";
 
 const Divider = forwardRef<HTMLDivElement, DividerProps>(
   (

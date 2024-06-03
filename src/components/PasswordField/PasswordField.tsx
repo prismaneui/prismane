@@ -3,13 +3,13 @@
 import React, { useState, forwardRef } from "react";
 import { Eye, EyeClosed } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Icon from "@components/Icon";
 import Transition from "@components/Transition";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type PasswordFieldProps = FieldProps;
+// Props
+import { PasswordFieldProps } from "./PasswordField.props";
 
 const PasswordField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

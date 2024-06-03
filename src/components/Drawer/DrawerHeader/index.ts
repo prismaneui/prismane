@@ -1,1 +1,2 @@
-export { default, type DrawerHeaderProps } from "./DrawerHeader";
+export { default } from "./DrawerHeader";
+export type { DrawerHeaderProps } from "./DrawerHeader.props";

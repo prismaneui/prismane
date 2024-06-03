@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Icon, { IconProps } from "@components/Icon";
+import Icon from "@components/Icon";
 // Utils
 import { cx } from "@utils";
-
-export type MenuIconProps = Omit<IconProps, "size">;
+// Props
+import { MenuIconProps } from "./MenuIcon.props";
 
 const MenuIcon = forwardRef<HTMLDivElement, MenuIconProps>(
   ({ children, className, ...props }, ref) => {

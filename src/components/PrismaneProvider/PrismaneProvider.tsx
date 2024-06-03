@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { getCssText } from "@/../stitches.config";
 import styles from "@/index.css";
 // Context
@@ -20,11 +20,8 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
-
-export type PrismaneProviderProps = {
-  children: ReactNode;
-  theme?: PrismaneInputTheme;
-};
+// Props
+import { PrismaneProviderProps } from "./PrismaneProvider.props";
 
 const PrismaneProvider: FC<PrismaneProviderProps> = ({
   children,

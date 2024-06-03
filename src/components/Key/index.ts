@@ -1,1 +1,2 @@
-export { default, type KeyProps } from "./Key";
+export { default } from "./Key";
+export type { KeyProps } from "./Key.props";

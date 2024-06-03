@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Center, { CenterProps } from "@components/Center";
+import Center from "@components/Center";
 // Utils
 import { cx } from "@utils";
-
-export type BackdropProps = CenterProps;
+// Props
+import { BackdropProps } from "./Backdrop.props";
 
 const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
   ({ children, className, ...props }, ref) => {

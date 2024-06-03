@@ -1,1 +1,2 @@
-export { default, type SegmentedFieldProps } from "./SegmentedField";
+export { default } from "./SegmentedField";
+export type { SegmentedFieldProps } from "./SegmentedField.props";

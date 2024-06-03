@@ -1,1 +1,2 @@
-export { default, type PopoverPanelProps } from "./PopoverPanel";
+export { default } from "./PopoverPanel";
+export type { PopoverPanelProps } from "./PopoverPanel.props";

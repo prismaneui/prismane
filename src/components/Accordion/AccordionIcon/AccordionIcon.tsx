@@ -1,24 +1,17 @@
 "use client";
 
-import React, { ReactNode, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { CaretUp } from "@phosphor-icons/react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import Transition from "@components/Transition";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
-// Types
-import { PrismaneProps } from "@types";
+// Props
+import { AccordionIconProps } from "./AccordionIcon.props";
 // Utils
 import { cx } from "@utils";
-
-export type AccordionIconProps = PrismaneProps<
-  {
-    children?: ReactNode | ((active: boolean) => ReactNode);
-  },
-  FlexProps
->;
 
 const AccordionIcon = forwardRef<HTMLDivElement, AccordionIconProps>(
   ({ children, className, ...props }, ref) => {

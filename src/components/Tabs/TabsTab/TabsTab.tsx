@@ -2,19 +2,14 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 // Context
 import { useTabsContext } from "../TabsContext";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, variants, fr } from "@utils";
-
-export type TabsTabProps = PrismaneProps<
-  { value: string; disabled?: boolean },
-  FlexProps & TransitionProps
->;
+// Props
+import { TabsTabProps } from "./TabsTab.props";
 
 const TabsTab = forwardRef<HTMLDivElement, TabsTabProps>(
   ({ value, disabled, children, className, ...props }, ref) => {

@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx } from "@utils";
-
-export type BreadcrumbSeparatorProps = FlexProps;
+// Props
+import { BreadcrumbSeparatorProps } from "./BreadcrumbSeparator.props";
 
 const BreadcrumbSeparator = forwardRef<
   HTMLDivElement,

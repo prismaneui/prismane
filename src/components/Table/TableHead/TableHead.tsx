@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Utils
 import { cx } from "@utils";
-
-export type TableHeadProps = BoxProps<"thead">;
+// Props
+import { TableHeadProps } from "./TableHead.props";
 
 const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
   ({ children, className, ...props }, ref) => {

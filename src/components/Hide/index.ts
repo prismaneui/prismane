@@ -1,1 +1,2 @@
-export { default, type HideProps } from "./Hide";
+export { default } from "./Hide";
+export type { HideProps } from "./Hide.props";

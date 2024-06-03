@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import List, { ListProps } from "@components/List";
+import List from "@components/List";
 // Utils
 import { cx } from "@utils";
-
-export type ListOrderedProps = ListProps<"ol">;
+// Props
+import { ListOrderedProps } from "./ListOrdered.props";
 
 const ListOrdered = forwardRef<HTMLOListElement, ListOrderedProps>(
   ({ gap = 0, children, className, sx, ...props }, ref) => {

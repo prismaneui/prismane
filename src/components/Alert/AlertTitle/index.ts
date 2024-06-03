@@ -1,1 +1,2 @@
-export { default, type AlertTitleProps } from "./AlertTitle";
+export { default } from "./AlertTitle";
+export type { AlertTitleProps } from "./AlertTitle.props";

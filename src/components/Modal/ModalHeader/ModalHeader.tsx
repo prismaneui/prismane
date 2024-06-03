@@ -2,14 +2,14 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import CloseButton from "@components/CloseButton";
 // Context
 import { useModalContext } from "../ModalContext";
 // Utils
 import { cx, fr } from "@utils";
-
-export type ModalHeaderProps = FlexProps;
+// Props
+import { ModalHeaderProps } from "./ModalHeader.props";
 
 const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ children, className, ...props }, ref) => {

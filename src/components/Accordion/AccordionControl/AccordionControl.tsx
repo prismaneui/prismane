@@ -2,17 +2,15 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 // Context
 import { useAccordionContext } from "../AccordionContext";
 import { useAccordionItemContext } from "../AccordionItem/AccordionItemContext";
-// Types
-import { PrismaneProps } from "@types";
+// Props
+import { AccordionControlProps } from "./AccordionControl.props";
 // Utils
 import { cx, fr } from "@utils";
-
-export type AccordionControlProps = PrismaneProps<FlexProps, TransitionProps>;
 
 const AccordionControl = forwardRef<HTMLDivElement, AccordionControlProps>(
   ({ children, className, ...props }, ref) => {

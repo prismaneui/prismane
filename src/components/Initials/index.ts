@@ -1,1 +1,2 @@
-export { default, type InitialsProps } from "./Initials";
+export { default } from "./Initials";
+export type { InitialsProps } from "./Initials.props";

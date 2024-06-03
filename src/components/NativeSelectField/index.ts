@@ -1,1 +1,2 @@
-export { default, type NativeSelectFieldProps } from "./NativeSelectField";
+export { default } from "./NativeSelectField";
+export type { NativeSelectFieldProps } from "./NativeSelectField.props";

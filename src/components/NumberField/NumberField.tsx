@@ -3,23 +3,15 @@
 import React, { forwardRef, useRef } from "react";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Field, { useFieldProps } from "@components/Field";
 import Flex from "@components/Flex";
 import Transition from "@components/Transition";
 // Hooks
 import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
-// Types
-import { PrismaneProps } from "@types";
 // Utils
 import { cx, fr } from "@utils";
-
-export type NumberFieldProps = PrismaneProps<
-  {
-    min?: number;
-    max?: number;
-  },
-  FieldProps
->;
+// Props
+import { NumberFieldProps } from "./NumberField.props";
 
 const NumberField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,

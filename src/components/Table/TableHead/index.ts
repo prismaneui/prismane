@@ -1,1 +1,2 @@
-export { default, type TableHeadProps } from "./TableHead";
+export { default } from "./TableHead";
+export type { TableHeadProps } from "./TableHead.props";

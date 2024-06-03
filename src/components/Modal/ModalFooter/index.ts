@@ -1,1 +1,2 @@
-export { default, type ModalFooterProps } from "./ModalFooter";
+export { default } from "./ModalFooter";
+export type { ModalFooterProps } from "./ModalFooter.props";

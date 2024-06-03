@@ -2,15 +2,14 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import Link from "@components/Link";
 // Types
-import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
+import { PrismaneVersatileRef, Versatile } from "@types";
 // Utils
 import { cx } from "@utils";
-
-export type BreadcrumbItemProps<E extends Versatile = typeof Link> =
-  PrismaneVersatile<E, FlexProps>;
+// Props
+import { BreadcrumbItemProps } from "./BreadcrumbItem.props";
 
 const BreadcrumbItem = forwardRef(
   <E extends Versatile = typeof Link>(

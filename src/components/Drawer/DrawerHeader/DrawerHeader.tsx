@@ -2,14 +2,14 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 import CloseButton from "@components/CloseButton";
 // Context
 import { useDrawerContext } from "../DrawerContext";
 // Utils
 import { cx, fr } from "@utils";
 
-export type DrawerHeaderProps = FlexProps;
+import { DrawerHeaderProps } from "./DrawerHeader.props";
 
 const DrawerHeader = forwardRef<HTMLDivElement, DrawerHeaderProps>(
   ({ children, className, ...props }, ref) => {

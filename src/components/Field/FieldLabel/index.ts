@@ -1,1 +1,2 @@
-export { default, type FieldLabelProps } from "./FieldLabel";
+export { default } from "./FieldLabel";
+export type { FieldLabelProps } from "./FieldLabel.props";

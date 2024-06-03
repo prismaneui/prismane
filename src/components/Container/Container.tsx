@@ -2,26 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-// Types
-import { PrismaneBreakpoints, PrismaneProps } from "@types";
+import Flex from "@components/Flex";
 // Utils
 import { cx } from "@utils";
-
-export type ContainerProps = PrismaneProps<
-  {
-    maxSize?:
-      | PrismaneBreakpoints
-      | "xl"
-      | "2xl"
-      | "3xl"
-      | "4xl"
-      | "5xl"
-      | "6xl"
-      | string;
-  },
-  FlexProps
->;
+// Props
+import { ContainerProps } from "./Container.props";
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ maxSize = "base", children, className, ...props }, ref) => {

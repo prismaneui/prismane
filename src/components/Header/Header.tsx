@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
+import Flex from "@components/Flex";
 // Utils
 import { cx } from "@utils";
-
-export type HeaderProps = FlexProps<"header">;
+// Props
+import { HeaderProps } from "./Header.props";
 
 const Header = forwardRef<HTMLElement, HeaderProps>(
   ({ children, className, ...props }, ref) => {

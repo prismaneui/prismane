@@ -1,1 +1,2 @@
-export { default, type DialogHeaderProps } from "./DialogHeader";
+export { default } from "./DialogHeader";
+export type { DialogHeaderProps } from "./DialogHeader.props";

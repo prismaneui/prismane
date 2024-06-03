@@ -1,1 +1,2 @@
-export { default, type AlertDescriptionProps } from "./AlertDescription";
+export { default } from "./AlertDescription";
+export type { AlertDescriptionProps } from "./AlertDescription.props";

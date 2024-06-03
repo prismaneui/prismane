@@ -2,15 +2,12 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "@components/Box";
+import Box from "@components/Box";
 // Types
-import { Versatile, PrismaneVersatile, PrismaneVersatileRef } from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 import { cx } from "@utils";
-
-export type TextProps<E extends Versatile = "span"> = PrismaneVersatile<
-  E,
-  BoxProps
->;
+// Props
+import { TextProps } from "./Text.props";
 
 type TextComponent = <E extends Versatile = "span">(props: TextProps<E>) => any;
 

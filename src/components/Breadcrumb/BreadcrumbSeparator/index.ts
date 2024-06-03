@@ -1,1 +1,2 @@
-export { default, type BreadcrumbSeparatorProps } from "./BreadcrumbSeparator";
+export { default } from "./BreadcrumbSeparator";
+export type { BreadcrumbSeparatorProps } from "./BreadcrumbSeparator.props";

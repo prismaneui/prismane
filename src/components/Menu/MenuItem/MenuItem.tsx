@@ -2,19 +2,12 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "@components/Flex";
-import Transition, { TransitionProps } from "@components/Transition";
+import Flex from "@components/Flex";
+import Transition from "@components/Transition";
 // Utils
 import { cx, fr } from "@utils";
-// Types
-import { PrismaneColors, PrismaneProps } from "@types";
-
-export type MenuItemProps = PrismaneProps<
-  {
-    color?: PrismaneColors;
-  },
-  TransitionProps & FlexProps
->;
+// Props
+import { MenuItemProps } from "./MenuItem.props";
 
 const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ color = "base", children, className, ...props }, ref) => {

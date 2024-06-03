@@ -2,11 +2,11 @@
 
 import React, { forwardRef } from "react";
 // Components
-import Icon, { IconProps } from "@components/Icon";
+import Icon from "@components/Icon";
 // Utils
 import { cx } from "@utils";
-
-export type ListIconProps = IconProps;
+// Props
+import { ListIconProps } from "./ListIcon.props";
 
 const ListIcon = forwardRef<HTMLDivElement, ListIconProps>(
   ({ children, className, ...props }, ref) => {

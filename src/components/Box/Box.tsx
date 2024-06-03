@@ -7,20 +7,11 @@ import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Theme
 import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Types
-import {
-  PrismaneVersatile,
-  PrismaneProps,
-  PrismaneDefault,
-  Versatile,
-  PrismaneVersatileRef,
-} from "@types";
+import { Versatile, PrismaneVersatileRef } from "@types";
 // Utils
 import { cx, dual, fr } from "@utils";
-
-export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
-  E,
-  PrismaneProps<PrismaneDefault, React.ComponentPropsWithoutRef<E>>
->;
+// Props
+import { BoxProps } from "./Box.props";
 
 type BoxComponent = <E extends Versatile = "div">(props: BoxProps<E>) => any;
 
