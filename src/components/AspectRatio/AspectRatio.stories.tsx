@@ -1,15 +1,40 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
+import React, { FC } from "react";
 // Components
 import AspectRatio from "./AspectRatio";
 
 export default {
-  title: "AspectRatio",
+  tags: ["autodocs"],
+  title: "Components/Layout/AspectRatio",
   component: AspectRatio,
-} as Meta;
+};
 
 export const Default: FC = () => {
+  return <AspectRatio ratio="16/9" w={320} bg="base" />;
+};
+
+export const Video: FC = () => {
   return (
-    <AspectRatio bg={["primary", 500]} ratio="2/1" size={105}></AspectRatio>
+    <AspectRatio ratio="1/1" w={420}>
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/w0AOGeqOnFY"
+        title="YouTube video player"
+      />
+    </AspectRatio>
+  );
+};
+
+export const Image: FC = () => {
+  return (
+    <AspectRatio w={360} ratio="1/1">
+      <img
+        src="https://memes.co.in/memes/update/uploads/2021/04/65efc04-1536x1536.jpg"
+        alt="meme"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+    </AspectRatio>
   );
 };

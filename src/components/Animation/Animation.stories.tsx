@@ -1,94 +1,113 @@
 import React, { FC, useState } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Animation from "./Animation";
 import Button from "../Button/Button";
-import Flex from "../Flex/Flex";
-import Chip from "../Chip/Chip";
-// Hooks
-import useAnimation from "../../hooks/useAnimation";
-// Types
-import { PrismaneAnimations } from "../../types";
+import Stack from "../Stack/Stack";
+import Radio from "../Radio";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Animation",
+  tags: ["autodocs"],
+  title: "Components/Miscellaneous/Animation",
   component: Animation,
-} as Meta;
+};
 
 export const Default: FC = () => {
+  const [animated, setAnimated] = useState(true);
+
   return (
-    <Animation animation="fade">
-      <h1>Hello World</h1>
-    </Animation>
+    <Stack gap={fr(4)}>
+      <Animation w={fr(30)} h={fr(30)} bg="primary" animated={animated} />
+      <Button onClick={() => setAnimated(!animated)}>Toggle Animation</Button>
+    </Stack>
   );
 };
 
-export const Alternate: FC = () => {
-  const [animating, setAnimating] = useState(true);
+export const Variants: FC = () => {
+  const [animated, setAnimated] = useState(true);
+
+  const [animation, setAnimation] = useState("fade");
 
   return (
-    <>
-      <Animation animation="fade" animated={animating}>
-        <h1>Hello World</h1>
-      </Animation>
-      <Button
-        variant="primary"
-        onClick={() => setAnimating(!animating)}
-        mt={20}
-      >
-        Animation
-      </Button>
-    </>
-  );
-};
-
-const AnimatedChip = ({ children, ...props }: any) => {
-  const { animate, animating } = useAnimation(true);
-
-  return (
-    <>
+    <Stack gap={fr(4)}>
       <Animation
-        as={Chip}
-        onMouseEnter={() => animate()}
-        onMouseLeave={() => animate()}
-        animated={animating}
-        my={20}
-        {...props}
+        animation={animation as any}
+        w={fr(30)}
+        h={fr(30)}
+        bg="primary"
+        animated={animated}
+      />
+      <Radio.Group
+        value={animation}
+        onChange={(e: any) => setAnimation(e.target.value)}
+        wrap="wrap"
       >
-        {children}
-      </Animation>
-    </>
+        <Radio label="fade" value="fade" />
+        <Radio label="scale" value="scale" />
+        <Radio label="scale-x" value="scale-x" />
+        <Radio label="scale-y" value="scale-y" />
+        <Radio label="skew-up" value="skew-up" />
+        <Radio label="skew-down" value="skew-down" />
+        <Radio label="rotate-left" value="rotate-left" />
+        <Radio label="rotate-right" value="rotate-right" />
+        <Radio label="slide-down" value="slide-down" />
+        <Radio label="slide-up" value="slide-up" />
+        <Radio label="slide-right" value="slide-right" />
+        <Radio label="slide-left" value="slide-left" />
+      </Radio.Group>
+      <Button onClick={() => setAnimated(!animated)}>Toggle Animation</Button>
+    </Stack>
   );
 };
 
-export const Custom: FC = () => {
-  const animations: PrismaneAnimations[] = [
-    "fade",
-    "scale",
-    "scale-y",
-    "scale-x",
-    "skew-up",
-    "skew-down",
-    "rotate-left",
-    "rotate-right",
-    "slide-down",
-    "slide-up",
-    "slide-left",
-    "slide-right",
-    "roll",
-    "pulse",
-    "shake",
-    "bounce",
-    "flip",
-  ];
+export const Delay: FC = () => {
+  const [animated, setAnimated] = useState(true);
 
   return (
-    <>
-      {animations.map((animation) => (
-        <AnimatedChip animation={animation}>
-          {animation.toUpperCase()}
-        </AnimatedChip>
-      ))}
-    </>
+    <Stack gap={fr(4)}>
+      <Animation
+        delay={500}
+        w={fr(30)}
+        h={fr(30)}
+        bg="primary"
+        animated={animated}
+      />
+      <Button onClick={() => setAnimated(!animated)}>Toggle Animation</Button>
+    </Stack>
+  );
+};
+
+export const Duration: FC = () => {
+  const [animated, setAnimated] = useState(true);
+
+  return (
+    <Stack gap={fr(4)}>
+      <Animation
+        duration={1000}
+        w={fr(30)}
+        h={fr(30)}
+        bg="primary"
+        animated={animated}
+      />
+      <Button onClick={() => setAnimated(!animated)}>Toggle Animation</Button>
+    </Stack>
+  );
+};
+
+export const Timing: FC = () => {
+  const [animated, setAnimated] = useState(true);
+
+  return (
+    <Stack gap={fr(4)}>
+      <Animation
+        timing="linear"
+        w={fr(30)}
+        h={fr(30)}
+        bg="primary"
+        animated={animated}
+      />
+      <Button onClick={() => setAnimated(!animated)}>Toggle Animation</Button>
+    </Stack>
   );
 };

@@ -1,25 +1,24 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Gradient from "./Gradient";
-import Center from "../Center/Center";
+import Stack from "../Stack/Stack";
 
 export default {
-  title: "Gradient",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Gradient",
   component: Gradient,
-} as Meta;
-
-export const Default: FC = () => {
-  return (
-    <Gradient
-      as={Center}
-      w={64}
-      h={64}
-      from={["pink", 500]}
-      to={["ruby", 600]}
-      deg={135}
-    >
-      Yes
-    </Gradient>
-  );
 };
+
+export const Default = () => {
+  return <Gradient w="100%" h={200} />;
+};
+
+export const Colors = () => (
+  <Stack>
+    <Gradient w="100%" h={200} from="teal" to="amethyst" />
+    <Gradient w="100%" h={200} from={["ruby", 300]} to={["purple", 400]} />
+  </Stack>
+);
+
+export const Degrees = () => (
+  <Gradient w="100%" h={200} from="orange" to="lime" deg={45} />
+);

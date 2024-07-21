@@ -1,1 +1,1 @@
-export { default } from "./ModalFooter";
+export { default, type ModalFooterProps } from "./ModalFooter";

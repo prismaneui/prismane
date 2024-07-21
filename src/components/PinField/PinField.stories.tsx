@@ -1,75 +1,93 @@
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import PinField from "./PinField";
-import Button from "../Button/Button";
 // Hooks
 import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "PinField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/PinField",
   component: PinField,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      field: {
-        value: "",
-      },
-    },
-  });
+  const [pin, setPin] = useState("");
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <PinField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="outlined"
-      />
-      <Button type="submit" my={16}>
-        Submit
-      </Button>
-    </Form>
+    <PinField
+      label="Enter a pin:"
+      value={pin}
+      onChange={(e: any) => setPin(e.target.value)}
+    />
+  );
+};
+
+export const Length = () => {
+  const [pin, setPin] = useState("");
+
+  return (
+    <PinField
+      label="Enter a 6 digit pin:"
+      value={pin}
+      onChange={(e: any) => setPin(e.target.value)}
+      length={6}
+    />
   );
 };
 
 export const Masked = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+  const [pin, setPin] = useState("");
+
+  return (
+    <PinField
+      label="This pin is hidden:"
+      value={pin}
+      onChange={(e: any) => setPin(e.target.value)}
+      masked
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [pin, setPin] = useState("");
+
+  return (
+    <PinField
+      label="This field is read only:"
+      value={pin}
+      onChange={(e: any) => setPin(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [pin, setPin] = useState("");
+
+  return (
+    <PinField
+      label="This field is disabled:"
+      value={pin}
+      onChange={(e: any) => setPin(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
+      hook_pin: {
         value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(150)}
-    >
-      <PinField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-        variant="underlined"
-        length={6}
-        masked
-      />
-      <Button type="submit" my={16}>
-        Submit
-      </Button>
-    </Form>
+    <PinField
+      label="Controlled PinField"
+      placeholder="Controlled Field"
+      {...register("hook_pin")}
+    />
   );
 };

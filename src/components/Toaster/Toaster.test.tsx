@@ -1,9 +1,7 @@
 import { expect, test, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import { renderHook } from "@testing-library/react-hooks";
 // Component
 import Toaster from "./Toaster";
-import useToast from "./useToast";
 
 test("Correct render", () => {
   const { getByText } = render(<Toaster>Hello, world!</Toaster>);

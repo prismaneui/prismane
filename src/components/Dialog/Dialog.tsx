@@ -1,13 +1,13 @@
 import { forwardRef, useEffect } from "react";
 // Components
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Paper from "../Paper/Paper";
-import Portal from "../Portal/Portal";
-import Backdrop from "../Backdrop/Backdrop";
+import Animation, { AnimationProps } from "@components/Animation";
+import Paper from "@components/Paper";
+import Portal from "@components/Portal";
+import Backdrop from "@components/Backdrop";
 // Hooks
-import usePresence from "../../hooks/usePresence";
-import useAnimation from "../../hooks/useAnimation";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
+import usePresence from "@/hooks/usePresence";
+import useAnimation from "@/hooks/useAnimation";
+import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 // Context
 import { DialogContextProvider } from "./DialogContext";
 // Types
@@ -15,13 +15,13 @@ import {
   PrismaneWithInternal,
   PrismanePositions,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
 // Internal Components
-import DialogHeader, { DialogHeaderProps } from "./DialogHeader/DialogHeader";
-import DialogFooter, { DialogFooterProps } from "./DialogFooter/DialogFooter";
+import DialogHeader, { DialogHeaderProps } from "./DialogHeader";
+import DialogFooter, { DialogFooterProps } from "./DialogFooter";
 
 export { type DialogHeaderProps, type DialogFooterProps };
 
@@ -30,7 +30,7 @@ export type DialogProps = PrismaneProps<
     position?: PrismanePositions;
     open?: boolean;
     closable?: boolean;
-    onClose?: Function;
+    onClose?: () => void;
   },
   AnimationProps
 >;
@@ -142,7 +142,20 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>(
               animated={animating}
               duration={duration}
               timing={timing}
-              animation="slide-up"
+              animation={variants(position, {
+                "top-start": "slide-up",
+                top: "slide-up",
+                "top-end": "slide-up",
+                "right-start": "slide-right",
+                right: "slide-right",
+                "right-end": "slide-right",
+                "bottom-start": "slide-down",
+                bottom: "slide-down",
+                "bottom-end": "slide-down",
+                "left-start": "slide-left",
+                left: "slide-left",
+                "left-end": "slide-left",
+              })}
               className={strip(
                 `${className ? className : ""} ${
                   open ? "PrismaneDialog-root-open" : ""

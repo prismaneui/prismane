@@ -63,7 +63,7 @@ test("Correct render of label", () => {
 });
 
 test("Correct render of wrapper", () => {
-  const { getByTestId } = render(<Field.Wrapper>"lorem"</Field.Wrapper>);
+  const { getByTestId } = render(<Field.Wrapper>lorem</Field.Wrapper>);
 
   const wrapperElement = getByTestId("prismane-field-wrapper");
 

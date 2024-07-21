@@ -1,1 +1,1 @@
-export { default } from "./ModalHeader";
+export { default, type ModalHeaderProps } from "./ModalHeader";

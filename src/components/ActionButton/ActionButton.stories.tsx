@@ -1,23 +1,91 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
-import { GearSix } from "@phosphor-icons/react";
+import React, { FC } from "react";
+import {
+  MagnifyingGlass,
+  ThumbsUp,
+  DownloadSimple,
+  GearSix,
+  Play,
+} from "@phosphor-icons/react";
 // Components
 import ActionButton from "./ActionButton";
-import Flex from "../Flex/Flex";
 
 export default {
-  title: "ActionButton",
+  tags: ["autodocs"],
+  title: "Components/Inputs/ActionButton",
   component: ActionButton,
-} as Meta;
+};
 
 export const Default: FC = () => {
   return (
-    <Flex>
-      <ActionButton size="xs" icon={<GearSix />} />
-      <ActionButton size="sm" icon={<GearSix />} />
-      <ActionButton size="base" icon={<GearSix />} />
-      <ActionButton size="md" icon={<GearSix />} />
-      <ActionButton size="lg" icon={<GearSix />} />
-    </Flex>
+    <ActionButton icon={<MagnifyingGlass />} aria-label="Search Components" />
   );
 };
+
+export const Variants: FC = () => (
+  <>
+    <ActionButton
+      variant="primary"
+      icon={<ThumbsUp />}
+      aria-label="Like Prismane's Post"
+    />
+    <ActionButton
+      variant="secondary"
+      icon={<ThumbsUp />}
+      aria-label="Like Prismane's Post"
+    />
+    <ActionButton
+      variant="tertiary"
+      icon={<ThumbsUp />}
+      aria-label="Like Prismane's Post"
+    />
+    <ActionButton
+      variant="text"
+      icon={<ThumbsUp />}
+      aria-label="Like Prismane's Post"
+    />
+  </>
+);
+
+export const Sizes: FC = () => (
+  <>
+    <ActionButton
+      size="xs"
+      icon={<DownloadSimple />}
+      aria-label="Download Prismane's Source Code"
+    />
+    <ActionButton
+      size="sm"
+      icon={<DownloadSimple />}
+      aria-label="Download Prismane's Source Code"
+    />
+    <ActionButton
+      size="base"
+      icon={<DownloadSimple />}
+      aria-label="Download Prismane's Source Code"
+    />
+    <ActionButton
+      size="md"
+      icon={<DownloadSimple />}
+      aria-label="Download Prismane's Source Code"
+    />
+    <ActionButton
+      size="lg"
+      icon={<DownloadSimple />}
+      aria-label="Download Prismane's Source Code"
+    />
+  </>
+);
+
+export const Custom_Color: FC = () => (
+  <ActionButton color="base" icon={<GearSix />} aria-label="Open Settings" />
+);
+
+export const Custom_Button: FC = () => (
+  <ActionButton
+    icon={<Play />}
+    aria-label="Play Soundgarden - Black Hole Sun"
+    br="full"
+    variant="secondary"
+    color="lime"
+  />
+);

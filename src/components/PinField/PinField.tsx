@@ -1,15 +1,14 @@
 import { forwardRef, useState, useRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Flex from "../Flex/Flex";
-import Hidden from "../Hidden/Hidden";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Flex from "@components/Flex";
+import Hidden from "@components/Hidden";
 // Hooks
-import { useFieldProps } from "../Field";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { fr } from "../../utils";
+import { fr } from "@/utils";
 
 export type PinFieldProps = PrismaneProps<
   {
@@ -24,15 +23,7 @@ const PinField = forwardRef<
   PinFieldProps
 >(
   (
-    {
-      length = 4,
-      masked = false,
-      label,
-      error,
-      size = "base",
-      className,
-      ...props
-    },
+    { size = "base", label, error, length = 4, masked = false, ...props },
     ref
   ) => {
     const [rest, field] = useFieldProps(props);
@@ -45,7 +36,10 @@ const PinField = forwardRef<
 
     const fieldRef: any = useRef(ref || null);
 
-    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+    const emulateChange = useEmulatedFieldChange(
+      fieldRef,
+      props.onChange as any
+    );
 
     const focus = (index: number) => {
       if (fieldRefs.current[index]) {
@@ -92,7 +86,10 @@ const PinField = forwardRef<
     };
 
     return (
-      <Field.Wrapper {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}
@@ -101,7 +98,7 @@ const PinField = forwardRef<
           {label}
         </Field.Label>
         <Flex align="center" gap={fr(2)}>
-          <Hidden>
+          <Hidden dp="none">
             <Field
               data-testid="prismane-pin-field"
               ref={fieldRef}
@@ -116,10 +113,11 @@ const PinField = forwardRef<
               error={error}
               size={size as any}
               type={masked ? "password" : "text"}
+              disabled={field.disabled}
               px={fr(1)}
               py={fr(1)}
               grow={false}
-              placeholder="o"
+              placeholder={field.placeholder ? field.placeholder : "o"}
               onKeyDown={(event: any) => handleKeyDown(event, index)}
               onChange={(event: any) => handleChange(event, index)}
               onPaste={handlePaste}

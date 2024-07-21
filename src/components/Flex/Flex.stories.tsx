@@ -1,47 +1,79 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Flex from "./Flex";
-// Utils
-import { fr } from "../../utils";
 
 export default {
-  title: "Flex",
+  tags: ["autodocs"],
+  title: "Components/Layout/Flex",
   component: Flex,
-} as Meta;
+};
 
-export const Default: FC = () => {
+export const Default = () => {
   return (
-    <Flex gap={3}>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
+    <Flex>
+      <Flex bg="base" w={120}>
+        1
+      </Flex>
+      <Flex bg="base" w={120}>
+        2
+      </Flex>
+      <Flex bg="base" w={120}>
+        3
+      </Flex>
     </Flex>
   );
 };
 
-export const Column: FC = () => {
+export const Gap = () => {
   return (
-    <Flex gap={3} direction="column">
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
+    <Flex gap={10} h={100}>
+      <Flex bg="base" w={120}>
+        1
+      </Flex>
+      <Flex bg="base" w={120}>
+        2
+      </Flex>
+      <Flex bg="base" w={120}>
+        3
+      </Flex>
     </Flex>
   );
 };
 
-export const Wrap: FC = () => {
-  return (
-    <Flex gap={3} wrap="wrap" className="w-32">
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
-      <Flex w={fr(12)} h={fr(12)} bg="primary"></Flex>
+export const Justify = () => (
+  <Flex h={100} justify="between" w="100%">
+    <Flex bg="base" w={120}>
+      1
     </Flex>
-  );
-};
+    <Flex bg="base" w={120}>
+      2
+    </Flex>
+    <Flex bg="base" w={120}>
+      3
+    </Flex>
+  </Flex>
+);
+
+export const Direction = () => (
+  <Flex gap={10} direction="column">
+    <Flex bg="base" w={120} h={100}>
+      1
+    </Flex>
+    <Flex bg="base" w={120} h={100}>
+      2
+    </Flex>
+    <Flex bg="base" w={120} h={100}>
+      3
+    </Flex>
+  </Flex>
+);
+
+export const Grow = () => (
+  <Flex h={100} w="100%">
+    <Flex bg="ruby" w={120}>
+      1
+    </Flex>
+    <Flex bg="orange" w={120} grow>
+      2
+    </Flex>
+  </Flex>
+);

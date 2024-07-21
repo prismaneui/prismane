@@ -11,12 +11,13 @@ import { required, username, min } from "../../validators";
 import useForm from "./useForm";
 
 export default {
-  title: "useForm",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useForm",
   component: useForm,
 };
 
 export const Default = () => {
-  const backend = async (v: string) => {
+  const backend = async () => {
     return null;
   };
 
@@ -28,7 +29,7 @@ export const Default = () => {
           required: (v: string) => required(v),
           min: (v: string) => min(v, 4),
           username: (v: string) => username(v),
-          backend: async (v: string) => await backend(v),
+          backend: async () => await backend(),
         },
       },
     },
@@ -62,26 +63,11 @@ export const Default = () => {
 };
 
 export const Simulate_Errors = () => {
-  const backend = async (v: string) => {
+  const backend = async () => {
     return null;
   };
 
-  const {
-    formState,
-    register,
-    setValue,
-    setError,
-    getFormValues,
-    getValue,
-    getFormErrors,
-    getError,
-    validate,
-    handleChange,
-    handleBlur,
-    validateForm,
-    handleReset,
-    handleSubmit,
-  } = useForm({
+  const { setValue, setError, validate, handleChange, handleBlur } = useForm({
     fields: {
       username: {
         value: "",
@@ -89,7 +75,7 @@ export const Simulate_Errors = () => {
           required: (v: string) => required(v),
           min: (v: string) => min(v, 4),
           username: (v: string) => username(v),
-          backend: async (v: string) => await backend(v),
+          backend: async () => await backend(),
         },
       },
     },

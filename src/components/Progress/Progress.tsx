@@ -1,26 +1,33 @@
 import { forwardRef } from "react";
+import * as CSS from "csstype";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
 // Types
 import {
   PrismaneBreakpoints,
   PrismaneProps,
-  PrismaneStyles,
-} from "../../types";
+  PrismaneColors,
+  PrismaneShades,
+} from "@/types";
 // Utils
-import { strip, fr, dual } from "../../utils";
+import { strip, fr, dual } from "@/utils";
 
 export type ProgressProps = PrismaneProps<
   {
     value: number;
-    size?: PrismaneStyles | PrismaneBreakpoints;
+    size?: string | number | PrismaneBreakpoints;
+    color?:
+      | PrismaneColors
+      | [PrismaneColors, PrismaneShades]
+      | [PrismaneColors, PrismaneShades, number]
+      | CSS.Properties["color"];
   },
   FlexProps & TransitionProps
 >;
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
-  ({ value, size = "base", className, ...props }, ref) => {
+  ({ value, size = "base", color = "primary", className, ...props }, ref) => {
     return (
       <Transition
         as={Flex}
@@ -51,7 +58,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
           h="100%"
           w={value ? value.toString() + "%" : 0}
           br="full"
-          bg="primary"
+          bg={color}
           cl="white"
           className="PrismaneLoader-line"
         />

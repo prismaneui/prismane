@@ -4,7 +4,8 @@ import useFocusTrap from "./useFocusTrap";
 import { fr } from "../../utils";
 
 export default {
-  title: "useFocusTrap",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useFocusTrap",
   component: useFocusTrap,
 };
 

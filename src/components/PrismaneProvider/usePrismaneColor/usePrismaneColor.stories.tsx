@@ -3,7 +3,8 @@ import usePrismaneColor from "../usePrismaneColor/usePrismaneColor";
 import { fr } from "../../../utils";
 
 export default {
-  title: "usePrismaneColor",
+  tags: ["autodocs"],
+  title: "Theming/usePrismaneColor",
   component: usePrismaneColor,
 };
 

@@ -1,16 +1,22 @@
 import { forwardRef, useState, useEffect } from "react";
 // Components
-import SelectField, { SelectFieldProps } from "../SelectField/SelectField";
+import SelectField, { SelectFieldProps } from "@components/SelectField";
 // Hooks
-import useDebounce from "../../hooks/useDebounce";
+import useDebounce from "@hooks/useDebounce";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type AutocompleteFieldProps = PrismaneProps<
   {
-    filter?: Function;
+    filter?: (
+      value: any,
+      item: {
+        value: string;
+        element: React.ReactNode;
+      }
+    ) => boolean;
   },
   SelectFieldProps
 >;

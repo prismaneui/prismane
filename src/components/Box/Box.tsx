@@ -1,18 +1,18 @@
 import { forwardRef } from "react";
 // Hooks
-import useStyling from "../../hooks/useStyling";
-import usePrismaneColor from "../PrismaneProvider/usePrismaneColor";
+import useStyling from "./useStyling";
+import usePrismaneColor from "@components/PrismaneProvider/usePrismaneColor";
 // Theme
-import { usePrismaneTheme } from "../PrismaneProvider/PrismaneContext";
+import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Types
 import {
   PrismaneComponent,
   PrismaneVersatile,
   Versatile,
   PrismaneVersatileRef,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, dual, variants, fr } from "../../utils";
+import { strip, dual, fr } from "@/utils";
 
 export type BoxProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -168,7 +168,7 @@ const Box: BoxComponent = forwardRef(
       zIndex: z,
       overflow: of,
       fontFamily: ff,
-      fontSize: variants(fs, {
+      fontSize: dual(fs, {
         xs: fr(3),
         sm: fr(3.5),
         base: fr(4),
@@ -183,7 +183,7 @@ const Box: BoxComponent = forwardRef(
         "7xl": fr(24),
         "8xl": fr(32),
       }),
-      fontWeight: variants(fw, {
+      fontWeight: dual(fw, {
         thin: "100",
         extralight: "200",
         light: "300",

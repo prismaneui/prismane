@@ -1,7 +1,7 @@
 import { forwardRef, ReactNode } from "react";
 // Components
-import Box from "../Box/Box";
-import Center, { CenterProps } from "../Center/Center";
+import Box from "@components/Box";
+import Center, { CenterProps } from "@components/Center";
 // Types
 import {
   PrismaneColors,
@@ -11,9 +11,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type BadgeProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

@@ -1,26 +1,23 @@
-import { useState, forwardRef, ReactNode, useRef } from "react";
+import { useState, forwardRef, useRef } from "react";
 // Components
-import Paper, { PaperProps } from "../Paper/Paper";
-import Animation from "../Animation/Animation";
-import Box from "../Box/Box";
+import Paper, { PaperProps } from "@components/Paper";
+import Box from "@components/Box";
 // Context
 import { PopoverContextProvider } from "./PopoverContext";
 // Hooks
-import useOutsideClick from "../../hooks/useOutsideClick";
+import useOutsideClick from "@hooks/useOutsideClick";
 // Types
 import {
   PrismanePositions,
   PrismaneProps,
   PrismaneWithInternal,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import PopoverControl, {
-  PopoverControlProps,
-} from "./PopoverControl/PopoverControl";
-import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel/PopoverPanel";
+import PopoverControl, { PopoverControlProps } from "./PopoverControl";
+import PopoverPanel, { PopoverPanelProps } from "./PopoverPanel";
 
 export { type PopoverControlProps, type PopoverPanelProps };
 
@@ -32,7 +29,7 @@ export type PopoverProps = PrismaneProps<
 >;
 
 const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-  ({ children, position = "bottom", className, sx, ...props }, ref) => {
+  ({ children, position = "bottom", className, ...props }, ref) => {
     const [open, setOpen] = useState(false);
 
     const boxRef = useRef(ref || null);
@@ -43,6 +40,7 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     return (
       <Box
+        as={Paper}
         w="fit-content"
         h="fit-content"
         pos="relative"

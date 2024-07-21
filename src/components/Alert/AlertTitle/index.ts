@@ -1,1 +1,1 @@
-export { default } from "./AlertTitle";
+export { default, type AlertTitleProps } from "./AlertTitle";

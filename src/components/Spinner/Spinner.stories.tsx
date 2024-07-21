@@ -1,14 +1,22 @@
 // Components
 import Spinner from "./Spinner";
-import Center from "../Center/Center";
 
 export default {
-  title: "Spinner",
+  tags: ["autodocs"],
+  title: "Components/Feedback/Spinner",
   component: Spinner,
 };
 
-export const Default = () => (
-  <Center w={120} h={120}>
-    <Spinner />
-  </Center>
+export const Default = () => <Spinner />;
+
+export const Sizes = () => (
+  <>
+    <Spinner size="xs" />
+    <Spinner size="sm" />
+    <Spinner size="base" />
+    <Spinner size="md" />
+    <Spinner size="lg" />
+  </>
 );
+
+export const Color = () => <Spinner color="primary" />;

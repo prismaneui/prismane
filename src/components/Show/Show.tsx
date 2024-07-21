@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Hooks
-import useMediaQuery from "../../hooks/useMediaQuery/useMediaQuery";
+import useMediaQuery from "@hooks/useMediaQuery/useMediaQuery";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "@/types";
 // Utils
-import { strip, dual, fr } from "../../utils";
+import { strip, dual, fr } from "@/utils";
 
 export type ShowProps = PrismaneProps<
   {

@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Flex, Text, Button, Stack } from "../../components";
 import useScroll from "./useScroll";
 import { fr } from "../../utils";
 
 export default {
-  title: "useScroll",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useScroll",
   component: useScroll,
 };
 

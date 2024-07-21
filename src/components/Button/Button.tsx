@@ -1,9 +1,9 @@
 import { forwardRef, ReactNode } from "react";
 // Components
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Text from "../Text/Text";
-import Icon from "../Icon/Icon";
-import Spinner from "../Spinner/Spinner";
+import Transition, { TransitionProps } from "@components/Transition";
+import Text from "@components/Text";
+import Icon from "@components/Icon";
+import Spinner from "@components/Spinner";
 // Types
 import {
   PrismaneBreakpoints,
@@ -12,9 +12,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type ButtonProps<E extends Versatile = "button"> = PrismaneVersatile<
   E,
@@ -105,10 +105,10 @@ const Button: ButtonComponent = forwardRef(
             secondary:
               theme.mode === "dark"
                 ? [
-                    [color, 700, 0.1],
+                    [color, 700, 0.2],
                     {
-                      hover: fillOnHover ? [color, 700] : [color, 700, 0.15],
-                      active: !fillOnHover && [color, 700, 0.2],
+                      hover: fillOnHover ? [color, 700] : [color, 700, 0.25],
+                      active: !fillOnHover && [color, 700, 0.3],
                     },
                   ]
                 : [
@@ -156,8 +156,8 @@ const Button: ButtonComponent = forwardRef(
         bdw={variant === "tertiary" && 1}
         bdc={(theme) =>
           variant === "tertiary" && theme.mode === "dark"
-            ? [color, 500]
-            : [color, 300]
+            ? [[color, 500], { hover: fillOnHover && [color, 700] }]
+            : [[color, 300], { hover: fillOnHover && [color, 500] }]
         }
         pe={[loading && "none", { disabled: "none" }]}
         cs="pointer"
@@ -226,4 +226,3 @@ const Button: ButtonComponent = forwardRef(
 );
 
 export default Button;
-

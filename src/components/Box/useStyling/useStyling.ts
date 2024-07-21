@@ -1,11 +1,11 @@
 import { useLayoutEffect, useState } from "react";
-import { css } from "../../../stitches.config";
+import { css } from "@/../stitches.config";
 // Theme
-import { usePrismaneTheme } from "../../components/PrismaneProvider/PrismaneContext";
+import { usePrismaneTheme } from "@components/PrismaneProvider/PrismaneContext";
 // Hooks
-import useMemoization from "../useMemoization";
+import useMemoization from "@hooks/useMemoization";
 // Types
-import { PrismaneTheme } from "../../types";
+import { PrismaneTheme } from "@/types";
 
 type StylingProp =
   | any
@@ -75,7 +75,7 @@ const useStyling: StylingHook = (props: StylingProps) => {
 
   useLayoutEffect(() => {
     const stripped = Object.fromEntries(
-      Object.entries(props).filter(([_, value]) => value !== undefined)
+      Object.entries(props).filter(([, value]) => value !== undefined)
     );
 
     for (const key in stripped) {

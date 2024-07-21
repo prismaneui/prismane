@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Flex, Text, Button, Stack } from "../../components";
+import { Text, Button, Stack } from "../../components";
 import useKeyboardShortcut from "./useKeyboardShortcut";
-import { fr } from "../../utils";
 
 export default {
-  title: "useKeyboardShortcut",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useKeyboardShortcut",
   component: useKeyboardShortcut,
 };
 

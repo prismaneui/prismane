@@ -2,68 +2,173 @@ import { useState } from "react";
 // Components
 import Drawer from "./Drawer";
 import Button from "../Button/Button";
+import Text from "../Text/Text";
+import Form from "../Form/Form";
+import TextField from "../TextField/TextField";
+import PasswordField from "../PasswordField/PasswordField";
+import Radio from "../Radio/Radio";
+import Flex from "../Flex/Flex";
+import Stack from "../Stack/Stack";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Drawer",
+  tags: ["autodocs"],
+  title: "Components/Overlay/Drawer",
   component: Drawer,
 };
 
-export const Default = () => (
-  <Drawer position="top" open>
-    <Drawer.Header>
-      <h1>Payment</h1>
-    </Drawer.Header>
-    <span>
-      Would you like to accept this incoming payment from{" "}
-      <strong>John Doe</strong> sending the sum of <strong>$405.30</strong>
-    </span>
-    <Drawer.Footer>
-      <Button variant="primary">Accept</Button>
-      <Button variant="secondary">Cancel</Button>
-    </Drawer.Footer>
-  </Drawer>
-);
-
-export const Complex = () => {
-  const [shown, setShown] = useState(false);
+export const Default = () => {
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Drawer
-        size="lg"
-        open={shown}
-        closable
-        onClose={() => {
-          setShown(false);
-        }}
-      >
+      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
+      <Drawer open={open} onClose={() => setOpen(false)}>
+        This is a simple drawer. To close it just click the Escape key or simply
+        click the backdrop.
+      </Drawer>
+    </>
+  );
+};
+
+export const Advanced_Composition = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
+      <Drawer open={open} onClose={() => setOpen(false)}>
         <Drawer.Header>
-          <div className="flex flex-col">
-            <h1 className="text-base">Mobile Design</h1>
-            <span className="text-xs">This chapter is about mobile design</span>
-          </div>
+          <Text as="h1">Create Account</Text>
         </Drawer.Header>
-        <div className="flex flex-col gap-2">
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F2592953%2Fscreenshots%2F9853673%2Fmedia%2Fcd35721f9aa98b052f964982e30a9268.png&f=1&nofb=1&ipt=f13a57dff5ad2fcddb037078be69172a82855c2f3988d030487646f07fcd0098&ipo=images"
-            alt="Mobile Design"
-            className="rounded-md mb-5 w-full"
+        <Form>
+          <TextField
+            name="username"
+            label="Username:"
+            placeholder="Enter your username"
           />
-          <h3>Welcome to mobile design</h3>
-          <span>In this chapter we will discuss mobile design.</span>
-        </div>
-        <Drawer.Footer>
-          <Button variant="primary" full>
-            Continue
-          </Button>
-          <Button variant="secondary" full>
+          <TextField
+            name="email"
+            label="Email:"
+            placeholder="Enter your email"
+          />
+          <PasswordField
+            name="password"
+            label="Password:"
+            placeholder="Enter your password"
+          />
+        </Form>
+        <Drawer.Footer direction="column" gap={fr(2)}>
+          <Button full>Create Account</Button>
+          <Button
+            onClick={() => setOpen(false)}
+            variant="secondary"
+            color="base"
+            full
+          >
             Cancel
           </Button>
         </Drawer.Footer>
       </Drawer>
-      <Button variant="primary" onClick={() => setShown(true)}>
-        Show Drawer
-      </Button>
     </>
+  );
+};
+
+export const Closable = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
+      <Drawer open={open} onClose={() => setOpen(false)} closable>
+        <Drawer.Header>
+          <Text as="h1">Settings</Text>
+        </Drawer.Header>
+        <Form>
+          <TextField
+            name="username"
+            label="Username:"
+            placeholder="Enter your username"
+            defaultValue="spleafy"
+          />
+          <TextField
+            name="email"
+            label="Email:"
+            placeholder="Enter your email"
+            defaultValue="martinpetrov@prismane.io"
+          />
+        </Form>
+        <Drawer.Footer direction="column" gap={fr(2)}>
+          <Button full>Save Settings</Button>
+          <Button
+            onClick={() => setOpen(false)}
+            variant="secondary"
+            color="base"
+            full
+          >
+            Cancel
+          </Button>
+        </Drawer.Footer>
+      </Drawer>
+    </>
+  );
+};
+
+export const Positions = () => {
+  const [open, setOpen] = useState(false);
+  const [position, setPosition] = useState("left");
+
+  return (
+    <Stack gap={fr(4)}>
+      <Text>Drawer Position</Text>
+      <Radio.Group
+        value={position}
+        onChange={(e: any) => setPosition(e.target.value)}
+      >
+        <Radio value="top" label="Top" />
+        <Radio value="bottom" label="Bottom" />
+        <Radio value="left" label="Left" />
+        <Radio value="right" label="Right" />
+      </Radio.Group>
+      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        position={position as any}
+      >
+        This drawer has a position of {position}. To close it just click the
+        Escape key or simply click the backdrop.
+      </Drawer>
+    </Stack>
+  );
+};
+
+export const Sizes = () => {
+  const [size, setSize] = useState("base");
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Flex direction="column" gap={fr(4)}>
+      <Text>Drawer Size</Text>
+      <Radio.Group
+        name="size"
+        value={size}
+        onChange={(e: any) => setSize(e.target.value)}
+      >
+        <Radio value="xs" label="xs" />
+        <Radio value="sm" label="sm" />
+        <Radio value="base" label="base" />
+        <Radio value="md" label="md" />
+        <Radio value="lg" label="lg" />
+        <Radio value="550px" label="550px" />
+        <Radio value="100%" label="full" />
+      </Radio.Group>
+      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
+      <Drawer open={open} onClose={() => setOpen(false)} size={size}>
+        This drawer has a size of {size}. To close it just click the Escape key
+        or simply click the backdrop.
+      </Drawer>
+    </Flex>
   );
 };

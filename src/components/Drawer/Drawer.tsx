@@ -1,13 +1,13 @@
-import { forwardRef, ReactNode, useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 // Components
-import Paper, { PaperProps } from "../Paper/Paper";
-import Animation, { AnimationProps } from "../Animation/Animation";
-import Backdrop from "../Backdrop/Backdrop";
-import Portal from "../Portal/Portal";
+import Paper, { PaperProps } from "@components/Paper";
+import Animation, { AnimationProps } from "@components/Animation";
+import Backdrop from "@components/Backdrop";
+import Portal from "@components/Portal";
 // Hooks
-import useAnimation from "../../hooks/useAnimation";
-import usePresence from "../../hooks/usePresence";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
+import useAnimation from "@hooks/useAnimation";
+import usePresence from "@hooks/usePresence";
+import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
 // Context
 import { DrawerContextProvider } from "./DrawerContext";
 // Types
@@ -15,12 +15,12 @@ import {
   PrismaneWithInternal,
   PrismaneBreakpoints,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants, dual, fr } from "../../utils";
+import { strip, variants, dual, fr } from "@/utils";
 // Internal Components
-import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader/DrawerHeader";
-import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter/DrawerFooter";
+import DrawerHeader, { DrawerHeaderProps } from "./DrawerHeader";
+import DrawerFooter, { DrawerFooterProps } from "./DrawerFooter";
 
 export { type DrawerHeaderProps, type DrawerFooterProps };
 
@@ -30,7 +30,7 @@ export type DrawerProps = PrismaneProps<
     size?: PrismaneBreakpoints | string | number;
     open?: boolean;
     closable?: boolean;
-    onClose?: Function;
+    onClose?: () => void;
   },
   AnimationProps & PaperProps
 >;

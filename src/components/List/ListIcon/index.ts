@@ -1,1 +1,1 @@
-export { default } from "./ListIcon";
+export { default, type ListIconProps } from "./ListIcon";

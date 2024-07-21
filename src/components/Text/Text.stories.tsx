@@ -1,30 +1,38 @@
-import React, { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Text from "./Text";
 import Stack from "../Stack/Stack";
 
 export default {
-  title: "Text",
+  tags: ["autodocs"],
+  title: "Components/Typography/Text",
   component: Text,
-} as Meta;
-
-export const Default: FC = () => {
-  return (
-    <Stack>
-      <Text fs="xs">Hello world</Text>
-      <Text fs="sm">Hello world</Text>
-      <Text fs="base">Hello world</Text>
-      <Text fs="md">Hello world</Text>
-      <Text fs="lg">Hello world</Text>
-      <Text fs="xl">Hello world</Text>
-      <Text fs="2xl">Hello world</Text>
-      <Text fs="3xl">Hello world</Text>
-      <Text fs="4xl">Hello world</Text>
-      <Text fs="5xl">Hello world</Text>
-      <Text fs="6xl">Hello world</Text>
-      <Text fs="7xl">Hello world</Text>
-      <Text fs="8xl">Hello world</Text>
-    </Stack>
-  );
 };
+
+export const Default = () => {
+  return <Text>Some text</Text>;
+};
+
+export const Sizes = () => (
+  <Stack>
+    <Text fs="xs">(xs) In love with Prismane</Text>
+    <Text fs="sm">(sm) In love with Prismane</Text>
+    <Text fs="base">(base) In love with Prismane</Text>
+    <Text fs="md">(md) In love with Prismane</Text>
+    <Text fs="lg">(lg) In love with Prismane</Text>
+    <Text fs="xl">(xl) In love with Prismane</Text>
+    <Text fs="2xl">(2xl) In love with Prismane</Text>
+    <Text fs="3xl">(3xl) In love with Prismane</Text>
+    <Text fs="4xl">(4xl) In love with Prismane</Text>
+    <Text fs="5xl">(5xl) In love with Prismane</Text>
+    <Text fs="6xl">(6xl) In love with Prismane</Text>
+    <Text fs="7xl">(7xl) In love with Prismane</Text>
+    <Text fs="8xl">(8xl) In love with Prismane</Text>
+  </Stack>
+);
+
+export const Color = () => (
+  <Stack>
+    <Text cl="primary">Text with primary color.</Text>
+    <Text cl={["base", 400]}>Text with base color, shade 400.</Text>
+  </Stack>
+);

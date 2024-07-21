@@ -1,1 +1,1 @@
-export { default } from "./BreadcrumbSeparator";
+export { default, type BreadcrumbSeparatorProps } from "./BreadcrumbSeparator";

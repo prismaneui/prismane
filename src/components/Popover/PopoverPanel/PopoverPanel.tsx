@@ -1,15 +1,15 @@
 import { forwardRef } from "react";
 // Components
-import Paper, { PaperProps } from "../../Paper/Paper";
-import Animation, { AnimationProps } from "../../Animation/Animation";
+import Paper, { PaperProps } from "@components/Paper";
+import Animation, { AnimationProps } from "@components/Animation";
 // Context
 import { usePopoverContext } from "../PopoverContext";
 // Hooks
-import useAnimation from "../../../hooks/useAnimation";
-import usePresence from "../../../hooks/usePresence";
+import useAnimation from "@hooks/useAnimation";
+import usePresence from "@hooks/usePresence";
 
 // Utils
-import { strip, variants, fr } from "../../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type PopoverPanelProps = AnimationProps & PaperProps;
 

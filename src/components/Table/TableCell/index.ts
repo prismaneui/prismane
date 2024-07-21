@@ -1,1 +1,1 @@
-export { default } from "./TableCell";
+export { default, type TableCellProps } from "./TableCell";

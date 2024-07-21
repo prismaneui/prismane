@@ -4,7 +4,8 @@ import usePrevious from "./usePrevious";
 import { fr } from "../../utils";
 
 export default {
-  title: "usePrevious",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/usePrevious",
   component: usePrevious,
 };
 

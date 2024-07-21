@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 export interface DialogContextValue {
   open?: boolean;
   closable?: boolean;
-  onClose?: Function;
+  onClose?: () => void;
 }
 
 const DialogContext = createContext<DialogContextValue>({

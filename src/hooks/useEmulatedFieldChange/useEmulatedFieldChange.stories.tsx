@@ -1,10 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Flex, Text, Box } from "../../components";
 import useEmulatedFieldChange from "./useEmulatedFieldChange";
 import { fr } from "../../utils";
 
 export default {
-  title: "useEmulatedFieldChange",
+  tags: ["autodocs"],
+  title: "Hooks/Miscellaneous/useEmulatedFieldChange",
   component: useEmulatedFieldChange,
 };
 

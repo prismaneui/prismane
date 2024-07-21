@@ -1,11 +1,11 @@
-import { forwardRef, useState, useEffect } from "react";
+import { forwardRef } from "react";
 import ReactDOM from "react-dom";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type PortalProps = PrismaneProps<
   {
@@ -17,17 +17,7 @@ export type PortalProps = PrismaneProps<
 
 const Portal = forwardRef<HTMLDivElement, PortalProps>(
   ({ target, disabled = false, className, children, ...props }, ref) => {
-    const [node, setNode] = useState<HTMLElement | null>(null);
-
-    useEffect(() => {
-      if (target && target.current) {
-        setNode(target.current);
-      }
-
-      if (target === undefined) {
-        setNode(document.body);
-      }
-    }, [target]);
+    const node = target?.current ?? globalThis.document.body;
 
     if (!node) {
       return null;

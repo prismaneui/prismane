@@ -1,21 +1,25 @@
 import { forwardRef } from "react";
+import * as CSS from "csstype";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+// Types
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
-export type TextareaFieldProps = FieldProps;
+export type TextareaFieldProps = PrismaneProps<
+  { resize?: CSS.Properties["resize"] },
+  FieldProps
+>;
 
 const TextareaField = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   TextareaFieldProps
->(({ label, error, size = "base", className, sx, ...props }, ref) => {
+>(({ resize, label, error, size = "base", className, sx, ...props }, ref) => {
   const [rest, field] = useFieldProps(props);
 
   return (
-    <Field.Wrapper {...rest}>
+    <Field.Wrapper pe={(field.disabled || field.readOnly) && "none"} {...rest}>
       <Field.Label
         size={size as any}
         htmlFor={field.name}
@@ -35,6 +39,7 @@ const TextareaField = forwardRef<
         })}
         align="start"
         sx={{
+          resize,
           ".PrismaneField-field": {
             resize: "none",
             fontSize: variants(size, {

@@ -1,11 +1,11 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../../Flex/Flex";
-import Animation, { AnimationProps } from "../../Animation/Animation";
+import Flex, { FlexProps } from "@components/Flex";
+import Animation, { AnimationProps } from "@components/Animation";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../../types";
+import { PrismaneBreakpoints, PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type FieldErrorProps = PrismaneProps<
   {

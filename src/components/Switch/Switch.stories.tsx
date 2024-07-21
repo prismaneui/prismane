@@ -1,77 +1,87 @@
-import React from "react";
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import Switch from "./Switch";
-import Button from "../Button";
-import Flex from "../Flex";
 // Hooks
 import useForm from "../../hooks/useForm";
 
 export default {
-  title: "Switch",
+  tags: ["autodocs"],
+  title: "Components/Inputs/Switch",
   component: Switch,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
-    fields: {
-      username: {
-        value: false,
-      },
-    },
-  });
+  const [value, setValue] = useState(false);
 
   return (
-    <Form
-      onSubmit={(e) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      className="max-w-[300px]"
-    >
-      <Switch {...register("username")} error="da" label="yes" />
-      <Flex align="center" gap={2}>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-        <Button variant="primary" type="reset">
-          Reset
-        </Button>
-      </Flex>
-    </Form>
+    <Switch
+      label="Switch"
+      name="switch"
+      value={value as any}
+      onChange={(e: any) => setValue(e.target.checked)}
+    />
   );
 };
 
-export const PrismaneBreakpoints = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+export const Disabled = () => (
+  <>
+    <Switch label="I am disabled" name="disabled" disabled />
+    <Switch
+      label="I am checked and disabled"
+      name="checked_disabled"
+      value={true as any}
+      disabled
+    />
+  </>
+);
+
+export const Sizes = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <>
+      <Switch
+        size="xs"
+        label="xs"
+        value={value}
+        onChange={(e: any) => setValue(e.target.checked)}
+      />
+      <Switch
+        size="sm"
+        label="sm"
+        value={value}
+        onChange={(e: any) => setValue(e.target.checked)}
+      />
+      <Switch
+        size="base"
+        label="base"
+        value={value}
+        onChange={(e: any) => setValue(e.target.checked)}
+      />
+      <Switch
+        size="md"
+        label="md"
+        value={value}
+        onChange={(e: any) => setValue(e.target.checked)}
+      />
+      <Switch
+        size="lg"
+        label="lg"
+        value={value}
+        onChange={(e: any) => setValue(e.target.checked)}
+      />
+    </>
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      username: {
+      hook_switch: {
         value: false,
       },
     },
   });
 
-  return (
-    <Form
-      onSubmit={(e) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      className="max-w-[300px]"
-    >
-      <Switch {...register("username")} size="xs" mt={5} />
-      <Switch {...register("username")} size="sm" mt={5} />
-      <Switch {...register("username")} size="base" mt={5} />
-      <Switch {...register("username")} size="md" mt={5} />
-      <Switch {...register("username")} size="lg" mt={5} />
-      <Flex align="center" gap={2} mt={4}>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-        <Button variant="primary" type="reset">
-          Reset
-        </Button>
-      </Flex>
-    </Form>
-  );
+  return <Switch label="Controlled Switch" {...register("hook_switch")} />;
 };

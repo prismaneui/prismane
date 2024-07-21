@@ -1,14 +1,17 @@
 // Components
 import Initials from "./Initials";
+import Avatar from "../Avatar/Avatar";
 
 export default {
-  title: "Initials",
+  tags: ["autodocs"],
+  title: "Components/Data Display/Initials",
   component: Initials,
 };
 
-export const Default = () => (
-  <div className="flex gap-2">
-    <h1>Initials for "Martin Petrov" are: </h1>
+export const Default = () => <Initials name="Martin Petrov" />;
+
+export const Avatar_Example = () => (
+  <Avatar>
     <Initials name="Martin Petrov" />
-  </div>
+  </Avatar>
 );

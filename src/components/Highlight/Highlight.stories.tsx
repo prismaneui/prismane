@@ -1,17 +1,47 @@
-import { FC } from "react";
-import { Meta } from "@storybook/react";
 // Components
 import Highlight from "./Highlight";
+import Text from "../Text/Text";
+// Utils
+import { fr } from "../../utils";
 
 export default {
-  title: "Highlight",
+  tags: ["autodocs"],
+  title: "Components/Typography/Highlight",
   component: Highlight,
-} as Meta;
+};
 
-export const Default: FC = () => {
+export const Default = () => {
   return (
-    <span>
-      You can <Highlight>highlight</Highlight> words!
-    </span>
+    <Text>
+      You can <Highlight>highlight</Highlight> this important word!
+    </Text>
   );
 };
+
+export const Background_Color = () => (
+  <Text>
+    You can <Highlight bg="lime">highlight</Highlight> this important word!
+  </Text>
+);
+
+export const Text_Color = () => (
+  <Text>
+    You can <Highlight cl="lime">highlight</Highlight> this important word!
+  </Text>
+);
+
+export const Border_Radius = () => (
+  <Text>
+    You can <Highlight br="full">highlight</Highlight> this important word!
+  </Text>
+);
+
+export const Advanced_Composition = () => (
+  <Text>
+    You can{" "}
+    <Highlight br="md" bg="teal" px={fr(2)}>
+      highlight
+    </Highlight>{" "}
+    this important word!
+  </Text>
+);

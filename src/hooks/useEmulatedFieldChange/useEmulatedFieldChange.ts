@@ -1,4 +1,4 @@
-const useEmulatedFieldChange = (ref: any, change: Function) => {
+const useEmulatedFieldChange = (ref: any, change: (event: Event) => void) => {
   const emulateChange = (value: any) => {
     if (ref.current) {
       const event = new Event("input", { bubbles: true });

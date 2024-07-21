@@ -1,10 +1,11 @@
 // Components
-import { Stack, Button, Text } from "../../components";
+import { Text } from "../../components";
 // Hooks
 import useMediaQuery from "./useMediaQuery";
 
 export default {
-  title: "useMediaQuery",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useMediaQuery",
   component: useMediaQuery,
 };
 

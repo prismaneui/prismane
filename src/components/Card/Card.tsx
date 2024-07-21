@@ -1,19 +1,19 @@
-import { forwardRef, ForwardedRef } from "react";
+import { forwardRef } from "react";
 // Component
-import Paper, { PaperProps } from "../Paper/Paper";
+import Paper, { PaperProps } from "@components/Paper";
 // Types
 import {
   PrismaneWithInternal,
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 // Internal Components
-import CardHeader, { CardHeaderProps } from "./CardHeader/CardHeader";
-import CardFooter, { CardFooterProps } from "./CardFooter/CardFooter";
+import CardHeader, { CardHeaderProps } from "./CardHeader";
+import CardFooter, { CardFooterProps } from "./CardFooter";
 
 export { type CardHeaderProps, type CardFooterProps };
 

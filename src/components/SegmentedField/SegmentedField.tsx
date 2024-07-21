@@ -1,16 +1,15 @@
 import { ReactNode, forwardRef, useRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Transition from "../Transition/Transition";
-import Flex from "../Flex/Flex";
-import Text from "../Text/Text";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Transition from "@components/Transition";
+import Flex from "@components/Flex";
+import Text from "@components/Text";
 // Hooks
-import { useFieldProps } from "../Field";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
 // Types
-import { PrismaneBreakpoints, PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { variants, fr } from "../../utils";
+import { variants, fr } from "@/utils";
 
 export type SegmentedFieldProps = PrismaneProps<
   {
@@ -31,7 +30,10 @@ const SegmentedField = forwardRef<HTMLInputElement, SegmentedFieldProps>(
     const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
 
     return (
-      <Field.Wrapper {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}

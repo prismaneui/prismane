@@ -1,23 +1,21 @@
 import { forwardRef } from "react";
 // Components
-import Animation from "../Animation";
-import Field from "../Field/Field";
-import Flex, { FlexProps } from "../Flex/Flex";
-import Transition, { TransitionProps } from "../Transition/Transition";
-import Text from "../Text/Text";
-import Hidden from "../Hidden/Hidden";
+import Animation from "@components/Animation";
+import Field, { useFieldProps } from "@components/Field";
+import Flex, { FlexProps } from "@components/Flex";
+import Transition, { TransitionProps } from "@components/Transition";
+import Hidden from "@components/Hidden";
 // Context
 import { useRadioContext } from "./RadioContext";
-// Types
-import { PrismaneFieldComponent, PrismaneWithInternal } from "../../types";
 // Hooks
-import { useFieldProps } from "../Field";
-import useId from "../../hooks/useId";
+import useId from "@hooks/useId";
+// Types
+import { PrismaneFieldComponent, PrismaneWithInternal } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 // Internal Components
-import RadioGroup, { RadioGroupProps } from "./RadioGroup/RadioGroup";
+import RadioGroup, { RadioGroupProps } from "./RadioGroup";
 
 export { type RadioGroupProps };
 

@@ -4,11 +4,10 @@ import Button from "../../Button";
 // Hooks
 import { usePrismaneTheme } from "../PrismaneContext";
 import useThemeModeValue from "./useThemeModeValue";
-// Utils
-import { fr } from "../../../utils";
 
 export default {
-  title: "useThemeModeValue",
+  tags: ["autodocs"],
+  title: "Theming/useThemeModeValue",
   component: useThemeModeValue,
 };
 

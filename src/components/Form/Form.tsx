@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Utils
-import { strip, fr } from "../../utils";
+import { strip, fr } from "@/utils";
 
 export type FormProps = BoxProps<"form">;
 
@@ -18,6 +18,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>(
         sx={{
           gap: fr(4),
           flexDirection: "column",
+          ...sx,
         }}
         data-testid="prismane-form"
         ref={ref}

@@ -1,15 +1,15 @@
 import { forwardRef } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Types
 import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type PaperProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -38,7 +38,6 @@ const Paper: PaperComponent = forwardRef(
         direction="column"
         br="md"
         bg={(theme) => (theme.mode === "dark" ? ["base", 800] : "white")}
-        of="hidden"
         bsh={shadow && "base"}
         className={strip(`${className ? className : ""} PrismanePaper-root`)}
         data-testid="prismane-paper"

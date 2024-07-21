@@ -1,10 +1,8 @@
 import { forwardRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type NativeDateFieldProps = FieldProps;
 
@@ -15,7 +13,7 @@ const NativeDateField = forwardRef<
   const [rest, field] = useFieldProps(props);
 
   return (
-    <Field.Wrapper {...rest}>
+    <Field.Wrapper pe={(field.disabled || field.readOnly) && "none"} {...rest}>
       <Field.Label
         size={size as any}
         htmlFor={field.name}

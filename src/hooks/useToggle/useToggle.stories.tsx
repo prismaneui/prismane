@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Flex, Text, Button } from "../../components";
 import useToggle from "./useToggle";
 import { fr } from "../../utils";
 
 export default {
-  title: "useToggle",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useToggle",
   component: useToggle,
 };
 

@@ -1,10 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Flex, Text, Box } from "../../components";
 import useDimensions from "./useDimensions";
 import { fr } from "../../utils";
 
 export default {
-  title: "useDimensions",
+  tags: ["autodocs"],
+  title: "Hooks/User Interface/useDimensions",
   component: useDimensions,
 };
 

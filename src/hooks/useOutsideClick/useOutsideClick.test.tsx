@@ -1,6 +1,6 @@
 import { test, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 // Hook
 import useOutsideClick from "./useOutsideClick";
 
@@ -29,7 +29,7 @@ test("Correct callback call on outside click", () => {
 
   renderHook(() => useOutsideClick(ref, mockFn));
 
-  fireEvent.click(getByTestId("parent"));
+  fireEvent.mouseDown(getByTestId("parent"));
 
   expect(mockFn).toHaveBeenCalledTimes(1);
 });

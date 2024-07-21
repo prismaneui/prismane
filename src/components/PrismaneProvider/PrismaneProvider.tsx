@@ -1,13 +1,13 @@
 import { ReactNode, FC, useState, useEffect } from "react";
-import { getCssText } from "../../../stitches.config";
-import styles from "../../index.css";
+import { getCssText } from "@/../stitches.config";
+import styles from "@/index.css";
 // Context
 import { PrismaneContextProvider } from "./PrismaneContext";
 // Themes
-import { base } from "../../themes/base";
-import { createTheme, applyTheme } from "../../themes/theme";
+import { base } from "@themes/base";
+import { createTheme, applyTheme } from "@themes/theme";
 // Types
-import { PrismaneInputTheme } from "../../types";
+import { PrismaneInputTheme } from "@/types";
 // Font
 import "@fontsource/poppins/100.css";
 import "@fontsource/poppins/200.css";

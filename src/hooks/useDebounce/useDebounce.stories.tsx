@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Flex, Button, Text, Field } from "../../components";
+import { Flex, Text, Field } from "../../components";
 import useDebounce from "./useDebounce";
 import { fr } from "../../utils";
 
 export default {
-  title: "useDebounce",
+  tags: ["autodocs"],
+  title: "Hooks/State Management/useDebounce",
   component: useDebounce,
 };
 

@@ -1,19 +1,18 @@
 import { forwardRef, useState, useRef, ReactNode } from "react";
 import { CaretUpDown } from "@phosphor-icons/react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-import Menu from "../Menu/Menu";
-import Icon from "../Icon/Icon";
-import Flex from "../Flex/Flex";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
+import Menu from "@components/Menu";
+import Icon from "@components/Icon";
+import Flex from "@components/Flex";
 // Hooks
-import { useFieldProps } from "../Field";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
-import useEmulatedFieldChange from "../../hooks/useEmulatedFieldChange";
-import useOutsideClick from "../../hooks/useOutsideClick";
+import useKeyboardShortcut from "@hooks/useKeyboardShortcut";
+import useEmulatedFieldChange from "@hooks/useEmulatedFieldChange";
+import useOutsideClick from "@hooks/useOutsideClick";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, variants, fr } from "../../utils";
+import { strip, variants, fr } from "@/utils";
 
 export type SelectFieldProps = PrismaneProps<
   {
@@ -41,7 +40,10 @@ const SelectField = forwardRef<any, SelectFieldProps>(
 
     const wrapperRef = useRef(null);
 
-    const emulateChange = useEmulatedFieldChange(fieldRef, props.onChange);
+    const emulateChange = useEmulatedFieldChange(
+      fieldRef,
+      props.onChange as any
+    );
 
     useOutsideClick(wrapperRef, () => {
       setOpen(false);
@@ -90,7 +92,11 @@ const SelectField = forwardRef<any, SelectFieldProps>(
     );
 
     return (
-      <Field.Wrapper ref={wrapperRef} {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        ref={wrapperRef}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}
@@ -131,8 +137,8 @@ const SelectField = forwardRef<any, SelectFieldProps>(
           {...field}
         />
         {options.length > 0 ? (
-          <Flex pos="relative">
-            <Flex pos="absolute" t={0} w="100%">
+          <Flex pos="relative" mt={fr(-2)}>
+            <Flex pos="absolute" mt={fr(2)} t={0} w="100%">
               <Menu open={open} maw="100%" mah={fr(65)} of="auto" grow>
                 {options.map((option: any, index: any) => (
                   <Flex

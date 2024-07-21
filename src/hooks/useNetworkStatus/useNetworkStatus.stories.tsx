@@ -1,11 +1,11 @@
-import { useState } from "react";
 // Components
-import { Stack, Button, Text, Center } from "../../components";
+import { Stack, Text, Center } from "../../components";
 // Hooks
 import useNetworkStatus from "./useNetworkStatus";
 
 export default {
-  title: "useNetworkStatus",
+  tags: ["autodocs"],
+  title: "Hooks/Miscellaneous/useNetworkStatus",
   component: useNetworkStatus,
 };
 

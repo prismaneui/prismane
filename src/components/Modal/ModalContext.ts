@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 export interface ModalContextValue {
   open?: boolean;
   closable?: boolean;
-  onClose?: Function;
+  onClose?: () => void;
 }
 
 const ModalContext = createContext<ModalContextValue>({

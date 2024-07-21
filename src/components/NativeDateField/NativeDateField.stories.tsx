@@ -1,38 +1,71 @@
+import { useState } from "react";
 // Components
-import Form from "../Form/Form";
 import NativeDateField from "../NativeDateField/NativeDateField";
 // Hooks
-import useForm from "../../hooks/useForm";
-// Utils
-import { fr } from "../../utils";
+import { useForm } from "../../hooks";
 
 export default {
-  title: "NativeDateField",
+  tags: ["autodocs"],
+  title: "Components/Inputs/NativeDateField",
   component: NativeDateField,
 };
 
-export const Default = () => {
-  const { handleSubmit, handleReset, register } = useForm({
+export const Default = () => <NativeDateField name="date" />;
+
+export const Controlled = () => {
+  const [date, setDate] = useState("");
+
+  return (
+    <NativeDateField
+      name="date"
+      value={date}
+      onChange={(e: any) => setDate(e.target.value)}
+    />
+  );
+};
+
+export const Read_Only = () => {
+  const [date, setDate] = useState("");
+
+  return (
+    <NativeDateField
+      placeholder="No date chosen"
+      label="Choose a date:"
+      value={date}
+      onChange={(e: any) => setDate(e.target.value)}
+      readOnly
+    />
+  );
+};
+
+export const Disabled = () => {
+  const [date, setDate] = useState("");
+
+  return (
+    <NativeDateField
+      placeholder="No date chosen"
+      label="Choose a date:"
+      value={date}
+      onChange={(e: any) => setDate(e.target.value)}
+      disabled
+    />
+  );
+};
+
+export const useForm_Example = () => {
+  const { register } = useForm({
     fields: {
-      field: {
-        value: "No",
+      hook_native_date: {
+        value: "",
       },
     },
   });
 
   return (
-    <Form
-      onSubmit={(e: any) => {
-        handleSubmit(e, (v: any) => console.log(v));
-      }}
-      onReset={() => handleReset()}
-      w={fr(96)}
-    >
-      <NativeDateField
-        {...register("field")}
-        placeholder="Default Field"
-        label="Default Field:"
-      />
-    </Form>
+    <NativeDateField
+      label="Controlled NativeDateField"
+      placeholder="Controlled Field"
+      {...register("hook_native_date")}
+    />
   );
 };

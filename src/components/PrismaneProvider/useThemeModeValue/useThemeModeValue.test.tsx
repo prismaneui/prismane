@@ -1,5 +1,4 @@
 import { renderHook, act } from "@testing-library/react-hooks/dom";
-import { vi } from "vitest";
 import { usePrismaneTheme } from "../PrismaneContext";
 import PrismaneProvider from "../PrismaneProvider";
 import useThemeModeValue from "./useThemeModeValue";

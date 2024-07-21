@@ -1,17 +1,17 @@
 import { forwardRef, useState } from "react";
 // Components
-import Flex, { FlexProps } from "../Flex/Flex";
+import Flex, { FlexProps } from "@components/Flex";
 // Context
 import { TabsContextProvider } from "./TabsContext";
 // Types
-import { PrismaneProps, PrismaneWithInternal } from "../../types";
+import { PrismaneProps, PrismaneWithInternal } from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 // Internal Components
-import TabsList, { TabsListProps } from "./TabsList/TabsList";
-import TabsPanel, { TabsPanelProps } from "./TabsPanel/TabsPanel";
-import TabsTab, { TabsTabProps } from "./TabsTab/TabsTab";
+import TabsList, { TabsListProps } from "./TabsList";
+import TabsPanel, { TabsPanelProps } from "./TabsPanel";
+import TabsTab, { TabsTabProps } from "./TabsTab";
 
 export { type TabsListProps, type TabsPanelProps, type TabsTabProps };
 

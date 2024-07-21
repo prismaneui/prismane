@@ -1,5 +1,5 @@
-import { expect, test, vi } from "vitest";
-import { render, fireEvent } from "@testing-library/react";
+import { expect, test } from "vitest";
+import { render } from "@testing-library/react";
 // Component
 import Initials from "./Initials";
 

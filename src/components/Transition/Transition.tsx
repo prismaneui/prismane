@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
 import {
   PrismaneTransitions,
@@ -8,9 +8,9 @@ import {
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip } from "../../utils";
+import { strip } from "@/utils";
 
 export type TransitionProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,
@@ -53,16 +53,9 @@ const Transition: TransitionComponent = forwardRef(
       transform: "transform",
     };
 
-    const t = {
-      property: Object.keys(transitions).includes(transition)
-        ? transitions[transition]
-        : transition,
-      duration,
-      timing,
-      delay,
-    };
-
-    const ts = `${t.property} ${t.duration}ms ${t.timing} ${t.delay}ms`;
+    const property = Object.keys(transitions).includes(transition)
+      ? transitions[transition]
+      : transition;
 
     const Component = as || "div";
 
@@ -72,7 +65,13 @@ const Transition: TransitionComponent = forwardRef(
         className={strip(
           `${className ? className : ""} PrismaneTransition-root`
         )}
-        sx={{ transition: ts, ...sx }}
+        sx={{
+          transitionProperty: property,
+          transitionDuration: `${duration}ms`,
+          transitionTimingFunction: timing,
+          transitionDelay: `${delay}ms`,
+          ...sx,
+        }}
         data-testid="prismane-transition"
         ref={ref}
         {...props}

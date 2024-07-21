@@ -1,15 +1,15 @@
 import { forwardRef } from "react";
 // Components
-import Box, { BoxProps } from "../Box/Box";
+import Box, { BoxProps } from "@components/Box";
 // Types
 import {
   Versatile,
   PrismaneVersatile,
   PrismaneVersatileRef,
   PrismaneProps,
-} from "../../types";
+} from "@/types";
 // Utils
-import { strip, variants } from "../../utils";
+import { strip, variants } from "@/utils";
 
 export type FlexProps<E extends Versatile = "div"> = PrismaneVersatile<
   E,

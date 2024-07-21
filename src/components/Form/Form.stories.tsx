@@ -1,121 +1,130 @@
+import { useState } from "react";
 // Components
 import Form from "./Form";
 import TextField from "../TextField/TextField";
-import NumberField from "../NumberField/NumberField";
-import SelectField from "../SelectField/SelectField";
+import PasswordField from "../PasswordField/PasswordField";
 import Button from "../Button/Button";
-import Card from "../Card/Card";
 import Flex from "../Flex/Flex";
-// Utils
-import { required, username, min } from "../../validators";
 // Hooks
 import useForm from "../../hooks/useForm";
+// Utils
+import { fr } from "../../utils";
+import { required, min } from "../../validators";
 
 export default {
-  title: "Form",
+  tags: ["autodocs"],
+  title: "Components/Inputs/Form",
   component: Form,
 };
 
 export const Default = () => {
-  const { handleSubmit, handleReset, setValue, register } = useForm({
-    fields: {
-      username: {
-        value: ["us", "cn", "ca"],
-      },
-      number: {
-        value: 0,
-      },
-    },
-  });
+  const [values, setValues] = useState("");
 
   return (
-    <Card className="!p-5">
-      <Form
-        onSubmit={(e: any) => {
-          handleSubmit(e, (v: any) => console.log(v));
-        }}
-        onReset={() => handleReset()}
-        className=""
-      >
-        <TextField
-          placeholder="Enter username: "
-          label="Username:"
-          {...register("username")}
-        />
-        <NumberField
-          placeholder="Choose a number: "
-          label="Number:"
-          {...register("number")}
-        />
-        <Flex align="center" gap={2}>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-          <Button variant="primary" type="reset">
-            Reset
-          </Button>
-          <Button
-            variant="primary"
-            onClick={() => setValue("username", "gosho")}
-          >
-            Custom
-          </Button>
-        </Flex>
-      </Form>
-    </Card>
+    <Form
+      onSubmit={(e) => {
+        e.preventDefault();
+
+        const form: any = e.target;
+
+        const data = new FormData(form);
+
+        console.log(data);
+
+        setValues(JSON.stringify(Object.fromEntries(data)));
+      }}
+      onReset={() => setValues("")}
+    >
+      <TextField
+        name="username"
+        placeholder="Enter username: "
+        label="Username:"
+      />
+      <Flex gap={fr(2)}>
+        <Button type="submit">Submit</Button>
+        <Button type="reset">Reset</Button>
+      </Flex>
+      Values: {values}
+    </Form>
   );
 };
 
-export const Complex = () => {
+export const useForm_Hook = () => {
   const { handleSubmit, handleReset, register } = useForm({
     fields: {
       username: {
         value: "",
-        validators: {
-          required: (v: string) => required(v),
-          min: (v: string) => min(v, 4),
-          username: (v: string) => username(v),
-        },
       },
-      field: {
+      password: {
         value: "",
       },
     },
   });
 
+  const [values, setValues] = useState("");
+
   return (
-    <Card className="!p-5">
-      <Form
-        onSubmit={(e: any) => {
-          handleSubmit(e, (v: any) => console.log(v));
-        }}
-        onReset={() => handleReset()}
-        className="max-w-[300px]"
-      >
-        <TextField
-          placeholder="Enter username: "
-          label="Username:"
-          {...register("username")}
-        />
-        <SelectField
-          {...register("field")}
-          placeholder="Default Field"
-          label="Default Field:"
-          options={[
-            { value: "ivan", element: "Ivan" },
-            { value: "gosho", element: "Gosho" },
-            { value: "petkan", element: "Petkan" },
-          ]}
-        />
-        <Flex align="center" gap={2}>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-          <Button variant="primary" type="reset">
-            Reset
-          </Button>
-        </Flex>
-      </Form>
-    </Card>
+    <Form
+      onSubmit={(e) => {
+        handleSubmit(e, (v) => setValues(JSON.stringify(v)));
+      }}
+      onReset={() => {
+        handleReset();
+      }}
+    >
+      <TextField
+        placeholder="Enter Username"
+        label="Username:"
+        {...register("username")}
+      />
+      <PasswordField
+        placeholder="Enter Password"
+        label="Password:"
+        {...register("password")}
+      />
+      <Flex gap={fr(2)}>
+        <Button type="submit">Submit</Button>
+        <Button type="reset">Reset</Button>
+      </Flex>
+      Values: {values}
+    </Form>
+  );
+};
+
+export const Validators = () => {
+  const { handleSubmit, handleReset, register } = useForm({
+    fields: {
+      fullname: {
+        value: "",
+        validators: {
+          required: (v) => required(v),
+          min: (v) => min(v, 4),
+        },
+      },
+    },
+  });
+
+  const [values, setValues] = useState("");
+
+  return (
+    <Form
+      onSubmit={(e) => {
+        handleSubmit(e, (v: any) => setValues(v));
+      }}
+      onReset={() => {
+        handleReset();
+      }}
+    >
+      <TextField
+        placeholder="John Doe"
+        label="Full name:"
+        {...register("fullname")}
+      />
+      <Flex gap={fr(2)}>
+        <Button type="submit">Submit</Button>
+        <Button type="reset">Reset</Button>
+      </Flex>
+      Values: {JSON.stringify(values)}
+    </Form>
   );
 };

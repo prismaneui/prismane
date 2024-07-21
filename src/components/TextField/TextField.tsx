@@ -1,12 +1,10 @@
 import { forwardRef } from "react";
 // Components
-import Field, { FieldProps } from "../Field/Field";
-// Hooks
-import { useFieldProps } from "../Field";
+import Field, { FieldProps, useFieldProps } from "@components/Field";
 // Types
-import { PrismaneProps } from "../../types";
+import { PrismaneProps } from "@/types";
 // Utils
-import { strip, fr, variants } from "../../utils";
+import { strip, fr, variants } from "@/utils";
 
 export type TextFieldProps = PrismaneProps<
   {
@@ -27,7 +25,10 @@ const TextField = forwardRef<
     const [rest, field] = useFieldProps(props);
 
     return (
-      <Field.Wrapper {...rest}>
+      <Field.Wrapper
+        pe={(field.disabled || field.readOnly) && "none"}
+        {...rest}
+      >
         <Field.Label
           size={size as any}
           htmlFor={field.name}
@@ -71,9 +72,6 @@ const TextField = forwardRef<
                     md: fr(5),
                     lg: fr(6),
                   })}
-                  sx={{
-                    order: 1,
-                  }}
                 >
                   {prefix}
                 </Field.Addon>
@@ -102,9 +100,6 @@ const TextField = forwardRef<
                     md: fr(5),
                     lg: fr(6),
                   })}
-                  sx={{
-                    order: 3,
-                  }}
                 >
                   {suffix}
                 </Field.Addon>

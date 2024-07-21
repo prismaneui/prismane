@@ -17,7 +17,7 @@ test("should focus the first focusable element", async () => {
 });
 
 test("should not focus any element if ref is not provided", () => {
-  const { result } = renderHook(() => useFocusTrap());
+  renderHook(() => useFocusTrap());
 
   const { container } = render(<div />);
 
